@@ -1,0 +1,30 @@
+PASS Helper requests installation permission only, without network or storage permissions
+PASS Provider is private and only temporary URI sharing is enabled
+PASS Only the launcher activity is exported
+PASS Package visibility is limited to TransRead plus specific system intent signatures
+PASS Incoming intents and extras are not read or forwarded
+PASS APK install grants only temporary read access
+PASS Finished/destroyed activities cannot launch delayed installer callbacks
+PASS Provider serves only its fixed verified-output cache path
+PASS Provider refuses every write mode
+PASS Provider rejects untrusted URI content://evil/update.apk
+PASS Provider rejects untrusted URI file:///update.apk
+PASS Provider rejects untrusted URI content://app.lumi.reader.update.apk/../release.apk
+PASS Provider rejects untrusted URI content://app.lumi.reader.update.apk/%2e%2e/release.apk
+PASS Provider rejects untrusted URI content://app.lumi.reader.update.apk/update.apk?path=secret
+PASS Provider rejects untrusted URI content://app.lumi.reader.update.apk/update.apk#secret
+PASS Provider rejects untrusted URI content://app.lumi.reader.update.apk/other.apk
+PASS Provider reports only update display name and size
+PASS Unknown projection columns are rejected
+PASS Dynamic query conditions and sorting are rejected
+PASS Insert update and delete are forbidden
+PASS Unprepared or removed output cannot be opened
+PASS Install routing skips non-system handlers and fixes the chosen system component
+PASS Private system activities cannot be launched
+PASS Missing system installer is a controlled failure
+PASS API26-27 trust check accepts only the original signing certificate
+PASS API28+ validates current APK signer against the original certificate
+PASS Unknown signing certificates are rejected
+PASS Unexpected multiple signers are rejected
+PASS Missing signing metadata is rejected
+TOTAL 29

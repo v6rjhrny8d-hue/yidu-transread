@@ -1,0 +1,23 @@
+{
+  "version": "0.5.50",
+  "versionCode": 71,
+  "package": "app.lumi.reader",
+  "date": "2026-10-27",
+  "checks": {
+    "iteration-0550-final.log": 19,
+    "mdict-regression-0550.log": 32,
+    "smoke-0550.log": 66,
+    "motion-0550.log": 27,
+    "native-resource-0550.log": 9
+  },
+  "total": 153,
+  "certificateSHA256": "8d21d7bc40b619f048f03e266031c59f7ad50cff5337203f5dce891d487c61fd",
+  "apkSHA256": "0e445b492b552d8d514f5d3638a977bc5a25c7f632477a75c60a66c20582bb2d",
+  "apkBytes": 21778302,
+  "verifiedWebAssets": 82,
+  "limitations": [
+    "No physical Android or user commercial dictionary tested",
+    "No dictionary JavaScript, network resources, @import or external fonts",
+    "Existing cached chapter restore and PDF compositor device acceptance unchanged"
+  ]
+}

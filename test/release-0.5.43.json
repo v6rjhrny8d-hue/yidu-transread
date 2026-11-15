@@ -1,0 +1,33 @@
+{
+  "version": "0.5.43",
+  "versionCode": 64,
+  "package": "app.lumi.reader",
+  "date": "2026-10-22",
+  "checks": {
+    "smoke-0543.log": 66,
+    "motion-unit-0543.log": 27,
+    "native-0543.log": 93,
+    "iteration-0543.log": 8,
+    "iteration-0542-on-0543.log": 9
+  },
+  "total": 203,
+  "certificateSHA256": "8d21d7bc40b619f048f03e266031c59f7ad50cff5337203f5dce891d487c61fd",
+  "apkSHA256": "447541f7da323e247bb5049182b2b0e9ca2f0e4ffc468a2da264d2a32e1f08d7",
+  "apkBytes": 3410890,
+  "webAssetsVerified": 72,
+  "zipCRC": "passed",
+  "buildLog": "build-0.5.43.log",
+  "fixes": [
+    "30px blur; removed opacity will-change from Dock/reader header ancestors; Dock mount and show/hide use transform only.",
+    "Android Configuration.uiMode supplies system appearance at page finish, config change and resume; explicit light/dark override remains.",
+    "PDF native paper/background updates with app appearance."
+  ],
+  "evidence": [
+    "Real Chromium screenshot contrast of page stripes behind Dock, compared with filter disabled.",
+    "Native appearance update while browser media remains light; explicit override and media fallback checks.",
+    "Prior PDF enter/exit and right rail targeted regression passed."
+  ],
+  "limitations": [
+    "No physical Android device: verify system appearance switch, actual WebView/GPU blur and PDF composition on phone."
+  ]
+}

@@ -1,0 +1,14 @@
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+undefined !== 44
+
+    at /workspace/scratch/0f9dfce2e3b6/transread/test/iteration-0537.cjs:23:211
+    at async check (/workspace/scratch/0f9dfce2e3b6/transread/test/iteration-0537.cjs:8:31)
+    at async /workspace/scratch/0f9dfce2e3b6/transread/test/iteration-0537.cjs:21:3 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: undefined,
+  expected: 44,
+  operator: 'strictEqual',
+  diff: 'simple'
+}

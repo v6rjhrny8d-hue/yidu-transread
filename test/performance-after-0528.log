@@ -1,0 +1,22 @@
+PASS Large chapter text is complete and paragraphs retain original indexes
+PASS A dragged snapshot preserves visible text geometry
+PASS Word DOM stays below 1600 nodes on entry and deep scrolling
+PASS Curl snapshots contain only nearby paragraphs
+PASS Progress writes contain only metadata, never a full book
+PASS Reading position survives a full restart of the reader
+PASS Lazy visible words still support dictionary lookup
+PASS Source-offset reading tags still target the original passage
+PASS Recycling words preserves a live text selection outside the viewport
+PASS Clearing a selection releases its pinned offscreen word nodes
+PASS A 139k-character paragraph keeps text intact with bounded word nodes
+PASS Deep scrolling releases offscreen word nodes within a single paragraph
+PASS A long-paragraph snapshot preserves the exact visible line wrapping
+PASS A long-paragraph snapshot excludes offscreen text runs
+PASS Paged mode keeps a stable text-offset anchor after recycling words
+PASS Paged reading tags resolve exact source offsets in a long paragraph
+PASS Reflow preserves the current passage in a very long paragraph
+PASS The word window has no idle frame loop after settling
+PASS Leaving reading releases the word observer and pending work
+PASS Reader workload produces no uncaught JavaScript errors
+METRICS {"active":{"words":170,"nodes":723,"text":106541,"runs":180},"scrolled":{"words":340,"nodes":893},"snapshot":{"nodes":180,"paragraphs":2}}
+20 reader performance checks passed.

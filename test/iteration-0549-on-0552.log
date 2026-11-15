@@ -1,0 +1,34 @@
+PASS MDX/MDD header and first-record validation uses the real worker
+PASS RAR4 decompression returns the complete paired files
+PASS RAR4 extracts and atomically installs its paired MDX/MDD
+PASS Chinese definitions and IPA survive decompression and sanitization
+PASS MDX aliases and records spanning compressed blocks resolve correctly
+PASS Imported scripts and remote image references cannot execute or fetch
+PASS MDD audio bytes are actually decodable PCM WAV
+PASS The word pronunciation route plays the matching MDD recording
+PASS A missing headword falls back without disabling the imported dictionary
+PASS Repeated imports are rejected without adding another pack
+PASS Original MDX/MDD blobs and lookup work after restarting the app
+PASS Disabled dictionary files are not queried
+PASS Deleting an MDX dictionary removes its stored files as well as its metadata
+PASS Real compressed solid RAR5 imports with its MDD resources
+PASS LZO-compressed MDX records and key blocks are supported
+PASS A separately imported same-name MDD attaches to the existing MDX
+PASS Invalid/protected import leaves existing dictionary intact: encrypted-v5.rar
+PASS Invalid/protected import leaves existing dictionary intact: protected.mdx
+PASS Invalid/protected import leaves existing dictionary intact: traversal-v4.rar
+PASS Invalid/protected import leaves existing dictionary intact: corrupt-v4.rar
+PASS Invalid/protected import leaves existing dictionary intact: volume-v4.rar
+PASS Malformed and truncated RAR files cannot partially activate a dictionary
+PASS A standalone MDD cannot attach to an unrelated dictionary
+PASS Cyclic aliases terminate and can fall back without hanging the UI
+PASS Existing standard ZIP resources still import, query and delete normally
+PASS Resource toggling refreshes its current sheet without stacking duplicate managers
+page.evaluate: TypeError: Cannot read properties of null (reading 'translation')
+    at eval (eval at evaluate (:311:30), <anonymous>:1:85)
+    at async <anonymous>:337:30
+    at /workspace/scratch/12cfa0f7c25b/implementation/transread/test/iteration-0549.cjs:44:191
+    at async check (/workspace/scratch/12cfa0f7c25b/implementation/transread/test/iteration-0549.cjs:6:32)
+    at async /workspace/scratch/12cfa0f7c25b/implementation/transread/test/iteration-0549.cjs:44:2 {
+  log: []
+} []

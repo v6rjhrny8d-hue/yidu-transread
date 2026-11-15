@@ -1,0 +1,26 @@
+PASS New installation is empty, retains dictionary and creates upgraded stores
+PASS Six palettes preserve order, contrast, shared glass opacity and no fixed green nav
+PASS Word card contains definitions and no original context or chapter locator
+PASS Bookmark footer stays stationary while only its quote scrolls
+PASS Bookmark actions remain visible in short landscape viewport
+PASS Per-book paper changes reader only and persists
+PASS Translation summary groups languages and byte sizes per book
+PASS Deleting one language preserves other language, other books and bookmarks
+PASS Late response cannot write a translation after explicit deletion
+PASS Backup contains original text, notes, tags, translations and book settings
+PASS Reimporting backup does not duplicate or overwrite local progress
+PASS Corrupt backup is rejected before any IndexedDB mutation
+PASS Full restore reconstructs book, notes, tags and cached translation
+PASS Imported dictionary is indexed on disk and overrides only matched words
+PASS Duplicate resources are rejected without a second activation
+PASS Invalid pronunciation package leaves no partially activated resource
+PASS Pronunciation clips become local Blob entries and deletion removes their index
+PASS Disabled dictionaries fall back; deleting pack removes its records
+PASS Word note details also omit context and source; edit actions stay pinned
+PASS Archived legacy translations are included in management and cleared on deletion
+PASS A real pending network response cannot refill storage after deletion
+PASS Model import placeholder is honest and disabled
+PASS Existing Little Prince keeps ID, title and position while artwork becomes local data
+PASS Saved books and migrated resources survive restart without reseeding
+PASS No uncaught application errors
+TOTAL 25

@@ -1,0 +1,47 @@
+PASS Only installation permission; no network, storage or main-app permission changes
+PASS Callback receiver is private with no public filter
+PASS No file provider or grant surface remains
+PASS Only launcher activity is exported
+PASS Confirmation constructed afresh from fixed action component and session only
+PASS Queued UI callbacks cannot act after activity destruction
+PASS Installing or granting helper does not update reader version
+PASS Exact installed version and digest verifies target
+PASS Version code alone cannot imply update success
+PASS Same version with wrong bytes cannot imply update success
+PASS Newer reader is distinguished from this target
+PASS Fresh granted permission resumes installation
+PASS Denied missing expired or backward-clock grants do not resume
+PASS Production session streams every APK byte intact
+PASS Session targets exact main package and size as a user install
+PASS API31+ explicitly requires user confirmation
+PASS APK stream is synced and closed before commit; session closes
+PASS Committing is pending and never marked success
+PASS SDK35 callback is mutable and explicitly targets private receiver
+PASS Bound session nonce package and callback URI are accepted
+PASS Stale own-session result is ignored
+PASS Mismatched system-session result is ignored
+PASS Mismatched nonce result is ignored
+PASS Wrong target package result is ignored
+PASS Rejected callback cannot overwrite pending state
+PASS Pending action persists only validated component, session and unlaunched state
+PASS Installer success remains separate from installed-reader verification
+PASS Cancellation persists real status for recovery and diagnostics
+PASS Diagnostic reason is length-bounded
+PASS Non-exported confirmation UI is rejected
+PASS Non-system confirmation UI is rejected
+PASS Unexpected nested confirmation action is rejected
+PASS Nested confirmation for another session is rejected
+PASS Missing system confirmation is a controlled failure
+PASS Malformed callback is ignored without receiver crash
+PASS API26 path does not use newer user-action or mutability flags
+PASS Write failure abandons session and never reports success
+PASS Commit failure abandons session and never reports success
+PASS Retry cleans only a session owned by this helper
+PASS Another installer session is never abandoned
+PASS Cleared session cannot accept a prior result
+PASS Returning after permission grant automatically continues verified ready install
+PASS Permission return is consumed once
+PASS Repeated resume cannot duplicate installation
+PASS Returning after denied permission cannot install
+PASS Permission alone cannot install an unverified payload
+TOTAL 46

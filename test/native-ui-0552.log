@@ -1,0 +1,22 @@
+PASS Android 15+ owned reader WebView requests high refresh only while drawing
+node:fs:3144
+  return binding.mkdtemp(prefix, options.encoding);
+                 ^
+
+Error: ENOENT: no such file or directory, mkdtemp '/workspace/scratch/12cfa0f7c25b/implementation/transread/build/native-routing-XXXXXX'
+    at Object.mkdtempSync (node:fs:3144:18)
+    at Object.<anonymous> (/workspace/scratch/12cfa0f7c25b/implementation/transread/test/native-ui-routing.cjs:10:14)
+    at Module._compile (node:internal/modules/cjs/loader:1929:14)
+    at Object..js (node:internal/modules/cjs/loader:2060:10)
+    at Module.load (node:internal/modules/cjs/loader:1651:32)
+    at Module._load (node:internal/modules/cjs/loader:1443:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+    at node:internal/main/run_main_module:33:47 {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'mkdtemp',
+  path: '/workspace/scratch/12cfa0f7c25b/implementation/transread/build/native-routing-XXXXXX'
+}
+
+Node.js v24.22.1

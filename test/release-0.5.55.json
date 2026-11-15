@@ -1,0 +1,75 @@
+{
+  "version": "0.5.55",
+  "versionCode": 76,
+  "date": "2026-10-28",
+  "package": "app.lumi.reader",
+  "apk": {
+    "name": "YiDu-0.5.55.apk",
+    "bytes": 21577909,
+    "sha256": "9f049d38189874dc0426b3c6a958f1514f3bc8fdd14596dd982fd90a357fe805",
+    "certificateSha256": "8d21d7bc40b619f048f03e266031c59f7ad50cff5337203f5dce891d487c61fd",
+    "webAssetsByteVerified": 86,
+    "zipCRC": "passed"
+  },
+  "updateHelper": {
+    "name": "YiDu-0.5.53-or-0.5.54-to-0.5.55-UpdateHelper.apk",
+    "bytes": 1983111,
+    "sha256": "cec1300500471e7edc61fd30b9107ee2f61579308fb52f073cc7840f7a653257",
+    "package": "app.lumi.reader.update",
+    "certificateSha256": "8d21d7bc40b619f048f03e266031c59f7ad50cff5337203f5dce891d487c61fd",
+    "supportedBases": [
+      "0.5.53",
+      "0.5.54"
+    ],
+    "reductionPercent": 90.81,
+    "deviceInstallerVerified": false
+  },
+  "checks": [
+    {
+      "log": "test/buttons-0555-initial.log",
+      "passed": 28
+    },
+    {
+      "log": "test/word-card-0555.log",
+      "passed": 35
+    },
+    {
+      "log": "test/smoke-0555.log",
+      "passed": 66
+    },
+    {
+      "log": "test/motion-0555.log",
+      "passed": 27
+    },
+    {
+      "log": "test/input-routing-0555.log",
+      "passed": 11
+    },
+    {
+      "log": "test/update-core-0555-release.log",
+      "passed": 24
+    },
+    {
+      "log": "test/update-provider-0555.log",
+      "passed": 29
+    }
+  ],
+  "totalChecks": 220,
+  "groups": {
+    "realChromium": 63,
+    "logicMotionInput": 104,
+    "updateRestorationAndComponentChecks": 53
+  },
+  "coverage": [
+    "All three word-card controls share bounded drag displacement/elastic response, finite paired release, visible-pose reverse takeover, reduced motion, lifecycle cleanup and ordinary taps.",
+    "Actual signed0.5.53 and0.5.54 APKs each restore the exact signed0.5.55 release; reconstructed files pass apksigner.",
+    "Bounded COPY/literal parser rejects corrupt headers, hashes, sizes, opcodes, ranges, gzip, trailing data and base aliases; failures clean partial output.",
+    "Provider/routing/certificate production methods run with controlled Android stubs; permission/export/URI access policy is checked. Both APKs compile withSDK35 and retain original certificate."
+  ],
+  "limitations": [
+    "No physical Android device: first-run OEM installer resolution, unknown-source approval and actual installation still require user confirmation. The fullAPK remains available.",
+    "Small package is a separate temporary updater app, for exact original0.5.53 or0.5.54 bytes only; installation of the helper is an additional step. It may be uninstalled after updating.",
+    "Reconstruction needs cache space about the fullAPK size plus normal system installation space; unmatched or modified base versions use the fullAPK.",
+    "This is byte reconstruction of the signed APK, not direct installation of an incomplete APK or arbitrary web-code hot update."
+  ]
+}

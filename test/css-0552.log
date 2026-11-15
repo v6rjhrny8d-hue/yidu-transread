@@ -1,0 +1,21 @@
+PASS RAR retains CSS and package-relative images atomically
+PASS CSS is rendered in the actual word-card shadow tree
+PASS Stylesheets, html/body selectors, and inline styles retain layout
+PASS Package-relative CSS backgrounds and HTML images are local blob URLs
+PASS Dictionary CSS cannot hide the Dock or escape with fixed positioning
+PASS Script/event handlers and remote CSS/image requests are removed
+PASS Dictionary pronunciation links route to the existing speech button
+PASS Saved-note source stays plain text without HTML/CSS
+PASS Rendering remains contained at narrow and landscape sizes
+PASS CSS and images survive an app restart
+PASS A standalone same-name CSS attaches to an existing MDX
+PASS Changed same-path CSS replaces the stored stylesheet
+PASS Unrelated CSS is rejected without changing dictionary records
+PASS Oversized CSS does not replace a working stylesheet
+PASS Linked CSS stored inside MDD resolves its relative image paths
+PASS CSS sanitization handles escaped URLs, unsafe properties, and host selectors
+PASS Native/global picker accepts CSS, and packaged parsing is offline
+BROWSER Failed to load resource: net::ERR_FILE_NOT_FOUND
+PASS Blob URLs are released when the word card closes
+PASS No uncaught browser errors or remote dictionary requests occurred
+TOTAL 19

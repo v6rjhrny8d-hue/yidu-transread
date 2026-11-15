@@ -1,0 +1,34 @@
+FAIL Rail has a proportional thumb with accurate resting position — The expression evaluated to a falsy value:
+
+  assert(Math.abs(v.ratio-.5)<.003)
+
+PASS Opening translations starts a spring from the exact visible thumb geometry
+PASS Position and thumb size share an elastic trajectory
+PASS Spring makes visible progress before translations finish settling
+PASS Closing mid-open preserves exact visible position and thumb length
+PASS Reversal keeps sampled velocity instead of restarting a stopped spring
+PASS Closed translations settle with no stale rail or layout animation
+PASS Eight rapid toggles finish in the final state without duplicate translations or drift
+PASS A real touch grabs the moving thumb and follows the finger immediately
+PASS Releasing a rail drag restores its correct size and reading position
+PASS Native page touch takes over without a continuing rail spring
+PASS Chapter change starts the top progress line at its visible value
+PASS Top progress uses a monotonic compositor transition without bounce
+PASS Rapid chapter reversal inherits the current top progress presentation
+PASS Top progress ends at the current chapter, with no queued old target
+PASS Rebuilt reader in fade mode retains the old visible top progress
+PASS Changing chapters keeps the side rail hidden through the page effect
+PASS The side rail returns only after the new chapter has finished layout
+PASS A longer arriving translation uses the same spring without a thumb jump
+PASS Settled bars leave no animation running while the reader is idle
+PASS Bar springs never drive page scrollTop frame by frame
+PASS Translation-language arrow remains fixed while the child sheet is open
+PASS Reduced motion applies both bars immediately without rail or progress tweens
+PASS Paged reading keeps the rail within its track after a translation reflow
+PASS Landscape keeps the proportional thumb inside the resized track
+PASS Continuous reading also settles the thumb after translation toggling
+PASS Returning from the background preserves the next chapter progress transition
+PASS Leaving the reader clears rail and progress motion records
+PASS No runtime errors occurred in the progress and translation cases
+
+28 iteration 0.5.26 checks passed; 1 failed. Chromium touch/layout, not Android hardware.

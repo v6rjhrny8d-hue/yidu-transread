@@ -1,0 +1,95 @@
+PASS A fresh install follows English system language with functional Library heading
+PASS Library has a naturally wrapping subtitle and no app-name header
+PASS English book titles use original metadata without altering the stored Chinese title
+PASS search uses its short localized heading
+PASS notes uses its short localized heading
+PASS profile uses its short localized heading
+PASS Personal language settings describe the current system locale
+PASS Language choices retain autonyms and an accessible current selection
+PASS Switching immediately updates page, dialog, Dock and document language to Traditional Chinese
+PASS Switching UI language preserves translation target, nickname and reading settings
+PASS UI language is persisted alongside existing settings
+PASS Repeated switching leaves exactly one panel and one active choice, without duplicate overlays
+PASS Invalid selections do not overwrite the chosen locale
+PASS Changing language from the guide returns to a freshly localized guide
+PASS The guide is fully localized in English after switching back
+PASS themes translates application labels and explanatory copy
+PASS customColors translates application labels and explanatory copy
+PASS translationSettings translates application labels and explanatory copy
+PASS translationTools translates application labels and explanatory copy
+PASS dictionarySettings translates application labels and explanatory copy
+PASS hapticSettings translates application labels and explanatory copy
+PASS privacy translates application labels and explanatory copy
+PASS about translates application labels and explanatory copy
+PASS Chinese words, definitions and comments authored by the user stay untouched in English UI
+PASS A manual language choice ignores later system-language changes
+PASS Following a Traditional Chinese device updates tools while preserving reading scroll and original text
+PASS Native system-language updates refresh only when Follow system is selected
+PASS The native bridge receives the app preference independently from translation settings
+PASS Chinese locale normalization handles script and regional variants with safe English fallback
+PASS A saved manual choice survives restart on a differently configured device
+PASS Unsupported fresh device languages get a complete English interface
+
+31 app-language checks passed. Synthetic DOM and native-bridge stubs only.
+PASS Dragging translates only chapter content and keeps back/progress outside that layer
+PASS Release promotes the existing preview and words without parsing the chapter a second time
+PASS Seven fast same-direction flicks all commit before the previous coast finishes
+PASS A burst of chapter changes updates in-memory position without synchronous position writes
+PASS The burst persists the final chapter once and releases all temporary layers
+PASS Stored reading progress matches the final accepted chapter
+PASS A prewarmed chapter handles the complete drag and release without tokenization
+PASS An immediate opposite flick returns to the prior chapter and remains interactive
+PASS Even a legacy enabled preference cannot insert paragraph buttons into reading
+PASS Language selection uses themed app controls, with every target and one selected state
+PASS Choosing a language returns to the same parent and updates its label and saved target
+PASS Cancelling language selection restores the parent without changing the translation target
+PASS Compact language tools have complete en UI copy
+PASS Compact language tools have complete zh-TW UI copy
+PASS Word cards reserve extra leading and bottom ink space for descending glyphs
+PASS Landscape translation tools use two columns and internally scrollable content
+PASS Android entry and script/style cache keys follow the installed package version
+
+17 reader-fix checks passed. No real-device frame-rate or pixel claims.
+PASS Language changes retain the exact sheet, backdrop, overlay record, option buttons and focus
+PASS Rapid language choices leave the final choice selected without a new sheet-entry animation
+PASS A language change preserves and relabels the original hidden guide rather than reopening it
+PASS All four top green taglines remain English in zh-CN
+PASS All four top green taglines remain English in zh-TW
+PASS All four top green taglines remain English in en
+PASS The shelf has a distinct localized subtitle and no waiting-for-the-next-page count row
+PASS Showing translation starts a fade and a sampled spring for displaced paragraphs, preserving original words and controls
+PASS A second tap reverses the live fade from its sampled opacity while keeping the same translation node for its exit
+PASS Reopening during fade-out resumes from the current opacity and restores flow without recreating the paragraph
+PASS Cancelled exit callbacks cannot remove reopened translations or leave layout animation records
+PASS Twelve fast taps resolve to the final state with exactly one translation per paragraph
+PASS Closing uses fade-out frames and removes translations from layout before their visual exit ends
+PASS After close completes no invisible translation layer or stale animation remains
+PASS Single-paragraph state also supports interruptible fade reversal without visible paragraph buttons
+PASS A longer asynchronous translation uses the same spring path to move following content
+PASS Backgrounding clears fading translation ghosts and sibling-motion state
+PASS Reduced motion applies translation state immediately without animations or leftover ghosts
+
+18 locale/translation motion checks passed. Assigned geometry only.
+PASS A cold open renders a readable first slice without synchronously tokenizing all 80 paragraphs
+PASS The next active slice has a short deadline and the incomplete chapter has no premature end buttons
+PASS An expired idle deadline still processes only one paragraph
+PASS A callback without idle budget yields without doing chapter work
+PASS Incremental completion preserves the original word node and reading scroll
+PASS Every paragraph is present once, in source order, with intact text and final navigation
+PASS A cold neighbouring chapter also creates at most four paragraphs during a drag
+PASS Seventy input updates coalesce into one frame while retaining the latest finger position
+PASS The next frame paints the latest offset, with the two chapters joined
+PASS Release flushes the latest input and promotes the same partial preview without reparsing it
+PASS Ten immediate chapter flicks commit all ten targets with bounded parsing per change
+PASS A pending deep restore retains its saved chapter/anchor and exposes localized loading feedback
+PASS Resume waits until the anchor can reach its saved offset, then removes the loading cover
+PASS Saving after progressive resume records the same viewport rather than a temporary start
+PASS Switching interface language restores the deep viewport after its new localized pane loads
+PASS Changing translation target during loading applies the latest target to every appended paragraph
+PASS A saved sentence beyond the first slice receives the correct chapter-relative annotation
+PASS Leaving a chapter cancels work and a late callback cannot mutate abandoned content
+PASS Shelf preparation warms only the entry slice and does not change the active book or location
+PASS Opening the warmed book reuses its paragraph nodes without synchronous tokenization
+PASS Loading indicators are delayed, respect reduced motion, and are absent on completed chapters
+
+21 incremental-reader checks passed. No device FPS or pixel claims.

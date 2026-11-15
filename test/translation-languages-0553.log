@@ -1,0 +1,24 @@
+PASS Language settings expose 20 supported targets and default to Simplified Chinese
+PASS The Dock language settings and the translation shortcut have distinct icons
+PASS Legacy Chinese caches stay usable but cannot be read as another target language
+PASS Switching language preserves the current panel, original words, scroll and single-paragraph choice
+PASS Japanese translation placeholders never fall back to the bundled Chinese seed
+PASS Right-to-left targets carry their own language and automatic text direction
+PASS Custom language choices persist the target and update the same controls in place
+PASS Unknown target values are ignored without changing the saved preference
+PASS Switching back restores the existing Chinese cache without network work
+PASS Google requests use the chosen target with automatic source detection
+PASS Custom AI requests name the chosen language and keep literary text in its user message
+PASS MyMemory receives the book source and selected target without an English-Chinese hardcode
+PASS Oversized multibyte MyMemory input is rejected whole before any request
+PASS Matching MyMemory source and target returns the original text without an invalid language pair
+PASS The requested language cache is reused with its own language key
+PASS A current target can finish while an older target request is still in flight
+PASS A late old-target result is stored under its own key and cannot overwrite current text
+PASS Rapid switching bounds unfinished target generations to two workers
+PASS The newest queued target proceeds when a slot frees, with no stale language flash
+PASS Failures from an obsolete target do not replace the new translation or show a stale error
+PASS Adjacent chapter previews use the selected target instead of Chinese fallback
+PASS Invalid stored language settings have a safe Simplified Chinese fallback
+
+22 translation-language checks passed. Controlled network responses only.

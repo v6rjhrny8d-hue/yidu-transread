@@ -1,0 +1,27 @@
+PASS guide uses native scrolling without script position writes
+PASS translation tools uses native scrolling without script position writes
+PASS app languages uses native scrolling without script position writes
+PASS translation settings uses native scrolling without script position writes
+PASS directory uses native scrolling without script position writes
+PASS The same native stroke can reach the top and continue pulling the card
+PASS Reversing a boundary pull restores native reading without a locked scroll area
+PASS A slow continuous native-to-card pull can close with the shared distance rule
+PASS The guide now uses the same short-pull rebound as every card
+PASS The guide closes with the original shared distance rather than two fifths
+PASS Translation service selection uses three themed direct choices
+PASS Selecting a service retains the same form and all unsaved fields
+PASS Switching away and back preserves the draft choice and key
+PASS Saving the themed service form commits the selected provider and draft model
+PASS notes top capsule follows a horizontal drag and stretches like the main dock
+PASS notes commits the nearest tab on release and springs to its slot
+PASS notes accepts an immediate reverse drag without duplicate tab activation
+PASS search top capsule follows a horizontal drag and stretches like the main dock
+PASS search commits the nearest tab on release and springs to its slot
+PASS search accepts an immediate reverse drag without duplicate tab activation
+PASS Search tab changes preserve the query input and the animated capsule DOM
+PASS notes top capsule also drags and commits in landscape
+PASS search top capsule also drags and commits in landscape
+PASS Top capsule dragging remains usable with reduced motion
+PASS Vertical page scrolling from a moving top capsule restores its selected slot without activating a tab
+
+25 card/capsule browser touch checks passed, 0 failed. No Android device or FPS claims.

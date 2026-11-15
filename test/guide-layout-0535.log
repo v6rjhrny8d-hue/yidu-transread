@@ -1,0 +1,7 @@
+PASS Guide zh-CN 390: current content, no horizontal overflow, final note and close reachable
+PASS Guide zh-CN 844: current content, no horizontal overflow, final note and close reachable
+PASS Guide zh-TW 390: current content, no horizontal overflow, final note and close reachable
+PASS Guide zh-TW 844: current content, no horizontal overflow, final note and close reachable
+PASS Guide en 390: current content, no horizontal overflow, final note and close reachable
+PASS Guide en 844: current content, no horizontal overflow, final note and close reachable
+6 guide language/layout checks passed.

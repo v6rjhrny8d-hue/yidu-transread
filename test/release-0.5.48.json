@@ -1,0 +1,38 @@
+{
+  "version": "0.5.48",
+  "versionCode": 69,
+  "package": "app.lumi.reader",
+  "date": "2026-10-22",
+  "checks": {
+    "iteration-0548-final.log": 25,
+    "smoke-0548.log": 66,
+    "input-routing-0548.log": 11,
+    "motion-0548.log": 27
+  },
+  "total": 129,
+  "certificateSHA256": "8d21d7bc40b619f048f03e266031c59f7ad50cff5337203f5dce891d487c61fd",
+  "apkSHA256": "504322e795a12b1fe110eaa946a21c83430346979a47fdb32b264c90e076f17b",
+  "apkBytes": 21302781,
+  "webAssetsVerified": 77,
+  "zipCRC": "passed",
+  "buildLog": "build-0.5.48-final.log",
+  "fixes": [
+    "Capture translation-manager parent and source before IndexedDB awaits; retain ordinary bottom-sheet stack, draft DOM, focus and scroll. Late summaries cannot reopen a dismissed parent.",
+    "Delete confirmation dismisses only itself, refreshing the same manager body/footer without losing its book editor parent.",
+    "Author is a local per-book override (including intentionally blank), preserved through restart, shelf/search, backup and restoration; original author remains available for reset.",
+    "Backup action has an explicit 18px top inset below the row border; Save remains outside the independently scrolling body.",
+    "Toasts use opaque palette-strong and ink/line tokens, including Undo; all six light/dark modes pass 4.5:1 text contrast. Simplified/Traditional/English guide and author labels updated.",
+    "Build setup restores dangling SDK links from expired scratch dependencies before extracting official archives."
+  ],
+  "validation": [
+    "25 new Chromium checks cover real click and CDP sheet pull, nested return/confirmation/delete/late async completion, author persistence/blank/reset/PDF/search, actual ZIP export and fresh-context restore, twelve toast colors/contrast/Undo, landscape and short portrait layout.",
+    "66 core logic, 11 input-routing and 27 motion lifecycle checks passed.",
+    "Initial test failures were a surplus parenthesis, a fixture passing a detached book object rather than S.books identity, and an overly broad Traditional-Chinese guide assertion. Final assertions retain all behavior checks.",
+    "Initial build prerequisites were dangling SDK symlinks. Official setup restored them; concurrent re-extraction interrupted one zipalign invocation, then a sequential final build passed."
+  ],
+  "limitations": [
+    "No physical Android keyboard, system-back, touch, vibration or compositor measurement.",
+    "Previous PDF native blur and cached chapter vertical restore acceptance items remain unchanged in this scope.",
+    "Full APK only; delta updates remain planned."
+  ]
+}

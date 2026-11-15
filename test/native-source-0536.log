@@ -1,0 +1,33 @@
+PASS Source browsing enters immersive mode independently of the reading flag
+PASS Closing restores the previous reader or ordinary-page system-bar policy
+PASS Source chrome accepts current app hex and translucent palette values
+PASS Palette input cannot inject a CSS declaration or markup: red;background:
+PASS Palette input cannot inject a CSS declaration or markup: </style><script
+PASS Palette input cannot inject a CSS declaration or markup: url(x)
+PASS Palette input cannot inject a CSS declaration or markup: #fff;--ink:red
+PASS The browser canvas reserves only side cutouts, with no status or navigation-bar bands
+PASS The website starts below the complete toolbar and display cutout
+PASS Rotation clears the old top cutout instead of leaving a blank strip
+PASS The shared back control first navigates website history
+PASS Foreign, altered and unknown toolbar links cannot invoke a browser action
+PASS Done destroys both browser views and releases layout references
+PASS Repeated cleanup cannot destroy a view twice
+PASS Back on the first website page returns to the app
+15 production source-chrome checks passed with stubs.
+PASS The local toolbar and external website expose no native JavaScript bridge
+PASS Android 15+ owned reader WebView requests high refresh only while drawing
+PASS All interface commands reach the UI queue while every I/O worker is blocked
+PASS UI commands preserve order and speech/file/source actions do not wait for network completion
+PASS Immediate UI routing preserves voice readiness and HTTPS validation errors
+PASS Network work stays off the UI queue and remains bounded by the I/O executor
+PASS Queued network work still completes after the occupied workers are released
+
+5 native routing checks passed with stub services. No Android device claims.
+PASS Main renderer termination is handled
+PASS Dead main WebView is detached, destroyed and cleared
+PASS Recovery leaves an interactive native panel instead of exiting
+PASS Recovery button creates a fresh Activity
+PASS Source renderer low-memory termination is also handled
+PASS Source cleanup does not destroy an unaffected reader
+PASS Finishing Activity does not open another recovery panel
+7 native renderer recovery checks passed with stubs. No Android process crash was injected.

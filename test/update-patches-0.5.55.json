@@ -1,0 +1,27 @@
+{
+  "targetVersion": "0.5.55",
+  "targetCode": 76,
+  "targetSha256": "9f049d38189874dc0426b3c6a958f1514f3bc8fdd14596dd982fd90a357fe805",
+  "patches": [
+    {
+      "base": "dist/YiDu-0.5.53.apk",
+      "baseSha256": "97e0d80358d3525176748cbe93d9329f24a56997df4acbb07c07ef244d22e27a",
+      "targetSha256": "9f049d38189874dc0426b3c6a958f1514f3bc8fdd14596dd982fd90a357fe805",
+      "targetBytes": 21577909,
+      "patch": "updater/assets/97e0d80358d3525176748cbe93d9329f24a56997df4acbb07c07ef244d22e27a.trdp",
+      "patchBytes": 989029,
+      "operations": 181,
+      "copiedBytes": 20572190
+    },
+    {
+      "base": "dist/YiDu-0.5.54.apk",
+      "baseSha256": "2b693e4dd64c624cf7a00fba53ea2a497e4755d4936a861a224d3637764b5825",
+      "targetSha256": "9f049d38189874dc0426b3c6a958f1514f3bc8fdd14596dd982fd90a357fe805",
+      "targetBytes": 21577909,
+      "patch": "updater/assets/2b693e4dd64c624cf7a00fba53ea2a497e4755d4936a861a224d3637764b5825.trdp",
+      "patchBytes": 968215,
+      "operations": 183,
+      "copiedBytes": 20593241
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+PASS Oxford flat line preserves British/American weak and strong IPA separately
+PASS Structured Oxford forms bind recordings to their own accent and form
+PASS Online media permits explicit HTTPS audio hosts and rejects untrusted/credential URLs
+PASS Unknown online accent stays generic and cannot acquire a region label
+PASS Single speaker and compact accent control remain the only pronunciation header controls
+PASS British header exposes both weak and strong IPA without American weak IPA
+PASS American switch updates IPA in place to jə and preserves both forms
+DRAG_DEBUG {
+  events: [
+    [ 'pointerdown', '', 426.703125, 'word', false ],
+    [ 'pointermove', '', 406.703125, 'word', true ],
+    [ 'pointermove', 'glass word-popover', 386.703125, 'word', false ],
+    [ 'pointermove', 'glass word-popover', 366.703125, 'word', false ],
+    [ 'pointermove', 'glass word-popover', 346.703125, 'word', false ],
+    [ 'pointermove', 'glass word-popover', 326.703125, 'word', false ],
+    [ 'pointermove', 'glass word-popover', 306.703125, 'word', false ]
+  ],
+  top: '376.369px',
+  height: '367.444px',
+  current: 'word',
+  expanded: false
+} 354
+AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+
+  assert(await page.locator('.word-popover').evaluate((e,h)=>e.offsetHeight>h+60,compact))
+
+    at /workspace/scratch/12cfa0f7c25b/implementation/transread/test/iteration-0553.cjs:35:83
+    at async check (/workspace/scratch/12cfa0f7c25b/implementation/transread/test/iteration-0553.cjs:5:77)
+    at async /workspace/scratch/12cfa0f7c25b/implementation/transread/test/iteration-0553.cjs:35:2 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+} []

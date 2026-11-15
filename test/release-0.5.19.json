@@ -1,0 +1,19 @@
+{
+  "version": "0.5.19",
+  "versionCode": 40,
+  "package": "app.lumi.reader",
+  "checks": {
+    "logic": 502,
+    "native": 18,
+    "browserTouch": 45,
+    "cardCapsuleTouch": 25,
+    "iteration0518TouchLayout": 29,
+    "iteration0519TouchLayout": 35
+  },
+  "total": 654,
+  "originalSigningCertificateMatches": true,
+  "packagedAssetsMatchSource": true,
+  "apkZipCRCValid": true,
+  "apkSHA256": "cfd3769b668e6d402cf6607fb136bf0d46153f1558c6340bb4dbbfc578f09adb",
+  "limitations": "Chromium touch emulation and controlled logic/native stubs; no Android device, physical haptics or FPS measurement."
+}

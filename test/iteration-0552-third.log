@@ -1,0 +1,29 @@
+PASS Mixed untranslated source passages are detected without rejecting translated names or same-language text
+PASS Dictionary parser distinguishes Oxford UK/US recordings and strips BrE labels from IPA
+PASS Lookup retains one speaker, favorite and close control with a compact accent selector
+PASS Original clicked word remains visible above the dictionary card
+PASS Imported CSS is readable on dark surfaces while keeping table layout and semantic colours
+PASS CSS off keeps images and content while disabling package colours and spacing
+PASS A light/dark change recolours an open dictionary without rebuilding its card or scroll container
+PASS Accent options open as a child sheet and preserve the underlying lookup
+PASS Choosing American pronunciation updates the small label and persists the preference
+PASS Each dictionary retains its own scroll offset when switching away and back
+PASS Real horizontal touch switches dictionary without turning the chapter or closing the card
+PASS Real vertical touch scrolls the definition without switching dictionary
+PASS A low clicked word is moved just above the card rather than remaining covered
+PASS Closing an untouched lookup restores the source reading position
+PASS User scrolling takes over and closing does not pull the reader back
+PASS Reading translation settings expose separate paragraph and word preferences
+PASS Default dictionary can change in place without stacking duplicate preference sheets
+PASS Incomplete cached translations schedule repair instead of being permanently accepted
+PASS Tapping the displayed translation opens a one-paragraph repair option
+PASS Manual retranslation retains the old content while the request is pending
+PASS A failed manual retranslation preserves the old persisted translation and allows retry
+PASS Successful one-paragraph repair replaces both display and cache
+PASS A superseded request cannot overwrite the newer paragraph retry
+PASS An untranslated service response is retried once in smaller chunks before saving
+PASS Lookup and compact header fit 320×640
+PASS Lookup and compact header fit 844×390
+PASS Dictionary CSS, default dictionary and accent choices survive restarting
+PASS No uncaught browser errors
+TOTAL 28

@@ -1,0 +1,7 @@
+PASS Starting a meaning transition keeps the visible text aligned within its card
+PASS Completing expansion does not change the text position or card height
+PASS Repeated reversal continues from the visible card and meaning geometry
+PASS All settled and animated states share the same 44px audio row
+PASS Reduced motion leaves no transient heights or meaning animation classes
+PASS No uncaught UI errors
+TOTAL 6

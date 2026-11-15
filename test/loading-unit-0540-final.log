@@ -1,0 +1,23 @@
+PASS A cold open renders a readable first slice without synchronously tokenizing all 80 paragraphs
+PASS The next active slice has a short deadline and the incomplete chapter has no premature end buttons
+PASS An expired idle deadline still processes only one paragraph
+PASS A callback without idle budget yields without doing chapter work
+PASS Incremental completion preserves the original word node and reading scroll
+PASS Every paragraph is present once, in source order, with intact text and final navigation
+PASS A cold neighbouring chapter also creates at most four paragraphs during a drag
+PASS Seventy input updates coalesce into one frame while retaining the latest finger position
+PASS The next frame paints the latest offset, with the two chapters joined
+PASS Release flushes the latest input and promotes the same partial preview without reparsing it
+PASS Ten immediate chapter flicks commit all ten targets with bounded parsing per change
+PASS A pending deep restore retains its saved chapter/anchor and exposes localized loading feedback
+PASS Resume waits until the anchor can reach its saved offset, then removes the loading cover
+PASS Saving after progressive resume records the same viewport rather than a temporary start
+PASS Switching interface language restores the deep viewport after its new localized pane loads
+PASS Changing translation target during loading applies the latest target to every appended paragraph
+PASS A saved sentence beyond the first slice receives the correct chapter-relative annotation
+PASS Leaving a chapter cancels work and a late callback cannot mutate abandoned content
+PASS Shelf preparation warms only the entry slice and does not change the active book or location
+PASS Opening the warmed book reuses its paragraph nodes without synchronous tokenization
+PASS Loading indicators are delayed, respect reduced motion, and are absent on completed chapters
+
+21 incremental-reader checks passed. No device FPS or pixel claims.

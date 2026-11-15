@@ -1,0 +1,48 @@
+{
+  "version": "0.5.44",
+  "versionCode": 65,
+  "package": "app.lumi.reader",
+  "date": "2026-10-22",
+  "checks": {
+    "unit-0544-complete.log": 503,
+    "native-0544-final.log": 93,
+    "native-data-0544.log": 6,
+    "iteration-0544.log": 12
+  },
+  "total": 614,
+  "certificateSHA256": "8d21d7bc40b619f048f03e266031c59f7ad50cff5337203f5dce891d487c61fd",
+  "apkSHA256": "9006622685f23c5ac8551e103b6be2bd7b918931948c764a9973c4ed399389af",
+  "apkBytes": 21298685,
+  "webAssetsVerified": 77,
+  "zipCRC": "passed",
+  "buildLog": "build-0.5.44.log",
+  "speechRuntime": {
+    "sherpaOnnx": "1.13.8 static ONNX Runtime AAR",
+    "kotlin": "2.0.21",
+    "abis": [
+      "arm64-v8a",
+      "armeabi-v7a"
+    ],
+    "modelFormat": "yidu-tts v1 ZIP / sherpa-onnx-vits",
+    "modelsBundled": false,
+    "arm64LoadAlignment": "0x4000 (16KiB)"
+  },
+  "changes": [
+    "Independent blur 0–60px / opacity 0–100%, finite interruptible thumb springs, semantic haptics and deduplicated commit.",
+    "Round right-aligned note audio controls, meaning toggle contrast checked for all six light/dark themes.",
+    "Native/web startup theme snapshot, current guides and descriptions localized; sample-book promotion removed from UI.",
+    "Private bounded model ZIP install/validation, preview, enable/delete and chunked local synthesis with cancellation and system fallback."
+  ],
+  "fixtureChanges": [
+    "Moved init call to the end after glass extensions so the existing legacy test seed hook stays explicit.",
+    "Guide has 12 sections; added preview blur to the allowed CSS surfaces.",
+    "Speech tests count the stop request added before imported recordings; native routing stub includes the new voice manager and startup cache.",
+    "Combined only completed JS suites from partial runs; intermediate failures retained without duplicate counting."
+  ],
+  "limitations": [
+    "No physical Android device or real voice model inference in this environment: native model loading, audio output, memory, cancellation latency, system startup first frame, haptics and GPU performance await device acceptance.",
+    "Model and resource packages are excluded from book backups.",
+    "Official weights must be packaged with matching tokens and speech data; arbitrary ONNX, Kokoro or Matcha are unsupported.",
+    "Compatibility artwork and license files retained to preserve existing user books."
+  ]
+}

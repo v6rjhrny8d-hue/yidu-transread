@@ -1,0 +1,31 @@
+PASS Mixed untranslated source passages are detected without rejecting translated names or same-language text
+PASS Dictionary parser distinguishes Oxford UK/US recordings and strips BrE labels from IPA
+PASS Lookup retains one speaker, favorite and close control with a compact accent selector
+PASS Original clicked word remains visible above the dictionary card
+PASS Imported CSS is readable on dark surfaces while keeping table layout and semantic colours
+PASS CSS off keeps images and content while disabling package colours and spacing
+PASS A light/dark change recolours an open dictionary without rebuilding its card or scroll container
+PASS Accent options open as a child sheet and preserve the underlying lookup
+PASS Choosing American pronunciation updates the small label and persists the preference
+PASS Each dictionary retains its own scroll offset when switching away and back
+PASS Real horizontal touch switches dictionary without turning the chapter or closing the card
+PASS Real vertical touch scrolls the definition without switching dictionary
+PASS A low clicked word is moved just above the card rather than remaining covered
+PASS Closing an untouched lookup restores the source reading position
+PASS User scrolling takes over and closing does not pull the reader back
+PASS Reading translation settings expose separate paragraph and word preferences
+PASS Default dictionary can change in place without stacking duplicate preference sheets
+AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+
+  assert(await page.evaluate(()=>document.querySelector('.translation').dataset.incomplete==='true'&&networkCalls.length>0))
+
+    at /workspace/scratch/12cfa0f7c25b/implementation/transread/test/iteration-0552.cjs:57:110
+    at async check (/workspace/scratch/12cfa0f7c25b/implementation/transread/test/iteration-0552.cjs:5:77)
+    at async /workspace/scratch/12cfa0f7c25b/implementation/transread/test/iteration-0552.cjs:57:2 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+} []

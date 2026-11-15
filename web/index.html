@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f4f2e9">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self'; media-src 'self' blob: data: https://api.dictionaryapi.dev https://ssl.gstatic.com https://upload.wikimedia.org; connect-src 'self' https:; worker-src 'self' blob:; object-src 'none'; frame-src 'none'; base-uri 'none'">
+  <title>译读 · TransRead</title>
+  <script src="startup-theme.js?v=0.5.57"></script>
+  <link rel="stylesheet" href="assets/icons/style.css">
+  <link rel="stylesheet" href="style.css?v=0.5.57">
+</head>
+<body>
+  <div id="startup-screen" class="startup-screen" role="status" aria-label="TransRead"><div class="startup-brand"><img src="assets/app-icon.png" width="68" height="68" alt=""><span>TransRead</span><i aria-hidden="true"></i></div></div>
+  <main id="app" aria-live="polite"></main>
+  <div id="dock-root"></div>
+  <div id="page-actions" class="notebook-bottom" aria-hidden="true" inert></div>
+  <div id="overlay-root"></div>
+  <div id="toast" role="status"></div>
+  <input id="file-input" type="file" accept=".epub,.txt,.pdf,.json,.zip,.rar,.mdx,.mdd,.css" hidden>
+  <script src="assets/fflate.js"></script>
+  <script src="dictionary-rich.js?v=0.5.57"></script>
+  <script src="resource-import.js?v=0.5.57"></script>
+  <script src="pronunciation.js?v=0.5.57"></script>
+  <script src="dictionary-files.js?v=0.5.57"></script>
+  <script src="motion.js?v=0.5.57"></script>
+  <script src="locale.js?v=0.5.57"></script>
+  <script src="reading-structure.js?v=0.5.57"></script>
+  <script src="app.js?v=0.5.57" defer></script>
+</body>
+</html>

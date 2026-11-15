@@ -1,0 +1,243 @@
+PASS Chapter numerator and denominator share font, glyph height and baseline
+PASS Changing the units leaves the tens node stationary
+PASS Hundreds, tens and units carry independently without visible leading zeros
+PASS Rapid reversal has at most one resting glyph in each place
+PASS Visible reading track hugs the right edge with a generous inward touch area
+PASS Transparent inward rail area handles dragging and aligns the percent suffix
+PASS Child menu springs without scaling text or clipping its shadow
+PASS Reversing a child menu continues from its current visible transform
+PASS Reopened menu has one child and no stale animation records
+PASS Review, mastery and round detail arrows are removed
+PASS Pronunciation remains independent and does not open card details
+PASS Vertical list swipes do not open whole-card details
+PASS Tapping the whole card opens its complete details
+PASS The lower-right meaning switch hides explanations without replacing card nodes
+PASS Meaning visibility persists across an app reload
+PASS Alphabet rail does not overlay the introduction, stats or search UI
+PASS Alphabet rail is beside the list and has its own horizontal space
+PASS Alphabet taps still locate the requested group
+PASS Sentence anchors split adjacent Chinese sentences without requiring spaces
+PASS Long pressing blank article space adds a sentence-anchored tag without opening a word
+PASS Tag marker occupies the left sentence margin
+PASS Long pressing original words does not create reading tags
+PASS Moving the finger cancels blank-space tagging
+PASS Reading tags survive an app reload
+PASS Directory and Tags share an animated capsule and list area
+PASS Selecting a tag returns to its original sentence and shows the left marker
+PASS Sentence marker tracks font reflow rather than a saved pixel position
+PASS Rotation retains the tag anchor and marker
+PASS Backup includes reading tags and retains legacy note fields
+PASS Restoring a backup merges tags with original sentence anchors
+PASS Tags can be removed from their marker and disappear immediately
+PASS A newly added tag can be undone without deleting notes
+PASS Reduced motion updates every digit without leaving rolling exits
+PASS Landscape directory pins its capsule below the scrollable list
+PASS No browser runtime errors occurred
+
+35 iteration 0.5.19 touch/layout checks passed; 0 failed. No Android FPS or hardware haptic claim.
+PASS Shelf has the shared bounded top blur without intercepting touch
+PASS Notes include the same top edge
+PASS Visible meanings use a dark open-eye current-state icon
+PASS Hiding meanings animates the card height and text opacity concurrently
+PASS Repeated meaning taps reverse from the visible height without replacing cards
+PASS Closing meanings settles cleanly with the lighter closed-eye icon
+PASS Meaning springs preserve the currently viewed card anchor
+PASS A fresh vertical touch can scroll while meanings are still settling
+PASS Alphabet mode preserves upper cards and search alignment
+PASS Alphabet rail remains in the middle instead of reaching the status bar
+PASS Letter dragging has a proximity lens and floating current-letter hint
+PASS Recent mode offers a draggable percent rail in the same bounded region
+PASS Recent rail seeks through a large virtual list without opening details
+PASS Dragging a segmented control changes only its capsule before release
+PASS Release begins overlapping exit and entry with no delayed entrance
+PASS Rapid segment reversal settles at the latest target with no stale layers
+PASS search uses the shared noninteractive top blur
+PASS profile uses the shared noninteractive top blur
+PASS Directory switch is pinned below the list in portrait
+PASS Landscape keeps the bottom switch separate from progress and list
+PASS Compact portrait still leaves a usable scrolling directory above the bottom switch
+PASS Returning to a cached chapter preserves its vertical reading location
+PASS A new touch grabs the exact visible chapter position without snapping to an endpoint
+PASS Interrupted chapter panes cover the viewport without empty seams
+PASS Repeated quick swipes advance without waiting for earlier chapters to settle
+PASS Immediate reversal during chapter inertia returns to the adjacent chapter cleanly
+PASS Cancelling a chapter gesture restores the current page without committing
+PASS Reduced motion commits meanings without leftover spring layers
+PASS No browser runtime errors occurred
+
+29 iteration 0.5.20 touch/layout checks passed; 0 failed. Chromium emulation, no Android FPS or physical haptic measurement.
+PASS Meaning toggle never shifts the title or pronunciation inside its card
+PASS Meaning reversal and completion preserve content geometry throughout
+PASS Segment outgoing copy keeps exact card width and first-card position
+PASS Outgoing content does not jump when target list clamps the scroll offset
+PASS Rail uses viewport coordinates even while the page has an entry transform
+PASS Rail geometry follows meaning resize and stays above bottom controls
+PASS Rapid segment interruptions keep every surviving outgoing layer at its visible position
+PASS Segment finishes with no stale layers or invisible live content
+PASS Virtual window preserves surviving card nodes when scrolling
+PASS A large virtual notebook keeps the viewed word after meaning animation settles
+PASS A mid-spring reversal resumes the exact visible card height
+PASS Rail remains fixed throughout a drag and updates after release
+PASS Landscape keeps the index and rail within viewport bounds
+PASS Leaving during a segment transition immediately removes outgoing copies and notebook chrome
+PASS Every sheet entry has a small physical overshoot and settles at rest
+PASS Ordinary cards use a lighter unscaled entrance without an idle loop
+PASS Directory outgoing copies remain above the dimmed modal backdrop
+PASS Closing a directory during its transition removes every copied layer
+PASS Reduced motion removes entry springs and transition ghosts
+PASS No browser runtime errors occurred
+
+20 iteration 0.5.21 touch/layout checks passed; 0 failed. Chromium emulation, not Android hardware.
+PASS Image backdrop blurs the actual reading background without a dark mask
+PASS Wide images expand proportionally into the available viewing area
+PASS Small images are enlarged rather than kept at their original thumbnail size
+PASS Tall images fit inside the screen without cropping or distorting their aspect
+PASS An open picture refits when rotated to landscape
+PASS Landscape images use the available landscape width and height
+PASS Image enlargement has a gentle spring overshoot while the input shield stays full-screen
+PASS Closing during enlargement resumes the currently visible picture geometry
+PASS Blur fades back to a clear reader while the modal still blocks background input
+PASS A completed image exit removes blur and restores the original image and input
+PASS Night mode uses the same blur with a readable themed caption
+PASS Reduced motion shows a fitted sharp picture and blur without spring animations
+PASS No browser runtime errors occurred
+
+13 image 0.5.22 checks passed; 0 failed. Chromium layout/touch emulation, not Android GPU or FPS measurement.
+PASS Theme removes custom color entry and has two bottom segments
+PASS Style menu is a bottom sheet with conflict explanation
+PASS Back closes only child and preserves theme panel
+PASS Vertical off lays out genuine horizontal screen pages
+PASS Page movement advances content without vertical scroll
+PASS Rotation repaginates around the original word
+PASS Continuous mode joins adjacent chapters in one native viewport
+PASS Continuous chapter crossing updates active chapter and bounded DOM
+PASS Short-chapter continuous scrolling advances while retaining only five blocks
+PASS Continuous sentence selection retains its chapter-local paragraph index
+PASS A reading tag can seek and display on a later horizontal page
+PASS All twelve navigation combinations have the specified compatibility
+PASS slide uses real touch to turn exactly one screen page
+PASS slide cancels a partial reverse turn without losing its page
+PASS fade uses real touch to turn exactly one screen page
+PASS fade cancels a partial reverse turn without losing its page
+PASS curl uses real touch to turn exactly one screen page
+PASS curl cancels a partial reverse turn without losing its page
+PASS Paper curl follows the finger with a paper back, shadow, and next chapter underneath
+PASS Direct service choice preserves form draft and primary card
+PASS Image and blur share one running clock, with blur increasing during entry
+PASS Mid-entry close starts at the exact current image pose
+PASS A deliberate new touch reverses an unfinished close and keeps viewer open
+PASS Two fingers grab the actual opening image geometry without snapping
+PASS Pinch release keeps the viewer open and finishes with a sharp fitted or zoomed picture
+PASS Exit removes image, blur and input lock together
+PASS No browser runtime errors occurred
+
+27 iteration 0.5.23 checks passed; 0 failed. Chromium layout/touch emulation, not Android hardware.
+PASS Fresh settings default to chapter scrolling and realistic curl
+PASS Existing explicit reading mode is preserved
+PASS Theme footer is fixed while its content scrolls 390
+PASS Theme and directory footers have identical x y width height 390
+PASS Theme footer is fixed while its content scrolls 844
+PASS Theme and directory footers have identical x y width height 844
+PASS Personal theme tabs keep one stable card height and bottom footer
+PASS Personal application language is a primary bottom card
+PASS Guide application language is a child of the mounted guide
+PASS Translation form has direct provider choices and a separate save footer
+PASS Switching providers retains custom fields without saving
+PASS Save commits the draft and closes only the service form
+PASS Back cancels an unsaved provider change and retains the parent
+PASS Short downward child pull springs back without closing parent or child
+PASS Child list keeps native vertical scrolling with a stable header
+PASS A sufficient child pull dismisses only the top card
+PASS Touching a closing child cancels stale removal and rebounds into place
+PASS Mode round trip is live without reopening chapter/curl
+PASS Mode round trip is live without reopening off/curl
+PASS Mode round trip is live without reopening chapter/fade
+PASS Mode round trip is live without reopening off/slide
+PASS Mode round trip is live without reopening chapter/off
+PASS Mode round trip is live without reopening continuous/off
+PASS Mode round trip is live without reopening chapter/slide
+PASS Mode round trip is live without reopening off/fade
+PASS Mode round trip is live without reopening chapter/curl
+PASS Actual mode menu initializes paging before returning to reading
+PASS Actual mode menu removes column geometry immediately on return to chapter scrolling
+PASS Switching mode while a turn is settling cancels old layers and initializes the new layout
+PASS Horizontal intent hides the rail and removes its hit target immediately
+PASS Rail stays hidden across drag release and chapter replacement
+PASS Rail returns only after the latest turn and stable chapter layout
+PASS A new turn during rebound leaves one correct chapter with no stale layers
+PASS Gaussian blur reaches full before image geometry finishes
+PASS Early blur completion keeps exact image pose on reversal
+PASS No runtime errors occurred during new regression scenarios
+
+36 iteration 0.5.24 checks passed; 0 failed. Chromium layout/touch emulation, not Android hardware.
+PASS Child uses the exact bottom-sheet motion record and mounted parent
+PASS Child rests at the same bottom edge as a primary card
+PASS Nested cards keep one background shade and only one active dialog
+PASS A short child pull uses the original rebound and leaves its parent untouched
+PASS Long child content retains native scrolling below a fixed header
+PASS A closing child is grabbed through the same primary interruption path
+PASS A sufficient downward pull dismisses only the top sheet and restores its parent
+PASS Outside touch closes one level without firing a parent control
+PASS Rotating a child keeps its draft, bottom placement and fixed close button
+PASS A short visual viewport leaves the child header reachable and body scrollable
+PASS Multiple nested sheets unwind one level without replacing an intermediate draft
+PASS Whole-stack cleanup removes all records and restores background input
+PASS Theme fits with bounded controls and visible paper choices 844
+PASS Theme and directory retain identical footer screen geometry 844
+PASS Theme fits with bounded controls and visible paper choices 740
+PASS Theme and directory retain identical footer screen geometry 740
+PASS Theme fits with bounded controls and visible paper choices 1024
+PASS Theme and directory retain identical footer screen geometry 1024
+PASS Theme fits with bounded controls and visible paper choices 390
+PASS Theme and directory retain identical footer screen geometry 390
+PASS Compact portrait directory retains a usable native list below its fixed controls
+PASS Landscape shelf stays within screen bounds with reachable navigation
+PASS Landscape search stays within screen bounds with reachable navigation
+PASS Landscape notes stays within screen bounds with reachable navigation
+PASS Landscape profile stays within screen bounds with reachable navigation
+PASS Landscape profile can scroll its final setting clear of the navigation
+PASS Compact landscape generic forms keep the header reachable and scroll horizontally unbroken
+PASS Generic primary language card pins its header and scrolls its content
+PASS Traditional Chinese language selection preserves the same primary card
+PASS Landscape translation form keeps its save footer and close button in view
+PASS Reduced motion still uses one nested bottom-sheet stack
+PASS Reduced-motion back returns directly to the same parent
+PASS Exit blur reaches zero while the picture is still returning
+PASS Reversal after blur has cleared keeps exact current geometry and blur
+PASS Reopened picture restores full blur without losing its input shield
+PASS Image and input shield clean up together after its return finishes
+PASS Night-mode exit clears both blur and tint before the image finishes
+PASS No runtime errors occurred in the new sheet and landscape scenarios
+
+38 iteration 0.5.25 checks passed; 0 failed. Chromium touch/layout, not Android hardware.
+PASS Rail has a proportional thumb with accurate resting position
+PASS Opening translations starts a spring from the exact visible thumb geometry
+PASS Position and thumb size share an elastic trajectory
+PASS Spring makes visible progress before translations finish settling
+PASS Closing mid-open preserves exact visible position and thumb length
+PASS Reversal keeps sampled velocity instead of restarting a stopped spring
+PASS Closed translations settle with no stale rail or layout animation
+PASS Eight rapid toggles finish in the final state without duplicate translations or drift
+PASS A real touch grabs the moving thumb and follows the finger immediately
+PASS Releasing a rail drag restores its correct size and reading position
+PASS Native page touch takes over without a continuing rail spring
+PASS Chapter change starts the top progress line at its visible value
+PASS Top progress uses a monotonic compositor transition without bounce
+PASS Rapid chapter reversal inherits the current top progress presentation
+PASS Top progress ends at the current chapter, with no queued old target
+PASS Rebuilt reader in fade mode retains the old visible top progress
+PASS Changing chapters keeps the side rail hidden through the page effect
+PASS The side rail returns only after the new chapter has finished layout
+PASS A longer arriving translation uses the same spring without a thumb jump
+PASS Settled bars leave no animation running while the reader is idle
+PASS Bar springs never drive page scrollTop frame by frame
+PASS Translation-language arrow remains fixed while the child sheet is open
+PASS Reduced motion applies both bars immediately without rail or progress tweens
+PASS Paged reading keeps the rail within its track after a translation reflow
+PASS Landscape keeps the proportional thumb inside the resized track
+PASS Continuous reading also settles the thumb after translation toggling
+PASS Returning from the background preserves the next chapter progress transition
+PASS Leaving the reader clears rail and progress motion records
+PASS No runtime errors occurred in the progress and translation cases
+
+29 iteration 0.5.26 checks passed; 0 failed. Chromium touch/layout, not Android hardware.

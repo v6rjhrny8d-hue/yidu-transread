@@ -1,0 +1,41 @@
+{
+  "version": "0.5.41",
+  "versionCode": 62,
+  "package": "app.lumi.reader",
+  "date": "2026-10-22",
+  "checks": {
+    "unit-0541-final.log": 503,
+    "native-0541.log": 92,
+    "native-data-0541.log": 6,
+    "iteration-0541-final.log": 26,
+    "large-book-0541.log": 24,
+    "translation-0541.log": 25,
+    "motion-0541.log": 29,
+    "cards-0541.log": 25
+  },
+  "total": 730,
+  "certificateSHA256": "8d21d7bc40b619f048f03e266031c59f7ad50cff5337203f5dce891d487c61fd",
+  "apkSHA256": "b26f289501cf3b83b8fce3949a682ace224e6527a5e7183d5f8c19c1b77d5ea1",
+  "apkBytes": 3415061,
+  "webAssetsVerified": 73,
+  "zipCRC": "passed",
+  "buildLog": "build-0.5.41.log",
+  "legacyBook": "No seeded book, JSON or EPUB in APK. Compatibility artwork retained for one-time migration of existing books.",
+  "fixtureChanges": [
+    "Existing suites explicitly seed the legacy test book; new-install checks verify an empty shelf.",
+    "Updated expected palette/paper counts, names, database version and hidden word context; input and gesture checks retained.",
+    "Combined completed suites from reruns without duplicate counting; intermediate failing logs retained."
+  ],
+  "fixedDuringRegression": [
+    "Reading paper selection updates immediately; saving captures the original book, avoiding cross-book mutation after navigation.",
+    "Updated complete English/Traditional guide, translation and privacy copy."
+  ],
+  "limitations": [
+    "No physical Android device: SAF, system TTS, PDF backup/restore and hardware performance await acceptance.",
+    "Speech model import is deliberately disabled per user choice; system TTS remains.",
+    "Dictionary/pronunciation ZIP is the TransRead v1 format, not MDX/MDD or arbitrary ONNX.",
+    "Legacy compatibility artwork awaits upgrade acceptance before full removal.",
+    "Translation service remains Google/MyMemory/custom; no live regional availability claim.",
+    "Resource packages and API keys are excluded from book backups."
+  ]
+}

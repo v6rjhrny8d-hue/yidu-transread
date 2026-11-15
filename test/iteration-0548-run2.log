@@ -1,0 +1,20 @@
+PASS Book settings expose author and independent restore controls
+PASS Async translation manager retains its book editor parent and draft
+PASS Close returns one level to the same book editor with draft and focus
+PASS System back closes only translation management
+PASS Pull-down uses the shared sheet gesture and restores the editor
+PASS Delete confirmation is a third layer and Cancel returns to the manager
+PASS Deleting one language refreshes the same manager and keeps the editor below it
+PASS Deleting all translations leaves the empty manager without an obsolete footer
+PASS Backup button has a real gap below the translation row border
+AssertionError [ERR_ASSERTION]: false == true
+    at /workspace/scratch/93718b70c1a4/implementation/transread/test/iteration-0548.cjs:31:100
+    at async check (/workspace/scratch/93718b70c1a4/implementation/transread/test/iteration-0548.cjs:6:32)
+    at async /workspace/scratch/93718b70c1a4/implementation/transread/test/iteration-0548.cjs:31:2 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}

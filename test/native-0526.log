@@ -1,0 +1,27 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> lumi-reader@0.5.26 test:native
+> node test/native-ui-routing.cjs && node test/native-haptics.cjs
+
+PASS Android 15+ owned reader WebView requests high refresh only while drawing
+PASS All interface commands reach the UI queue while every I/O worker is blocked
+PASS UI commands preserve order and speech/file/source actions do not wait for network completion
+PASS Immediate UI routing preserves voice readiness and HTTPS validation errors
+PASS Network work stays off the UI queue and remains bounded by the I/O executor
+PASS Queued network work still completes after the occupied workers are released
+
+5 native routing checks passed with stub services. No Android device claims.
+PASS Current Android maps actions to selection, toggle, confirmation and gesture constants
+PASS Older Android versions use only supported short semantic constants
+PASS Dense ticks are skipped when a suitably subtle constant is unavailable
+PASS Unknown haptic operations have no arbitrary vibration fallback
+PASS Foreground feedback reaches the View semantic API
+PASS Gentle mode softens gestures and toggles while retaining success confirmation
+PASS Dock selection, card dismissal and buttons use the softest system tick
+PASS Gentle mode cannot turn an unknown operation into a vibration
+PASS Hidden or unfocused views discard feedback rather than queue it
+PASS App calls leave system and View settings in control
+PASS Feedback is safe after the WebView is gone
+
+11 native haptic checks passed with View stubs. No physical vibration claims.
+PASS Haptic integration adds no vibration permission or settings-bypass flags

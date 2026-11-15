@@ -1,0 +1,4 @@
+PASS Large chapter text is complete and paragraphs retain original indexes
+PASS Reader workload produces no uncaught JavaScript errors
+METRICS {"active":{"words":15300,"nodes":15673,"text":106541,"runs":0},"scrolled":{"words":15300,"nodes":15673},"snapshot":{"nodes":15676,"paragraphs":180}}
+2 reader performance checks passed.

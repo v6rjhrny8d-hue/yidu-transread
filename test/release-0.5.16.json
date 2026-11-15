@@ -1,0 +1,15 @@
+{
+  "version": "0.5.16",
+  "versionCode": 37,
+  "package": "app.lumi.reader",
+  "checks": {
+    "logic": 507,
+    "native": 18,
+    "browserTouch": 45
+  },
+  "guideReadingScroll": "Native WebView overflow, same configuration as article; browser checks require zero JavaScript scrollTop writes",
+  "originalSigningCertificateMatches": true,
+  "packagedAssetsMatchSource": true,
+  "apkSHA256": "9abcadb62e4b97da7efa4e9ffcfdd7f4716abacfe4d34a4a98a951b891f544c8",
+  "limitations": "Chromium touch emulation and controlled tests; no Android device or FPS measurement."
+}

@@ -1,0 +1,30 @@
+PASS Imported regional resource contains a real locally stored PCM recording
+PASS ECDICT can play actual imported regional WAV through the real browser audio pipeline
+AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
++ actual - expected
+
+  [
++   [],
+    [
+      [
++       'water',
++       'en-GB'
+-       'first',
+-       'water_gb.wav'
+      ]
+    ],
+    [],
+-   [],
+    0
+  ]
+
+    at /workspace/scratch/12cfa0f7c25b/implementation/transread/test/iteration-0557.cjs:31:97
+    at async check (/workspace/scratch/12cfa0f7c25b/implementation/transread/test/iteration-0557.cjs:5:77)
+    at async /workspace/scratch/12cfa0f7c25b/implementation/transread/test/iteration-0557.cjs:31:2 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: [Array],
+  expected: [Array],
+  operator: 'deepStrictEqual',
+  diff: 'simple'
+} []

@@ -1,0 +1,63 @@
+{
+  "version": "0.5.54",
+  "versionCode": 75,
+  "date": "2026-10-28",
+  "package": "app.lumi.reader",
+  "apk": {
+    "name": "YiDu-0.5.54.apk",
+    "bytes": 21577909,
+    "sha256": "2b693e4dd64c624cf7a00fba53ea2a497e4755d4936a861a224d3637764b5825",
+    "certificateSha256": "8d21d7bc40b619f048f03e266031c59f7ad50cff5337203f5dce891d487c61fd",
+    "webAssetsByteVerified": 86,
+    "zipCRC": "passed"
+  },
+  "checks": [
+    {
+      "log": "test/iteration-0554-initial.log",
+      "passed": 22
+    },
+    {
+      "log": "test/workflow-0554-initial.log",
+      "passed": 30
+    },
+    {
+      "log": "test/glass-0554-accepted.log",
+      "passed": 12
+    },
+    {
+      "log": "test/word-card-0554.log",
+      "passed": 35
+    },
+    {
+      "log": "test/smoke-0554.log",
+      "passed": 66
+    },
+    {
+      "log": "test/motion-0554.log",
+      "passed": 27
+    },
+    {
+      "log": "test/input-routing-0554.log",
+      "passed": 11
+    }
+  ],
+  "totalChecks": 203,
+  "groups": {
+    "realChromium": 99,
+    "logicMotionInput": 104
+  },
+  "coverage": [
+    "Glass default/reset10px and70 percent, invalid/null fallback, explicit zero, manual preference restart persistence, range preview/regrab and landscape.",
+    "Real horizontal touch tracking/fade, finite exit and entry, short/cancel/edge rebound, fixed header/card, stable scroll DOM and per-source offsets.",
+    "Visible-pose reverse takeover, rapid consecutive choices, stale asynchronous results, reduced motion, rotation and close cancellation, source-menu transition.",
+    "Existing translation/dictionary/CSS/source-word workflow and whole-header drag/audio lifecycle regressions."
+  ],
+  "limitations": [
+    "No physical Android device; real-device frame pacing, touch feel and actual Oxford resources still require user acceptance.",
+    "Prior saved manual glass values are preserved; the new defaults apply to absent/invalid values and Restore defaults.",
+    "No new online provider behavior or live service availability claim is part of this release."
+  ],
+  "fixtureCorrections": [
+    "Dedicated historical glass regression now expects10/70. It commits the prior synthetic input before starting its regrab sequence, matching a completed real input gesture; persistence/reset assertions remain."
+  ]
+}

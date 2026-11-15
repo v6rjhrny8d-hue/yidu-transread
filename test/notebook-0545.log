@@ -1,0 +1,24 @@
+PASS Search offers only local books and website sources, with no open-library request
+PASS Switching search scope retains unfinished input and keeps website import available
+PASS Submitting a title returns to matching local books without a remote search
+PASS Search, notes and profile share heading typography, spacing and toolbar height
+PASS The meaning action is anchored outside every animated or scrolling page
+PASS Word and sentence summaries allow font-safe height and each has a pronunciation button and a clickable body
+PASS Summary pronunciation reads the saved word or the entire sentence
+PASS The whole card opens saved definitions and thoughts while hiding word source context without moving the list
+PASS Meaning visibility preserves cards and existing legacy data
+PASS Saving an edit returns to its original detail sheet and refreshes the matching summary
+PASS Sentence details show the full saved sentence and its translation
+PASS Filtering notes preserves the page, scroll and meaning action instead of rebuilding them
+PASS Searching summaries keeps the active input node and returns matching saved items
+PASS Book and notebook searches are independent and survive page changes
+PASS A removed source book leaves the saved note readable and explains the missing book
+PASS Deleting from detail removes its summary and nested history while preserving the list position
+PASS The pinned meaning action never becomes a descendant of a moving page during exit
+PASS Tapping the current dock page cancels an unfinished departure instead of committing a stale destination
+PASS Fast switches hide the meaning action outside notes without detaching or repositioning it
+PASS Returning after an interrupted switch reuses the same pinned meaning button
+PASS Interrupted filter animations commit the latest type while the meaning action stays in place
+PASS Reduced motion keeps the same summary and pinned action flows available
+
+22 notebook and navigation checks passed. No rendered or native device claims.

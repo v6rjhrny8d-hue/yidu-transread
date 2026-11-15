@@ -1,0 +1,18 @@
+PASS Fresh glass defaults are 10px blur and 70 percent fill
+PASS Null and invalid glass preferences use defaults while explicit zero is preserved
+PASS Existing manual glass choices survive restarting
+PASS Restore defaults updates both controls and their saved values
+AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+
+  assert(await page.evaluate(()=>buttons.every((e,i)=>Math.abs(e.getBoundingClientRect().top-initialY[i])<.1&&Math.abs(e.getBoundingClientRect().height-46)<.1)))
+
+    at /workspace/scratch/12cfa0f7c25b/implementation/transread/test/iteration-0556.cjs:31:83
+    at async check (/workspace/scratch/12cfa0f7c25b/implementation/transread/test/iteration-0556.cjs:5:77)
+    at async /workspace/scratch/12cfa0f7c25b/implementation/transread/test/iteration-0556.cjs:31:2 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+} []

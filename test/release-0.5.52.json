@@ -1,0 +1,86 @@
+{
+  "version": "0.5.52",
+  "versionCode": 73,
+  "date": "2026-10-28",
+  "package": "app.lumi.reader",
+  "apk": {
+    "name": "YiDu-0.5.52.apk",
+    "bytes": 21573744,
+    "sha256": "00b5db7752640ac6f23452c4b9d3bdf1f63116e77d1afc8b3d60e5b3d935e1f9",
+    "certificateSha256": "8d21d7bc40b619f048f03e266031c59f7ad50cff5337203f5dce891d487c61fd",
+    "webAssetsByteVerified": 85,
+    "zipCRC": "passed"
+  },
+  "checks": [
+    {
+      "log": "test/smoke-current-0552.log",
+      "passed": 66
+    },
+    {
+      "log": "test/motion-current-0552.log",
+      "passed": 27
+    },
+    {
+      "log": "test/input-routing-current-0552.log",
+      "passed": 11
+    },
+    {
+      "log": "test/reader-tools-current-0552.log",
+      "passed": 24
+    },
+    {
+      "log": "test/translation-languages-current-0552.log",
+      "passed": 22
+    },
+    {
+      "log": "test/app-languages-current-0552.log",
+      "passed": 31
+    },
+    {
+      "log": "test/iteration-0552-final2.log",
+      "passed": 30
+    },
+    {
+      "log": "test/iteration-0549-on-0552-final.log",
+      "passed": 32
+    },
+    {
+      "log": "test/css-0552-final.log",
+      "passed": 19
+    },
+    {
+      "log": "test/iteration-0534-on-0552-final.log",
+      "passed": 25
+    },
+    {
+      "log": "test/iteration-0526-on-0552-final.log",
+      "passed": 29
+    },
+    {
+      "log": "test/native-speech-0552.log",
+      "passed": 15
+    },
+    {
+      "log": "test/native-selection-0552-final.log",
+      "passed": 4
+    },
+    {
+      "log": "test/native-ui-0552-final2.log",
+      "passed": 6
+    }
+  ],
+  "totalChecks": 341,
+  "limitations": [
+    "No physical Android device or supplied commercial Oxford dictionary files.",
+    "Translation completeness uses conservative source-copy detection; it is not semantic quality verification.",
+    "Unknown-accent recordings do not masquerade as British or American; system voices need corresponding language data.",
+    "Complex text embedded in dictionary background images is not automatically recoloured.",
+    "Existing PDF compositor acceptance and earlier cached-chapter 380/0 issue remain outside this change."
+  ],
+  "fixtureCorrections": [
+    "Native UI routing harness supplied current production PDF cancellation fields and the speech locale overload; assertions unchanged.",
+    "MDX encrypted-index fixture resolves the actual import return id, not UUID-dependent resourcePacks.at(-1).",
+    "Cached-translation repair waits for actual pending/request state rather than requiring a memory-only marker.",
+    "Local audio routing mock waits for Blob data in Audio.play, rather than racing Blob.text completion."
+  ]
+}

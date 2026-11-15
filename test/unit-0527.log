@@ -1,0 +1,542 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> lumi-reader@0.5.26 test
+> node test/smoke.cjs && node test/motion.cjs && node test/gestures.cjs && node test/input-routing.cjs && node test/notebook.cjs && node test/highlights.cjs && node test/responsiveness.cjs && node test/tap-and-images.cjs && node test/haptics-performance.cjs && node test/short-swipes-feedback.cjs && node test/reader-tools.cjs && node test/landscape-inertia.cjs && node test/translation-languages.cjs && node test/app-languages.cjs && node test/reader-fixes.cjs && node test/locale-translation-motion.cjs && node test/reader-loading.cjs
+
+PASS 27 complete English chapters, 10 aligned offline translations
+PASS Four navigation destinations and offline dictionary
+PASS Shelf header has only the guide, while book import and dock search remain reachable
+PASS The guide opens from the home action with reading, translation and backup instructions
+PASS Home requests visible system bars when the Android bridge is present
+PASS Hiding reader controls requests immersive system bars
+PASS Repeated renders and theme changes do not resend or reverse immersive state
+PASS Showing reader controls requests visible system bars
+PASS Leaving an immersive reader restores the system bars
+PASS All 47 original illustration assets exist and anchor to valid paragraphs
+PASS Main navigation retains one sliding capsule across page changes
+PASS Dragging moves the capsule without rebuilding the current page
+PASS Releasing the dock drag selects the nearest destination
+PASS Reader groups progress, typography and translation into three focused tools
+PASS Reader has no operation hint or bottom blur and keeps only the top edge effect
+PASS First chapter contains the boa, hat and elephant illustrations inline
+PASS Dock hides
+PASS Dock reappears
+PASS Reader progress, chapter metadata and back button hide together without moving text
+PASS All reader controls return together and progress survives translation rerender
+PASS Word popup bounds leave room above system bars and the dock across viewport sizes
+PASS Reader show/hide reuses the same dock layer
+PASS An illustration can open in its own viewing panel
+PASS Translation is directly below every paragraph
+PASS A vertical swipe cannot hide the reader controls accidentally
+PASS A stationary tap still hides the reader controls and progress
+PASS One word returns offline Chinese explanation
+PASS Tapping the active word again closes its explanation
+PASS Star creates a persisted vocabulary note
+PASS Late dictionary results preserve the scroll region, popup and current offset
+PASS Favorite changes preserve a scrolled long definition
+PASS Fast repeated favorite taps commit one change and re-enable the control
+PASS Fast repeated collection creates one vocabulary record
+PASS Online dictionary failure falls back to the built-in entry
+PASS Dictionary settings expose three switchable sources and voice installation
+PASS Sentence collection retains original source
+PASS Duplicate sentences do not duplicate records
+PASS Notebook shows both vocabulary and sentences
+PASS Whole-card details retain the original note and remove the retired mastery action
+PASS Reading from a saved note returns to notes and restores its scroll position
+PASS Notebook meaning visibility changes without rebuilding cards
+PASS TOC includes chapter progress and 27 real chapters
+PASS Last chapter leads back to shelf
+PASS Reading location survives leave and reopen
+PASS TXT import preserves chapters
+PASS EPUB import uses spine order and strips executable content
+PASS EPUB retains local illustrations and ignores remote image URLs
+PASS The actual illustrated EPUB imports all 27 chapters and 47 pictures
+PASS Notes are present in IndexedDB
+PASS Restoring duplicate backup merges without duplicates
+PASS A 0.1 install upgrades its existing book while preserving notes and reading progress
+PASS Night mode changes root theme
+PASS Translation circle can be hidden independently
+PASS Theme editor offers six presets and separate accent and page inputs
+PASS Very bright accent remains readable on a light background
+PASS Dark custom background uses readable text and native dark appearance
+PASS Invalid color input cannot alter the saved palette
+PASS Custom colors survive reloading settings from IndexedDB
+PASS Paper preset clears custom background while retaining the accent
+PASS Reset restores preset colors without changing books or notes
+PASS Nested theme customization returns to the same parent panel and keeps its scroll
+PASS Native safe areas survive theme changes and sheet opening
+PASS Top fade ends just after the camera cutout and stays stable across toolbar visibility
+PASS Phones without a top cutout get a short fade rather than a large blurred band
+PASS Keyboard layout can clear bottom safe padding without losing the status inset
+PASS Sheets keep dim backdrops while only image viewing and reader edges use blur
+
+66 logic checks passed. No native device or rendered layout claims.
+PASS A preview sheet slides in without any dimming animation over the original text
+PASS Spring samples are bounded, settle at the target, and retain release velocity
+PASS High-refresh layout springs can use twice the frame samples without changing the shared default curve
+PASS A handled sheet slides upward from below the viewport without shrinking or fading
+PASS A closing sheet keeps its shield active and blocks the background until it has left the viewport
+PASS Completed dismissal removes the panel and restores trigger focus
+PASS A late close completion cannot remove a newer panel
+PASS Word cards enter with an unscaled spring from the source direction
+PASS Word cards return toward their source with a shorter exit
+PASS Closing an already displaced sheet continues from its current position and clears the viewport
+PASS Nested handled sheets use the same bottom-up path as top-level sheets
+PASS Rapid page changes commit only the latest destination and unlock the new content
+PASS The complete tab transition fits a shorter time budget
+PASS A back gesture can cancel a pending page departure and unlock the original view
+PASS Chapter departure continues the swipe direction and can return cleanly when cancelled
+PASS Press feedback compresses the contents while the outer hit area stays fixed
+PASS Releasing a control removes the press state and restores its contents
+PASS Touching a moving sheet keeps its displacement and does not count as a downward drag
+PASS Grabbing a rebound cancels its cleanup without resetting the new drag position
+PASS An interrupted panel drag rebounds without dismissing or losing the panel
+PASS A deliberate downward pull asks the application to dismiss the panel
+PASS Reduced motion completes navigation and dismissal without starting animations
+PASS Inline controls keep their base centering transform throughout their entry
+PASS An inline control becomes inert during its reverse departure
+PASS Enabling reduced motion settles running effects instead of leaving transformed surfaces
+PASS Cancelled effects leave the running set immediately and cannot be finished again by reduced-motion refresh
+PASS Disconnected triggers are not reused by unrelated programmatic actions
+
+27 motion lifecycle checks passed. No rendered timing claims.
+PASS Slow content-area pulling follows the finger without needing the handle
+PASS A continuing slow pull stays proportional rather than waiting for a distance threshold
+PASS A small slow pull returns the same sheet without dismissing it
+PASS A short fast downward flick from the content area dismisses the sheet
+PASS A fast downward flick from the translation tools scroll area dismisses the card when already at the top
+PASS Sheet vertical gestures stay with the custom nested-scroll and dismiss recognizer
+PASS Losing implicit child capture does not interrupt a downward sheet dismissal
+PASS A platform-canceled stream still dismisses after the pull crossed the close threshold
+PASS A canceled short pull rebounds instead of closing the sheet
+PASS Sheet dragging captures on the stable panel instead of its scrolling child
+PASS Touch focus on the reader dock suppresses the stray focus ring while keyboard focus remains styled
+PASS A deliberate long slow pull dismisses a sheet
+PASS Holding after a short fast move clears its stale fling velocity
+PASS Dragging a scrolled card first consumes its remaining content scroll
+PASS The same gesture transfers only its excess distance to the card after reaching the top
+PASS Reversing a pull seats the card before scrolling its content again
+PASS Nested scrolling consumes the inner region before the parent card
+PASS Content scrolling retains a bounded inertial continuation after release
+PASS A slow final guide-scroll sample does not erase the preceding flick velocity
+PASS A fast sheet flick also consumes final release coordinates when no move was delivered
+PASS A pull near the screen bottom uses the available travel instead of an unreachable full-panel threshold
+PASS Text selected behind a card cannot block its vertical gestures
+PASS Adding a second finger aborts even a long pull without dismissing the card
+PASS A clipped outer panel never consumes the nested body scroll or moves its header
+PASS Closing a card stops its remaining momentum work
+PASS Range controls keep their own drag without pulling the sheet
+PASS Dragging over a card button suppresses the trailing tap
+PASS A fresh intentional tap on that button still works
+PASS A second finger cancels the pull and leaves the card available for native pinch
+PASS Reduced motion keeps direct scrolling while skipping inertial continuation
+PASS A child dialog leaves its parent mounted and its scroll intact
+PASS Closing the child reveals the same parent
+PASS Backgrounding the app cancels card momentum rather than leaving frame work queued
+PASS Left swiping the reading page opens exactly the next chapter and preserves immersion
+PASS Right swiping opens exactly the previous chapter
+PASS A deliberate short fast horizontal flick also switches chapter
+PASS A short slow sideways movement rebounds without changing chapter
+PASS Vertical and diagonal reading scrolls do not turn chapters or reveal the dock
+PASS A gesture that bends into a vertical scroll cannot commit a chapter turn
+PASS A cancelled sideways gesture leaves the current chapter in place
+PASS An active text selection prevents chapter swiping
+PASS A long press followed by movement is reserved for text selection
+PASS An open card prevents an underlying reading gesture from turning chapters
+PASS System back gestures starting at a screen edge are not intercepted
+PASS The first chapter cannot swipe backward or wrap around
+PASS The last chapter cannot swipe past the book or unexpectedly return home
+PASS Adding another finger cancels chapter turning and clears its temporary shift
+PASS The trailing click after a chapter swipe cannot toggle reader controls
+
+48 gesture checks passed. No rendered or native touch claims.
+PASS Losing implicit capture on the original word does not cancel a swipe captured by the page
+PASS A fresh primary tap opens a profile card after an earlier touch ends outside the app
+PASS The browser-style implicit-to-explicit capture sequence completes the next-chapter swipe
+PASS The same capture-transfer sequence completes the previous-chapter swipe
+PASS Losing the page capture itself still cancels chapter navigation and clears displacement
+PASS A new primary touch recovers reading swipes after an earlier gesture never sends its ending event
+PASS A browser-qualified settings click is not discarded by the global reading drag flag
+PASS Small finger jitter inside a settings card remains a tap
+PASS All nine profile cards open over 45 successive taps on their labels and icons
+PASS A settings control below a closing modal cannot receive its trailing tap
+PASS A fresh settings tap works as soon as the modal shield has gone
+
+11 input-routing checks passed, 0 failed. No rendered or native touch claims.
+PASS Search offers only local books and website sources, with no open-library request
+PASS Switching search scope retains unfinished input and keeps website import available
+PASS Submitting a title returns to matching local books without a remote search
+PASS Search, notes and profile share heading typography, spacing and toolbar height
+PASS The meaning action is anchored outside every animated or scrolling page
+PASS Word and sentence summaries allow font-safe height and each has a pronunciation button and a clickable body
+PASS Summary pronunciation reads the saved word or the entire sentence
+PASS The whole card opens all saved definitions, source, context and thoughts without moving the list
+PASS Meaning visibility preserves cards and existing legacy data
+PASS Saving an edit returns to its original detail sheet and refreshes the matching summary
+PASS Sentence details show the full saved sentence and its translation
+PASS Filtering notes preserves the page, scroll and meaning action instead of rebuilding them
+PASS Searching summaries keeps the active input node and returns matching saved items
+PASS Book and notebook searches are independent and survive page changes
+PASS A removed source book leaves the saved note readable and explains the missing book
+PASS Deleting from detail removes its summary and nested history while preserving the list position
+PASS The pinned meaning action never becomes a descendant of a moving page during exit
+PASS Tapping the current dock page cancels an unfinished departure instead of committing a stale destination
+PASS Fast switches hide the meaning action outside notes without detaching or repositioning it
+PASS Returning after an interrupted switch reuses the same pinned meaning button
+PASS Interrupted filter animations commit the latest type while the meaning action stays in place
+PASS Reduced motion keeps the same summary and pinned action flows available
+
+22 notebook and navigation checks passed. No rendered or native device claims.
+PASS Uncollected text has no saved markers
+PASS Saving a word immediately highlights whole-word matches without changing text or scroll
+PASS Unstarring removes word markers immediately
+PASS Saved word highlights return when reopening the book
+PASS A repeated sentence highlights only its collected occurrence
+PASS Precise sentence positions are persisted with the note
+PASS Touching a highlighted word still opens its dictionary card
+PASS Collecting the same occurrence twice does not duplicate the note
+PASS The same sentence can be collected at a different source location
+PASS Refreshing annotations preserves lookup nodes and never nests highlight wrappers
+PASS A selection across paragraphs saves original text and highlights both sides without translated text
+PASS Translated text is not mistaken for an original-language source selection
+PASS Changing translation visibility retains original annotation ranges
+PASS A highlighted reading page still swipes to the next chapter
+PASS Swiping back restores sentence marks without annotating another chapter
+PASS Vocabulary marks apply to the same word in another book, while sentence marks stay with their source
+PASS Backup restore retains precise annotation positions
+PASS Old notes without anchors match their preferred paragraph despite whitespace differences
+PASS Overlapping saved phrases merge without duplicating or changing the original text
+PASS Deleting one overlapping note removes only its exclusive highlighted range
+PASS Deleting the last saved sentence removes its marks and keeps vocabulary highlighting
+PASS A failed sentence write does not add highlights and releases the save lock
+PASS Repeated save taps create one sentence and one annotation set
+PASS Invalid imported anchors are discarded instead of being used as source coordinates
+
+24 saved-highlight checks passed. No rendered or native device claims.
+PASS Continuous slow intent can lock a chapter drag after 450 ms and follows the finger one to one
+PASS Dragging exposes the adjacent chapter without duplicate reader IDs or interactive preview controls
+PASS A slow drag switches chapters by distance even after holding before release
+PASS A short slow drag returns to the same chapter and removes its preview
+PASS A stationary long press remains reserved for text selection
+PASS Reversing direction swaps the preview and leaves only one neighbor
+PASS A quick return toward the starting point is not treated as a forward fling
+PASS Cancelling a following drag clears both the shift and preview
+PASS The first chapter offers bounded resistance without inventing a previous page
+PASS The last chapter cannot drag beyond the book or return home
+PASS A second finger cancels following chapter motion cleanly
+PASS An immersive preview keeps chapter metadata hidden and adds no bottom blur
+PASS Two immediate switch taps both apply without replacing the button or its card
+PASS Reduced-motion toggling remains responsive on the same control
+PASS Rapid theme choices commit immediately while keeping the card and scroll position
+PASS Rapid dictionary choices update in place without discarding a new touch or rebuilding the profile
+PASS Resetting colors preserves the active controls instead of rebuilding the card
+PASS Release commits the new chapter immediately and leaves it interactive during settling
+PASS A new touch grabs a settling chapter at its current position without a cooldown
+PASS Cancelling old animation cleanup cannot remove a newly grabbed presentation
+PASS Grabbing a short-drag rebound continues from the visible offset
+PASS Programmatic chapter changes also commit before their animation finishes
+PASS Translation observers only register current content during a chapter transition
+PASS A late scroll event from discarded reader content cannot access a missing or unrelated page
+PASS A fresh settings tap interrupts an unfinished departure instead of being frozen or lost
+PASS Reopening the same card during its exit starts a fresh bottom-up entry
+PASS A filter applies before its feedback animation finishes and retains the current page
+PASS Keyboard navigation immediately after a dock drag is not swallowed by a time window
+PASS A fresh touch on the dock works immediately after dragging it
+PASS Backgrounding clears chapter previews and pending motion instead of leaving invisible input surfaces
+PASS Reduced motion keeps direct following and commits without leaving transition layers
+
+31 responsiveness checks passed. No rendered or native touch claims.
+PASS The first profile touch opens its card on release without any click event
+PASS All nine profile cards accept their icon, label and row padding on the first touch
+PASS A corner tap inside the full control remains a valid first tap
+PASS A native click following touch release does not execute the switch twice
+PASS A delayed legacy compatibility click is deduplicated without undoing the action
+PASS Rapid consecutive touches with a reused Android pointer id all execute once
+PASS A new finger sequence never waits for a click or animation cooldown
+PASS Pen release activates once through the same control route
+PASS Keyboard, accessibility and programmatic clicks retain their normal route
+PASS Mouse activation continues to use click instead of firing on pointer release
+PASS Small finger jitter remains a valid tap with nonzero bounds
+PASS Dragging a switch scrolls or pulls its card without toggling it on release
+PASS Pointer cancellation cannot activate a control through a trailing click
+PASS A long-press context menu cancels ordinary button activation
+PASS A second finger cancels a pending control tap
+PASS Backgrounding the app cancels a pending tap instead of executing on return
+PASS Disabled controls and an inert ancestor reject pointer-only activation
+PASS A removed button is not invoked by a late pointer release
+PASS Retargeting release from animated contents to the stable row still opens the card
+PASS A card moving during a tap keeps the original hit area valid
+PASS Releasing far outside the control does not open its card
+PASS A control hidden before release rejects the gesture and its compatibility click
+PASS The meaning switch accepts its first touch without opening a modal
+PASS A first touch can interrupt a pending navigation and open the visible setting
+PASS A button is usable before its card entry animation finishes
+PASS A background card cannot open through an unfinished modal exit
+PASS A new card opens on the first fresh touch after the modal exit completes
+PASS Rebuilt reading controls become clickable again when immersive mode ends
+PASS A stationary touch on an illustration opens the image without waiting for click
+PASS An image child losing implicit capture before the viewer gains capture does not cancel an exit tap
+PASS A drag delivered only as final release coordinates cannot be mistaken for an image exit tap
+PASS Image gestures are isolated from the global button tap recognizer
+PASS A stationary held tap anywhere on the image still exits without an arbitrary time cutoff
+PASS An accessibility click on the full-screen image follows the same exit route
+PASS A left drag starting on an illustration advances to the next chapter
+PASS A right drag starting on an illustration returns to the previous chapter
+PASS Slow motion over an image follows the finger and exposes the neighboring chapter
+PASS A slow image drag commits by distance after a held release
+PASS Dragging the illustration button padding also switches chapters
+PASS A short image drag rebounds without opening the image or switching chapters
+PASS Native vertical scrolling from an image neither switches chapters nor opens it
+PASS A cancelled image swipe restores the chapter and removes preview layers
+PASS A second finger cancels an image swipe without opening or navigating
+PASS Illustrations disable native image dragging so horizontal gestures stay with the reader
+PASS Image touch policy permits native vertical scrolling and pinch zoom
+PASS An image swipe at the first chapter cannot navigate before the book
+PASS An image swipe at the last chapter cannot wrap around the book
+
+47 tap/image checks passed, 0 failed. Assigned geometry and synthetic events only.
+PASS Existing installations default to gentle haptics without a storage migration
+PASS Profile exposes three touch-feedback modes and a preview control
+PASS Off mode suppresses preview and functional feedback
+PASS Changing feedback modes updates in place and persists the choice
+PASS Enabling feedback emits one selection pulse
+PASS Feedback preference is stored with the existing settings record
+PASS Pointer release plus compatibility click opens a card with exactly one standard pulse
+PASS Gentle mode includes one soft pulse for ordinary card-opening taps
+PASS Consecutive switch taps both apply and emit one pulse each without cooldown
+PASS Navigation changes and repeated current-tab taps each receive one pulse
+PASS Frequent word lookups do not add custom haptics in reading
+PASS A completed word collection emits one confirmation despite duplicate taps
+PASS Removing a collected word uses a lighter off effect
+PASS Failed storage does not claim success through a confirmation pulse
+PASS Sentence collection confirms after successful persistence
+PASS Translation feedback occurs once for the switch rather than once per paragraph
+PASS Chapter confirmation is emitted once for a valid committed change
+PASS Short chapter drags rebound silently without changing chapter
+PASS Backgrounded pages do not request haptic feedback
+PASS Only dense haptic ticks are rate-limited
+PASS Off mode applies consistently to all app feedback semantics
+PASS Slider values and visual labels update immediately while writes are coalesced
+PASS Font changes do not repeatedly notify the native system theme
+PASS Releasing a slider immediately flushes exactly one settings write
+PASS A completed slider change leaves no delayed duplicate write
+PASS Idle slider adjustments are automatically saved once
+PASS Repeated theme application reuses native state
+PASS A real dark-mode change still updates native system bars once
+PASS Unchanged palettes avoid rebuilding all custom color properties
+PASS Repeated text is tokenized once without changing escaped output
+PASS The text cache has both entry and total-character limits
+PASS Oversized text is fully rendered without being retained in the cache
+PASS Spring samples exactly match the previous release for representative interactions
+PASS Cached spring curves cannot be corrupted by a caller
+PASS Only card entrance timing changes for the requested spring
+PASS A burst of scroll events schedules only one progress paint
+PASS The coalesced progress paint uses the latest scroll position
+PASS Leaving reading cancels pending progress work
+PASS Finding the visible paragraph preserves the anchor with logarithmic layout reads
+PASS Adjacent preparation waits for idle time instead of running during entry
+PASS Preparation runs in bounded slices and keeps at most two nearby images
+PASS A new touch immediately cancels optional idle preparation
+PASS Leaving a book releases its optional decoded-image references
+PASS Unavailable haptics never delay or fail the original button action
+PASS Browser fallback silently ignores functional haptics
+
+45 haptic/performance checks passed. Operation counts and synthetic scheduling only.
+PASS A 40px slow left stroke advances a chapter
+PASS A 40px slow right stroke returns a chapter
+PASS A short slow stroke over an illustration switches without opening the image
+PASS Illustration strokes work in both directions at the shorter distance
+PASS A 24px fast left flick advances
+PASS A 24px fast right flick returns
+PASS A quick image stroke can commit from release coordinates when no move event arrived
+PASS A slow 24px sideways adjustment remains a rebound
+PASS Tiny fast finger jitter does not turn chapters
+PASS Vertical-dominant scrolling cannot meet the shorter chapter trigger
+PASS Ambiguous diagonal gestures stay outside chapter switching
+PASS Pulling back toward the origin still cancels a short chapter stroke
+PASS Cancelling a short swipe never commits navigation
+PASS Short gestures respect the first chapter boundary
+PASS Short gestures respect the last chapter boundary
+PASS Default gentle mode gives a soft pulse to theme settings
+PASS The theme preview button also has soft press feedback
+PASS Translation settings receive feedback without switching to standard mode
+PASS Search tabs receive soft feedback
+PASS A search arrow touch submits on release with exactly one pulse
+PASS Keyboard search submission keeps one matching feedback event
+PASS Gentle preview represents the new soft-button sensation
+PASS Font size has a gentle tick in the default mode and applies instantly
+PASS Line spacing also has a gentle default tick
+PASS An unchanged slider value does not create another tick
+PASS Dense ticks are coalesced while every slider adjustment still applies
+PASS A committed downward card dismissal uses one soft sheet event
+PASS The close button gives one soft pulse rather than a second gesture pulse
+PASS Main Dock selection requests the softened selection effect
+PASS Repeated current-Dock taps still get one soft response
+PASS Off mode still suppresses the expanded button and slider coverage
+
+31 short-swipe/soft-feedback checks passed. Synthetic events only.
+PASS The reader Dock contains directory, theme and translation groups
+PASS Directory owns chapter progress and navigation
+PASS Theme owns font size, line spacing and paper controls
+PASS Reader theme is a clear half-screen preview with no sample text or motion toggle
+PASS The reading preview height includes the safe bottom inside a 50dvh budget
+PASS Font adjustment updates the actual page and keeps the visible paragraph anchored
+PASS Nested colors return to the same half-sheet with a clear preview background
+PASS Directory chrome sits outside the only scrollable chapter list
+PASS Directory keeps its rounded shell and non-intercepting highlight without clipping the outer shadow
+PASS Progress no longer creates an independent square opaque sticky surface
+PASS Scrolling chapter rows keeps the progress and close controls in the shell
+PASS Personal reading preferences still contain the reduced-motion setting
+PASS Translation keeps three useful switches without the removed paragraph-button option
+PASS Original reading has no paragraph translation controls or added rows
+PASS Full bilingual mode still displays every paragraph translation without buttons
+PASS Returning to original reading removes translations without restoring paragraph buttons
+PASS Point-to-speak is an independently persisted preference
+PASS Opening a word requests pronunciation immediately when enabled
+PASS Tapping the active word again closes the card and stops automatic speech
+PASS A tap anywhere on the image viewer closes it despite small touch jitter
+PASS Pinching zooms the illustration without treating release as an exit tap
+PASS A short slow 28px stroke switches chapter at phone width
+PASS Minor release jitter does not cancel an otherwise deliberate stroke
+PASS A clear return toward the origin cancels chapter navigation
+
+24 reader-tool checks passed. Synthetic events only.
+PASS Release trajectories are densely sampled for high-refresh displays, stay bounded and finish at rest
+PASS Fast same-direction releases settle sooner than slow releases at the same distance
+PASS Forward inertia is monotonic and decelerates toward the last frame
+PASS Rotation keeps the reader nodes and restores the saved paragraph offset
+PASS Coalesced orientation and inset events retain the same pending reading anchor
+PASS A pending rotation restore cannot move a newly selected chapter
+PASS Viewport changes retain the open theme panel, its controls and clear backdrop
+PASS Chapter release uses sampled inertia while committing input immediately
+PASS Incoming and outgoing chapters remain joined for every inertia frame
+PASS A fresh touch interrupts the coast at its visible offset without waiting
+PASS Rotation during a grabbed coast clears old-width transforms and previews
+PASS Reduced motion commits the chapter without a settling animation
+PASS Landscape word bounds use the available height above the dock
+PASS Rotating a fullscreen illustration keeps it open and fits it to the new viewport
+PASS Landscape theme and directory share a bounded centered footer
+PASS Landscape directory separates progress and chapter scrolling into two columns
+PASS Main navigation and review actions use compact safe-area offsets
+PASS Shelf, notes, illustrations and word cards have landscape-specific width constraints
+
+18 landscape/inertia checks passed. Synthetic geometry and CSS contracts only.
+PASS Language settings expose 20 supported targets and default to Simplified Chinese
+PASS The Dock language settings and the translation shortcut have distinct icons
+PASS Legacy Chinese caches stay usable but cannot be read as another target language
+PASS Switching language preserves the current panel, original words, scroll and single-paragraph choice
+PASS Japanese translation placeholders never fall back to the bundled Chinese seed
+PASS Right-to-left targets carry their own language and automatic text direction
+PASS Custom language choices persist the target and update the same controls in place
+PASS Unknown target values are ignored without changing the saved preference
+PASS Switching back restores the existing Chinese cache without network work
+PASS Google requests use the chosen target with automatic source detection
+PASS Custom AI requests name the chosen language and keep literary text in its user message
+PASS MyMemory receives the book source and selected target without an English-Chinese hardcode
+PASS Oversized multibyte MyMemory input is rejected whole before any request
+PASS Matching MyMemory source and target returns the original text without an invalid language pair
+PASS The requested language cache is reused with its own language key
+PASS A current target can finish while an older target request is still in flight
+PASS A late old-target result is stored under its own key and cannot overwrite current text
+PASS Rapid switching bounds unfinished target generations to two workers
+PASS The newest queued target proceeds when a slot frees, with no stale language flash
+PASS Failures from an obsolete target do not replace the new translation or show a stale error
+PASS Adjacent chapter previews use the selected target instead of Chinese fallback
+PASS Invalid stored language settings have a safe Simplified Chinese fallback
+
+22 translation-language checks passed. Controlled network responses only.
+PASS A fresh install follows English system language with functional Library heading
+PASS Library has a naturally wrapping subtitle and no app-name header
+PASS English book titles use original metadata without altering the stored Chinese title
+PASS search uses its short localized heading
+PASS notes uses its short localized heading
+PASS profile uses its short localized heading
+PASS Personal language settings describe the current system locale
+PASS Language choices retain autonyms and an accessible current selection
+PASS Switching immediately updates page, dialog, Dock and document language to Traditional Chinese
+PASS Switching UI language preserves translation target, nickname and reading settings
+PASS UI language is persisted alongside existing settings
+PASS Repeated switching leaves exactly one panel and one active choice, without duplicate overlays
+PASS Invalid selections do not overwrite the chosen locale
+PASS Changing language from the guide returns to a freshly localized guide
+PASS The guide is fully localized in English after switching back
+PASS themes translates application labels and explanatory copy
+PASS customColors translates application labels and explanatory copy
+PASS translationSettings translates application labels and explanatory copy
+PASS translationTools translates application labels and explanatory copy
+PASS dictionarySettings translates application labels and explanatory copy
+PASS hapticSettings translates application labels and explanatory copy
+PASS privacy translates application labels and explanatory copy
+PASS about translates application labels and explanatory copy
+PASS Chinese words, definitions and comments authored by the user stay untouched in English UI
+PASS A manual language choice ignores later system-language changes
+PASS Following a Traditional Chinese device updates tools while preserving reading scroll and original text
+PASS Native system-language updates refresh only when Follow system is selected
+PASS The native bridge receives the app preference independently from translation settings
+PASS Chinese locale normalization handles script and regional variants with safe English fallback
+PASS A saved manual choice survives restart on a differently configured device
+PASS Unsupported fresh device languages get a complete English interface
+
+31 app-language checks passed. Synthetic DOM and native-bridge stubs only.
+PASS Dragging translates only chapter content and keeps back/progress outside that layer
+PASS Release promotes the existing preview and words without parsing the chapter a second time
+PASS Seven fast same-direction flicks all commit before the previous coast finishes
+PASS A burst of chapter changes updates in-memory position without synchronous position writes
+PASS The burst persists the final chapter once and releases all temporary layers
+PASS Stored reading progress matches the final accepted chapter
+PASS A prewarmed chapter handles the complete drag and release without tokenization
+PASS An immediate opposite flick returns to the prior chapter and remains interactive
+PASS Even a legacy enabled preference cannot insert paragraph buttons into reading
+PASS Language selection uses themed app controls, with every target and one selected state
+PASS Choosing a language returns to the same parent and updates its label and saved target
+PASS Cancelling language selection restores the parent without changing the translation target
+PASS Compact language tools have complete en UI copy
+PASS Compact language tools have complete zh-TW UI copy
+PASS Word cards reserve extra leading and bottom ink space for descending glyphs
+PASS Landscape translation tools use two columns and internally scrollable content
+PASS Android entry and script/style cache keys follow the installed package version
+
+17 reader-fix checks passed. No real-device frame-rate or pixel claims.
+PASS Language changes retain the exact sheet, backdrop, overlay record, option buttons and focus
+PASS Rapid language choices leave the final choice selected without a new sheet-entry animation
+PASS A language change preserves and relabels the original hidden guide rather than reopening it
+PASS All four top green taglines remain English in zh-CN
+PASS All four top green taglines remain English in zh-TW
+PASS All four top green taglines remain English in en
+PASS The shelf has a distinct localized subtitle and no waiting-for-the-next-page count row
+PASS Showing translation starts a fade and a sampled spring for displaced paragraphs, preserving original words and controls
+PASS A second tap reverses the live fade from its sampled opacity while keeping the same translation node for its exit
+PASS Reopening during fade-out resumes from the current opacity and restores flow without recreating the paragraph
+PASS Cancelled exit callbacks cannot remove reopened translations or leave layout animation records
+PASS Twelve fast taps resolve to the final state with exactly one translation per paragraph
+PASS Closing uses fade-out frames and removes translations from layout before their visual exit ends
+PASS After close completes no invisible translation layer or stale animation remains
+PASS Single-paragraph state also supports interruptible fade reversal without visible paragraph buttons
+PASS A longer asynchronous translation uses the same spring path to move following content
+PASS Backgrounding clears fading translation ghosts and sibling-motion state
+PASS Reduced motion applies translation state immediately without animations or leftover ghosts
+
+18 locale/translation motion checks passed. Assigned geometry only.
+PASS A cold open renders a readable first slice without synchronously tokenizing all 80 paragraphs
+PASS The next active slice has a short deadline and the incomplete chapter has no premature end buttons
+PASS An expired idle deadline still processes only one paragraph
+PASS A callback without idle budget yields without doing chapter work
+PASS Incremental completion preserves the original word node and reading scroll
+PASS Every paragraph is present once, in source order, with intact text and final navigation
+PASS A cold neighbouring chapter also creates at most four paragraphs during a drag
+PASS Seventy input updates coalesce into one frame while retaining the latest finger position
+PASS The next frame paints the latest offset, with the two chapters joined
+PASS Release flushes the latest input and promotes the same partial preview without reparsing it
+PASS Ten immediate chapter flicks commit all ten targets with bounded parsing per change
+PASS A pending deep restore retains its saved chapter/anchor and exposes localized loading feedback
+PASS Resume waits until the anchor can reach its saved offset, then removes the loading cover
+PASS Saving after progressive resume records the same viewport rather than a temporary start
+PASS Switching interface language restores the deep viewport after its new localized pane loads
+PASS Changing translation target during loading applies the latest target to every appended paragraph
+PASS A saved sentence beyond the first slice receives the correct chapter-relative annotation
+PASS Leaving a chapter cancels work and a late callback cannot mutate abandoned content
+PASS Shelf preparation warms only the entry slice and does not change the active book or location
+PASS Opening the warmed book reuses its paragraph nodes without synchronous tokenization
+PASS Loading indicators are delayed, respect reduced motion, and are absent on completed chapters
+
+21 incremental-reader checks passed. No device FPS or pixel claims.

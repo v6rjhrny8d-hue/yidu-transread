@@ -1,0 +1,11 @@
+PASS A fresh install follows English system language with functional Library heading
+PASS Library has a naturally wrapping subtitle and no app-name header
+PASS English book titles use original metadata without altering the stored Chinese title
+PASS search uses its short localized heading
+PASS notes uses its short localized heading
+PASS profile uses its short localized heading
+PASS Personal language settings describe the current system locale
+PASS Language choices retain autonyms and an accessible current selection
+PASS Switching immediately updates page, dialog, Dock and document language to Traditional Chinese
+PASS Switching UI language preserves translation target, nickname and reading settings
+PASS UI language is persisted alongside existing settings

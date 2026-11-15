@@ -1,0 +1,23 @@
+PASS Fresh glass defaults are 10px blur and 70 percent fill
+PASS Null and invalid glass preferences use defaults while explicit zero is preserved
+PASS Existing manual glass choices survive restarting
+PASS Restore defaults updates both controls and their saved values
+PASS Horizontal touch moves and fades the definition before the finger lifts
+PASS Horizontal definition dragging leaves the fixed card header and chapter in place
+PASS Releasing a committed swipe starts a real finite transition
+PASS Next dictionary slides in and restores a clean resting pose without replacing the scroll node
+PASS Animated dictionary changes preserve each source scroll offset
+PASS A short horizontal pull rebounds without selecting another dictionary
+PASS Pointer cancellation rebounds and keeps the current definition
+PASS Pulling beyond the first dictionary applies edge resistance
+PASS Edge release returns to the same dictionary
+PASS Reversing during an entrance takes over the visible pose without jumping to the old target
+PASS Reversed swipe settles on the intended previous source
+PASS Rapid consecutive changes settle on the latest intended source without stale animation
+PASS Late lookup results cannot replace a newer animated selection
+PASS Reduced motion switches directly with no lingering transform or animation
+PASS Rotation cancels stale slide work and keeps card bounds valid
+PASS Closing during a switch cleans animations and cannot resurrect the card
+PASS Selecting a dictionary by name uses the same transition and retains one card
+PASS No uncaught browser errors
+TOTAL 22

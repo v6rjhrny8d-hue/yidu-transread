@@ -1,0 +1,47 @@
+PASS 27 complete English chapters, 10 aligned offline translations
+PASS Four navigation destinations and offline dictionary
+PASS Shelf header has only the guide, while book import and dock search remain reachable
+PASS The guide opens from the home action with reading, translation and backup instructions
+PASS Home requests visible system bars when the Android bridge is present
+PASS Hiding reader controls requests immersive system bars
+PASS Repeated renders and theme changes do not resend or reverse immersive state
+PASS Showing reader controls requests visible system bars
+PASS Leaving an immersive reader restores the system bars
+PASS All 47 original illustration assets exist and anchor to valid paragraphs
+PASS Main navigation retains one sliding capsule across page changes
+PASS Dragging moves the capsule without rebuilding the current page
+PASS Releasing the dock drag selects the nearest destination
+PASS Reader groups progress, typography and translation into three focused tools
+PASS Reader has no operation hint or bottom blur and keeps only the top edge effect
+PASS First chapter contains the boa, hat and elephant illustrations inline
+PASS Dock hides
+PASS Dock reappears
+PASS Reader progress, chapter metadata and back button hide together without moving text
+PASS All reader controls return together and progress survives translation rerender
+PASS Word popup bounds leave room above system bars and the dock across viewport sizes
+PASS Reader show/hide reuses the same dock layer
+PASS An illustration can open in its own viewing panel
+PASS Translation is directly below every paragraph
+PASS A vertical swipe cannot hide the reader controls accidentally
+PASS A stationary tap still hides the reader controls and progress
+PASS One word returns offline Chinese explanation
+PASS Tapping the active word again closes its explanation
+PASS Star creates a persisted vocabulary note
+PASS Late dictionary results preserve the scroll region, popup and current offset
+PASS Favorite changes preserve a scrolled long definition
+PASS Fast repeated favorite taps commit one change and re-enable the control
+PASS Fast repeated collection creates one vocabulary record
+AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+
+  assert(w.document.querySelector('.small-caption').textContent.includes('ECDICT 离线回退'))
+
+    at /workspace/scratch/12cfa0f7c25b/implementation/transread/test/smoke.cjs:83:167
+    at check (/workspace/scratch/12cfa0f7c25b/implementation/transread/test/smoke.cjs:31:26)
+    at /workspace/scratch/12cfa0f7c25b/implementation/transread/test/smoke.cjs:83:95 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}

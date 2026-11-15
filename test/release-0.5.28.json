@@ -1,0 +1,50 @@
+{
+  "version": "0.5.28",
+  "versionCode": 49,
+  "package": "app.lumi.reader",
+  "checks": {
+    "logic": 503,
+    "native": 52,
+    "browserRegression": 326,
+    "browserPerformance": 20,
+    "browserNewFeatures": 32
+  },
+  "total": 933,
+  "scope": "JS logic, real Chromium touch/layout and mock native PDF/storage bridge, native UI/haptics/recovery stubs, production PDF geometry/cache methods with stubs, actual Android SDK compile and signed APK build.",
+  "originalSigningCertificateMatches": true,
+  "signingCertificateSHA256": "8d21d7bc40b619f048f03e266031c59f7ad50cff5337203f5dce891d487c61fd",
+  "packagedAssetsMatchSource": true,
+  "verifiedAssetCount": 69,
+  "apkZipCRCValid": true,
+  "apkSHA256": "b0d8240263d4c59945493b6521d5e6d6c63d1cc43ca8454fd68af5ecb20f8b79",
+  "evidence": [
+    "unit-0528.log",
+    "native-0528.log",
+    "native-pdf-0528.log",
+    "browsers-0528.log",
+    "performance-after-0528.log",
+    "performance-after-0528.json",
+    "iteration-0528.log",
+    "build-0.5.28.log"
+  ],
+  "limits": {
+    "pdfFileBytes": 104857600,
+    "textFileBytes": 31457280,
+    "pdfPagePixels": 2000000,
+    "pdfMaxBitmapSide": 4096,
+    "pdfCacheBytes": 20971520,
+    "pdfCachePages": 4,
+    "pdfPendingRenders": 2,
+    "pdfMaxPages": 20000,
+    "customCoverSize": [
+      450,
+      675
+    ]
+  },
+  "limitations": [
+    "PdfRenderer, Canvas, Android picker and MediaStore were not executed on a physical Android device. Browser native operations were mocked; PDF geometry/cache tests reuse production methods with stubs.",
+    "PDF first release preserves page layout and supports navigation/zoom/resume; no OCR or PDF text selection/translation.",
+    "Native PDF/library state is device-local; existing export remains a notes/tags backup.",
+    "Automated checks do not establish Redmi K80 Pro FPS, memory usage, or zero crash behavior."
+  ]
+}

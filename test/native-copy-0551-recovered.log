@@ -1,0 +1,4 @@
+PASS Exact 1GiB is copied in bounded native chunks
+PASS One byte over 1GiB is rejected without excess output
+PASS Independent PDF copy limit is preserved
+TOTAL 3

@@ -1,0 +1,7 @@
+PASS Mixed untranslated source passages are detected without rejecting translated names or same-language text
+PASS Dictionary parser distinguishes Oxford UK/US recordings and strips BrE labels from IPA
+PASS Lookup retains one speaker, favorite and close control with a compact accent selector
+PASS Original clicked word remains visible above the dictionary card
+PASS Imported CSS is readable on dark surfaces while keeping table layout and semantic colours
+PASS CSS off keeps images and content while disabling package colours and spacing
+PASS A light/dark change recolours an open dictionary without rebuilding its card or scroll container

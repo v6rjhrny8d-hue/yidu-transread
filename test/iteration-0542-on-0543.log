@@ -1,0 +1,10 @@
+PASS All six themes blur the dock and buttons without a texture image or opacity change
+PASS PDF keeps the shelf visible and input shielded while its native viewport prepares
+PASS Entering PDF finishes on visible chrome with the shelf hidden
+PASS Returning from PDF crossfades the book and accepts one close request
+PASS PDF return clears temporary opacity and leaves the shelf interactive
+PASS Backing out before PDF finishes opening cannot reveal a late native page
+PASS Scrolling text drives a straight, bounded slide of the right rail
+PASS Touching the moving rail keeps its visible position when motion is interrupted
+PASS No uncaught UI errors
+TOTAL 9

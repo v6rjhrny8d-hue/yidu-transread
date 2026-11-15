@@ -1,0 +1,12 @@
+PASS RAR retains CSS and package-relative images atomically
+PASS CSS is rendered in the actual word-card shadow tree
+PASS Stylesheets, html/body selectors, and inline styles retain layout
+PASS Package-relative CSS backgrounds and HTML images are local blob URLs
+PASS Dictionary CSS cannot hide the Dock or escape with fixed positioning
+PASS Script/event handlers and remote CSS/image requests are removed
+PASS Dictionary pronunciation links route to the existing speech button
+PASS Saved-note source stays plain text without HTML/CSS
+PASS Rendering remains contained at narrow and landscape sizes
+PASS CSS and images survive an app restart
+PASS A standalone same-name CSS attaches to an existing MDX
+PASS Changed same-path CSS replaces the stored stylesheet

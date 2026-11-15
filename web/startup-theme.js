@@ -1,0 +1,3 @@
+'use strict';
+/* Synchronous theme snapshot precedes styles and the first painted startup frame. */
+(()=>{try{let colors;if(window.LumiNative?.startupTheme)colors=JSON.parse(window.LumiNative.startupTheme());else{const saved=JSON.parse(localStorage.getItem('yidu-startup')||'null');if(saved){const dark=saved.appearance==='dark'||saved.appearance==='system'&&matchMedia('(prefers-color-scheme: dark)').matches;colors={paper:dark?saved.dark:saved.light,ink:dark?'#f3f3f4':'#242426',accent:saved.accent};}}if(!colors)return;for(const key of ['paper','ink','accent'])if(/^#[0-9a-f]{6}$/i.test(colors[key]))document.documentElement.style.setProperty('--'+key,colors[key]);document.querySelector('meta[name="theme-color"]')?.setAttribute('content',colors.paper);}catch{}})();

@@ -1,0 +1,13 @@
+PASS 390 initial document action clears toolbar and cutout
+PASS 390 repeated page callbacks do not accumulate padding
+PASS 390 scrolling colored page content changes the translucent bar pixels
+PASS 390 rotation changes buffer once and preserves document position
+PASS 844 initial document action clears toolbar and cutout
+PASS 844 repeated page callbacks do not accumulate padding
+PASS 844 scrolling colored page content changes the translucent bar pixels
+PASS 844 rotation changes buffer once and preserves document position
+PASS Native device pixels convert to document CSS pixels without a density-sized gap
+PASS No uncaught errors occur while scrolling under the bar
+PASS Native website fills the canvas and header is added above it
+PASS Inset work is limited to page and layout callbacks, without a scroll loop or native bridge
+12 source overlay and scrolling material checks passed.

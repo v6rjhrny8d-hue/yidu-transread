@@ -1,0 +1,44 @@
+{
+  "version": "0.5.35",
+  "versionCode": 56,
+  "package": "app.lumi.reader",
+  "checks": {
+    "guideSmokeAndLocales": 97,
+    "guideChromiumLayout": 6
+  },
+  "uniqueChecks": 103,
+  "scope": "Guide copy only, in Simplified Chinese, Traditional Chinese and English, plus release version updates. 66 existing smoke and 31 app-language checks; six Chromium guide content/layout/scroll/close scenarios across three languages and portrait/landscape. The old smoke assertion expected seven guide sections; updated to eleven with all other assertions retained. Initial failure log is preserved. Previous full behavior/performance suites were not rerun",
+  "evidence": [
+    "guide-locales-0535.log",
+    "guide-layout-0535.log",
+    "build-0.5.35.log"
+  ],
+  "originalSigningCertificateMatches": true,
+  "signingCertificateSHA256": "8d21d7bc40b619f048f03e266031c59f7ad50cff5337203f5dce891d487c61fd",
+  "verifiedAssetCount": 70,
+  "packagedAssetsMatchSource": true,
+  "apkZipCRCValid": true,
+  "apkSHA256": "7ac9a47028045c3d8a1d1676b5da3a05c133b23652ed4419e8e50951705e687a",
+  "limits": {
+    "guideSections": 11,
+    "guideLocales": [
+      "zh-CN",
+      "zh-TW",
+      "en"
+    ],
+    "viewportSizes": [
+      [
+        390,
+        844
+      ],
+      [
+        844,
+        390
+      ]
+    ]
+  },
+  "limitations": [
+    "This is a documentation update; no new app feature or interaction was implemented.",
+    "Chromium checks cover text and geometry; physical Android glyph rendering and touch were not tested."
+  ]
+}

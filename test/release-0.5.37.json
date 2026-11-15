@@ -1,0 +1,41 @@
+{
+  "version": "0.5.37",
+  "versionCode": 58,
+  "package": "app.lumi.reader",
+  "checks": {
+    "hapticAndResponsivenessLogic": 45,
+    "nativeSourceAndFeedbackPolicy": 40,
+    "sourceToolbarTouchAndLayoutChromium": 25
+  },
+  "uniqueChecks": 110,
+  "scope": "45 existing haptic and responsiveness JS checks; 40 production Java toolbar policy/action/geometry/feedback and existing haptic/routing checks against stubs; 25 real Chromium translucent bar/capsule alignment/3 locales/light-dark/portrait-landscape/real touch press/release/interruption/cancel/reduced-motion checks. The whole historical suite was not rerun. Native source and PDF classes were compiled together by the release build. A toolbar test fixture selector was corrected to select Done specifically; finite spring transitions are captured by transitionrun events to avoid CDP round-trip sampling after a completed transition.",
+  "evidence": [
+    "haptics-logic-0537.log",
+    "native-toolbar-0537.log",
+    "iteration-0537.log",
+    "build-0.5.37.log"
+  ],
+  "originalSigningCertificateMatches": true,
+  "signingCertificateSHA256": "8d21d7bc40b619f048f03e266031c59f7ad50cff5337203f5dce891d487c61fd",
+  "verifiedAssetCount": 72,
+  "packagedAssetsMatchSource": true,
+  "apkZipCRCValid": true,
+  "apkSHA256": "db481e4fed9d18d85e0bb16ec1fb9b5647562200e1f85cca48a7cd18fb5f421c",
+  "limits": {
+    "sourceButtonCSSPx": 44,
+    "sourceToolbarDp": 64,
+    "sourceSafeInsets": "Display cutouts only; no stable hidden system-bar bands",
+    "sourceToolbarScriptEnabled": true,
+    "sourceToolbarScriptPolicy": "Only bundled local press-state script, CSP self, no native bridge or arbitrary navigation",
+    "sourceWebsiteNativeBridge": false,
+    "sourceControls": {
+      "back": "Website history, then close",
+      "done": "Close immediately"
+    }
+  },
+  "limitations": [
+    "Actual Android immersive bars, cutout/IME handling and WebView composition were not tested on a physical Redmi K80 Pro.",
+    "External website sign-in and authenticated downloads retain the existing implementation but were not exercised against a live site.",
+    "Chromium validates local-toolbar text/geometry and shadow behavior, not native hardware performance or system gesture behavior."
+  ]
+}

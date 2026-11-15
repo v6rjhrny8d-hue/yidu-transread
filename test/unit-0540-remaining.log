@@ -1,0 +1,203 @@
+PASS A 40px slow left stroke advances a chapter
+PASS A 40px slow right stroke returns a chapter
+PASS A short slow stroke over an illustration switches without opening the image
+PASS Illustration strokes work in both directions at the shorter distance
+PASS A 24px fast left flick advances
+PASS A 24px fast right flick returns
+PASS A quick image stroke can commit from release coordinates when no move event arrived
+PASS A slow 24px sideways adjustment remains a rebound
+PASS Tiny fast finger jitter does not turn chapters
+PASS Vertical-dominant scrolling cannot meet the shorter chapter trigger
+PASS Ambiguous diagonal gestures stay outside chapter switching
+PASS Pulling back toward the origin still cancels a short chapter stroke
+PASS Cancelling a short swipe never commits navigation
+PASS Short gestures respect the first chapter boundary
+PASS Short gestures respect the last chapter boundary
+PASS Default gentle mode gives a soft pulse to theme settings
+PASS The theme preview button also has soft press feedback
+PASS Translation settings receive feedback without switching to standard mode
+PASS Search tabs receive soft feedback
+PASS A search arrow touch submits on release with exactly one pulse
+PASS Keyboard search submission keeps one matching feedback event
+PASS Gentle preview represents the new soft-button sensation
+PASS Font size has a gentle tick in the default mode and applies instantly
+PASS Line spacing also has a gentle default tick
+PASS An unchanged slider value does not create another tick
+PASS Dense ticks are coalesced while every slider adjustment still applies
+PASS A committed downward card dismissal uses one soft sheet event
+PASS The close button gives one soft pulse rather than a second gesture pulse
+PASS Main Dock selection requests the softened selection effect
+PASS Repeated current-Dock taps still get one soft response
+PASS Off mode still suppresses the expanded button and slider coverage
+
+31 short-swipe/soft-feedback checks passed. Synthetic events only.
+PASS The reader Dock contains directory, theme and translation groups
+PASS Directory owns chapter progress and navigation
+PASS Theme owns font size, line spacing and paper controls
+PASS Reader theme is a clear half-screen preview with no sample text or motion toggle
+PASS The reading preview height includes the safe bottom inside a 50dvh budget
+PASS Font adjustment updates the actual page and keeps the visible paragraph anchored
+PASS Nested colors return to the same half-sheet with a clear preview background
+PASS Directory chrome sits outside the only scrollable chapter list
+PASS Directory keeps its rounded shell and non-intercepting highlight without clipping the outer shadow
+PASS Progress no longer creates an independent square opaque sticky surface
+PASS Scrolling chapter rows keeps the progress and close controls in the shell
+PASS Personal reading preferences still contain the reduced-motion setting
+PASS Translation keeps three useful switches without the removed paragraph-button option
+PASS Original reading has no paragraph translation controls or added rows
+PASS Full bilingual mode still displays every paragraph translation without buttons
+PASS Returning to original reading removes translations without restoring paragraph buttons
+PASS Point-to-speak is an independently persisted preference
+PASS Opening a word requests pronunciation immediately when enabled
+PASS Tapping the active word again closes the card and stops automatic speech
+PASS A tap anywhere on the image viewer closes it despite small touch jitter
+PASS Pinching zooms the illustration without treating release as an exit tap
+PASS A short slow 28px stroke switches chapter at phone width
+PASS Minor release jitter does not cancel an otherwise deliberate stroke
+PASS A clear return toward the origin cancels chapter navigation
+
+24 reader-tool checks passed. Synthetic events only.
+PASS Release trajectories are densely sampled for high-refresh displays, stay bounded and finish at rest
+PASS Fast same-direction releases settle sooner than slow releases at the same distance
+PASS Forward inertia is monotonic and decelerates toward the last frame
+PASS Rotation keeps the reader nodes and restores the saved paragraph offset
+PASS Coalesced orientation and inset events retain the same pending reading anchor
+PASS A pending rotation restore cannot move a newly selected chapter
+PASS Viewport changes retain the open theme panel, its controls and clear backdrop
+PASS Chapter release uses sampled inertia while committing input immediately
+PASS Incoming and outgoing chapters remain joined for every inertia frame
+PASS A fresh touch interrupts the coast at its visible offset without waiting
+PASS Rotation during a grabbed coast clears old-width transforms and previews
+PASS Reduced motion commits the chapter without a settling animation
+PASS Landscape word bounds use the available height above the dock
+PASS Rotating a fullscreen illustration keeps it open and fits it to the new viewport
+PASS Landscape theme and directory share a bounded centered footer
+PASS Landscape directory separates progress and chapter scrolling into two columns
+PASS Main navigation and review actions use compact safe-area offsets
+PASS Shelf, notes, illustrations and word cards have landscape-specific width constraints
+
+18 landscape/inertia checks passed. Synthetic geometry and CSS contracts only.
+PASS Language settings expose 20 supported targets and default to Simplified Chinese
+PASS The Dock language settings and the translation shortcut have distinct icons
+PASS Legacy Chinese caches stay usable but cannot be read as another target language
+PASS Switching language preserves the current panel, original words, scroll and single-paragraph choice
+PASS Japanese translation placeholders never fall back to the bundled Chinese seed
+PASS Right-to-left targets carry their own language and automatic text direction
+PASS Custom language choices persist the target and update the same controls in place
+PASS Unknown target values are ignored without changing the saved preference
+PASS Switching back restores the existing Chinese cache without network work
+PASS Google requests use the chosen target with automatic source detection
+PASS Custom AI requests name the chosen language and keep literary text in its user message
+PASS MyMemory receives the book source and selected target without an English-Chinese hardcode
+PASS Oversized multibyte MyMemory input is rejected whole before any request
+PASS Matching MyMemory source and target returns the original text without an invalid language pair
+PASS The requested language cache is reused with its own language key
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+0 !== 1
+
+    at /workspace/scratch/0f9dfce2e3b6/transread/test/translation-languages.cjs:44:196 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: 0,
+  expected: 1,
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+PASS A fresh install follows English system language with functional Library heading
+PASS Library has a naturally wrapping subtitle and no app-name header
+PASS English book titles use original metadata without altering the stored Chinese title
+PASS search uses its short localized heading
+PASS notes uses its short localized heading
+PASS profile uses its short localized heading
+PASS Personal language settings describe the current system locale
+PASS Language choices retain autonyms and an accessible current selection
+PASS Switching immediately updates page, dialog, Dock and document language to Traditional Chinese
+PASS Switching UI language preserves translation target, nickname and reading settings
+PASS UI language is persisted alongside existing settings
+PASS Repeated switching leaves exactly one panel and one active choice, without duplicate overlays
+PASS Invalid selections do not overwrite the chosen locale
+PASS Changing language from the guide returns to a freshly localized guide
+PASS The guide is fully localized in English after switching back
+PASS themes translates application labels and explanatory copy
+PASS customColors translates application labels and explanatory copy
+PASS translationSettings translates application labels and explanatory copy
+PASS translationTools translates application labels and explanatory copy
+PASS dictionarySettings translates application labels and explanatory copy
+PASS hapticSettings translates application labels and explanatory copy
+PASS privacy translates application labels and explanatory copy
+PASS about translates application labels and explanatory copy
+PASS Chinese words, definitions and comments authored by the user stay untouched in English UI
+PASS A manual language choice ignores later system-language changes
+PASS Following a Traditional Chinese device updates tools while preserving reading scroll and original text
+PASS Native system-language updates refresh only when Follow system is selected
+PASS The native bridge receives the app preference independently from translation settings
+PASS Chinese locale normalization handles script and regional variants with safe English fallback
+PASS A saved manual choice survives restart on a differently configured device
+PASS Unsupported fresh device languages get a complete English interface
+
+31 app-language checks passed. Synthetic DOM and native-bridge stubs only.
+PASS Dragging translates only chapter content and keeps back/progress outside that layer
+PASS Release promotes the existing preview and words without parsing the chapter a second time
+PASS Seven fast same-direction flicks all commit before the previous coast finishes
+PASS A burst of chapter changes updates in-memory position without synchronous position writes
+PASS The burst persists the final chapter once and releases all temporary layers
+PASS Stored reading progress matches the final accepted chapter
+PASS A prewarmed chapter handles the complete drag and release without tokenization
+PASS An immediate opposite flick returns to the prior chapter and remains interactive
+PASS Even a legacy enabled preference cannot insert paragraph buttons into reading
+PASS Language selection uses themed app controls, with every target and one selected state
+PASS Choosing a language returns to the same parent and updates its label and saved target
+PASS Cancelling language selection restores the parent without changing the translation target
+PASS Compact language tools have complete en UI copy
+PASS Compact language tools have complete zh-TW UI copy
+PASS Word cards reserve extra leading and bottom ink space for descending glyphs
+PASS Landscape translation tools use two columns and internally scrollable content
+PASS Android entry and script/style cache keys follow the installed package version
+
+17 reader-fix checks passed. No real-device frame-rate or pixel claims.
+PASS Language changes retain the exact sheet, backdrop, overlay record, option buttons and focus
+PASS Rapid language choices leave the final choice selected without a new sheet-entry animation
+PASS A language change preserves and relabels the original hidden guide rather than reopening it
+PASS All four top green taglines remain English in zh-CN
+PASS All four top green taglines remain English in zh-TW
+PASS All four top green taglines remain English in en
+PASS The shelf has a distinct localized subtitle and no waiting-for-the-next-page count row
+PASS Showing translation starts a fade and a sampled spring for displaced paragraphs, preserving original words and controls
+PASS A second tap reverses the live fade from its sampled opacity while keeping the same translation node for its exit
+PASS Reopening during fade-out resumes from the current opacity and restores flow without recreating the paragraph
+PASS Cancelled exit callbacks cannot remove reopened translations or leave layout animation records
+PASS Twelve fast taps resolve to the final state with exactly one translation per paragraph
+PASS Closing uses fade-out frames and removes translations from layout before their visual exit ends
+PASS After close completes no invisible translation layer or stale animation remains
+PASS Single-paragraph state also supports interruptible fade reversal without visible paragraph buttons
+PASS A longer asynchronous translation uses the same spring path to move following content
+PASS Backgrounding clears fading translation ghosts and sibling-motion state
+PASS Reduced motion applies translation state immediately without animations or leftover ghosts
+
+18 locale/translation motion checks passed. Assigned geometry only.
+PASS A cold open renders a readable first slice without synchronously tokenizing all 80 paragraphs
+PASS The next active slice has a short deadline and the incomplete chapter has no premature end buttons
+PASS An expired idle deadline still processes only one paragraph
+PASS A callback without idle budget yields without doing chapter work
+PASS Incremental completion preserves the original word node and reading scroll
+PASS Every paragraph is present once, in source order, with intact text and final navigation
+PASS A cold neighbouring chapter also creates at most four paragraphs during a drag
+PASS Seventy input updates coalesce into one frame while retaining the latest finger position
+PASS The next frame paints the latest offset, with the two chapters joined
+PASS Release flushes the latest input and promotes the same partial preview without reparsing it
+PASS Ten immediate chapter flicks commit all ten targets with bounded parsing per change
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+undefined !== 60
+
+    at /workspace/scratch/0f9dfce2e3b6/transread/test/reader-loading.cjs:51:117
+    at check (/workspace/scratch/0f9dfce2e3b6/transread/test/reader-loading.cjs:15:26)
+    at /workspace/scratch/0f9dfce2e3b6/transread/test/reader-loading.cjs:51:2 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: undefined,
+  expected: 60,
+  operator: 'strictEqual',
+  diff: 'simple'
+}

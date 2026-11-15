@@ -1,0 +1,11 @@
+PASS PDF cannot become ready before its visible page bitmap exists
+PASS Readiness waits for the next frame after drawing
+PASS First-page readiness resolves exactly once
+PASS A render failure rejects preparation exactly once
+PASS Closing before the queued frame cannot reveal or callback a removed PDF
+PASS An offscreen cached page does not satisfy first-visible-page readiness
+PASS Cancel invalidates a pending worker immediately before UI execution
+PASS Cancel closes the matching prepared native surface
+PASS A stale cancellation cannot invalidate a newer PDF session
+PASS Delayed UI cancellation cannot close a newer native surface
+TOTAL 10

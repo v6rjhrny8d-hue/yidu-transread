@@ -1,0 +1,6 @@
+PASS Chunked binary transfer preserves bytes and append order
+PASS Mismatched offsets fail without changing the file
+PASS Oversized chunks are rejected before writing
+PASS Malformed base64 cannot corrupt an existing staged file
+PASS Total transfer cap is enforced
+PASS Foreign staged-file references are rejected

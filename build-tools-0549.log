@@ -1,0 +1,7 @@
+Downloading platform.zip
+Downloading build-tools.zip
+Downloading ecj.jar
+Ready platform.zip
+Ready build-tools.zip
+Ready ecj.jar
+Run bash build.sh

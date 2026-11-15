@@ -1,0 +1,13 @@
+PASS Linked APK manifest, CRC and all web resources
+----------
+1. ERROR in /workspace/scratch/0f9dfce2e3b6/transread/android/src/app/lumi/reader/MainActivity.java (at line 403)
+	try(InputStream in=getAssets().open("assets/reader-edge.json");ByteArrayOutputStream out=new ByteArrayOutputStream()){copy(in,out,4096);sourceInsetScript=sourceInsetScript.replace("%EDGE_LAYERS%",new JSONObject(out.toString("UTF-8")).getJSONArray("layers").toString());}
+	                                                                                                                                                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Unhandled exception type JSONException
+----------
+2. ERROR in /workspace/scratch/0f9dfce2e3b6/transread/android/src/app/lumi/reader/MainActivity.java (at line 403)
+	try(InputStream in=getAssets().open("assets/reader-edge.json");ByteArrayOutputStream out=new ByteArrayOutputStream()){copy(in,out,4096);sourceInsetScript=sourceInsetScript.replace("%EDGE_LAYERS%",new JSONObject(out.toString("UTF-8")).getJSONArray("layers").toString());}
+	                                                                                                                                                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Unhandled exception type JSONException
+----------
+2 problems (2 errors)

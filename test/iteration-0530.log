@@ -1,0 +1,34 @@
+PASS The featured book offers the same editable cover/name card
+PASS Long press edits through .hero-book img
+PASS Long press edits through .hero-book h2
+PASS Long press edits through .book-grid .book-card img
+PASS Long press edits through .book-grid .book-card h3
+PASS PDF reuses the circular back/directory controls and the app range component
+PASS Long titles truncate inside the narrow header without a title capsule
+PASS PDF canvas touch regions are limited to visible controls
+PASS Tapping the page hides title/back/directory/progress together and releases the header area
+PASS PDF fullscreen reuses the EPUB immersive bridge while keeping a fixed page viewport
+PASS The small EPUB top gradient remains visible when controls are hidden
+PASS Page changes reuse the existing rolling digit animation
+PASS Directory uses the existing sheet, scroll container and bottom segmented control
+PASS PDF directory progress follows the EPUB progress/preview/buttons structure
+PASS Directory dragging rolls its page preview and sends semantic tick feedback
+PASS Opening a PDF card hides chrome and routes gestures to the modal
+PASS PDF bookmarks use the existing release-committed segmented switch
+PASS Long-press bookmark saves the target PDF page and within-page position
+PASS PDF bookmark names and fractional position survive restart
+PASS A bookmark can be edited in a child card while retaining the directory
+PASS Saving edits returns to the original bookmark list
+PASS Bookmark rows have one jump target and no arrow, menu circle or usage hint
+PASS Opening a bookmark restores its page and fraction and closes navigation
+PASS Invalid page jumps keep the card open without navigating
+PASS A valid page jump reaches the requested PDF page
+PASS Deleting a bookmark preserves PDF progress and other book data
+PASS Native progress reports cannot pull a slider away during a user drag
+PASS Releasing the slider commits the chosen page once
+PASS A default bookmark shows its page once without a duplicate subtitle
+PASS Dragging a bookmark row cancels editing rather than opening a child card
+PASS PDF chrome stays inside landscape safe bounds
+PASS Leaving PDF removes transparent chrome and returns to the shelf
+PASS New PDF flows have no uncaught browser errors
+33 PDF fullscreen/rolling/long-press checks passed with native bridge mocks.

@@ -1,0 +1,51 @@
+{
+  "version": "0.5.49",
+  "versionCode": 70,
+  "package": "app.lumi.reader",
+  "date": "2026-10-27",
+  "checks": {
+    "iteration-0549-final5.log": 32,
+    "smoke-0549-final.log": 66,
+    "motion-0549.log": 27,
+    "native-resource-0549.log": 8
+  },
+  "total": 133,
+  "certificateSHA256": "8d21d7bc40b619f048f03e266031c59f7ad50cff5337203f5dce891d487c61fd",
+  "apkSHA256": "f61186e16a61886551dc4834d47e28e563fc5a69dc71f96b4eed351ece0a1f68",
+  "apkBytes": 21700407,
+  "webAssetsVerified": 81,
+  "zipCRC": "passed",
+  "buildLog": "build-0.5.49.log",
+  "implementation": [
+    "User clarified RAR contains MDX/MDD, not only the YiDu JSONL manifest format.",
+    "RAR4/RAR5 including solid archives decode offline in a bounded Worker using libarchive-wasm 1.2.0; independent header and payload CRC validation supplements decoder finalization.",
+    "MDict parser adapts Feng Dihai MIT source with MIT lzo1x 1.0.1, RIPEMD-128 and Bluebird: bounded reads, checksums, cross-block records, exact final-key sizes, finite alias links, metadata probes. Upstream GPL minilzo is not used.",
+    "Original MDX/MDD Files are committed atomically in existing resource stores; lazy block queries run in bounded Worker cache. Direct MDX, subsequent matching MDD, ZIP and RAR all use the existing resource manager.",
+    "Text-only HTML sanitization uses an inert template, does not execute dictionary scripts or load remote assets; local MDD raster images and MP3/WAV/OGG are read on demand. Explicit pronunciation packs retain priority, with MDD and existing speech fallback.",
+    "Android SAF suffix/MIME/file-size classification includes RAR/MDX/MDD; local WASM MIME and narrowly scoped CSP WASM/Worker permissions added. No arbitrary JavaScript unsafe-eval.",
+    "Resource manager refreshes in place; standalone file import routes dictionaries to resources. Guides, labels and bounded errors are localized."
+  ],
+  "limits": {
+    "singleInputMiB": 180,
+    "dictionaryTotalMiB": 512,
+    "mddFiles": 32,
+    "standardJSONLTotalMiB": 120,
+    "recordMiB": 8,
+    "decodedBlockMiB": 16,
+    "dictionaryEntries": 2000000
+  },
+  "validation": [
+    "32 Chromium checks use actual WASM, compressed solid RAR5 generated from original test data, stored RAR4, raw MDX/MDD and LZO/zlib data. Verified Chinese/IPA, aliases/cycles, cross-block records, MDD image rendering and browser WAV decoding/playback, restart, disable/delete, incremental MDD, malformed/protected/volume/CRC/path rejection, encrypted indexes, nested Unicode paths, large ZIP Worker CSP, standard JSONL and global import routing.",
+    "66 core logic checks and 27 motion checks passed; 8 Java checks execute production file classification and MIME routing. Android source compiled in the signed build.",
+    "Recovered source/signature from saved files after workspace cleanup; restored pinned build/speech tools. Default browser download failed, so official Chrome headless-shell 131 was restored for testing.",
+    "Legacy EPUB fixture was absent from the previous source archive: rebuilt it from existing CC BY-NC JSON/assets, kept it test-only, retained all 27 chapters / 47 illustrations assertions.",
+    "Initial integration failures retained: RIPEMD module conversion, string .link collision, noncanonical RAR4 fixture host encoding, CRC validation gap. Fixed implementation issues and corrected only invalid fixtures; final checks all passed."
+  ],
+  "limitations": [
+    "No user-supplied actual dictionary was provided; large third-party dictionaries and physical Android/WebView audio/memory behavior remain unvalidated.",
+    "RAR passwords, multi-volume archives, registered/protected dictionaries and MDict 3.x are unsupported. Common MDict 2.x and its encrypted keyword indexes are tested.",
+    "Dictionary CSS/JS and remote resources do not run. Speex/other audio codecs and exact publisher layout are not supported.",
+    "Imports probe headers/indexes and first records; later unread corrupt blocks may be detected during lookup and trigger fallback.",
+    "Previous native PDF blur and cached chapter restore acceptance items were not changed. Delta APK updates remain unimplemented."
+  ]
+}

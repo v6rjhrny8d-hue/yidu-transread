@@ -1,0 +1,16 @@
+PASS British request selects the British system locale
+PASS American request selects the American system locale
+PASS Generic English voice cannot silently masquerade as a British voice
+PASS Optional generic fallback returns its actual language
+PASS Existing sentence speech still accepts a generic English voice
+PASS System speech chunks stay within the platform limit
+PASS System speech chunks stay within the platform limit
+PASS System speech chunks stay within the platform limit
+PASS System speech chunks stay within the platform limit
+PASS System speech chunks stay within the platform limit
+PASS System speech chunks stay within the platform limit
+PASS System speech chunks stay within the platform limit
+PASS System speech chunks stay within the platform limit
+PASS System speech chunks stay within the platform limit
+PASS Long system speech preserves every input character
+PASS Uninitialized speech cannot be reported as played

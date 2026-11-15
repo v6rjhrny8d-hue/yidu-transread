@@ -1,0 +1,12 @@
+PASS 1GiB input boundary rejects oversize without reading
+PASS 2GiB aggregate rejects oversize before parsing
+PASS CSS larger than 1MiB imports and renders under new 5MiB limit
+PASS CSS larger than 5MiB leaves prior pack intact
+PASS CSS aggregate over 20MiB is rejected without replacing the working dictionary
+PASS Cancel stops worker and allows immediate retry
+PASS Visible cancel cleans OPFS and does not activate a partial pack
+PASS Dictionary and CSS survive temporary-file cleanup and restart
+PASS Native URL is streamed without a response-wide ArrayBuffer
+PASS Progress is monotonic and reaches completion
+PASS No browser runtime errors
+TOTAL 11

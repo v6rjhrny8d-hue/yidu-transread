@@ -1,0 +1,27 @@
+{
+  "version": "0.5.20",
+  "versionCode": 41,
+  "package": "app.lumi.reader",
+  "checks": {
+    "logic": 502,
+    "native": 18,
+    "browserTouch": 45,
+    "cardCapsuleTouch": 25,
+    "iteration0518TouchLayout": 29,
+    "iteration0519TouchLayout": 35,
+    "iteration0520TouchLayout": 29
+  },
+  "total": 683,
+  "originalSigningCertificateMatches": true,
+  "packagedAssetsMatchSource": true,
+  "apkZipCRCValid": true,
+  "apkSHA256": "310289ac3800fc12b02f0060c51957b08bbcd4ac2a498c1dcea63f66d273bbdb",
+  "evidence": [
+    "test/logic-0.5.20.log",
+    "test/native-0.5.20.log",
+    "test/browser-all-0.5.20.log",
+    "test/iteration-final-0.5.20.log"
+  ],
+  "note": "Browser-all contains the earlier 28-check iteration run; final 29-check run supersedes it, counted once.",
+  "limitations": "Chromium touch emulation and controlled logic/native stubs; no Android device, physical haptics, FPS or power measurement."
+}

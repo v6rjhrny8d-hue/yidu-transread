@@ -1,0 +1,9 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="app.lumi.reader.update" android:versionCode="79" android:versionName="0.5.57.1">
+ <uses-sdk android:minSdkVersion="26" android:targetSdkVersion="35"/>
+ <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+ <queries><package android:name="app.lumi.reader"/><intent><action android:name="android.content.pm.action.CONFIRM_INSTALL"/></intent><intent><action android:name="android.settings.MANAGE_UNKNOWN_APP_SOURCES"/><data android:scheme="package"/></intent></queries>
+ <application android:label="@string/app_name" android:icon="@android:drawable/ic_menu_upload" android:allowBackup="false" android:theme="@android:style/Theme.Material.Light.NoActionBar" android:usesCleartextTraffic="false">
+  <activity android:name=".MainActivity" android:exported="true" android:configChanges="orientation|screenSize|uiMode"><intent-filter><action android:name="android.intent.action.MAIN"/><category android:name="android.intent.category.LAUNCHER"/></intent-filter></activity>
+  <receiver android:name=".InstallStatusReceiver" android:exported="false"/>
+ </application>
+</manifest>

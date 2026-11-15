@@ -1,0 +1,44 @@
+{
+  "version": "0.5.47",
+  "versionCode": 68,
+  "package": "app.lumi.reader",
+  "date": "2026-10-22",
+  "checks": {
+    "iteration-0547-final2.log": 24,
+    "motion-0547-final.log": 27,
+    "reader-tools-0547.log": 24,
+    "input-routing-0547.log": 11,
+    "tap-images-0547.log": 47,
+    "translation-motion-0547.log": 29,
+    "pdf-viewport-0547.log": 36,
+    "pdf-touch-0547.log": 8,
+    "native-pdf-0547-final.log": 10,
+    "smoke-0547.log": 66
+  },
+  "total": 282,
+  "certificateSHA256": "8d21d7bc40b619f048f03e266031c59f7ad50cff5337203f5dce891d487c61fd",
+  "apkSHA256": "a1e583bdfa3b4ef377632c40d68f35f23f31ece15565fac1f6cf35b8226ce258",
+  "apkBytes": 21302781,
+  "webAssetsVerified": 77,
+  "zipCRC": "passed",
+  "buildLog": "build-0.5.47-final.log",
+  "fixes": [
+    "Range input uses a non-native touch hit surface with 10px directional intent, preserving native vertical scrolling, sheet pull, horizontal previews, release commit and keyboard input.",
+    "Rail ordinary scroll follows the coalesced frame with source-line interpolation for visual position; saved anchors stay exact and translation layout retains its finite interruptible spring.",
+    "Image four corner radii interpolate in screen pixels on the same geometry clock and compensate scale, including reversal and gesture updates.",
+    "PDF first visible page must be drawn before bridge readiness; cancelOpen invalidates matching session synchronously, and late workers cannot reopen it.",
+    "PDF entry matches 240ms book scale timing; shelf Dock and PDF controls use translation-only withdrawal. Native transition touch shield lasts until the browser settle acknowledgement."
+  ],
+  "validation": [
+    "24 new Chromium checks include real CDP touch ranges, direction/cancel/tap/native scroll/keyboard, rail geometry, asymmetric image corners and reversal, bridge-simulated PDF preparation/entry/exit/cancel/reduced motion/landscape.",
+    "10 new Java harness checks execute production first-frame callbacks and session cancellation with stubs.",
+    "Existing 29 Chromium translation/progress/rail checks and scoped synthetic/native-stub regression suites passed.",
+    "Initial failures retained: native range touchstart changed value despite pointerdown prevention; fixed with non-native hit surface. Test setup subsequently corrected chapter absolute index, illustration-vs-text scan region, and ancestor inert assertion."
+  ],
+  "limitations": [
+    "No physical Android PDF/WebView compositor, blur/GPU/frame-time, touch or haptic measurement.",
+    "PDF controls are in WebView over a native PDF surface: CSS backdrop blur is not evidence that native PDF pixels are sampled.",
+    "Prior cached chapter vertical restore expected380/actual0 remains recorded; not changed or rerun in this scope.",
+    "Full APK only; delta updates remain planned."
+  ]
+}

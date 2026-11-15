@@ -1,0 +1,28 @@
+{
+  "name": "lumi-reader",
+  "private": true,
+  "version": "0.5.57",
+  "scripts": {
+    "dev": "node server.mjs",
+    "test": "node test/smoke.cjs && node test/motion.cjs && node test/gestures.cjs && node test/input-routing.cjs && node test/notebook.cjs && node test/highlights.cjs && node test/responsiveness.cjs && node test/tap-and-images.cjs && node test/haptics-performance.cjs && node test/short-swipes-feedback.cjs && node test/reader-tools.cjs && node test/landscape-inertia.cjs && node test/translation-languages.cjs && node test/app-languages.cjs && node test/reader-fixes.cjs && node test/locale-translation-motion.cjs && node test/reader-loading.cjs",
+    "test:native": "node test/native-ui-routing.cjs && node test/native-haptics.cjs && node test/native-renderer-recovery.cjs && node test/native-pdf-viewport.cjs && node test/native-pdf-touch.cjs && node test/native-source-chrome.cjs",
+    "test:browser": "node test/browser-touch.cjs && node test/card-capsule-touch.cjs && node test/iteration-0518.cjs && node test/iteration-0519.cjs && node test/iteration-0520.cjs && node test/iteration-0521.cjs && node test/iteration-0522.cjs && node test/iteration-0523.cjs && node test/iteration-0524.cjs && node test/iteration-0525.cjs && node test/iteration-0526.cjs && node test/iteration-0528.cjs && node test/iteration-0529.cjs && node test/iteration-0530.cjs && node test/iteration-0531.cjs && node test/iteration-0532.cjs && node test/iteration-0533.cjs && node test/iteration-0534.cjs && node test/iteration-0536.cjs && node test/iteration-0537.cjs && node test/iteration-0538.cjs && node test/iteration-0539.cjs",
+    "test:performance": "node test/reader-performance.cjs",
+    "test:current": "node test/iteration-0541.cjs && node test/native-data-0541.cjs"
+  },
+  "dependencies": {
+    "@phosphor-icons/web": "2.1.1",
+    "fflate": "0.8.2"
+  },
+  "devDependencies": {
+    "@noble/hashes": "1.8.0",
+    "bluebird": "^3.7.2",
+    "css-tree": "3.2.1",
+    "dompurify": "3.4.17",
+    "esbuild": "^0.25.12",
+    "fake-indexeddb": "^6.2.6",
+    "jsdom": "^30.1.3",
+    "libarchive-wasm": "^1.2.0",
+    "lzo1x": "^1.0.1"
+  }
+}

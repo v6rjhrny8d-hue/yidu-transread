@@ -1,0 +1,8 @@
+PASS Closing keeps the glass visible while both tool groups move out
+PASS Reversing withdrawal starts at the exact currently visible positions
+PASS Restored controls settle with blur intact and no leftover animations
+PASS Rapid toggles end hidden with no tappable or offscreen animation residue
+PASS Landscape withdrawal clears the viewport above and below
+PASS Reduced motion applies the final state immediately
+PASS No browser runtime errors
+TOTAL 7

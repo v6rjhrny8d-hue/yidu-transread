@@ -1,0 +1,9 @@
+PASS Resource classification voice.zip
+PASS Resource classification Oxford.rar
+PASS Resource classification Oxford.MDX
+PASS Resource classification Oxford.1.MDD
+PASS Other books keep their separate limits
+PASS Null names cannot bypass classification
+PASS Local WASM is served with its correct MIME type
+PASS Existing script and JSON MIME routing stays intact
+TOTAL 8

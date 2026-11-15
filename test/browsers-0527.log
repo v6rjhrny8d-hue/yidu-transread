@@ -1,0 +1,147 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> lumi-reader@0.5.26 test:browser
+> node test/browser-touch.cjs && node test/card-capsule-touch.cjs && node test/iteration-0518.cjs && node test/iteration-0519.cjs && node test/iteration-0520.cjs && node test/iteration-0521.cjs && node test/iteration-0522.cjs && node test/iteration-0523.cjs && node test/iteration-0524.cjs && node test/iteration-0525.cjs && node test/iteration-0526.cjs
+
+PASS Startup uses the book mark and wordmark without a spinning loader
+PASS Nested translation controls and their scroll owner allow native vertical scrolling
+PASS Downward touch from #translation-target strong dismisses without toggling a button
+PASS Downward touch from .translation-tools-body [data-action="toggle-auto-speak"] strong dismisses without toggling a button
+PASS A compact translation card scrolls to its top then closes during the same pull
+PASS Guide scrolling uses native inertia without JavaScript scrollTop writes
+PASS Touching the guide interrupts its inertia immediately
+PASS Reading can start during guide entrance without being mistaken for a pull
+PASS The landscape guide retains the same scroll inertia
+PASS A native guide swipe tolerates small sideways finger drift
+PASS A stale guide text selection cannot disable touch scrolling
+PASS Consecutive fast guide swipes interrupt and restart inertia without sticking
+PASS A long downward stroke still scrolls content before counting toward card dismissal
+PASS A short held slow pull returns fully to the open position
+PASS A held slow pull beyond the shared card threshold dismisses on release
+PASS Grabbing a rebound continues from the visible displacement with the shared release rule
+PASS Adding a second finger cancels even a long guide pull without dismissing
+PASS The shared guide release rule also works in landscape
+PASS Reversing a native guide fling scrolls back immediately without moving the card
+PASS Guide content has the same native vertical scroll configuration as the article
+PASS Tapping image closes the full-screen image through native pointer capture
+PASS Tapping backdrop closes the full-screen image through native pointer capture
+PASS Tapping caption closes the full-screen image through native pointer capture
+PASS Dragging the full-screen image does not become an exit tap or chapter change
+PASS A pinch stays in the image viewer
+PASS A fresh tap after pinching closes the image
+PASS The guide title and close control stay fixed while its content scrolls
+PASS Flinging guide content toward the top does not dismiss the card by inertia
+PASS A short slow downward pull at the guide top rebounds
+PASS Native scrolling to the guide top never transfers its ongoing flick into dismissal
+PASS A new downward touch at the guide top dismisses without firing its language control
+PASS Grabbing a closing guide cancels its old completion callback
+PASS Releasing a grabbed closing guide returns it to its open position
+PASS Touching the reading area can also interrupt a closing guide and restore it without sticking
+PASS The image entrance animates from the original picture while its input shield stays full-screen
+PASS A corner tap during image entrance closes it without hitting reader content
+PASS The image exit keeps a full-screen shield and blocked reader until its fade finishes
+PASS Image dismissal restores background interaction and the original illustration
+PASS A delayed compatibility click from image dismissal cannot open a word behind it
+PASS The open image blocks even a background accessibility click
+PASS A late reader selection notification cannot replace the image with sentence tools
+PASS Interrupting a nested card dismissal preserves its mounted parent
+PASS Refreshing the guide language preserves the inner content scroll offset
+PASS Replacing localized guide content keeps native touch scrolling working
+PASS A deliberate guide language-button tap remains available alongside native scrolling and top pulling
+
+45 real-browser touch checks passed, 0 failed. Chromium touch emulation, not Android device or FPS measurement.
+PASS guide uses native scrolling without script position writes
+PASS translation tools uses native scrolling without script position writes
+PASS app languages uses native scrolling without script position writes
+PASS translation settings uses native scrolling without script position writes
+PASS directory uses native scrolling without script position writes
+PASS The same native stroke can reach the top and continue pulling the card
+PASS Reversing a boundary pull restores native reading without a locked scroll area
+PASS A slow continuous native-to-card pull can close with the shared distance rule
+PASS The guide now uses the same short-pull rebound as every card
+PASS The guide closes with the original shared distance rather than two fifths
+PASS Translation service selection uses three themed direct choices
+PASS Selecting a service retains the same form and all unsaved fields
+PASS Switching away and back preserves the draft choice and key
+PASS Saving the themed service form commits the selected provider and draft model
+PASS notes top capsule follows a horizontal drag and stretches like the main dock
+PASS notes commits the nearest tab on release and springs to its slot
+PASS notes accepts an immediate reverse drag without duplicate tab activation
+PASS search top capsule follows a horizontal drag and stretches like the main dock
+PASS search commits the nearest tab on release and springs to its slot
+PASS search accepts an immediate reverse drag without duplicate tab activation
+PASS Search tab changes preserve the query input and the animated capsule DOM
+PASS notes top capsule also drags and commits in landscape
+PASS search top capsule also drags and commits in landscape
+PASS Top capsule dragging remains usable with reduced motion
+PASS Vertical page scrolling from a moving top capsule restores its selected slot without activating a tab
+
+25 card/capsule browser touch checks passed, 0 failed. No Android device or FPS claims.
+PASS Built-in services hide custom API fields and keep the form compact
+PASS Service choices are directly in the retained form
+PASS Collapsing custom fields retains drafts without prematurely saving the provider
+PASS Fast downward touch starting on a text input dismisses the card
+PASS A tap and text editing still work
+PASS Horizontal editing gestures do not drag or dismiss the form
+PASS Multiline editors retain their own native scrolling
+PASS A multiline editor at its top can hand downward intent to card dismissal
+PASS Direct choice keeps the same form without creating another level
+PASS Translation languages open separately above the original tools card
+PASS Choosing a language collapses its list and retains the parent and original text
+PASS Directory drag previews chapter and percent without loading the target
+PASS Cancelled directory dragging restores the actual chapter preview
+PASS Directory commits once on release and closes
+PASS Rolling numbers reverse and settle at the latest value without queued digits
+PASS Reading rail scrolls within the current chapter and reports live percent
+PASS Reading rail follows immersive chrome visibility
+PASS Rail is hidden as soon as a chapter swipe locks
+PASS Rail returns after the chapter settles without forcing hidden chrome visible
+PASS Sentence preview has exactly two lines worth of clipping and zero vertical padding
+PASS Large notebooks render a bounded window and offer A–Z sorting
+PASS Letter index seeks deep into the virtual list and keeps rendering bounded
+PASS Classification changes animate the content while retaining its search input
+PASS Swiping content previews only the capsule until release
+PASS Content release selects the adjacent category and clears transition snapshots
+PASS Search content transition preserves the query and input node
+PASS Anchored language choices stay scrollable and closable in landscape
+PASS Reduced motion leaves the final category with no transition layers
+PASS No browser runtime errors were reported
+
+29 iteration touch/layout checks passed; 0 failed. Browser emulation, not Android FPS.
+PASS Chapter numerator and denominator share font, glyph height and baseline
+PASS Changing the units leaves the tens node stationary
+PASS Hundreds, tens and units carry independently without visible leading zeros
+PASS Rapid reversal has at most one resting glyph in each place
+PASS Visible reading track hugs the right edge with a generous inward touch area
+PASS Transparent inward rail area handles dragging and aligns the percent suffix
+PASS Child menu springs without scaling text or clipping its shadow
+PASS Reversing a child menu continues from its current visible transform
+PASS Reopened menu has one child and no stale animation records
+PASS Review, mastery and round detail arrows are removed
+PASS Pronunciation remains independent and does not open card details
+PASS Vertical list swipes do not open whole-card details
+PASS Tapping the whole card opens its complete details
+PASS The lower-right meaning switch hides explanations without replacing card nodes
+PASS Meaning visibility persists across an app reload
+PASS Alphabet rail does not overlay the introduction, stats or search UI
+PASS Alphabet rail is beside the list and has its own horizontal space
+PASS Alphabet taps still locate the requested group
+PASS Sentence anchors split adjacent Chinese sentences without requiring spaces
+PASS Long pressing blank article space adds a sentence-anchored tag without opening a word
+PASS Tag marker occupies the left sentence margin
+PASS Long pressing original words does not create reading tags
+PASS Moving the finger cancels blank-space tagging
+PASS Reading tags survive an app reload
+PASS Directory and Tags share an animated capsule and list area
+FAIL Selecting a tag returns to its original sentence and shows the left marker — null
+PASS Sentence marker tracks font reflow rather than a saved pixel position
+PASS Rotation retains the tag anchor and marker
+PASS Backup includes reading tags and retains legacy note fields
+PASS Restoring a backup merges tags with original sentence anchors
+PASS Tags can be removed from their marker and disappear immediately
+PASS A newly added tag can be undone without deleting notes
+PASS Reduced motion updates every digit without leaving rolling exits
+PASS Landscape directory pins its capsule below the scrollable list
+PASS No browser runtime errors occurred
+
+34 iteration 0.5.19 touch/layout checks passed; 1 failed. No Android FPS or hardware haptic claim.

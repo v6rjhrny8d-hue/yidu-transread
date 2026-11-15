@@ -1,0 +1,68 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> lumi-reader@0.5.43 test:native
+> node test/native-ui-routing.cjs && node test/native-haptics.cjs && node test/native-renderer-recovery.cjs && node test/native-pdf-viewport.cjs && node test/native-pdf-touch.cjs && node test/native-source-chrome.cjs
+
+PASS Android 15+ owned reader WebView requests high refresh only while drawing
+----------
+1. ERROR in /workspace/scratch/93718b70c1a4/implementation/transread/build/native-routing-1TTk4F/NativeUiRoutingHarness.java (at line 64)
+	public String startupTheme(){try{JSONObject o=new JSONObject();boolean dark=startupDark();o.put("paper",String.format(Locale.ROOT,"#%06x",startupColor(dark?"dark":"light",dark?"#1b211c":"#f4f2e9")&0xffffff));o.put("ink",dark?"#f3f3f4":"#242426");o.put("accent",String.format(Locale.ROOT,"#%06x",startupColor("accent","#526b50")&0xffffff));return o.toString();}catch(Exception e){return "{}";}}
+	                                                                            ^^^^^^^^^^^
+The method startupDark() is undefined for the type NativeUiRoutingHarness.Bridge
+----------
+2. ERROR in /workspace/scratch/93718b70c1a4/implementation/transread/build/native-routing-1TTk4F/NativeUiRoutingHarness.java (at line 64)
+	public String startupTheme(){try{JSONObject o=new JSONObject();boolean dark=startupDark();o.put("paper",String.format(Locale.ROOT,"#%06x",startupColor(dark?"dark":"light",dark?"#1b211c":"#f4f2e9")&0xffffff));o.put("ink",dark?"#f3f3f4":"#242426");o.put("accent",String.format(Locale.ROOT,"#%06x",startupColor("accent","#526b50")&0xffffff));return o.toString();}catch(Exception e){return "{}";}}
+	                                                                                                                                          ^^^^^^^^^^^^
+The method startupColor((dark ? "dark" : "light"), (dark ? "#1b211c" : "#f4f2e9")) is undefined for the type NativeUiRoutingHarness.Bridge
+----------
+3. ERROR in /workspace/scratch/93718b70c1a4/implementation/transread/build/native-routing-1TTk4F/NativeUiRoutingHarness.java (at line 64)
+	public String startupTheme(){try{JSONObject o=new JSONObject();boolean dark=startupDark();o.put("paper",String.format(Locale.ROOT,"#%06x",startupColor(dark?"dark":"light",dark?"#1b211c":"#f4f2e9")&0xffffff));o.put("ink",dark?"#f3f3f4":"#242426");o.put("accent",String.format(Locale.ROOT,"#%06x",startupColor("accent","#526b50")&0xffffff));return o.toString();}catch(Exception e){return "{}";}}
+	                                                                                                                                                                                                                                                                                                       ^^^^^^^^^^^^
+The method startupColor(String, String) is undefined for the type NativeUiRoutingHarness.Bridge
+----------
+4. ERROR in /workspace/scratch/93718b70c1a4/implementation/transread/build/native-routing-1TTk4F/NativeUiRoutingHarness.java (at line 66)
+	@JavascriptInterface public void request(String op,String payload,String id){
+	 ^^^^^^^^^^^^^^^^^^^
+JavascriptInterface cannot be resolved to a type
+----------
+5. ERROR in /workspace/scratch/93718b70c1a4/implementation/transread/build/native-routing-1TTk4F/NativeUiRoutingHarness.java (at line 71)
+	if("startupTheme".equals(op))saveStartupTheme(data);
+	                             ^^^^^^^^^^^^^^^^
+The method saveStartupTheme(NativeUiRoutingHarness.JSONObject) is undefined for the type NativeUiRoutingHarness.Bridge
+----------
+6. ERROR in /workspace/scratch/93718b70c1a4/implementation/transread/build/native-routing-1TTk4F/NativeUiRoutingHarness.java (at line 88)
+	case "speak":{String text=data.optString("text");if(text.length()>20000)throw new Exception("朗读文本过长");tts.stop();if(!offlineSpeech.active().isEmpty())offlineSpeech.speak(text,null,(value,error)->runOnUiThread(()->{if(error!=null&&web!=null&&web.hasWindowFocus())try{speakSystem(text);toast(error);}catch(Exception e){toast(error);}}));else speakSystem(text);reply(id,true,null);break;}
+	                                                                                                                     ^^^^^^^^^^^^^
+offlineSpeech cannot be resolved
+----------
+7. ERROR in /workspace/scratch/93718b70c1a4/implementation/transread/build/native-routing-1TTk4F/NativeUiRoutingHarness.java (at line 88)
+	case "speak":{String text=data.optString("text");if(text.length()>20000)throw new Exception("朗读文本过长");tts.stop();if(!offlineSpeech.active().isEmpty())offlineSpeech.speak(text,null,(value,error)->runOnUiThread(()->{if(error!=null&&web!=null&&web.hasWindowFocus())try{speakSystem(text);toast(error);}catch(Exception e){toast(error);}}));else speakSystem(text);reply(id,true,null);break;}
+	                                                                                                                                                      ^^^^^^^^^^^^^
+offlineSpeech cannot be resolved
+----------
+8. ERROR in /workspace/scratch/93718b70c1a4/implementation/transread/build/native-routing-1TTk4F/NativeUiRoutingHarness.java (at line 88)
+	case "speak":{String text=data.optString("text");if(text.length()>20000)throw new Exception("朗读文本过长");tts.stop();if(!offlineSpeech.active().isEmpty())offlineSpeech.speak(text,null,(value,error)->runOnUiThread(()->{if(error!=null&&web!=null&&web.hasWindowFocus())try{speakSystem(text);toast(error);}catch(Exception e){toast(error);}}));else speakSystem(text);reply(id,true,null);break;}
+	                                                                                                                                                                                                                                                                                                                                                    ^^^^^^^^^^^
+The method speakSystem(String) is undefined for the type NativeUiRoutingHarness.Bridge
+----------
+9. ERROR in /workspace/scratch/93718b70c1a4/implementation/transread/build/native-routing-1TTk4F/NativeUiRoutingHarness.java (at line 89)
+	case "stopSpeak":offlineSpeech.cancel();if(tts!=null)tts.stop();reply(id,true,null);break;
+	                 ^^^^^^^^^^^^^
+offlineSpeech cannot be resolved
+----------
+10. ERROR in /workspace/scratch/93718b70c1a4/implementation/transread/build/native-routing-1TTk4F/NativeUiRoutingHarness.java (at line 93)
+	if(Arrays.asList("ttsModels","importTts","ttsManage","ttsPreview").contains(op)){try{JSONObject data=new JSONObject(payload);if("ttsPreview".equals(op)){if(tts!=null)runOnUiThread(()->tts.stop());offlineSpeech.speak("A new voice, a new world. Every page begins a journey.",data.getString("id"),(value,error)->reply(id,value,error));}else offlineSpeech.request(op,data,"importTts".equals(op)?selectedImport(data.getString("url")):null,(value,error)->reply(id,value,error));}catch(Exception e){reply(id,null,"模型文件不可用，请重新选择");}return;}
+	                                                                                                                                                                                                    ^^^^^^^^^^^^^
+offlineSpeech cannot be resolved
+----------
+11. ERROR in /workspace/scratch/93718b70c1a4/implementation/transread/build/native-routing-1TTk4F/NativeUiRoutingHarness.java (at line 93)
+	if(Arrays.asList("ttsModels","importTts","ttsManage","ttsPreview").contains(op)){try{JSONObject data=new JSONObject(payload);if("ttsPreview".equals(op)){if(tts!=null)runOnUiThread(()->tts.stop());offlineSpeech.speak("A new voice, a new world. Every page begins a journey.",data.getString("id"),(value,error)->reply(id,value,error));}else offlineSpeech.request(op,data,"importTts".equals(op)?selectedImport(data.getString("url")):null,(value,error)->reply(id,value,error));}catch(Exception e){reply(id,null,"模型文件不可用，请重新选择");}return;}
+	                                                                                                                                                                                                                                                                                                                                                  ^^^^^^^^^^^^^
+offlineSpeech cannot be resolved
+----------
+12. ERROR in /workspace/scratch/93718b70c1a4/implementation/transread/build/native-routing-1TTk4F/NativeUiRoutingHarness.java (at line 93)
+	if(Arrays.asList("ttsModels","importTts","ttsManage","ttsPreview").contains(op)){try{JSONObject data=new JSONObject(payload);if("ttsPreview".equals(op)){if(tts!=null)runOnUiThread(()->tts.stop());offlineSpeech.speak("A new voice, a new world. Every page begins a journey.",data.getString("id"),(value,error)->reply(id,value,error));}else offlineSpeech.request(op,data,"importTts".equals(op)?selectedImport(data.getString("url")):null,(value,error)->reply(id,value,error));}catch(Exception e){reply(id,null,"模型文件不可用，请重新选择");}return;}
+	                                                                                                                                                                                                                                                                                                                                                                                                       ^^^^^^^^^^^^^^
+The method selectedImport(String) is undefined for the type NativeUiRoutingHarness.Bridge
+----------
+12 problems (12 errors)

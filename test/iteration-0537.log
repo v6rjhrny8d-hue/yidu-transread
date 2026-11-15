@@ -1,0 +1,26 @@
+PASS Translucent bar and equal-height capsule/back alignment: zh-CN paper 390
+PASS Translucent bar and equal-height capsule/back alignment: zh-CN paper 844
+PASS Translucent bar and equal-height capsule/back alignment: zh-CN night 390
+PASS Translucent bar and equal-height capsule/back alignment: zh-CN night 844
+PASS Translucent bar and equal-height capsule/back alignment: zh-TW paper 390
+PASS Translucent bar and equal-height capsule/back alignment: zh-TW paper 844
+PASS Translucent bar and equal-height capsule/back alignment: zh-TW night 390
+PASS Translucent bar and equal-height capsule/back alignment: zh-TW night 844
+PASS Translucent bar and equal-height capsule/back alignment: en paper 390
+PASS Translucent bar and equal-height capsule/back alignment: en paper 844
+PASS Translucent bar and equal-height capsule/back alignment: en night 390
+PASS Translucent bar and equal-height capsule/back alignment: en night 844
+PASS .icon-btn real touch presses the content while keeping the outer capsule fixed
+PASS .icon-btn releases into a finite elastic rebound with an overshoot curve
+PASS .icon-btn finishes at rest without leaving an idle animation
+PASS .source-done real touch presses the content while keeping the outer capsule fixed
+PASS .source-done releases into a finite elastic rebound with an overshoot curve
+PASS .source-done finishes at rest without leaving an idle animation
+PASS Back and Done each activate their own action once on release
+PASS A new press interrupts the rebound at its current visible scale
+PASS A canceled touch resets the spring without activation or a haptic action
+PASS The app reduced-motion preference disables the toolbar spring
+PASS The system reduced-motion preference also disables the toolbar spring
+PASS Opening the browser carries the current app feedback and reduced-motion preferences
+PASS No uncaught errors occur during source-toolbar material and feedback checks
+25 translucent source-toolbar and elastic-touch checks passed. Native motor feedback is tested separately with stubs.

@@ -1,0 +1,4 @@
+PASS Floating toolbar receives the real selection rectangle
+PASS Original selection actions and sentence collection remain delegated
+PASS Selection movement can request an updated rectangle
+PASS Legacy callbacks safely retain the platform default

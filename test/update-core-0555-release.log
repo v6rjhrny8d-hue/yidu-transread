@@ -1,0 +1,25 @@
+PASS COPY plus literal reconstructs exact output while preserving the base
+PASS Wrong magic is rejected and partial/stale output removed
+PASS Wrong base digest is rejected and partial/stale output removed
+PASS Wrong target digest is rejected and partial/stale output removed
+PASS Wrong base size is rejected and partial/stale output removed
+PASS Oversized target is rejected and partial/stale output removed
+PASS Excess operation count is rejected and partial/stale output removed
+PASS Negative copy offset is rejected and partial/stale output removed
+PASS Out-of-range copy is rejected and partial/stale output removed
+PASS Oversized literal is rejected and partial/stale output removed
+PASS Negative literal length is rejected and partial/stale output removed
+PASS Unknown opcode is rejected and partial/stale output removed
+PASS Target content corruption is rejected and partial/stale output removed
+PASS Trailing logical bytes is rejected and partial/stale output removed
+PASS Truncated operations is rejected and partial/stale output removed
+PASS Truncated gzip CRC is rejected
+PASS A modified same-size installed APK is rejected
+PASS Using the base as output is rejected without changing it
+PASS Real YiDu-0.5.53.apk reconstructs the signed release byte for byte
+PASS Restored APK retains the original valid release signature
+PASS Patch reuses unchanged signed APK data and is smaller than the full APK
+PASS Real YiDu-0.5.54.apk reconstructs the signed release byte for byte
+PASS Restored APK retains the original valid release signature
+PASS Patch reuses unchanged signed APK data and is smaller than the full APK
+TOTAL 24

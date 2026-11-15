@@ -1,0 +1,9 @@
+PASS Without a PDF, shelf and reader touches stay in WebView
+PASS Page scrolling and pinch retain the native owner across toolbar boundaries
+PASS Native touch coordinates exclude the PDF safe insets
+PASS A toolbar gesture stays in WebView even after moving onto the page
+PASS Modal sheets receive page-area gestures instead of PDF underneath
+PASS Long-press release remains with the PDF and cannot tap the newly opened sheet
+PASS Cancel releases ownership before the next control gesture
+PASS PDF transition shields both the shelf and native page from stray taps
+8 production PDF touch-routing checks passed with stubs.

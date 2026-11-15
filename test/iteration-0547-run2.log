@@ -1,0 +1,14 @@
+PASS Touch down on font range does not change the value before direction is known
+PASS Downward pull from font range dismisses the sheet without changing typography
+PASS Horizontal drag previews the font size while the sheet stays open
+PASS Line-spacing vertical cancellation leaves the value unchanged
+PASS Pulling down from chapter progress cannot navigate to another chapter
+PASS Chapter slider tap commits once on release
+PASS Vertical gesture on glass range scrolls natively without input or changed opacity
+PASS Glass slider horizontal drag retains preview and finite thumb spring
+PASS Keyboard range adjustment still uses native accessibility events
+page.waitForFunction: Timeout 30000ms exceeded.
+    at /workspace/scratch/93718b70c1a4/implementation/transread/test/iteration-0547.cjs:29:103 {
+  log: [],
+  name: 'TimeoutError'
+}

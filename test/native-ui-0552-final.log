@@ -1,0 +1,43 @@
+PASS Android 15+ owned reader WebView requests high refresh only while drawing
+----------
+1. ERROR in /workspace/scratch/12cfa0f7c25b/implementation/transread/build/native-routing-OpJ7Le/NativeUiRoutingHarness.java (at line 104)
+	case "speak":{String text=data.optString("text");if(text.length()>20000)throw new Exception("朗读文本过长");if(data.has("accent")){speakSystem(text,data.optString("accent"));}else if(!offlineSpeech.active().isEmpty()){tts.stop();offlineSpeech.speak(text,null,(value,error)->runOnUiThread(()->{if(error!=null&&web!=null&&web.hasWindowFocus())try{speakSystem(text);toast(error);}catch(Exception e){toast(error);}}));}else speakSystem(text);reply(id,true,null);break;}
+	                                                                                                              ^^^
+The method has(String) is undefined for the type NativeUiRoutingHarness.JSONObject
+----------
+2. ERROR in /workspace/scratch/12cfa0f7c25b/implementation/transread/build/native-routing-OpJ7Le/NativeUiRoutingHarness.java (at line 104)
+	case "speak":{String text=data.optString("text");if(text.length()>20000)throw new Exception("朗读文本过长");if(data.has("accent")){speakSystem(text,data.optString("accent"));}else if(!offlineSpeech.active().isEmpty()){tts.stop();offlineSpeech.speak(text,null,(value,error)->runOnUiThread(()->{if(error!=null&&web!=null&&web.hasWindowFocus())try{speakSystem(text);toast(error);}catch(Exception e){toast(error);}}));}else speakSystem(text);reply(id,true,null);break;}
+	                                                                                                                             ^^^^^^^^^^^
+The method speakSystem(String) in the type NativeUiRoutingHarness is not applicable for the arguments (String, String)
+----------
+3. ERROR in /workspace/scratch/12cfa0f7c25b/implementation/transread/build/native-routing-OpJ7Le/NativeUiRoutingHarness.java (at line 112)
+	if("pdfControl".equals(op)){try{JSONObject control=new JSONObject(payload);if("cancelOpen".equals(control.optString("command"))){String session=control.optString("session");if(session.equals(pdfRequestedSession)){pdfRequestedSession=null;pdfOpenEpoch.incrementAndGet();runOnUiThread(()->{if(session.equals(pdfSession))closePdf(false);reply(id,true,null);});}else reply(id,jsonCancelled(),null);return;}}catch(Exception e){reply(id,null,"PDF 操作未完成");return;}}
+	                                                                                                                                                                                               ^^^^^^^^^^^^^^^^^^^
+pdfRequestedSession cannot be resolved to a variable
+----------
+4. ERROR in /workspace/scratch/12cfa0f7c25b/implementation/transread/build/native-routing-OpJ7Le/NativeUiRoutingHarness.java (at line 112)
+	if("pdfControl".equals(op)){try{JSONObject control=new JSONObject(payload);if("cancelOpen".equals(control.optString("command"))){String session=control.optString("session");if(session.equals(pdfRequestedSession)){pdfRequestedSession=null;pdfOpenEpoch.incrementAndGet();runOnUiThread(()->{if(session.equals(pdfSession))closePdf(false);reply(id,true,null);});}else reply(id,jsonCancelled(),null);return;}}catch(Exception e){reply(id,null,"PDF 操作未完成");return;}}
+	                                                                                                                                                                                                                     ^^^^^^^^^^^^^^^^^^^
+pdfRequestedSession cannot be resolved to a variable
+----------
+5. ERROR in /workspace/scratch/12cfa0f7c25b/implementation/transread/build/native-routing-OpJ7Le/NativeUiRoutingHarness.java (at line 112)
+	if("pdfControl".equals(op)){try{JSONObject control=new JSONObject(payload);if("cancelOpen".equals(control.optString("command"))){String session=control.optString("session");if(session.equals(pdfRequestedSession)){pdfRequestedSession=null;pdfOpenEpoch.incrementAndGet();runOnUiThread(()->{if(session.equals(pdfSession))closePdf(false);reply(id,true,null);});}else reply(id,jsonCancelled(),null);return;}}catch(Exception e){reply(id,null,"PDF 操作未完成");return;}}
+	                                                                                                                                                                                                                                                                                                                  ^^^^^^^^^^
+pdfSession cannot be resolved to a variable
+----------
+6. ERROR in /workspace/scratch/12cfa0f7c25b/implementation/transread/build/native-routing-OpJ7Le/NativeUiRoutingHarness.java (at line 112)
+	if("pdfControl".equals(op)){try{JSONObject control=new JSONObject(payload);if("cancelOpen".equals(control.optString("command"))){String session=control.optString("session");if(session.equals(pdfRequestedSession)){pdfRequestedSession=null;pdfOpenEpoch.incrementAndGet();runOnUiThread(()->{if(session.equals(pdfSession))closePdf(false);reply(id,true,null);});}else reply(id,jsonCancelled(),null);return;}}catch(Exception e){reply(id,null,"PDF 操作未完成");return;}}
+	                                                                                                                                                                                                                                                                                                                              ^^^^^^^^
+The method closePdf(boolean) is undefined for the type NativeUiRoutingHarness.Bridge
+----------
+7. ERROR in /workspace/scratch/12cfa0f7c25b/implementation/transread/build/native-routing-OpJ7Le/NativeUiRoutingHarness.java (at line 112)
+	if("pdfControl".equals(op)){try{JSONObject control=new JSONObject(payload);if("cancelOpen".equals(control.optString("command"))){String session=control.optString("session");if(session.equals(pdfRequestedSession)){pdfRequestedSession=null;pdfOpenEpoch.incrementAndGet();runOnUiThread(()->{if(session.equals(pdfSession))closePdf(false);reply(id,true,null);});}else reply(id,jsonCancelled(),null);return;}}catch(Exception e){reply(id,null,"PDF 操作未完成");return;}}
+	                                                                                                                                                                                                                                                                                                                                                                                    ^^^^^^^^^^^^^
+The method jsonCancelled() is undefined for the type NativeUiRoutingHarness.Bridge
+----------
+8. ERROR in /workspace/scratch/12cfa0f7c25b/implementation/transread/build/native-routing-OpJ7Le/NativeUiRoutingHarness.java (at line 113)
+	if("openPdf".equals(op)){try{pdfRequestedSession=new JSONObject(payload).optString("session");}catch(Exception e){reply(id,null,"PDF 操作未完成");return;}}
+	                             ^^^^^^^^^^^^^^^^^^^
+pdfRequestedSession cannot be resolved to a variable
+----------
+8 problems (8 errors)

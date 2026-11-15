@@ -1,0 +1,26 @@
+PASS Source segmentation is lossless, bounded and Unicode-safe for punctuation-free input
+PASS Scene transitions take priority and virtual chapters retain every source character
+METRICS {"ms":1434,"beats":77,"chapters":1764,"characters":31457280,"maxParagraph":1189,"maxChapter":17835}
+PASS Exactly 30 MiB imports without dropped text and UI remains responsive during worker parsing
+PASS Large-book DOM is bounded to a few small reading chapters
+PASS Rail seeks by original text and remains visible after deep navigation
+PASS Unequal chapters contribute by character count, including Unicode and excluding whitespace
+PASS Legacy migration preserves source positions, bookmarks and cross-chapter sentence highlights
+PASS Unchanged paragraph translation keys survive virtual chapter renumbering
+PASS Migrated reading location restores the same original character
+PASS Translations attach to bounded source paragraphs with finite requests
+PASS Rapid translation reversal leaves no stale rail hiding or exiting containers
+PASS Translation memory is bounded while evicted translations remain in IndexedDB
+PASS All six custom accents retain translucent glass in paper, sage and night themes
+PASS Restart retains migrated structure and bookmarks without eagerly loading all translations
+PASS Paged source seeking remains usable
+PASS Landscape keeps rail geometry within its track
+PASS Continuous mode maps source progress and keeps its chapter window bounded
+PASS EPUB with a source document over 12 MiB retains its text instead of silently skipping it
+PASS A seek issued during a cold partial chapter completes at its source target
+PASS Translation expansion does not advance the original-text reading progress
+PASS Worker startup failure falls back without losing the transferred source
+PASS New and legacy note backups retain source-coordinate identity
+PASS The full-translation display choice survives restart
+PASS No uncaught application errors
+TOTAL 24

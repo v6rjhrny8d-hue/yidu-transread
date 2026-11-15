@@ -1,0 +1,14 @@
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+29 !== 21
+
+    at /workspace/scratch/93718b70c1a4/implementation/transread/test/iteration-0547.cjs:15:273
+    at async check (/workspace/scratch/93718b70c1a4/implementation/transread/test/iteration-0547.cjs:6:32)
+    at async /workspace/scratch/93718b70c1a4/implementation/transread/test/iteration-0547.cjs:15:2 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: 29,
+  expected: 21,
+  operator: 'strictEqual',
+  diff: 'simple'
+}

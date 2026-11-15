@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="%LANG%" data-reduced-motion="%REDUCED%">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self'; script-src 'self'; base-uri 'none'; form-action 'none'">
+  <link rel="stylesheet" href="style.css?v=0.5.40">
+  <link rel="stylesheet" href="assets/icons/style.css">
+  <style>
+    :root{%PALETTE%}
+    html,body{height:100%;overflow:hidden;background:transparent}
+    .source-toolbar{height:calc(64px + var(--source-safe-top,0px));display:flex;align-items:center;gap:14px;padding:calc(10px + var(--source-safe-top,0px)) 12px 10px;position:relative;z-index:8;background:var(--glass);border-bottom:1px solid var(--line)}
+    .source-toolbar a{text-decoration:none;flex:none;-webkit-user-drag:none;user-select:none;touch-action:manipulation}
+    .source-toolbar .source-button{width:44px;height:44px;color:var(--accent);box-shadow:0 2px 7px #24362b16,inset 0 1px 1px var(--edge)}
+    .source-toolbar .source-button-content{display:inline-block;transition:transform 300ms cubic-bezier(.2,1.65,.35,1);transform:scale(1)}
+    .source-toolbar a[data-pressed=true] .source-button-content{transform:scale(.955);transition-duration:80ms;transition-timing-function:cubic-bezier(.2,.8,.2,1)}
+    .source-toolbar a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+    .source-toolbar .source-title{flex:1;min-width:0;font-size:14px;font-weight:500;color:var(--ink)}
+    .source-toolbar .source-done{height:44px;min-height:44px;min-width:68px;width:auto;padding:0 18px;justify-content:center;font-size:14px;border-radius:100px;background:var(--glass)}
+    [data-reduced-motion=true] .source-button-content{transition:none!important}
+    @media(prefers-reduced-motion:reduce){.source-toolbar .source-button-content{transition:none!important}}
+  </style>
+</head>
+<body>
+  <header class="source-toolbar">
+    <a class="icon-btn glass source-button" href="https://appassets.androidplatform.net/source/back" role="button" aria-label="%BACK%"><i class="ph ph-arrow-left source-button-content" aria-hidden="true"></i></a>
+    <span class="source-title ellipsis" title="%TITLE%">%TITLE%</span>
+    <a class="source-done glass glass-btn source-button" href="https://appassets.androidplatform.net/source/close" role="button"><span class="source-button-content">%DONE%</span></a>
+  </header>
+  <script src="source-toolbar.js?v=0.5.40" defer></script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+{"patches": 2, "totalPatchBytes": 1957244}
+Verifies
+Verified using v1 scheme (JAR signing): false
+Verified using v2 scheme (APK Signature Scheme v2): true
+Verified using v3 scheme (APK Signature Scheme v3): true
+Verified using v3.1 scheme (APK Signature Scheme v3.1): false
+Verified using v4 scheme (APK Signature Scheme v4): false
+Verified for SourceStamp: false
+Number of signers: 1
+Signer #1 certificate DN: CN=Lumi Reader Development, O=Lumi Personal Build, C=CN
+Signer #1 certificate SHA-256 digest: 8d21d7bc40b619f048f03e266031c59f7ad50cff5337203f5dce891d487c61fd
+Signer #1 certificate SHA-1 digest: 5d1877386b57e19f48419ec4e09f5d77b0437f59
+Signer #1 certificate MD5 digest: 29768f26515aab12e58887bd7bc90b66
+Signer #1 key algorithm: RSA
+Signer #1 key size (bits): 2048
+Signer #1 public key SHA-256 digest: 4302c9755508e7160d547a61acaa646e977aa0df1f871aca2ab8b5d9b8b85942
+Signer #1 public key SHA-1 digest: 19f52eba4c03986f23cfe29ec04141a15e42bb15
+Signer #1 public key MD5 digest: eb3d771ebca4324865bf5ff7b7fd4730
+package: name='app.lumi.reader.update' versionCode='76' versionName='0.5.55' platformBuildVersionName='15' platformBuildVersionCode='35' compileSdkVersion='35' compileSdkVersionCodename='15'
+minSdkVersion:'26'
+targetSdkVersion:'35'
+uses-permission: name='android.permission.REQUEST_INSTALL_PACKAGES'
+application-label:'TransRead Update Helper'
+application-label-zh-CN:'译读更新助手'
+application: label='TransRead Update Helper' icon=''
+launchable-activity: name='app.lumi.reader.update.MainActivity'  label='' icon=''
+feature-group: label=''
+  uses-feature: name='android.hardware.faketouch'
+  uses-implied-feature: name='android.hardware.faketouch' reason='default feature for all apps'
+main
+supports-screens: 'small' 'normal' 'large' 'xlarge'
+supports-any-density: 'true'
+locales: '--_--' 'zh-CN'
+densities: '160'

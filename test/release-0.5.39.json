@@ -1,0 +1,43 @@
+{
+  "version": "0.5.39",
+  "versionCode": 60,
+  "package": "app.lumi.reader",
+  "checks": {
+    "nativeSourcePolicyAndSafeArea": 24,
+    "sourceGradientBlurChromium": 18,
+    "existingToolbarTouchRegression": 25
+  },
+  "uniqueChecks": 67,
+  "scope": "24 production Java source toolbar policy/action/geometry/feedback/buffer checks against stubs, updated for full safe-area toolbar coverage; 18 Chromium composition and buffer checks including rendered stripe contrast with/without the website-owned gradient blur, full top coverage, safe-area alignment, transparent shared 3-layer profile, unblurred content below the gradient and idempotent updates; 25 existing local toolbar layout/touch/interruption/cancel/reduced-motion regressions. An initial build exposed a missing checked JSONException handler in the shared-profile loader; it was corrected and the failed log retained. The whole historical suite was not rerun. Native source and PDF classes compiled together.",
+  "evidence": [
+    "native-source-0539.log",
+    "iteration-0539.log",
+    "toolbar-touch-0539.log",
+    "build-0.5.39.log"
+  ],
+  "originalSigningCertificateMatches": true,
+  "signingCertificateSHA256": "8d21d7bc40b619f048f03e266031c59f7ad50cff5337203f5dce891d487c61fd",
+  "verifiedAssetCount": 73,
+  "packagedAssetsMatchSource": true,
+  "apkZipCRCValid": true,
+  "apkSHA256": "8d33440fe13318d703a5d487e6d97369dc923216e6defbfadaf081f446ba3485",
+  "limits": {
+    "sourceButtonCSSPx": 44,
+    "sourceBlurProfile": "assets/reader-edge.json, three transparent backdrop layers inside the website DOM",
+    "sourceSafeAreaCoverage": "Toolbar WebView begins at y=0, full 64dp plus top cutout; controls use internal safe padding",
+    "sourceToolbarDp": 64,
+    "sourceSafeInsets": "Overlay reserves only side display cutouts; website fills the canvas and receives a scrollable document top buffer for the 64dp bar plus top cutout",
+    "sourceToolbarScriptEnabled": true,
+    "sourceToolbarScriptPolicy": "Only bundled local press-state script, CSP self, no native bridge or arbitrary navigation",
+    "sourceWebsiteNativeBridge": false,
+    "sourceControls": {
+      "back": "Website history, then close",
+      "done": "Close immediately"
+    }
+  },
+  "limitations": [
+    "Actual Android immersive bars, cutout/IME handling and WebView composition were not tested on a physical Redmi K80 Pro.",
+    "External website sign-in and authenticated downloads retain the existing implementation but were not exercised against a live site.",
+    "Chromium uses overlapping frames to validate transparent composition; actual Android sibling WebView composition and site-specific fixed headers remain device validation items."
+  ]
+}

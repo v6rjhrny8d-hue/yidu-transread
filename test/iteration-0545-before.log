@@ -1,0 +1,11 @@
+AssertionError [ERR_ASSERTION]: Text jumped 4px at animation start
+    at /workspace/scratch/93718b70c1a4/implementation/transread/test/iteration-0545.cjs:11:493
+    at async check (/workspace/scratch/93718b70c1a4/implementation/transread/test/iteration-0545.cjs:6:32)
+    at async /workspace/scratch/93718b70c1a4/implementation/transread/test/iteration-0545.cjs:11:2 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}

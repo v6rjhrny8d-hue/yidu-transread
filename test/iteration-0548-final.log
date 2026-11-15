@@ -1,0 +1,26 @@
+PASS Book settings expose author and independent restore controls
+PASS Async translation manager retains its book editor parent and draft
+PASS Close returns one level to the same book editor with draft and focus
+PASS System back closes only translation management
+PASS Pull-down uses the shared sheet gesture and restores the editor
+PASS Delete confirmation is a third layer and Cancel returns to the manager
+PASS Deleting one language refreshes the same manager and keeps the editor below it
+PASS Deleting all translations leaves the empty manager without an obsolete footer
+PASS Backup button has a real gap below the translation row border
+PASS Saving author preserves source metadata and writes only the local override
+PASS Restart loads the saved author into shelf display
+PASS Local search finds books by the edited author
+PASS Restore author updates the draft without saving it prematurely
+PASS An intentionally blank author survives a restart
+PASS Book backup carries the author override together with the original author
+PASS Restoring the backup applies the edited author immediately and after reload
+PASS Reset all restores title and author draft without affecting reading data
+PASS PDF metadata uses the same author editor without opening its native viewport
+PASS A late cache summary cannot reopen a dismissed book settings sheet
+PASS All twelve theme modes give status messages theme colors and readable text
+PASS The themed Undo message retains its working action
+PASS Metadata and backup remain reachable above Save at 844x390
+PASS Metadata and backup remain reachable above Save at 360x640
+PASS Updated English and Traditional Chinese guide and author labels exist
+PASS No browser runtime errors
+TOTAL 25

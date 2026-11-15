@@ -1,0 +1,19 @@
+{
+  "layers": [
+    {
+      "blur": 1,
+      "solid": 0.6,
+      "clear": 1
+    },
+    {
+      "blur": 2,
+      "solid": 0.3,
+      "clear": 0.72
+    },
+    {
+      "blur": 4,
+      "solid": 0.05,
+      "clear": 0.44
+    }
+  ]
+}

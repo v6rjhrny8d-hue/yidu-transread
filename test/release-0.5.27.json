@@ -1,0 +1,65 @@
+{
+  "version": "0.5.27",
+  "versionCode": 48,
+  "package": "app.lumi.reader",
+  "checks": {
+    "logic": 503,
+    "native": 25,
+    "browserRegression": 326,
+    "browserPerformance": 20
+  },
+  "browserGroups": [
+    45,
+    25,
+    29,
+    35,
+    29,
+    20,
+    13,
+    27,
+    36,
+    38,
+    29,
+    20
+  ],
+  "total": 874,
+  "scope": "JS logic, native-interface and renderer-recovery stubs; Chromium touch/layout and actual generated EPUB long-text workloads. No Android hardware profiling or Android process-crash injection.",
+  "originalSigningCertificateMatches": true,
+  "signingCertificateSHA256": "8d21d7bc40b619f048f03e266031c59f7ad50cff5337203f5dce891d487c61fd",
+  "packagedAssetsMatchSource": true,
+  "verifiedAssetCount": 69,
+  "apkZipCRCValid": true,
+  "apkSHA256": "c67aa7d1ca43089f99a6fd938d944a09e31af8ef4de0cebe28f8aa86a867cfc6",
+  "performance": {
+    "active": {
+      "words": 170,
+      "nodes": 723,
+      "text": 106541,
+      "runs": 180
+    },
+    "scrolled": {
+      "words": 340,
+      "nodes": 893
+    },
+    "snapshot": {
+      "nodes": 180,
+      "paragraphs": 2
+    }
+  },
+  "evidence": [
+    "unit-0527.log",
+    "native-0527.log",
+    "browsers-0527.log (first three groups passed; initial marker failure retained)",
+    "browsers-0527-final.log (0519 through 0526 passed after stable marker fix)",
+    "performance-before-0527.json",
+    "performance-after-0527.json",
+    "performance-after-0527.log",
+    "build-0.5.27.log"
+  ],
+  "limitations": [
+    "No Redmi K80 Pro connection or affected user ebook/crash log was available.",
+    "Word DOM is windowed; original paragraph/text and CSS column content remain complete. Paged snapshots retain column geometry.",
+    "A renderer recovery panel prevents that handled WebView failure from terminating the Activity; unrelated native crashes and whole-process OOM are not covered.",
+    "Node-count reduction is not measured FPS, heap savings or power consumption."
+  ]
+}

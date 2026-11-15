@@ -1,0 +1,30 @@
+PASS Imported regional resource contains a real locally stored PCM recording
+PASS ECDICT can play actual imported regional WAV through the real browser audio pipeline
+PASS Audio-only MDX query keeps real pronunciation metadata without preparing CSS or images
+PASS ECDICT searches another imported dictionary before system speech
+PASS Displayed online definition can reuse a different local dictionary recording
+PASS Displayed mymemory definition can reuse a different local dictionary recording
+PASS Displayed google definition can reuse a different local dictionary recording
+PASS Displayed standard definition can reuse a different local dictionary recording
+PASS Current dictionary recording wins over other packs with the same accent
+PASS Missing American audio in current dictionary uses American audio from another pack
+PASS Opposite and unknown accents are skipped while searching British recordings
+PASS No matching local accent falls back to requested system accent without online lookup
+PASS Disabled imported resources are neither queried nor played
+PASS Other dictionaries follow the saved dictionary order
+PASS One broken dictionary index does not prevent another local recording
+PASS Missing first audio asset does not skip remaining recordings in the same pack
+PASS Rejected playback tries the next matching local pack before system speech
+PASS All rejected local recordings fall back once without a notice when system succeeds
+PASS Only failure of local and system speech produces one final notice
+PASS Requested weak form does not use a different packs strong recording
+PASS Default cross-pack pronunciation uses its normal weak form instead of the first strong recording
+PASS Actual word-card speaker reuses local audio while keeping ECDICT as definition
+PASS Missing definition does not block independent local word pronunciation
+PASS Explicit audio link is scoped to its own pack, then other packs use normal matching
+PASS Stopping a slow cross-pack lookup prevents late audio and system fallback
+PASS Stopping slow audio asset retrieval prevents late playback
+PASS Explicit system-only speech preference remains respected
+PASS Explicit online speech preference remains opt-in and falls back to requested system accent
+PASS No uncaught browser errors
+TOTAL 29

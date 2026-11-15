@@ -1,0 +1,9 @@
+PASS Native system dark updates the app even when WebView media remains light
+PASS Native light switch refreshes open theme sheet without losing selection
+PASS Explicit light or dark overrides native system changes
+PASS Browser-only fallback still follows media changes
+PASS All six light and dark themes use 30px blur without an opacity sampling boundary
+PASS Rendered Dock actually blurs page stripes instead of only reporting a CSS filter
+PASS Android publishes uiMode at page load, configuration change and resume
+PASS No uncaught UI errors
+TOTAL 8

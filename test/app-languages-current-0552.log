@@ -1,0 +1,33 @@
+PASS A fresh install follows English system language with functional Library heading
+PASS Library has a naturally wrapping subtitle and no app-name header
+PASS English book titles use original metadata without altering the stored Chinese title
+PASS search uses its short localized heading
+PASS notes uses its short localized heading
+PASS profile uses its short localized heading
+PASS Personal language settings describe the current system locale
+PASS Language choices retain autonyms and an accessible current selection
+PASS Switching immediately updates page, dialog, Dock and document language to Traditional Chinese
+PASS Switching UI language preserves translation target, nickname and reading settings
+PASS UI language is persisted alongside existing settings
+PASS Repeated switching leaves exactly one panel and one active choice, without duplicate overlays
+PASS Invalid selections do not overwrite the chosen locale
+PASS Changing language from the guide returns to a freshly localized guide
+PASS The guide is fully localized in English after switching back
+PASS themes translates application labels and explanatory copy
+PASS customColors translates application labels and explanatory copy
+PASS translationSettings translates application labels and explanatory copy
+PASS translationTools translates application labels and explanatory copy
+PASS dictionarySettings translates application labels and explanatory copy
+PASS hapticSettings translates application labels and explanatory copy
+PASS privacy translates application labels and explanatory copy
+PASS about translates application labels and explanatory copy
+PASS Chinese words, definitions and comments authored by the user stay untouched in English UI
+PASS A manual language choice ignores later system-language changes
+PASS Following a Traditional Chinese device updates tools while preserving reading scroll and original text
+PASS Native system-language updates refresh only when Follow system is selected
+PASS The native bridge receives the app preference independently from translation settings
+PASS Chinese locale normalization handles script and regional variants with safe English fallback
+PASS A saved manual choice survives restart on a differently configured device
+PASS Unsupported fresh device languages get a complete English interface
+
+31 app-language checks passed. Synthetic DOM and native-bridge stubs only.

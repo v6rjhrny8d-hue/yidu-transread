@@ -1,0 +1,42 @@
+{
+  "version": "0.5.30",
+  "versionCode": 51,
+  "package": "app.lumi.reader",
+  "checks": {
+    "logic": 503,
+    "nativeStubs": 62,
+    "bookAndImageTouch": 32,
+    "pdfFullscreenAndGestures": 33
+  },
+  "uniqueChecks": 630,
+  "scope": "503 JS logic, 62 native stubs including production PDF geometry/cache/touch routing, 32 book/image Chromium touch checks, and 33 PDF fullscreen/rolling/bookmark/cover long-press Chromium checks. Native bridge calls are mocked in Chromium. SDK compile/signature/assets checked separately.",
+  "evidence": [
+    "unit-0530.log",
+    "native-0530-final.log",
+    "iteration-0528-on-0530.log",
+    "iteration-0530.log",
+    "build-0.5.30.log"
+  ],
+  "originalSigningCertificateMatches": true,
+  "signingCertificateSHA256": "8d21d7bc40b619f048f03e266031c59f7ad50cff5337203f5dce891d487c61fd",
+  "verifiedAssetCount": 69,
+  "packagedAssetsMatchSource": true,
+  "apkZipCRCValid": true,
+  "apkSHA256": "060d48773d056bce5adbb3a93f2e56db8717175c8d8e07c7fa725d9c763533e2",
+  "limits": {
+    "pdfFileBytes": 104857600,
+    "pdfPagePixels": 2000000,
+    "pdfMaxBitmapSide": 4096,
+    "pdfCacheBytes": 20971520,
+    "pdfCachePages": 8,
+    "pdfPendingRenders": 2,
+    "pdfDirectoryRows": 80,
+    "pdfTopBlurStrengthDp": 4,
+    "pdfTopBlurHeight": "Same bounded reader-edge-height as EPUB"
+  },
+  "limitations": [
+    "Native PdfRenderer/RenderNode/WebView transparent composition and MediaStore were not run on a physical Android device; browser native calls were mocked.",
+    "This release addresses identified flicker mechanisms; actual Redmi K80 Pro flicker/FPS/crash behavior requires device verification.",
+    "PDF navigation uses a bounded page list and bookmarks; embedded PDF outline parsing, OCR and text translation are not implemented."
+  ]
+}

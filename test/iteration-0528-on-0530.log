@@ -1,0 +1,33 @@
+PASS The book Save action follows the scroll body and stays within the card
+PASS Long pressing a shelf book opens settings without opening the reader
+PASS Renaming updates the shelf while keeping the imported title unchanged
+PASS A custom book name survives restart
+PASS Cancelling book settings leaves the saved name unchanged
+PASS Cover cropping produces a bounded 450 by 675 image
+PASS A custom cover survives restart without replacing the original cover
+PASS Resetting only the name keeps the custom cover
+PASS Resetting only the cover keeps the edited name
+PASS Reset all uses a confirmation card above the retained editor
+PASS Cancelling reset confirmation preserves the draft name
+PASS Closing the editor also cancels an unsaved reset
+PASS Confirmed and saved reset restores defaults without touching notes or progress
+PASS A failed save keeps the editable draft and leaves book data unchanged
+PASS Dragging on a book cancels long press and does not open reading
+PASS A first two-finger gesture enlarges the picture
+PASS Adding a second finger cancels the image long-press menu
+PASS A new pinch can shrink an already enlarged picture
+PASS Pinching below fit returns smoothly to the fitted picture
+PASS Long pressing the enlarged viewer opens Save without closing the picture
+PASS Save sends the original image source to native storage and preserves the viewer
+PASS A failed image save releases its lock and keeps the viewer open
+PASS Keyboard activation can retry Save without duplicate writes
+PASS Long pressing an inline illustration opens its Save card without opening the viewer
+PASS PDF import creates shelf metadata without fetching the whole file into JavaScript
+PASS Opening a PDF uses the native viewport rather than an empty text chapter
+PASS PDF page and within-page offset survive restarting the application
+PASS PDF resume passes the saved page and offset to the native viewport
+PASS Renaming a PDF changes its display name while preserving its file identity
+PASS Removing a PDF clears custom metadata and progress and requests native cleanup
+PASS Book settings remain scrollable and closable in landscape
+PASS The new flows produce no uncaught JavaScript errors
+32 iteration 0.5.28 checks passed. Native renderer and media providers require Android verification.

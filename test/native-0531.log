@@ -1,0 +1,80 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> lumi-reader@0.5.30 test:native
+> node test/native-ui-routing.cjs && node test/native-haptics.cjs && node test/native-renderer-recovery.cjs && node test/native-pdf-viewport.cjs && node test/native-pdf-touch.cjs
+
+PASS Android 15+ owned reader WebView requests high refresh only while drawing
+PASS All interface commands reach the UI queue while every I/O worker is blocked
+PASS UI commands preserve order and speech/file/source actions do not wait for network completion
+PASS Immediate UI routing preserves voice readiness and HTTPS validation errors
+PASS Network work stays off the UI queue and remains bounded by the I/O executor
+PASS Queued network work still completes after the occupied workers are released
+
+5 native routing checks passed with stub services. No Android device claims.
+PASS Current Android maps actions to selection, toggle, confirmation and gesture constants
+PASS Older Android versions use only supported short semantic constants
+PASS Dense ticks are skipped when a suitably subtle constant is unavailable
+PASS Unknown haptic operations have no arbitrary vibration fallback
+PASS Foreground feedback reaches the View semantic API
+PASS Gentle mode softens gestures and toggles while retaining success confirmation
+PASS Dock selection, card dismissal and buttons use the softest system tick
+PASS Gentle mode cannot turn an unknown operation into a vibration
+PASS Hidden or unfocused views discard feedback rather than queue it
+PASS App calls leave system and View settings in control
+PASS Feedback is safe after the WebView is gone
+
+11 native haptic checks passed with View stubs. No physical vibration claims.
+PASS Haptic integration adds no vibration permission or settings-bypass flags
+PASS Main renderer termination is handled
+PASS Dead main WebView is detached, destroyed and cleared
+PASS Recovery leaves an interactive native panel instead of exiting
+PASS Recovery button creates a fresh Activity
+PASS Source renderer low-memory termination is also handled
+PASS Source cleanup does not destroy an unaffected reader
+PASS Finishing Activity does not open another recovery panel
+7 native renderer recovery checks passed with stubs. No Android process crash was injected.
+PASS Closing before first layout retains the requested PDF page
+PASS Initial layout restores page and within-page offset
+PASS Page navigation lands at the correct page boundary
+PASS A fitted page cannot pan sideways or scroll before the document
+PASS Scrolling is bounded by the complete document height
+PASS Landscape reflow retains the same source page and offset
+PASS Zoomed panning stays within the scaled page edge
+PASS Bitmap pixel budget holds for scale 1.0 and aspect 0.05
+PASS Bitmap pixel budget holds for scale 1.0 and aspect 0.707
+PASS Bitmap pixel budget holds for scale 1.0 and aspect 1.414
+PASS Bitmap pixel budget holds for scale 1.0 and aspect 5.0
+PASS Bitmap pixel budget holds for scale 1.0 and aspect 100.0
+PASS Bitmap pixel budget holds for scale 1.0 and aspect 1.0E8
+PASS Bitmap pixel budget holds for scale 2.0 and aspect 0.05
+PASS Bitmap pixel budget holds for scale 2.0 and aspect 0.707
+PASS Bitmap pixel budget holds for scale 2.0 and aspect 1.414
+PASS Bitmap pixel budget holds for scale 2.0 and aspect 5.0
+PASS Bitmap pixel budget holds for scale 2.0 and aspect 100.0
+PASS Bitmap pixel budget holds for scale 2.0 and aspect 1.0E8
+PASS Bitmap pixel budget holds for scale 5.0 and aspect 0.05
+PASS Bitmap pixel budget holds for scale 5.0 and aspect 0.707
+PASS Bitmap pixel budget holds for scale 5.0 and aspect 1.414
+PASS Bitmap pixel budget holds for scale 5.0 and aspect 5.0
+PASS Bitmap pixel budget holds for scale 5.0 and aspect 100.0
+PASS Bitmap pixel budget holds for scale 5.0 and aspect 1.0E8
+PASS Cache eviction keeps nearby pages within both count and byte budgets
+PASS Bookmark navigation restores its within-page offset
+PASS Changing the top edge effect does not change page offset, zoom or pan
+PASS Height-only changes retain the source position without invalidating render jobs
+PASS A large document uses accurate page lookup without a page View list
+PASS A new PDF starts above page one with the requested button-height lead-in
+PASS Jumping to the first page includes its lead-in
+PASS Rotation preserves a position inside the leading strip
+PASS Orientation-specific button height preserves relative lead-in position
+PASS Updating lead-in geometry preserves content position away from the start
+PASS Chrome and blur changes cannot move the PDF after lead-in is established
+36 PDF geometry/cache checks passed with stubs. No Android rendering claim.
+PASS Without a PDF, shelf and reader touches stay in WebView
+PASS Page scrolling and pinch retain the native owner across toolbar boundaries
+PASS Native touch coordinates exclude the PDF safe insets
+PASS A toolbar gesture stays in WebView even after moving onto the page
+PASS Modal sheets receive page-area gestures instead of PDF underneath
+PASS Long-press release remains with the PDF and cannot tap the newly opened sheet
+PASS Cancel releases ownership before the next control gesture
+7 production PDF touch-routing checks passed with stubs.

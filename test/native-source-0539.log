@@ -1,0 +1,25 @@
+PASS Source browsing enters immersive mode independently of the reading flag
+PASS Closing restores the previous reader or ordinary-page system-bar policy
+PASS Source chrome accepts current app hex and translucent palette values
+PASS Palette input cannot inject a CSS declaration or markup: red;background:
+PASS Palette input cannot inject a CSS declaration or markup: </style><script
+PASS Palette input cannot inject a CSS declaration or markup: url(x)
+PASS Palette input cannot inject a CSS declaration or markup: #fff;--ink:red
+PASS A foreground source button uses the existing soft semantic feedback
+PASS App feedback Off suppresses the toolbar vibration
+PASS A disabled system feedback setting is respected without force flags
+PASS View-level feedback disabling is also respected
+PASS Hidden or background toolbar buttons cannot vibrate
+PASS Older Android keeps the existing supported tick fallback
+PASS Native pixel dimensions are passed to the bounded page buffer script
+PASS An unmeasured website does not run an invalid buffer calculation
+PASS The browser canvas reserves only side cutouts, with no status or navigation-bar bands
+PASS The overlay toolbar covers its complete height and display cutout
+PASS Rotation clears the old top cutout instead of leaving a blank strip
+PASS The shared back control first navigates website history
+PASS Foreign, altered and unknown toolbar links cannot invoke a browser action
+PASS Done destroys both browser views and releases layout references
+PASS Repeated cleanup cannot destroy a view twice
+PASS Back on the first website page returns to the app
+23 production source-chrome checks passed with stubs.
+PASS The local toolbar and external website expose no native JavaScript bridge

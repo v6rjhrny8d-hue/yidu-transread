@@ -1,0 +1,89 @@
+{
+  "version": "0.5.53",
+  "versionCode": 74,
+  "date": "2026-10-28",
+  "package": "app.lumi.reader",
+  "apk": {
+    "name": "YiDu-0.5.53.apk",
+    "bytes": 21577909,
+    "sha256": "97e0d80358d3525176748cbe93d9329f24a56997df4acbb07c07ef244d22e27a",
+    "certificateSha256": "8d21d7bc40b619f048f03e266031c59f7ad50cff5337203f5dce891d487c61fd",
+    "webAssetsByteVerified": 86,
+    "zipCRC": "passed"
+  },
+  "checks": [
+    {
+      "log": "test/smoke-0553-complete.log",
+      "passed": 66
+    },
+    {
+      "log": "test/motion-0553.log",
+      "passed": 27
+    },
+    {
+      "log": "test/input-routing-0553.log",
+      "passed": 11
+    },
+    {
+      "log": "test/reader-tools-0553.log",
+      "passed": 24
+    },
+    {
+      "log": "test/translation-languages-0553.log",
+      "passed": 22
+    },
+    {
+      "log": "test/app-languages-0553-final.log",
+      "passed": 31
+    },
+    {
+      "log": "test/iteration-0553-release.log",
+      "passed": 35
+    },
+    {
+      "log": "test/workflow-0553-final.log",
+      "passed": 30
+    },
+    {
+      "log": "test/css-0553.log",
+      "passed": 19
+    },
+    {
+      "log": "test/mdict-0553.log",
+      "passed": 32
+    },
+    {
+      "log": "test/native-speech-0553.log",
+      "passed": 16
+    },
+    {
+      "log": "test/native-ui-0553-final.log",
+      "passed": 6
+    }
+  ],
+  "totalChecks": 319,
+  "groups": {
+    "logicLanguageMotionInputTools": 181,
+    "realChromium": 116,
+    "productionJavaMethodsWithStubs": 22
+  },
+  "coverage": [
+    "Whole fixed word header touch drag; finger tracking, finite interruptible spring, expand/collapse/dismiss, short rebound, button cancellation, normal taps, reduced motion and rotation.",
+    "Regional weak/strong IPA parsing, corresponding recording metadata and generic status reset; one speaker control.",
+    "Actual PCM WAV starts and ends; mocked startup rejection, late error, replaced callbacks, pending cancellation, final unavailable notice, regional online choice and bounded online lookup.",
+    "Unified dictionary settings, provider options, legacy migration, parent summary refresh, translation service source/target and memory cache.",
+    "Existing lookup/translation workflow, native definition scrolling, horizontal switching, source-word avoidance, dark CSS and MDX/MDD importer regressions."
+  ],
+  "limitations": [
+    "No physical Android device or user-supplied Oxford MDX/MDD pack. Browser and stub tests cannot certify real-device voice availability or every commercial dictionary layout.",
+    "Live Dictionary API water/you probes returned HTTP403 in this environment; online protocol and timeout behavior were tested with controlled responses, not a successful live service call.",
+    "MyMemory anonymous quota is 5000 characters/day; Google is the existing key-free trial channel, not a guaranteed unlimited official Cloud Translation API.",
+    "Only explicitly permitted HTTPS audio hosts and explicitly identified regional recordings are selected; missing/failed recordings use system speech.",
+    "Existing PDF compositor and historical cached-chapter 380/0 acceptance items remain outside this change."
+  ],
+  "initialFailuresCorrected": [
+    "Adjacent inert DOM text nodes now have label boundaries, keeping NAmE metadata separate from prior recording labels.",
+    "Header lostpointercapture ignores capture transfer from the original title/action to the card, while actual card capture loss still cancels.",
+    "The speech harness extracts all three production overloads; routing stub accepts actualAccent response. Old settings assertions now check the authorized unified UI."
+  ]
+}

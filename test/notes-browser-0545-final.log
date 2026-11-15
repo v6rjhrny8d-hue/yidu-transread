@@ -1,0 +1,31 @@
+PASS Shelf has the shared bounded top blur without intercepting touch
+PASS Notes include the same top edge
+PASS Visible meanings use a dark open-eye current-state icon
+PASS Hiding meanings animates the card height and text opacity concurrently
+PASS Repeated meaning taps reverse from the visible height without replacing cards
+PASS Closing meanings settles cleanly with the lighter closed-eye icon
+PASS Meaning springs preserve the currently viewed card anchor
+PASS A fresh vertical touch can scroll while meanings are still settling
+PASS Alphabet mode preserves upper cards and search alignment
+PASS Alphabet rail remains in the middle instead of reaching the status bar
+PASS Letter dragging has a proximity lens and floating current-letter hint
+PASS Recent mode offers a draggable percent rail in the same bounded region
+PASS Recent rail seeks through a large virtual list without opening details
+PASS Dragging a segmented control changes only its capsule before release
+PASS Release begins overlapping exit and entry with no delayed entrance
+PASS Rapid segment reversal settles at the latest target with no stale layers
+PASS search uses the shared noninteractive top blur
+PASS profile uses the shared noninteractive top blur
+PASS Directory switch is pinned below the list in portrait
+PASS Landscape keeps the bottom switch separate from progress and list
+PASS Compact portrait still leaves a usable scrolling directory above the bottom switch
+FAIL Returning to a cached chapter preserves its vertical reading location — {"actual":0,"oldScroll":380}
+PASS A new touch grabs the exact visible chapter position without snapping to an endpoint
+PASS Interrupted chapter panes cover the viewport without empty seams
+PASS Repeated quick swipes advance without waiting for earlier chapters to settle
+PASS Immediate reversal during chapter inertia returns to the adjacent chapter cleanly
+PASS Cancelling a chapter gesture restores the current page without committing
+PASS Reduced motion commits meanings without leftover spring layers
+PASS No browser runtime errors occurred
+
+28 iteration 0.5.20 touch/layout checks passed; 1 failed. Chromium emulation, no Android FPS or physical haptic measurement.

@@ -1,0 +1,32 @@
+PASS A fresh install follows English system language with functional Library heading
+PASS Library has a naturally wrapping subtitle and no app-name header
+PASS English book titles use original metadata without altering the stored Chinese title
+PASS search uses its short localized heading
+PASS notes uses its short localized heading
+PASS profile uses its short localized heading
+PASS Personal language settings describe the current system locale
+PASS Language choices retain autonyms and an accessible current selection
+PASS Switching immediately updates page, dialog, Dock and document language to Traditional Chinese
+PASS Switching UI language preserves translation target, nickname and reading settings
+PASS UI language is persisted alongside existing settings
+PASS Repeated switching leaves exactly one panel and one active choice, without duplicate overlays
+PASS Invalid selections do not overwrite the chosen locale
+PASS Changing language from the guide returns to a freshly localized guide
+PASS The guide is fully localized in English after switching back
+PASS themes translates application labels and explanatory copy
+PASS customColors translates application labels and explanatory copy
+PASS translationSettings translates application labels and explanatory copy
+PASS translationTools translates application labels and explanatory copy
+PASS dictionarySettings translates application labels and explanatory copy
+PASS hapticSettings translates application labels and explanatory copy
+AssertionError [ERR_ASSERTION]: Privacy and dataStored on your phone书籍、词句Notes、Read 进度和设置存储在本机。本版没有账号注册、分析 SDK、广告或自动云同步。卸载会Remove 本机数据，Export full book backups regularly.When the app connectsTranslation sends visible paragraphs to your selected service. Unknown words may be sent to the online English dictionary. Local library search stays on your device. Book websites receive your visits and any sign-in details you enter.API keys and website sign-inCustom translation keys are encrypted with Android Keystore in private app storage. Book websites use a separate browser without access to the reader’s native bridge. HTTPS connections use system certificate validation.
+    at /workspace/scratch/93718b70c1a4/implementation/transread/test/app-languages.cjs:46:125
+    at check (/workspace/scratch/93718b70c1a4/implementation/transread/test/app-languages.cjs:6:26)
+    at /workspace/scratch/93718b70c1a4/implementation/transread/test/app-languages.cjs:46:3 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}

@@ -1,0 +1,18 @@
+PASS Fresh glass defaults are 10px blur and 70 percent fill
+PASS Null and invalid glass preferences use defaults while explicit zero is preserved
+PASS Existing manual glass choices survive restarting
+PASS Restore defaults updates both controls and their saved values
+PASS Horizontal dragging preserves every button top and height
+PASS Release keyframes do not introduce vertical translation or scaling
+PASS Wrapped IPA cannot push the three controls down
+PASS A short loading label cannot pull controls upward
+PASS Late long IPA completion keeps the same vertical anchor
+PASS Ambiguous diagonal movement on a control waits before moving the card
+PASS A diagonal horizontal swipe locks horizontally without vertical drift
+PASS Dragging from favorite switches dictionary without collecting the word
+PASS An intentional vertical header drag still expands the card
+PASS Reduced motion and different IPA lengths retain the control height
+PASS At 320px the control row stays within the card and remains clickable
+PASS Favorite and close taps remain functional
+PASS No uncaught browser errors
+TOTAL 17

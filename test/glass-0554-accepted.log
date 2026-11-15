@@ -1,0 +1,13 @@
+PASS Glass controls expose both ranges and the expected defaults
+PASS Dragging blur previews globally and opacity only changes glass fill
+PASS Range regrab interrupts the current spring, then settles without stale animations
+PASS Commit writes saved values and reset restores both defaults
+PASS Reduced motion changes immediately and does not create a range animation
+PASS Note voice buttons are round and share the same right edge
+PASS Meaning control is readable in each palette and state
+PASS Saved startup colors are applied before app initialization
+PASS Model management is enabled and preview carries the selected model id
+PASS About and guide describe current features without the removed sample-book promotion
+PASS Glass settings remain inside the landscape sheet scroll area
+PASS No uncaught UI errors
+TOTAL 12

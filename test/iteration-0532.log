@@ -1,0 +1,17 @@
+PASS shelf top blur adds no background color or color gradient
+PASS shelf retains all three blur layers
+PASS search top blur adds no background color or color gradient
+PASS search retains all three blur layers
+PASS notes top blur adds no background color or color gradient
+PASS notes retains all three blur layers
+PASS profile top blur adds no background color or color gradient
+PASS profile retains all three blur layers
+PASS EPUB top blur adds no background color or color gradient
+PASS EPUB retains all three blur layers
+PASS PDF top blur adds no background color or color gradient
+PASS PDF retains all three blur layers
+PASS A solid dark area stays dark through the top blur without paper tint
+PASS A solid white area stays neutral white
+PASS The top color boundary is still blurred while the area below remains sharp
+PASS No uncaught browser errors
+16 transparent top-blur checks passed. Native PDF blur implementation is unchanged.

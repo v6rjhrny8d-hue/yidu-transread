@@ -1,0 +1,13 @@
+PASS Losing implicit capture on the original word does not cancel a swipe captured by the page
+PASS A fresh primary tap opens a profile card after an earlier touch ends outside the app
+PASS The browser-style implicit-to-explicit capture sequence completes the next-chapter swipe
+PASS The same capture-transfer sequence completes the previous-chapter swipe
+PASS Losing the page capture itself still cancels chapter navigation and clears displacement
+PASS A new primary touch recovers reading swipes after an earlier gesture never sends its ending event
+PASS A browser-qualified settings click is not discarded by the global reading drag flag
+PASS Small finger jitter inside a settings card remains a tap
+PASS All nine profile cards open over 45 successive taps on their labels and icons
+PASS A settings control below a closing modal cannot receive its trailing tap
+PASS A fresh settings tap works as soon as the modal shield has gone
+
+11 input-routing checks passed, 0 failed. No rendered or native touch claims.

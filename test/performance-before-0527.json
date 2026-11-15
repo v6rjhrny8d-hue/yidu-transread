@@ -1,0 +1,21 @@
+{
+  "baseline": true,
+  "metrics": {
+    "active": {
+      "words": 15300,
+      "nodes": 15673,
+      "text": 106541,
+      "runs": 0
+    },
+    "scrolled": {
+      "words": 15300,
+      "nodes": 15673
+    },
+    "snapshot": {
+      "nodes": 15676,
+      "paragraphs": 180
+    }
+  },
+  "checks": 2,
+  "errors": []
+}

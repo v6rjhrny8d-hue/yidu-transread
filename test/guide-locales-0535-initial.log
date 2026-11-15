@@ -1,0 +1,17 @@
+PASS 27 complete English chapters, 10 aligned offline translations
+PASS Four navigation destinations and offline dictionary
+PASS Shelf header has only the guide, while book import and dock search remain reachable
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+11 !== 7
+
+    at /workspace/scratch/0f9dfce2e3b6/transread/test/smoke.cjs:37:295
+    at check (/workspace/scratch/0f9dfce2e3b6/transread/test/smoke.cjs:31:26)
+    at /workspace/scratch/0f9dfce2e3b6/transread/test/smoke.cjs:37:87 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: 11,
+  expected: 7,
+  operator: 'strictEqual',
+  diff: 'simple'
+}

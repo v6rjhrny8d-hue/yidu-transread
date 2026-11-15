@@ -1,0 +1,91 @@
+PASS Language changes retain the exact sheet, backdrop, overlay record, option buttons and focus
+PASS Rapid language choices leave the final choice selected without a new sheet-entry animation
+PASS A language change preserves and relabels the original hidden guide rather than reopening it
+PASS All four top green taglines remain English in zh-CN
+PASS All four top green taglines remain English in zh-TW
+PASS All four top green taglines remain English in en
+PASS The shelf has a distinct localized subtitle and no waiting-for-the-next-page count row
+PASS Showing translation starts a fade and a sampled spring for displaced paragraphs, preserving original words and controls
+PASS A second tap reverses the live fade from its sampled opacity while keeping the same translation node for its exit
+PASS Reopening during fade-out resumes from the current opacity and restores flow without recreating the paragraph
+PASS Cancelled exit callbacks cannot remove reopened translations or leave layout animation records
+PASS Twelve fast taps resolve to the final state with exactly one translation per paragraph
+PASS Closing uses fade-out frames and removes translations from layout before their visual exit ends
+PASS After close completes no invisible translation layer or stale animation remains
+PASS Single-paragraph state also supports interruptible fade reversal without visible paragraph buttons
+PASS A longer asynchronous translation uses the same spring path to move following content
+PASS Backgrounding clears fading translation ghosts and sibling-motion state
+PASS Reduced motion applies translation state immediately without animations or leftover ghosts
+
+18 locale/translation motion checks passed. Assigned geometry only.
+PASS Language settings expose 20 supported targets and default to Simplified Chinese
+PASS The Dock language settings and the translation shortcut have distinct icons
+PASS Legacy Chinese caches stay usable but cannot be read as another target language
+PASS Switching language preserves the current panel, original words, scroll and single-paragraph choice
+PASS Japanese translation placeholders never fall back to the bundled Chinese seed
+PASS Right-to-left targets carry their own language and automatic text direction
+PASS Custom language choices persist the target and update the same controls in place
+PASS Unknown target values are ignored without changing the saved preference
+PASS Switching back restores the existing Chinese cache without network work
+PASS Google requests use the chosen target with automatic source detection
+PASS Custom AI requests name the chosen language and keep literary text in its user message
+PASS MyMemory receives the book source and selected target without an English-Chinese hardcode
+PASS Oversized multibyte MyMemory input is rejected whole before any request
+PASS Matching MyMemory source and target returns the original text without an invalid language pair
+PASS The requested language cache is reused with its own language key
+PASS A current target can finish while an older target request is still in flight
+PASS A late old-target result is stored under its own key and cannot overwrite current text
+PASS Rapid switching bounds unfinished target generations to two workers
+PASS The newest queued target proceeds when a slot frees, with no stale language flash
+PASS Failures from an obsolete target do not replace the new translation or show a stale error
+PASS Adjacent chapter previews use the selected target instead of Chinese fallback
+PASS Invalid stored language settings have a safe Simplified Chinese fallback
+
+22 translation-language checks passed. Controlled network responses only.
+PASS Existing installations default to gentle haptics without a storage migration
+PASS Profile exposes three touch-feedback modes and a preview control
+PASS Off mode suppresses preview and functional feedback
+PASS Changing feedback modes updates in place and persists the choice
+PASS Enabling feedback emits one selection pulse
+PASS Feedback preference is stored with the existing settings record
+PASS Pointer release plus compatibility click opens a card with exactly one standard pulse
+PASS Gentle mode includes one soft pulse for ordinary card-opening taps
+PASS Consecutive switch taps both apply and emit one pulse each without cooldown
+PASS Navigation changes and repeated current-tab taps each receive one pulse
+PASS Frequent word lookups do not add custom haptics in reading
+PASS A completed word collection emits one confirmation despite duplicate taps
+PASS Removing a collected word uses a lighter off effect
+PASS Failed storage does not claim success through a confirmation pulse
+PASS Sentence collection confirms after successful persistence
+PASS Translation feedback occurs once for the switch rather than once per paragraph
+PASS Chapter confirmation is emitted once for a valid committed change
+PASS Short chapter drags rebound silently without changing chapter
+PASS Backgrounded pages do not request haptic feedback
+PASS Only dense haptic ticks are rate-limited
+PASS Off mode applies consistently to all app feedback semantics
+PASS Slider values and visual labels update immediately while writes are coalesced
+PASS Font changes do not repeatedly notify the native system theme
+PASS Releasing a slider immediately flushes exactly one settings write
+PASS A completed slider change leaves no delayed duplicate write
+PASS Idle slider adjustments are automatically saved once
+PASS Repeated theme application reuses native state
+PASS A real dark-mode change still updates native system bars once
+PASS Unchanged palettes avoid rebuilding all custom color properties
+PASS Repeated text is tokenized once without changing escaped output
+PASS The text cache has both entry and total-character limits
+PASS Oversized text is fully rendered without being retained in the cache
+PASS Spring samples exactly match the previous release for representative interactions
+PASS Cached spring curves cannot be corrupted by a caller
+PASS Only card entrance timing changes for the requested spring
+PASS A burst of scroll events schedules only one progress paint
+PASS The coalesced progress paint uses the latest scroll position
+PASS Leaving reading cancels pending progress work
+PASS Finding the visible paragraph preserves the anchor with logarithmic layout reads
+PASS Adjacent preparation waits for idle time instead of running during entry
+PASS Preparation runs in bounded slices and keeps at most two nearby images
+PASS A new touch immediately cancels optional idle preparation
+PASS Leaving a book releases its optional decoded-image references
+PASS Unavailable haptics never delay or fail the original button action
+PASS Browser fallback silently ignores functional haptics
+
+45 haptic/performance checks passed. Operation counts and synthetic scheduling only.

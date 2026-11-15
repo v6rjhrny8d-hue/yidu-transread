@@ -1,0 +1,8 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> lumi-reader@0.5.43 test
+> node test/smoke.cjs && node test/motion.cjs && node test/gestures.cjs && node test/input-routing.cjs && node test/notebook.cjs && node test/highlights.cjs && node test/responsiveness.cjs && node test/tap-and-images.cjs && node test/haptics-performance.cjs && node test/short-swipes-feedback.cjs && node test/reader-tools.cjs && node test/landscape-inertia.cjs && node test/translation-languages.cjs && node test/app-languages.cjs && node test/reader-fixes.cjs && node test/locale-translation-motion.cjs && node test/reader-loading.cjs
+
+Error: Timed out waiting for initialization
+    at until (/workspace/scratch/93718b70c1a4/implementation/transread/test/smoke.cjs:29:86)
+    at async /workspace/scratch/93718b70c1a4/implementation/transread/test/smoke.cjs:33:2

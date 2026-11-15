@@ -1,0 +1,83 @@
+{
+  "version": "0.5.57",
+  "versionCode": 78,
+  "date": "2026-10-28",
+  "package": "app.lumi.reader",
+  "apk": {
+    "name": "YiDu-0.5.57.apk",
+    "bytes": 21582005,
+    "sha256": "8d4a8db3cc4cf922b44bbed10b08a1eddd4314eb62df8f04a50379ba503be865",
+    "certificateSha256": "8d21d7bc40b619f048f03e266031c59f7ad50cff5337203f5dce891d487c61fd",
+    "webAssetsByteVerified": 86,
+    "zipCRC": "passed"
+  },
+  "updateHelper": {
+    "name": "YiDu-0.5.57-UpdateHelper.apk",
+    "bytes": 1999495,
+    "sha256": "b387f299c36a22cae7f20e57d3f6e4150a7fc6b938e256904b1c2d179b78bea5",
+    "version": "0.5.57.1",
+    "versionCode": 79,
+    "package": "app.lumi.reader.update",
+    "certificateSha256": "8d21d7bc40b619f048f03e266031c59f7ad50cff5337203f5dce891d487c61fd",
+    "supportedBases": [
+      "0.5.55",
+      "0.5.56"
+    ],
+    "installerCoreRevision": 2,
+    "deviceInstallerVerified": false
+  },
+  "checks": [
+    {
+      "log": "test/audio-0557-final.log",
+      "passed": 29
+    },
+    {
+      "log": "test/workflow-0557.log",
+      "passed": 35
+    },
+    {
+      "log": "test/smoke-0557.log",
+      "passed": 66
+    },
+    {
+      "log": "test/input-routing-0557.log",
+      "passed": 11
+    },
+    {
+      "log": "test/native-speech-0557.log",
+      "passed": 16
+    },
+    {
+      "log": "test/update-core-0557-complete.log",
+      "passed": 24
+    },
+    {
+      "log": "test/update-session-0557.log",
+      "passed": 46
+    }
+  ],
+  "totalChecks": 227,
+  "groups": {
+    "realChromium": 64,
+    "logicInputNativeSpeechFakes": 93,
+    "updateRestorationSessionFakes": 70
+  },
+  "behavior": [
+    "Default local pronunciation search is independent of displayed definition source: current MDX first, other enabled MDX in saved dictionary order, regional pronunciation packs, then system speech.",
+    "Regional metadata and weak/strong form selection preserved. Unknown/opposite accent audio is not used automatically. An explicitly selected system/online speech preference remains respected.",
+    "Each bad candidate can continue to another local candidate; final system fallback is silent unless every path fails. Missing definition does not block word audio. Cancellation generation checks reject stale queries/assets.",
+    "Audio-only MDX query skips rich HTML/CSS/image preparation; normal definition query is unchanged."
+  ],
+  "evidence": [
+    "Before-fix test/audio-0557-before.log reproduced ECDICT failing to search an imported MDX. Final browser29 cases pass.",
+    "Real imported PCM WAV plays via actual browser Audio; real MDX/MDD fixture query preserves metadata and skips rich preparation. Candidate-order and failure lifecycle use controlled MDX/Audio responses.",
+    "Existing workflow35 covers current word-card gestures, phonetics, local/online playback lifecycle and silence behavior; original-signed main APK and helper built.",
+    "Both exact original0.5.55 and0.5.56 APKs restored the new signed0.5.57 byte-for-byte, with original signer verified."
+  ],
+  "limitations": [
+    "No physical Android or user commercial Oxford pack was available; actual sound and OEM installation remain user-device acceptance.",
+    "Only enabled local packs with matching accent metadata are used automatically. Explicit system/online speech preferences are retained.",
+    "Helper revision2 installer core unchanged; version,target and base patch assets updated. Installation of helper itself does not update reader.",
+    "Prior0.5.56 release210 and helper-repair70 are historical, not added to this227."
+  ]
+}

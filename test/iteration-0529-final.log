@@ -1,0 +1,22 @@
+PASS The featured book offers the same editable cover/name card
+PASS PDF reuses the circular back/directory controls and the app range component
+PASS Long titles truncate inside the narrow header without a title capsule
+PASS PDF canvas touch regions are limited to visible controls
+PASS Tapping the page hides title/back/directory/progress together and releases the header area
+PASS Directory uses the existing sheet, scroll container and bottom segmented control
+PASS Opening a PDF card hides chrome and routes gestures to the modal
+PASS PDF bookmarks use the existing release-committed segmented switch
+PASS Long-press bookmark saves the target PDF page and within-page position
+PASS PDF bookmark names and fractional position survive restart
+PASS A bookmark can be edited in a child card while retaining the directory
+PASS Saving edits returns to the original bookmark list
+PASS Opening a bookmark restores its page and fraction and closes navigation
+PASS Invalid page jumps keep the card open without navigating
+PASS A valid page jump reaches the requested PDF page
+PASS Deleting a bookmark preserves PDF progress and other book data
+PASS Native progress reports cannot pull a slider away during a user drag
+PASS Releasing the slider commits the chosen page once
+PASS PDF chrome stays inside landscape safe bounds
+PASS Leaving PDF removes transparent chrome and returns to the shelf
+PASS New PDF flows have no uncaught browser errors
+21 PDF chrome/bookmark checks passed with native bridge mocks.

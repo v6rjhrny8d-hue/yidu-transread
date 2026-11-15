@@ -1,0 +1,35 @@
+{
+  "version": "0.5.51",
+  "versionCode": 72,
+  "package": "app.lumi.reader",
+  "date": "2026-10-27",
+  "checks": {
+    "smoke-0551-recovered.log": 66,
+    "motion-0551-recovered.log": 27,
+    "native-resource-0551-recovered.log": 9,
+    "native-copy-0551-recovered.log": 3,
+    "mdict-0551-recovered.log": 32,
+    "css-0551-recovered.log": 19,
+    "iteration-0551-recovered-final.log": 11,
+    "large-file-0551-recovered.log": 4
+  },
+  "total": 171,
+  "certificateSHA256": "8d21d7bc40b619f048f03e266031c59f7ad50cff5337203f5dce891d487c61fd",
+  "apkSHA256": "f878efd77d2e19993577bee6f5dc3464e6ec0cfb49e327191917789f469dc4e5",
+  "apkBytes": 21561456,
+  "verifiedWebAssets": 85,
+  "recovery": "Rebuilt from saved 0.5.50 source after workspace pruning; only current recovered logs counted",
+  "limits": {
+    "resourceInputBytes": 1073741824,
+    "resourceTotalBytes": 2147483648,
+    "cssFileBytes": 5242880,
+    "cssTotalBytes": 20971520
+  },
+  "limitations": [
+    "No physical Android or user commercial dictionary tested",
+    "1GiB boundary uses a padded original MDX fixture in persistent Chromium, not a large real index",
+    "Initial Android picker-to-cache copy does not expose this progress UI",
+    "ZIP64 unsupported; encrypted/multivolume RAR unsupported",
+    "Storage handoff needs extra temporary disk space; no device peak-memory claim"
+  ]
+}

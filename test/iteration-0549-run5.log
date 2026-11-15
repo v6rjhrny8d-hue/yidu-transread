@@ -1,0 +1,8 @@
+PASS MDX/MDD header and first-record validation uses the real worker
+page.evaluate: Error: 词典或资源包无法读取，请检查文件是否完整、格式是否受支持
+    at importResourceFile (http://127.0.0.1:38343/app.js?v=0.5.49:1555:22)
+    at async <anonymous>:337:30
+    at importFile (/workspace/scratch/93718b70c1a4/implementation/transread/test/iteration-0549.cjs:13:46)
+    at /workspace/scratch/93718b70c1a4/implementation/transread/test/iteration-0549.cjs:15:17 {
+  log: []
+} []

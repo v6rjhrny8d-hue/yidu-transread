@@ -1,0 +1,25 @@
+PASS Touch down on font range does not change the value before direction is known
+PASS Downward pull from font range dismisses the sheet without changing typography
+PASS Horizontal drag previews the font size while the sheet stays open
+PASS Line-spacing vertical cancellation leaves the value unchanged
+PASS Pulling down from chapter progress cannot navigate to another chapter
+PASS Chapter slider tap commits once on release
+PASS Vertical gesture on glass range scrolls natively without input or changed opacity
+PASS Glass slider horizontal drag retains preview and finite thumb spring
+PASS Keyboard range adjustment still uses native accessibility events
+PASS Ordinary scrolling updates the right rail immediately without chasing animations
+PASS Visual progress moves within a text line while saved source offsets remain exact
+PASS Translation layout changes still animate the rail with an interruptible spring
+PASS Image entry starts with the source four corner radii in screen pixels
+PASS Reversing image motion inherits the visible corner geometry without a jump
+PASS Expanded image settles on its final radius and no running geometry clock
+PASS Closing restores the exact source radii before removing the viewer
+PASS PDF preparation keeps the shelf Dock fully visible with no opacity animation
+PASS PDF handoff withdraws the Dock by translation while keeping backdrop sampling enabled
+PASS PDF controls toggle with translation rather than disappearing opacity
+PASS PDF return restores interactive Dock and submits only one native close
+PASS Closing during PDF preparation cannot reveal a late page
+PASS Reduced motion completes PDF handoff without browser animations
+PASS Landscape range hit surface follows the input and stays in the scrollable sheet
+PASS No browser runtime errors
+TOTAL 24

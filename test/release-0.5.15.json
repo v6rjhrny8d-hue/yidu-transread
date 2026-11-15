@@ -1,0 +1,14 @@
+{
+  "version": "0.5.15",
+  "versionCode": 36,
+  "package": "app.lumi.reader",
+  "checks": {
+    "logic": 507,
+    "native": 18,
+    "browserTouch": 38
+  },
+  "originalSigningCertificateMatches": true,
+  "packagedAssetsMatchSource": true,
+  "apkSHA256": "ff87ba516ab24b3c041c0e11fcf4c8320fc374a8bb9031f341b6d1db76e73dfb",
+  "limitations": "Chromium touch emulation and controlled tests; no Android device or FPS measurement."
+}

@@ -1,0 +1,68 @@
+PASS Source segmentation is lossless, bounded and Unicode-safe for punctuation-free input
+PASS Scene transitions take priority and virtual chapters retain every source character
+METRICS {"ms":1527,"beats":65,"chapters":1764,"characters":31457280,"maxParagraph":1189,"maxChapter":17835}
+PASS Exactly 30 MiB imports without dropped text and UI remains responsive during worker parsing
+PASS Large-book DOM is bounded to a few small reading chapters
+IMMEDIATE {
+  r: {
+    x: 0,
+    y: 0,
+    width: 0,
+    height: 0,
+    top: 0,
+    right: 0,
+    bottom: 0,
+    left: 0
+  },
+  scroll: 15166,
+  seek: null,
+  rect: {
+    x: 0,
+    y: 0,
+    width: 390,
+    height: 844,
+    top: 0,
+    right: 390,
+    bottom: 844,
+    left: 0
+  }
+}
+SEEK_DEBUG {
+  mode: 'chapter',
+  seek: null,
+  build: true,
+  height: 23494,
+  client: 844,
+  target: {
+    x: 26,
+    y: -1109.65625,
+    width: 338,
+    height: 1514.90625,
+    top: -1109.65625,
+    right: 364,
+    bottom: 405.25,
+    left: 26
+  },
+  ratio: 0.6500338066260987,
+  point: { paragraph: 9, offset: 892 },
+  pos: { paragraph: 9, sourceOffset: 892, offset: 24 },
+  scroll: 15166,
+  hidden: 'false',
+  turning: false,
+  errors: ''
+}
+PASS Rail seeks by original text and remains visible after deep navigation
+PASS Unequal chapters contribute by character count, including Unicode and excluding whitespace
+PASS Legacy migration preserves source positions, bookmarks and cross-chapter sentence highlights
+PASS Unchanged paragraph translation keys survive virtual chapter renumbering
+PASS Migrated reading location restores the same original character
+PASS Translations attach to bounded source paragraphs with finite requests
+PASS Rapid translation reversal leaves no stale rail hiding or exiting containers
+PASS Translation memory is bounded while evicted translations remain in IndexedDB
+PASS All six custom accents retain translucent glass in paper, sage and night themes
+PASS Restart retains migrated structure and bookmarks without eagerly loading all translations
+PASS Paged source seeking remains usable
+PASS Landscape keeps rail geometry within its track
+PASS Continuous mode maps source progress and keeps its chapter window bounded
+PASS No uncaught application errors
+TOTAL 18

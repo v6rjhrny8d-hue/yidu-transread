@@ -1,0 +1,47 @@
+PASS Existing installations default to gentle haptics without a storage migration
+PASS Profile exposes three touch-feedback modes and a preview control
+PASS Off mode suppresses preview and functional feedback
+PASS Changing feedback modes updates in place and persists the choice
+PASS Enabling feedback emits one selection pulse
+PASS Feedback preference is stored with the existing settings record
+PASS Pointer release plus compatibility click opens a card with exactly one standard pulse
+PASS Gentle mode includes one soft pulse for ordinary card-opening taps
+PASS Consecutive switch taps both apply and emit one pulse each without cooldown
+PASS Navigation changes and repeated current-tab taps each receive one pulse
+PASS Frequent word lookups do not add custom haptics in reading
+PASS A completed word collection emits one confirmation despite duplicate taps
+PASS Removing a collected word uses a lighter off effect
+PASS Failed storage does not claim success through a confirmation pulse
+PASS Sentence collection confirms after successful persistence
+PASS Translation feedback occurs once for the switch rather than once per paragraph
+PASS Chapter confirmation is emitted once for a valid committed change
+PASS Short chapter drags rebound silently without changing chapter
+PASS Backgrounded pages do not request haptic feedback
+PASS Only dense haptic ticks are rate-limited
+PASS Off mode applies consistently to all app feedback semantics
+PASS Slider values and visual labels update immediately while writes are coalesced
+PASS Font changes do not repeatedly notify the native system theme
+PASS Releasing a slider immediately flushes exactly one settings write
+PASS A completed slider change leaves no delayed duplicate write
+PASS Idle slider adjustments are automatically saved once
+PASS Repeated theme application reuses native state
+PASS A real dark-mode change still updates native system bars once
+PASS Unchanged palettes avoid rebuilding all custom color properties
+PASS Repeated text is tokenized once without changing escaped output
+PASS The text cache has both entry and total-character limits
+PASS Oversized text is fully rendered without being retained in the cache
+PASS Spring samples exactly match the previous release for representative interactions
+PASS Cached spring curves cannot be corrupted by a caller
+PASS Only card entrance timing changes for the requested spring
+PASS A burst of scroll events schedules only one progress paint
+PASS The coalesced progress paint uses the latest scroll position
+PASS Leaving reading cancels pending progress work
+PASS Finding the visible paragraph preserves the anchor with logarithmic layout reads
+PASS Adjacent preparation waits for idle time instead of running during entry
+PASS Preparation runs in bounded slices and keeps at most two nearby images
+PASS A new touch immediately cancels optional idle preparation
+PASS Leaving a book releases its optional decoded-image references
+PASS Unavailable haptics never delay or fail the original button action
+PASS Browser fallback silently ignores functional haptics
+
+45 haptic/performance checks passed. Operation counts and synthetic scheduling only.

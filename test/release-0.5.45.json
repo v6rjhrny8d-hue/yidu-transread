@@ -1,0 +1,31 @@
+{
+  "version": "0.5.45",
+  "versionCode": 66,
+  "package": "app.lumi.reader",
+  "date": "2026-10-22",
+  "checks": {
+    "iteration-0545.log": 6,
+    "notebook-0545.log": 22
+  },
+  "total": 28,
+  "certificateSHA256": "8d21d7bc40b619f048f03e266031c59f7ad50cff5337203f5dce891d487c61fd",
+  "apkSHA256": "cb00389f11416e9d6cd3a565c3f647bfc8d8db41ff03fe936a9762b915b8c734",
+  "apkBytes": 21298685,
+  "webAssetsVerified": 77,
+  "zipCRC": "passed",
+  "buildLog": "build-0.5.45.log",
+  "reproduction": "iteration-0545-before.log: note meaning text moves by 4px at transition start.",
+  "fix": "Uniform 44px audio grid row and natural meaning row in normal, hidden and animated states. Animation code unchanged.",
+  "additionalRegression": {
+    "log": "notes-browser-0545-final.log",
+    "passed": 28,
+    "failed": 1,
+    "failure": "Cached chapter vertical location test expected 380px and observed 0px. Not included in the 28 targeted passed checks; baseline origin not determined.",
+    "fixtureAdjustments": "Existing browser suite now uses installed executable and explicitly seeds its legacy book."
+  },
+  "limitations": [
+    "Physical Android animation remains unverified.",
+    "Additional chapter-cache position check remains unresolved; no chapter navigation runtime code changed in this fix.",
+    "Delta updates remain a future plan; this release is a full APK."
+  ]
+}

@@ -1,0 +1,21 @@
+PASS Oxford flat line preserves British/American weak and strong IPA separately
+PASS Structured Oxford forms bind recordings to their own accent and form
+PASS Online media permits explicit HTTPS audio hosts and rejects untrusted/credential URLs
+PASS Unknown online accent stays generic and cannot acquire a region label
+PASS Single speaker and compact accent control remain the only pronunciation header controls
+PASS British header exposes both weak and strong IPA without American weak IPA
+PASS American switch updates IPA in place to jə and preserves both forms
+AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+
+  assert(await page.locator('.word-popover').evaluate((e,h)=>e.offsetHeight>h+60,compact))
+
+    at /workspace/scratch/12cfa0f7c25b/implementation/transread/test/iteration-0553.cjs:33:83
+    at async check (/workspace/scratch/12cfa0f7c25b/implementation/transread/test/iteration-0553.cjs:5:77)
+    at async /workspace/scratch/12cfa0f7c25b/implementation/transread/test/iteration-0553.cjs:33:2 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+} []

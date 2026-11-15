@@ -1,0 +1,88 @@
+PASS Continuous slow intent can lock a chapter drag after 450 ms and follows the finger one to one
+PASS Dragging exposes the adjacent chapter without duplicate reader IDs or interactive preview controls
+PASS A slow drag switches chapters by distance even after holding before release
+PASS A short slow drag returns to the same chapter and removes its preview
+PASS A stationary long press remains reserved for text selection
+PASS Reversing direction swaps the preview and leaves only one neighbor
+PASS A quick return toward the starting point is not treated as a forward fling
+PASS Cancelling a following drag clears both the shift and preview
+PASS The first chapter offers bounded resistance without inventing a previous page
+PASS The last chapter cannot drag beyond the book or return home
+PASS A second finger cancels following chapter motion cleanly
+PASS An immersive preview keeps chapter metadata hidden and adds no bottom blur
+PASS Two immediate switch taps both apply without replacing the button or its card
+PASS Reduced-motion toggling remains responsive on the same control
+PASS Rapid theme choices commit immediately while keeping the card and scroll position
+PASS Rapid dictionary choices update in place without discarding a new touch or rebuilding the profile
+PASS Selecting a preset preserves the active controls instead of rebuilding the card
+PASS Release commits the new chapter immediately and leaves it interactive during settling
+PASS A new touch grabs a settling chapter at its current position without a cooldown
+PASS Cancelling old animation cleanup cannot remove a newly grabbed presentation
+PASS Grabbing a short-drag rebound continues from the visible offset
+PASS Programmatic chapter changes also commit before their animation finishes
+PASS Translation observers only register current content during a chapter transition
+PASS A late scroll event from discarded reader content cannot access a missing or unrelated page
+PASS A fresh settings tap interrupts an unfinished departure instead of being frozen or lost
+PASS Reopening the same card during its exit starts a fresh bottom-up entry
+PASS A filter applies before its feedback animation finishes and retains the current page
+PASS Keyboard navigation immediately after a dock drag is not swallowed by a time window
+PASS A fresh touch on the dock works immediately after dragging it
+PASS Backgrounding clears chapter previews and pending motion instead of leaving invisible input surfaces
+PASS Reduced motion keeps direct following and commits without leaving transition layers
+
+31 responsiveness checks passed. No rendered or native touch claims.
+FAIL The first profile touch opens its card on release without any click event — Expected values to be strictly equal:
+
+'主题色彩' !== '自定义主题色'
+
+FAIL All nine profile cards accept their icon, label and row padding on the first touch — Expected values to be strictly equal:
+
+21 !== 27
+
+PASS A corner tap inside the full control remains a valid first tap
+PASS A native click following touch release does not execute the switch twice
+PASS A delayed legacy compatibility click is deduplicated without undoing the action
+PASS Rapid consecutive touches with a reused Android pointer id all execute once
+PASS A new finger sequence never waits for a click or animation cooldown
+PASS Pen release activates once through the same control route
+PASS Keyboard, accessibility and programmatic clicks retain their normal route
+PASS Mouse activation continues to use click instead of firing on pointer release
+PASS Small finger jitter remains a valid tap with nonzero bounds
+PASS Dragging a switch scrolls or pulls its card without toggling it on release
+PASS Pointer cancellation cannot activate a control through a trailing click
+PASS A long-press context menu cancels ordinary button activation
+PASS A second finger cancels a pending control tap
+PASS Backgrounding the app cancels a pending tap instead of executing on return
+PASS Disabled controls and an inert ancestor reject pointer-only activation
+PASS A removed button is not invoked by a late pointer release
+PASS Retargeting release from animated contents to the stable row still opens the card
+PASS A card moving during a tap keeps the original hit area valid
+PASS Releasing far outside the control does not open its card
+PASS A control hidden before release rejects the gesture and its compatibility click
+PASS The meaning switch accepts its first touch without opening a modal
+PASS A first touch can interrupt a pending navigation and open the visible setting
+PASS A button is usable before its card entry animation finishes
+PASS A background card cannot open through an unfinished modal exit
+PASS A new card opens on the first fresh touch after the modal exit completes
+PASS Rebuilt reading controls become clickable again when immersive mode ends
+PASS A stationary touch on an illustration opens the image without waiting for click
+PASS An image child losing implicit capture before the viewer gains capture does not cancel an exit tap
+PASS A drag delivered only as final release coordinates cannot be mistaken for an image exit tap
+PASS Image gestures are isolated from the global button tap recognizer
+PASS A stationary held tap anywhere on the image still exits without an arbitrary time cutoff
+PASS An accessibility click on the full-screen image follows the same exit route
+PASS A left drag starting on an illustration advances to the next chapter
+PASS A right drag starting on an illustration returns to the previous chapter
+PASS Slow motion over an image follows the finger and exposes the neighboring chapter
+PASS A slow image drag commits by distance after a held release
+PASS Dragging the illustration button padding also switches chapters
+PASS A short image drag rebounds without opening the image or switching chapters
+PASS Native vertical scrolling from an image neither switches chapters nor opens it
+PASS A cancelled image swipe restores the chapter and removes preview layers
+PASS A second finger cancels an image swipe without opening or navigating
+PASS Illustrations disable native image dragging so horizontal gestures stay with the reader
+PASS Image touch policy permits native vertical scrolling and pinch zoom
+PASS An image swipe at the first chapter cannot navigate before the book
+PASS An image swipe at the last chapter cannot wrap around the book
+
+45 tap/image checks passed, 2 failed. Assigned geometry and synthetic events only.

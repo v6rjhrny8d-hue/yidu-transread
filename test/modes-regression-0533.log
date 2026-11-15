@@ -1,0 +1,38 @@
+PASS Fresh settings default to chapter scrolling and realistic curl
+PASS Existing explicit reading mode is preserved
+PASS Theme footer is fixed while its content scrolls 390
+PASS Theme and directory footers have identical x y width height 390
+PASS Theme footer is fixed while its content scrolls 844
+PASS Theme and directory footers have identical x y width height 844
+PASS Personal theme tabs keep one stable card height and bottom footer
+PASS Personal application language is a primary bottom card
+PASS Guide application language is a child of the mounted guide
+PASS Translation form has direct provider choices and a separate save footer
+PASS Switching providers retains custom fields without saving
+PASS Save commits the draft and closes only the service form
+PASS Back cancels an unsaved provider change and retains the parent
+PASS Short downward child pull springs back without closing parent or child
+PASS Child list keeps native vertical scrolling with a stable header
+PASS A sufficient child pull dismisses only the top card
+PASS Touching a closing child cancels stale removal and rebounds into place
+PASS Mode round trip is live without reopening chapter/curl
+PASS Mode round trip is live without reopening off/curl
+PASS Mode round trip is live without reopening chapter/fade
+PASS Mode round trip is live without reopening off/slide
+PASS Mode round trip is live without reopening chapter/off
+PASS Mode round trip is live without reopening continuous/off
+PASS Mode round trip is live without reopening chapter/slide
+PASS Mode round trip is live without reopening off/fade
+PASS Mode round trip is live without reopening chapter/curl
+PASS Actual mode menu initializes paging before returning to reading
+PASS Actual mode menu removes column geometry immediately on return to chapter scrolling
+PASS Switching mode while a turn is settling cancels old layers and initializes the new layout
+PASS Horizontal intent hides the rail and removes its hit target immediately
+PASS Rail stays hidden across drag release and chapter replacement
+PASS Rail returns only after the latest turn and stable chapter layout
+PASS A new turn during rebound leaves one correct chapter with no stale layers
+PASS Gaussian blur reaches full before image geometry finishes
+PASS Early blur completion keeps exact image pose on reversal
+PASS No runtime errors occurred during new regression scenarios
+
+36 iteration 0.5.24 checks passed; 0 failed. Chromium layout/touch emulation, not Android hardware.

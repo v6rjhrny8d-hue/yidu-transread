@@ -1,0 +1,45 @@
+{
+  "version": "0.5.33",
+  "versionCode": 54,
+  "package": "app.lumi.reader",
+  "checks": {
+    "logic": 503,
+    "perBookPersistence": 19,
+    "readingModesRegression": 36
+  },
+  "uniqueChecks": 558,
+  "scope": "503 logic checks; 19 real Chromium/IndexedDB per-book persistence checks including restart, independent defaults, failure and delayed-write isolation; 36 existing Chromium reading-mode/card/gesture regressions. Legacy slide fixtures now explicitly configure the book mode; settings assertions select main by ID. Affected groups were rerun after fixture corrections, with initial logs retained. Native code only changes the versioned asset URL; SDK build and original signing verified separately.",
+  "evidence": [
+    "unit-0533.log",
+    "iteration-0533.log",
+    "modes-regression-0533.log",
+    "build-0.5.33.log"
+  ],
+  "originalSigningCertificateMatches": true,
+  "signingCertificateSHA256": "8d21d7bc40b619f048f03e266031c59f7ad50cff5337203f5dce891d487c61fd",
+  "verifiedAssetCount": 70,
+  "packagedAssetsMatchSource": true,
+  "apkZipCRCValid": true,
+  "apkSHA256": "37c35e32ccec3b882e43da8606220cdf6f7975b47401166ba559d8eed892775b",
+  "limits": {
+    "pdfFileBytes": 104857600,
+    "pdfPagePixels": 2000000,
+    "pdfMaxBitmapSide": 4096,
+    "pdfCacheBytes": 20971520,
+    "pdfCachePages": 8,
+    "pdfPendingRenders": 2,
+    "pdfDirectoryRows": 80,
+    "pdfTopBlurRadiiDp": [
+      1,
+      2,
+      4
+    ],
+    "pdfTopBlurProfile": "Shared web/assets/reader-edge.json; same bounded reader-edge-height as EPUB",
+    "pdfFirstPageLeadingStrip": "Button bottom, fixed in document coordinates"
+  },
+  "limitations": [
+    "Native PdfRenderer/RenderNode/WebView transparent composition and MediaStore were not run on a physical Android device; browser native calls were mocked.",
+    "Per-book mode controls apply to the existing EPUB/TXT reading engine. Native PDF remains continuous scroll; no PDF paging engine was added. Actual Android touch, FPS and persistence after process death require device verification.",
+    "PDF navigation uses a bounded page list and bookmarks; embedded PDF outline parsing, OCR and text translation are not implemented."
+  ]
+}

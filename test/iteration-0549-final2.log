@@ -1,0 +1,30 @@
+PASS MDX/MDD header and first-record validation uses the real worker
+PASS RAR4 decompression returns the complete paired files
+PASS RAR4 extracts and atomically installs its paired MDX/MDD
+PASS Chinese definitions and IPA survive decompression and sanitization
+PASS MDX aliases and records spanning compressed blocks resolve correctly
+PASS Imported scripts and remote image references cannot execute or fetch
+PASS MDD audio bytes are actually decodable PCM WAV
+PASS The word pronunciation route plays the matching MDD recording
+PASS A missing headword falls back without disabling the imported dictionary
+PASS Repeated imports are rejected without adding another pack
+PASS Original MDX/MDD blobs and lookup work after restarting the app
+PASS Disabled dictionary files are not queried
+PASS Deleting an MDX dictionary removes its stored files as well as its metadata
+PASS Real compressed solid RAR5 imports with its MDD resources
+PASS LZO-compressed MDX records and key blocks are supported
+PASS A separately imported same-name MDD attaches to the existing MDX
+PASS Invalid/protected import leaves existing dictionary intact: encrypted-v5.rar
+PASS Invalid/protected import leaves existing dictionary intact: protected.mdx
+PASS Invalid/protected import leaves existing dictionary intact: traversal-v4.rar
+AssertionError [ERR_ASSERTION]: false == true
+    at /workspace/scratch/93718b70c1a4/implementation/transread/test/iteration-0549.cjs:35:198
+    at async check (/workspace/scratch/93718b70c1a4/implementation/transread/test/iteration-0549.cjs:6:32)
+    at async /workspace/scratch/93718b70c1a4/implementation/transread/test/iteration-0549.cjs:35:109 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+} []

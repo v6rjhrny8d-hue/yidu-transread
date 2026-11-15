@@ -1,0 +1,8 @@
+PASS Android 15+ owned reader WebView requests high refresh only while drawing
+PASS All interface commands reach the UI queue while every I/O worker is blocked
+PASS UI commands preserve order and speech/file/source actions do not wait for network completion
+PASS Immediate UI routing preserves voice readiness and HTTPS validation errors
+PASS Network work stays off the UI queue and remains bounded by the I/O executor
+PASS Queued network work still completes after the occupied workers are released
+
+5 native routing checks passed with stub services. No Android device claims.

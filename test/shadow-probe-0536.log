@@ -1,0 +1,22 @@
+{
+  body: {
+    x: 33,
+    y: 587.609375,
+    width: 324,
+    height: 221.390625,
+    top: 587.609375,
+    right: 357,
+    bottom: 809,
+    left: 33
+  },
+  button: {
+    x: 36,
+    y: 687,
+    width: 318,
+    height: 48,
+    top: 687,
+    right: 354,
+    bottom: 735,
+    left: 36
+  }
+}

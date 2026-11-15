@@ -1,0 +1,42 @@
+{
+  "version": "0.5.26",
+  "versionCode": 47,
+  "package": "app.lumi.reader",
+  "checks": {
+    "logic": 503,
+    "native": 18,
+    "browser": 326
+  },
+  "browserGroups": [
+    45,
+    25,
+    29,
+    35,
+    29,
+    20,
+    13,
+    27,
+    36,
+    38,
+    29
+  ],
+  "total": 847,
+  "scope": "Full JS, native-interface stubs and eleven Chromium touch/layout suites. Browser animation checks include controlled timeline samples. No Android hardware/GPU/FPS/haptic/power measurements.",
+  "originalSigningCertificateMatches": true,
+  "signingCertificateSHA256": "8d21d7bc40b619f048f03e266031c59f7ad50cff5337203f5dce891d487c61fd",
+  "packagedAssetsMatchSource": true,
+  "verifiedAssetCount": 69,
+  "apkZipCRCValid": true,
+  "apkSHA256": "09069340d78683d7715734b75f87cf27f1f8e0cdaf8e967f5159c5e2aa8da4ab",
+  "evidence": [
+    "test/unit-0526.log",
+    "test/native-0526.log",
+    "test/browsers-0526.log",
+    "test/build-0.5.26.log"
+  ],
+  "limitations": [
+    "Android hardware feel, IME, 120Hz GPU frame time, physical haptics and power were not measured.",
+    "One exceptionally long paragraph can exceed the parsing slice budget.",
+    "A cross-chapter selection is not saved as a single-chapter note anchor."
+  ]
+}

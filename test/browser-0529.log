@@ -1,0 +1,134 @@
+PASS Startup uses the book mark and wordmark without a spinning loader
+PASS Nested translation controls and their scroll owner allow native vertical scrolling
+PASS Downward touch from #translation-target strong dismisses without toggling a button
+PASS Downward touch from .translation-tools-body [data-action="toggle-auto-speak"] strong dismisses without toggling a button
+PASS A compact translation card scrolls to its top then closes during the same pull
+PASS Guide scrolling uses native inertia without JavaScript scrollTop writes
+PASS Touching the guide interrupts its inertia immediately
+PASS Reading can start during guide entrance without being mistaken for a pull
+PASS The landscape guide retains the same scroll inertia
+PASS A native guide swipe tolerates small sideways finger drift
+PASS A stale guide text selection cannot disable touch scrolling
+PASS Consecutive fast guide swipes interrupt and restart inertia without sticking
+PASS A long downward stroke still scrolls content before counting toward card dismissal
+PASS A short held slow pull returns fully to the open position
+PASS A held slow pull beyond the shared card threshold dismisses on release
+PASS Grabbing a rebound continues from the visible displacement with the shared release rule
+PASS Adding a second finger cancels even a long guide pull without dismissing
+PASS The shared guide release rule also works in landscape
+PASS Reversing a native guide fling scrolls back immediately without moving the card
+PASS Guide content has the same native vertical scroll configuration as the article
+PASS Tapping image closes the full-screen image through native pointer capture
+PASS Tapping backdrop closes the full-screen image through native pointer capture
+PASS Tapping caption closes the full-screen image through native pointer capture
+PASS Dragging the full-screen image does not become an exit tap or chapter change
+PASS A pinch stays in the image viewer
+PASS A fresh tap after pinching closes the image
+PASS The guide title and close control stay fixed while its content scrolls
+PASS Flinging guide content toward the top does not dismiss the card by inertia
+PASS A short slow downward pull at the guide top rebounds
+PASS Native scrolling to the guide top never transfers its ongoing flick into dismissal
+PASS A new downward touch at the guide top dismisses without firing its language control
+PASS Grabbing a closing guide cancels its old completion callback
+PASS Releasing a grabbed closing guide returns it to its open position
+PASS Touching the reading area can also interrupt a closing guide and restore it without sticking
+PASS The image entrance animates from the original picture while its input shield stays full-screen
+PASS A corner tap during image entrance closes it without hitting reader content
+PASS The image exit keeps a full-screen shield and blocked reader until its fade finishes
+PASS Image dismissal restores background interaction and the original illustration
+PASS A delayed compatibility click from image dismissal cannot open a word behind it
+PASS The open image blocks even a background accessibility click
+PASS A late reader selection notification cannot replace the image with sentence tools
+PASS Interrupting a nested card dismissal preserves its mounted parent
+PASS Refreshing the guide language preserves the inner content scroll offset
+PASS Replacing localized guide content keeps native touch scrolling working
+PASS A deliberate guide language-button tap remains available alongside native scrolling and top pulling
+
+45 real-browser touch checks passed, 0 failed. Chromium touch emulation, not Android device or FPS measurement.
+PASS guide uses native scrolling without script position writes
+PASS translation tools uses native scrolling without script position writes
+PASS app languages uses native scrolling without script position writes
+PASS translation settings uses native scrolling without script position writes
+PASS directory uses native scrolling without script position writes
+PASS The same native stroke can reach the top and continue pulling the card
+PASS Reversing a boundary pull restores native reading without a locked scroll area
+PASS A slow continuous native-to-card pull can close with the shared distance rule
+PASS The guide now uses the same short-pull rebound as every card
+PASS The guide closes with the original shared distance rather than two fifths
+PASS Translation service selection uses three themed direct choices
+PASS Selecting a service retains the same form and all unsaved fields
+PASS Switching away and back preserves the draft choice and key
+PASS Saving the themed service form commits the selected provider and draft model
+PASS notes top capsule follows a horizontal drag and stretches like the main dock
+PASS notes commits the nearest tab on release and springs to its slot
+PASS notes accepts an immediate reverse drag without duplicate tab activation
+PASS search top capsule follows a horizontal drag and stretches like the main dock
+PASS search commits the nearest tab on release and springs to its slot
+PASS search accepts an immediate reverse drag without duplicate tab activation
+PASS Search tab changes preserve the query input and the animated capsule DOM
+PASS notes top capsule also drags and commits in landscape
+PASS search top capsule also drags and commits in landscape
+PASS Top capsule dragging remains usable with reduced motion
+PASS Vertical page scrolling from a moving top capsule restores its selected slot without activating a tab
+
+25 card/capsule browser touch checks passed, 0 failed. No Android device or FPS claims.
+PASS Fresh settings default to chapter scrolling and realistic curl
+PASS Existing explicit reading mode is preserved
+PASS Theme footer is fixed while its content scrolls 390
+PASS Theme and directory footers have identical x y width height 390
+PASS Theme footer is fixed while its content scrolls 844
+PASS Theme and directory footers have identical x y width height 844
+PASS Personal theme tabs keep one stable card height and bottom footer
+PASS Personal application language is a primary bottom card
+PASS Guide application language is a child of the mounted guide
+PASS Translation form has direct provider choices and a separate save footer
+PASS Switching providers retains custom fields without saving
+PASS Save commits the draft and closes only the service form
+PASS Back cancels an unsaved provider change and retains the parent
+PASS Short downward child pull springs back without closing parent or child
+PASS Child list keeps native vertical scrolling with a stable header
+PASS A sufficient child pull dismisses only the top card
+PASS Touching a closing child cancels stale removal and rebounds into place
+PASS Mode round trip is live without reopening chapter/curl
+PASS Mode round trip is live without reopening off/curl
+PASS Mode round trip is live without reopening chapter/fade
+PASS Mode round trip is live without reopening off/slide
+PASS Mode round trip is live without reopening chapter/off
+PASS Mode round trip is live without reopening continuous/off
+PASS Mode round trip is live without reopening chapter/slide
+PASS Mode round trip is live without reopening off/fade
+PASS Mode round trip is live without reopening chapter/curl
+PASS Actual mode menu initializes paging before returning to reading
+PASS Actual mode menu removes column geometry immediately on return to chapter scrolling
+PASS Switching mode while a turn is settling cancels old layers and initializes the new layout
+PASS Horizontal intent hides the rail and removes its hit target immediately
+PASS Rail stays hidden across drag release and chapter replacement
+PASS Rail returns only after the latest turn and stable chapter layout
+PASS A new turn during rebound leaves one correct chapter with no stale layers
+PASS Gaussian blur reaches full before image geometry finishes
+PASS Early blur completion keeps exact image pose on reversal
+PASS No runtime errors occurred during new regression scenarios
+
+36 iteration 0.5.24 checks passed; 0 failed. Chromium layout/touch emulation, not Android hardware.
+PASS The featured book offers the same editable cover/name card
+PASS PDF reuses the circular back/directory controls and the app range component
+PASS Long titles truncate inside the narrow header without a title capsule
+PASS PDF canvas touch regions are limited to visible controls
+PASS Tapping the page hides title/back/directory/progress together and releases the header area
+PASS Directory uses the existing sheet, scroll container and bottom segmented control
+PASS Opening a PDF card hides chrome and routes gestures to the modal
+PASS PDF bookmarks use the existing release-committed segmented switch
+PASS Long-press bookmark saves the target PDF page and within-page position
+PASS PDF bookmark names and fractional position survive restart
+PASS A bookmark can be edited in a child card while retaining the directory
+PASS Saving edits returns to the original bookmark list
+PASS Opening a bookmark restores its page and fraction and closes navigation
+PASS Invalid page jumps keep the card open without navigating
+PASS A valid page jump reaches the requested PDF page
+PASS Deleting a bookmark preserves PDF progress and other book data
+PASS Native progress reports cannot pull a slider away during a user drag
+PASS Releasing the slider commits the chosen page once
+PASS PDF chrome stays inside landscape safe bounds
+PASS Leaving PDF removes transparent chrome and returns to the shelf
+PASS New PDF flows have no uncaught browser errors
+21 PDF chrome/bookmark checks passed with native bridge mocks.

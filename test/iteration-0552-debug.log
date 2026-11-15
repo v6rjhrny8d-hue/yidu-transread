@@ -1,0 +1,82 @@
+PASS Mixed untranslated source passages are detected without rejecting translated names or same-language text
+PASS Dictionary parser distinguishes Oxford UK/US recordings and strips BrE labels from IPA
+PASS Lookup retains one speaker, favorite and close control with a compact accent selector
+PASS Original clicked word remains visible above the dictionary card
+PASS Imported CSS is readable on dark surfaces while keeping table layout and semantic colours
+PASS CSS off keeps images and content while disabling package colours and spacing
+PASS A light/dark change recolours an open dictionary without rebuilding its card or scroll container
+PASS Accent options open as a child sheet and preserve the underlying lookup
+PASS Choosing American pronunciation updates the small label and persists the preference
+PASS Each dictionary retains its own scroll offset when switching away and back
+SWIPE {
+  id: '13812008-9655-4a21-8276-b412fc825dda',
+  events: [
+    {
+      type: 'pointerdown',
+      x: 342,
+      y: 607.078125,
+      target: 'mdict-rich'
+    },
+    {
+      type: 'touchstart',
+      x: undefined,
+      y: undefined,
+      target: 'mdict-rich'
+    },
+    {
+      type: 'pointermove',
+      x: 307,
+      y: 607.078125,
+      target: 'mdict-rich'
+    },
+    {
+      type: 'touchmove',
+      x: undefined,
+      y: undefined,
+      target: 'mdict-rich'
+    },
+    { type: 'pointercancel', x: 0, y: 0, target: 'mdict-rich' },
+    {
+      type: 'touchmove',
+      x: undefined,
+      y: undefined,
+      target: 'mdict-rich'
+    },
+    {
+      type: 'touchmove',
+      x: undefined,
+      y: undefined,
+      target: 'mdict-rich'
+    },
+    {
+      type: 'touchmove',
+      x: undefined,
+      y: undefined,
+      target: 'mdict-rich'
+    },
+    {
+      type: 'touchmove',
+      x: undefined,
+      y: undefined,
+      target: 'mdict-rich'
+    },
+    {
+      type: 'touchmove',
+      x: undefined,
+      y: undefined,
+      target: 'mdict-rich'
+    },
+    {
+      type: 'touchend',
+      x: undefined,
+      y: undefined,
+      target: 'mdict-rich'
+    }
+  ]
+}
+page.waitForFunction: Timeout 12000ms exceeded.
+    at until (/workspace/scratch/12cfa0f7c25b/implementation/transread/test/iteration-0552.cjs:8:37)
+    at /workspace/scratch/12cfa0f7c25b/implementation/transread/test/iteration-0552.cjs:40:450 {
+  log: [],
+  name: 'TimeoutError'
+} []

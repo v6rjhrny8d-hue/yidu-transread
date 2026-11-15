@@ -1,0 +1,8 @@
+PASS Main renderer termination is handled
+PASS Dead main WebView is detached, destroyed and cleared
+PASS Recovery leaves an interactive native panel instead of exiting
+PASS Recovery button creates a fresh Activity
+PASS Source renderer low-memory termination is also handled
+PASS Source cleanup does not destroy an unaffected reader
+PASS Finishing Activity does not open another recovery panel
+7 native renderer recovery checks passed with stubs. No Android process crash was injected.

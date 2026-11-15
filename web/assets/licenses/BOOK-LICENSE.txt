@@ -1,0 +1,11 @@
+The Little Prince
+Author and illustrations: Antoine de Saint-Exupéry (1900–1944)
+English translation: Iraklis Lampadariou
+Publisher: Saita Publications, July 2015
+ISBN: 978-618-5147-45-7
+License: Creative Commons Attribution-NonCommercial 3.0 Unported
+https://creativecommons.org/licenses/by-nc/3.0/
+Source listing: https://www.openrightslibrary.com/the-little-prince-ebook/
+Source text: https://online.flipbuilder.com/npkog/rsmg/files/basic-html/
+Book text was reflowed from the publisher PDF text layer. 47 clean original illustrations are reproduced inline. Artwork source: https://gutenberg.net.au/ebooks03/0300771h.html . The English translation is unchanged; the cover is from the linked publisher edition. Chapter 1 Chinese reference translation is AI-assisted.
+This free personal reading build is for non-commercial use. The license of the underlying original can vary by jurisdiction; preserve attribution and license when redistributing.

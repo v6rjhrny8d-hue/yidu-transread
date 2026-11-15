@@ -1,0 +1,31 @@
+PASS Language settings expose 20 supported targets and default to Simplified Chinese
+PASS The Dock language settings and the translation shortcut have distinct icons
+PASS Legacy Chinese caches stay usable but cannot be read as another target language
+PASS Switching language preserves the current panel, original words, scroll and single-paragraph choice
+PASS Japanese translation placeholders never fall back to the bundled Chinese seed
+PASS Right-to-left targets carry their own language and automatic text direction
+PASS Custom language choices persist the target and update the same controls in place
+PASS Unknown target values are ignored without changing the saved preference
+PASS Switching back restores the existing Chinese cache without network work
+PASS Google requests use the chosen target with automatic source detection
+PASS Custom AI requests name the chosen language and keep literary text in its user message
+PASS MyMemory receives the book source and selected target without an English-Chinese hardcode
+PASS Oversized multibyte MyMemory input is rejected whole before any request
+PASS Matching MyMemory source and target returns the original text without an invalid language pair
+PASS The requested language cache is reused with its own language key
+PASS A current target can finish while an older target request is still in flight
+PASS A late old-target result is stored under its own key and cannot overwrite current text
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+0 !== 2
+
+    at /workspace/scratch/0f9dfce2e3b6/transread/test/translation-languages.cjs:50:90
+    at check (/workspace/scratch/0f9dfce2e3b6/transread/test/translation-languages.cjs:13:25)
+    at /workspace/scratch/0f9dfce2e3b6/transread/test/translation-languages.cjs:50:2 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: 0,
+  expected: 2,
+  operator: 'strictEqual',
+  diff: 'simple'
+}

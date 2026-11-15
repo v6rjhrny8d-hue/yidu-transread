@@ -1,0 +1,20 @@
+PASS Changing A saves the existing slide mode only on book A
+PASS Opening B keeps its own initial defaults instead of borrowing A
+PASS B can independently use paged reading and fade transitions
+PASS Returning to A restores its saved chapter/slide combination
+PASS A can switch to continuous/off without changing B
+PASS B retains its independent modes after a full restart
+PASS A also retains its continuous mode after restart
+PASS Saving shared preferences cannot overwrite the default modes with A active
+PASS The profile editor explicitly shows the default reading-mode scope
+PASS Changing defaults does not replace A existing preferences
+PASS A previously unconfigured book inherits the chosen defaults
+PASS Reader settings identify the current book
+PASS Failed persistence leaves the current layout and saved book mode unchanged
+PASS Retrying a failed mode change succeeds without losing the book
+PASS Renaming preserves the book mode because it is keyed by stable book ID
+PASS Deleting a book clears its mode record without changing other books
+PASS Landscape preserves B paging and transition selection
+PASS A delayed save for B cannot change A after switching books
+PASS No uncaught errors occur while switching independent book modes
+19 per-book reading-mode persistence checks passed.

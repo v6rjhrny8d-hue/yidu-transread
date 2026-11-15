@@ -1,0 +1,39 @@
+PASS customColors paper 390: shadows have rounded-side and bottom room without horizontal overflow
+PASS customColors paper 390: fixing the clip preserves the existing button geometry
+PASS hapticSettings paper 390: shadows have rounded-side and bottom room without horizontal overflow
+PASS hapticSettings paper 390: fixing the clip preserves the existing button geometry
+PASS backup paper 390: shadows have rounded-side and bottom room without horizontal overflow
+PASS backup paper 390: fixing the clip preserves the existing button geometry
+PASS customColors paper 844: shadows have rounded-side and bottom room without horizontal overflow
+PASS customColors paper 844: fixing the clip preserves the existing button geometry
+PASS hapticSettings paper 844: shadows have rounded-side and bottom room without horizontal overflow
+PASS hapticSettings paper 844: fixing the clip preserves the existing button geometry
+PASS backup paper 844: shadows have rounded-side and bottom room without horizontal overflow
+PASS backup paper 844: fixing the clip preserves the existing button geometry
+PASS customColors night 390: shadows have rounded-side and bottom room without horizontal overflow
+PASS customColors night 390: fixing the clip preserves the existing button geometry
+PASS hapticSettings night 390: shadows have rounded-side and bottom room without horizontal overflow
+PASS hapticSettings night 390: fixing the clip preserves the existing button geometry
+PASS backup night 390: shadows have rounded-side and bottom room without horizontal overflow
+PASS backup night 390: fixing the clip preserves the existing button geometry
+PASS customColors night 844: shadows have rounded-side and bottom room without horizontal overflow
+PASS customColors night 844: fixing the clip preserves the existing button geometry
+PASS hapticSettings night 844: shadows have rounded-side and bottom room without horizontal overflow
+PASS hapticSettings night 844: fixing the clip preserves the existing button geometry
+PASS backup night 844: shadows have rounded-side and bottom room without horizontal overflow
+PASS backup night 844: fixing the clip preserves the existing button geometry
+PASS Opening a source snapshots the active custom palette from the app body
+PASS Source toolbar zh-CN paper 390: shared chrome, reserved title and distinct back/done controls
+PASS Source toolbar zh-CN paper 844: shared chrome, reserved title and distinct back/done controls
+PASS Source toolbar zh-CN night 390: shared chrome, reserved title and distinct back/done controls
+PASS Source toolbar zh-CN night 844: shared chrome, reserved title and distinct back/done controls
+PASS Source toolbar zh-TW paper 390: shared chrome, reserved title and distinct back/done controls
+PASS Source toolbar zh-TW paper 844: shared chrome, reserved title and distinct back/done controls
+PASS Source toolbar zh-TW night 390: shared chrome, reserved title and distinct back/done controls
+PASS Source toolbar zh-TW night 844: shared chrome, reserved title and distinct back/done controls
+PASS Source toolbar en paper 390: shared chrome, reserved title and distinct back/done controls
+PASS Source toolbar en paper 844: shared chrome, reserved title and distinct back/done controls
+PASS Source toolbar en night 390: shared chrome, reserved title and distinct back/done controls
+PASS Source toolbar en night 844: shared chrome, reserved title and distinct back/done controls
+PASS No uncaught browser errors occur in the shared card or toolbar checks
+38 card-shadow and source-toolbar browser checks passed. Android system bars and native website rendering require device verification.

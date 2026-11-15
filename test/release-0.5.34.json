@@ -1,0 +1,50 @@
+{
+  "version": "0.5.34",
+  "versionCode": 55,
+  "package": "app.lumi.reader",
+  "checks": {
+    "logic": 503,
+    "translationParagraphs": 25,
+    "translationMotionRegression": 29,
+    "largeBookPerformance": 20
+  },
+  "uniqueChecks": 577,
+  "scope": "503 existing JS checks (85 affected lifecycle/language/haptics checks rerun after lifecycle changes, counted once); 25 real Chromium/IndexedDB and controlled-transport checks cover byte-bounded request splitting, display paragraphs, reversed fades/springs, original node identity, per-book switches, restart, continuous/paged/landscape, partial-cache reuse, in-flight deduplication, custom context, MyMemory, late results and background resume; 29 existing Chromium rail/progress/translation regressions; 20 existing generated-EPUB/139k-character reader checks. An initial test fixture reused a book with translations already enabled; its failed log is retained and setup corrected without relaxing assertions. Native code only changes the versioned asset URL. Translation transports are mocked; no paid external requests were made",
+  "evidence": [
+    "unit-0534.log",
+    "iteration-0534.log",
+    "translation-motion-regression-0534.log",
+    "performance-0534.log",
+    "translation-lifecycle-final-0534.log",
+    "build-0.5.34.log"
+  ],
+  "originalSigningCertificateMatches": true,
+  "signingCertificateSHA256": "8d21d7bc40b619f048f03e266031c59f7ad50cff5337203f5dce891d487c61fd",
+  "verifiedAssetCount": 70,
+  "packagedAssetsMatchSource": true,
+  "apkZipCRCValid": true,
+  "apkSHA256": "33985368417d692f8bf97050a874efcd4d58935431907051782b017d341b5dff",
+  "limits": {
+    "translationWorkers": 2,
+    "requestsSequentialWithinParagraph": true,
+    "requestUTF8Bytes": {
+      "google": 2800,
+      "custom": 6000,
+      "mymemory": 450
+    },
+    "displayParagraphSoftChars": {
+      "CJK": 200,
+      "other": 650
+    },
+    "temporaryChunkCache": "Completed chunks retained for interrupted work; atomic cleanup after complete paragraph persistence",
+    "customContextMaxUTF16Chars": {
+      "previousSource": 320,
+      "previousTranslation": 240
+    }
+  },
+  "limitations": [
+    "Sentence/length/newline heuristics do not identify every semantic topic transition. Punctuation-free display text is preserved rather than forcibly split.",
+    "Native PDF has no OCR/text translation. This feature applies to EPUB/TXT.",
+    "Actual Android WebView rendering/touch/IME, physical Redmi K80 Pro FPS and real translation-provider connectivity were not tested; Chromium uses controlled transport."
+  ]
+}

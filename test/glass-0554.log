@@ -1,0 +1,14 @@
+PASS Glass controls expose both ranges and the expected defaults
+PASS Dragging blur previews globally and opacity only changes glass fill
+PASS Range regrab interrupts the current spring, then settles without stale animations
+AssertionError [ERR_ASSERTION]: false == true
+    at /workspace/scratch/12cfa0f7c25b/implementation/transread/test/iteration-0544.cjs:13:85
+    at async check (/workspace/scratch/12cfa0f7c25b/implementation/transread/test/iteration-0544.cjs:6:32)
+    at async /workspace/scratch/12cfa0f7c25b/implementation/transread/test/iteration-0544.cjs:13:2 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}

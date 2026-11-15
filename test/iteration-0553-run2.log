@@ -1,0 +1,27 @@
+PASS Oxford flat line preserves British/American weak and strong IPA separately
+PASS Structured Oxford forms bind recordings to their own accent and form
+PASS Online media permits explicit HTTPS audio hosts and rejects untrusted/credential URLs
+PASS Unknown online accent stays generic and cannot acquire a region label
+PASS Single speaker and compact accent control remain the only pronunciation header controls
+PASS British header exposes both weak and strong IPA without American weak IPA
+PASS American switch updates IPA in place to jə and preserves both forms
+PASS Dragging the word title follows the finger before release
+PASS Header upward drag expands with a finite settled animation
+PASS Dragging a header action collapses the card without collecting the word
+PASS A stationary header action tap still collects the word
+PASS Short header pull rebounds to compact height
+PASS A new drag interrupts the running spring without jumping to its old target
+PASS Reduced motion settles directly without a lingering animation frame
+PASS Rotation cancels motion and keeps the card inside the viewport
+PASS Downward drag on the whole compact header dismisses and releases its controller
+PASS Unified settings contain free providers and resources without retired website/voice-install controls
+PASS Legacy Oxford/local-only preferences migrate to working defaults
+PASS Online providers reuse translation services with explicit source/target and cached results
+PASS Successful local playback remains silent and does not invoke system fallback
+PASS Late callbacks from replaced audio cannot stop or report failure for the new playback
+PASS A playback error after startup silently falls back exactly once
+PASS A rejected recording immediately invokes system speech without a failure toast
+PASS Only failure of every pronunciation path produces one final notice
+PASS Stopping a pending recording cancels it without a fallback or extra notice
+PASS No uncaught browser errors
+TOTAL 26

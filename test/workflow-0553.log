@@ -1,0 +1,25 @@
+PASS Mixed untranslated source passages are detected without rejecting translated names or same-language text
+AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
++ actual - expected
+
+  [
+    'ˈwɔːtə',
+    'ˈwɔːtə',
++   undefined,
+-   'ˈwɔːtər',
+    [
+      'en-GB',
+      'en-US'
+    ]
+  ]
+
+    at /workspace/scratch/12cfa0f7c25b/implementation/transread/test/iteration-0552.cjs:21:119
+    at async check (/workspace/scratch/12cfa0f7c25b/implementation/transread/test/iteration-0552.cjs:5:77)
+    at async /workspace/scratch/12cfa0f7c25b/implementation/transread/test/iteration-0552.cjs:21:2 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: [Array],
+  expected: [Array],
+  operator: 'deepStrictEqual',
+  diff: 'simple'
+} []

@@ -1,0 +1,26 @@
+PASS The reader Dock contains directory, theme and translation groups
+PASS Directory owns chapter progress and navigation
+PASS Theme owns font size, line spacing and paper controls
+PASS Reader theme is a clear half-screen preview with no sample text or motion toggle
+PASS The reading preview height includes the safe bottom inside a 50dvh budget
+PASS Font adjustment updates the actual page and keeps the visible paragraph anchored
+PASS Nested colors return to the same half-sheet with a clear preview background
+PASS Directory chrome sits outside the only scrollable chapter list
+PASS Directory keeps its rounded shell and non-intercepting highlight without clipping the outer shadow
+PASS Progress no longer creates an independent square opaque sticky surface
+PASS Scrolling chapter rows keeps the progress and close controls in the shell
+PASS Personal reading preferences still contain the reduced-motion setting
+PASS Translation keeps three useful switches without the removed paragraph-button option
+PASS Original reading has no paragraph translation controls or added rows
+PASS Full bilingual mode still displays every paragraph translation without buttons
+PASS Returning to original reading removes translations without restoring paragraph buttons
+PASS Point-to-speak is an independently persisted preference
+PASS Opening a word requests pronunciation immediately when enabled
+PASS Tapping the active word again closes the card and stops automatic speech
+PASS A tap anywhere on the image viewer closes it despite small touch jitter
+PASS Pinching zooms the illustration without treating release as an exit tap
+PASS A short slow 28px stroke switches chapter at phone width
+PASS Minor release jitter does not cancel an otherwise deliberate stroke
+PASS A clear return toward the origin cancels chapter navigation
+
+24 reader-tool checks passed. Synthetic events only.

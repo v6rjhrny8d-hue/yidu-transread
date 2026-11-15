@@ -1,0 +1,8 @@
+----------
+1. ERROR in /tmp/transread-source-chrome-xjrAfv/SourceChromeHarness.java (at line 27)
+	return value.length()<=80&&value.matches("(?:#[0-9a-fA-F]{3,8}|rgba?\([0-9., %]+\))")?value:fallback;
+	                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Invalid escape sequence (valid ones are  \b  \t  \n  \f  \r  \"  \'  \\ )
+----------
+1 problem (1 error)
+PASS The local toolbar and external website expose no native JavaScript bridge

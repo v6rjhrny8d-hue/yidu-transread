@@ -1,0 +1,26 @@
+PASS Request splitting preserves all source characters, offsets and each provider byte budget
+PASS Short requests stay whole and the sentence fallback also preserves complete input
+PASS Long translations split at sentence boundaries while short and punctuation-free text stay intact
+PASS Segmented translation uses one outer container and reverses without an opacity or neighbor-position jump
+PASS Reopening during exit retains original/translation nodes and cancels obsolete removal callbacks
+PASS Translation markup escapes HTML inside every generated paragraph
+PASS The per-book switch reformats cached translation in place without network calls
+PASS Another book keeps automatic paragraphs enabled
+PASS A full reload restores this book’s switch without altering another book
+PASS Continuous mode keeps the mounted viewport and word nodes while adding segmented translation
+PASS Continuous-mode close removes translations from every mounted chapter without rebuilding the viewport
+PASS Paged reading retains paging after the segmented translation reflow
+PASS Landscape retains the translation structure and a bounded reader rail
+PASS The first completed chunk expands the same translation container with segmented partial content
+PASS Closing while a chunk is pending prevents new requests and retains only completed pieces for reuse
+PASS Reopening reuses the two completed pieces instead of retranslating them
+PASS Rapid off/on also shares the still-running chunk request
+PASS Completion stores one whole translation and removes its temporary chunk cache atomically
+PASS A response after switching books cannot alter the new book or start remaining chunks
+PASS Reduced motion removes segmented translations immediately with no lingering animation
+PASS Custom AI chunk requests include bounded preceding context and translate only the current block
+PASS MyMemory long paragraphs use bounded UTF-8 chunks rather than failing the entire paragraph
+PASS Backgrounding stops the remaining chunks and leaves an existing completed piece reusable
+PASS Foregrounding resumes pending translation without resending the cached prefix
+PASS No uncaught browser errors occur in segmentation, cancellation or layout checks
+25 automatic-translation-paragraph checks passed.

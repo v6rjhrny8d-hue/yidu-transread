@@ -1,0 +1,68 @@
+PASS 27 complete English chapters, 10 aligned offline translations
+PASS Four navigation destinations and offline dictionary
+PASS Shelf header has only the guide, while book import and dock search remain reachable
+PASS The guide opens from the home action with reading, translation and backup instructions
+PASS Home requests visible system bars when the Android bridge is present
+PASS Hiding reader controls requests immersive system bars
+PASS Repeated renders and theme changes do not resend or reverse immersive state
+PASS Showing reader controls requests visible system bars
+PASS Leaving an immersive reader restores the system bars
+PASS All 47 original illustration assets exist and anchor to valid paragraphs
+PASS Main navigation retains one sliding capsule across page changes
+PASS Dragging moves the capsule without rebuilding the current page
+PASS Releasing the dock drag selects the nearest destination
+PASS Reader groups progress, typography and translation into three focused tools
+PASS Reader has no operation hint or bottom blur and keeps only the top edge effect
+PASS First chapter contains the boa, hat and elephant illustrations inline
+PASS Dock hides
+PASS Dock reappears
+PASS Reader progress, chapter metadata and back button hide together without moving text
+PASS All reader controls return together and progress survives translation rerender
+PASS Word popup bounds leave room above system bars and the dock across viewport sizes
+PASS Reader show/hide reuses the same dock layer
+PASS An illustration can open in its own viewing panel
+PASS Translation is directly below every paragraph
+PASS A vertical swipe cannot hide the reader controls accidentally
+PASS A stationary tap still hides the reader controls and progress
+PASS One word returns offline Chinese explanation
+PASS Tapping the active word again closes its explanation
+PASS Star creates a persisted vocabulary note
+PASS Late dictionary results preserve the scroll region, popup and current offset
+PASS Favorite changes preserve a scrolled long definition
+PASS Fast repeated favorite taps commit one change and re-enable the control
+PASS Fast repeated collection creates one vocabulary record
+PASS Online dictionary failure falls back to the built-in entry
+PASS Dictionary settings expose three switchable sources and voice installation
+PASS Sentence collection retains original source
+PASS Duplicate sentences do not duplicate records
+PASS Notebook shows both vocabulary and sentences
+PASS Whole-card details retain the original note and remove the retired mastery action
+PASS Reading from a saved note returns to notes and restores its scroll position
+PASS Notebook meaning visibility changes without rebuilding cards
+PASS TOC includes chapter progress and 27 real chapters
+PASS Last chapter leads back to shelf
+PASS Reading location survives leave and reopen
+PASS TXT import preserves chapters
+PASS EPUB import uses spine order and strips executable content
+PASS EPUB retains local illustrations and ignores remote image URLs
+PASS The actual illustrated EPUB imports all 27 chapters and 47 pictures
+PASS Notes are present in IndexedDB
+PASS Restoring duplicate backup merges without duplicates
+PASS A 0.1 install upgrades its existing book while preserving notes and reading progress
+PASS Night mode changes root theme
+PASS Translation circle can be hidden independently
+PASS Theme editor offers six presets and separate accent and page inputs
+PASS Very bright accent remains readable on a light background
+PASS Dark custom background uses readable text and native dark appearance
+PASS Invalid color input cannot alter the saved palette
+PASS Custom colors survive reloading settings from IndexedDB
+PASS Paper preset clears custom background while retaining the accent
+PASS Reset restores preset colors without changing books or notes
+PASS Nested theme customization returns to the same parent panel and keeps its scroll
+PASS Native safe areas survive theme changes and sheet opening
+PASS Top fade ends just after the camera cutout and stays stable across toolbar visibility
+PASS Phones without a top cutout get a short fade rather than a large blurred band
+PASS Keyboard layout can clear bottom safe padding without losing the status inset
+PASS Sheets keep dim backdrops while only image viewing and reader edges use blur
+
+66 logic checks passed. No native device or rendered layout claims.

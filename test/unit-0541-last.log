@@ -1,0 +1,49 @@
+PASS A 40px slow left stroke advances a chapter
+PASS A 40px slow right stroke returns a chapter
+PASS A short slow stroke over an illustration switches without opening the image
+PASS Illustration strokes work in both directions at the shorter distance
+PASS A 24px fast left flick advances
+PASS A 24px fast right flick returns
+PASS A quick image stroke can commit from release coordinates when no move event arrived
+PASS A slow 24px sideways adjustment remains a rebound
+PASS Tiny fast finger jitter does not turn chapters
+PASS Vertical-dominant scrolling cannot meet the shorter chapter trigger
+PASS Ambiguous diagonal gestures stay outside chapter switching
+PASS Pulling back toward the origin still cancels a short chapter stroke
+PASS Cancelling a short swipe never commits navigation
+PASS Short gestures respect the first chapter boundary
+PASS Short gestures respect the last chapter boundary
+PASS Default gentle mode gives a soft pulse to theme settings
+PASS The theme palette button also has soft press feedback
+PASS Translation settings receive feedback without switching to standard mode
+PASS Search tabs receive soft feedback
+PASS A search arrow touch submits on release with exactly one pulse
+PASS Keyboard search submission keeps one matching feedback event
+PASS Gentle preview represents the new soft-button sensation
+PASS Font size has a gentle tick in the default mode and applies instantly
+PASS Line spacing also has a gentle default tick
+PASS An unchanged slider value does not create another tick
+PASS Dense ticks are coalesced while every slider adjustment still applies
+PASS A committed downward card dismissal uses one soft sheet event
+PASS The close button gives one soft pulse rather than a second gesture pulse
+PASS Main Dock selection requests the softened selection effect
+PASS Repeated current-Dock taps still get one soft response
+PASS Off mode still suppresses the expanded button and slider coverage
+
+31 short-swipe/soft-feedback checks passed. Synthetic events only.
+PASS The reader Dock contains directory, theme and translation groups
+PASS Directory owns chapter progress and navigation
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+5 !== 3
+
+    at /workspace/scratch/93718b70c1a4/implementation/transread/test/reader-tools.cjs:24:319
+    at check (/workspace/scratch/93718b70c1a4/implementation/transread/test/reader-tools.cjs:15:25)
+    at /workspace/scratch/93718b70c1a4/implementation/transread/test/reader-tools.cjs:24:37 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: 5,
+  expected: 3,
+  operator: 'strictEqual',
+  diff: 'simple'
+}

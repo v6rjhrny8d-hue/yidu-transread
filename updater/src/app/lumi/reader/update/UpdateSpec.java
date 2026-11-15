@@ -1,0 +1,2 @@
+package app.lumi.reader.update;
+public final class UpdateSpec {public static final String VERSION_NAME="0.5.57",TARGET_SHA="8d4a8db3cc4cf922b44bbed10b08a1eddd4314eb62df8f04a50379ba503be865";public static final int VERSION_CODE=78;public static final String[] BASE_HASHES={"9f049d38189874dc0426b3c6a958f1514f3bc8fdd14596dd982fd90a357fe805","3932b044a4850fb1f8fd194b929bf9e08359763a6a6038c97938024252ae442b"};}

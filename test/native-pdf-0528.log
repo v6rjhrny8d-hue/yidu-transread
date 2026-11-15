@@ -1,0 +1,28 @@
+PASS Closing before first layout retains the requested PDF page
+PASS Initial layout restores page and within-page offset
+PASS Page navigation lands at the correct page boundary
+PASS A fitted page cannot pan sideways or scroll before the document
+PASS Scrolling is bounded by the complete document height
+PASS Landscape reflow retains the same source page and offset
+PASS Zoomed panning stays within the scaled page edge
+PASS Bitmap pixel budget holds for scale 1.0 and aspect 0.05
+PASS Bitmap pixel budget holds for scale 1.0 and aspect 0.707
+PASS Bitmap pixel budget holds for scale 1.0 and aspect 1.414
+PASS Bitmap pixel budget holds for scale 1.0 and aspect 5.0
+PASS Bitmap pixel budget holds for scale 1.0 and aspect 100.0
+PASS Bitmap pixel budget holds for scale 1.0 and aspect 1.0E8
+PASS Bitmap pixel budget holds for scale 2.0 and aspect 0.05
+PASS Bitmap pixel budget holds for scale 2.0 and aspect 0.707
+PASS Bitmap pixel budget holds for scale 2.0 and aspect 1.414
+PASS Bitmap pixel budget holds for scale 2.0 and aspect 5.0
+PASS Bitmap pixel budget holds for scale 2.0 and aspect 100.0
+PASS Bitmap pixel budget holds for scale 2.0 and aspect 1.0E8
+PASS Bitmap pixel budget holds for scale 5.0 and aspect 0.05
+PASS Bitmap pixel budget holds for scale 5.0 and aspect 0.707
+PASS Bitmap pixel budget holds for scale 5.0 and aspect 1.414
+PASS Bitmap pixel budget holds for scale 5.0 and aspect 5.0
+PASS Bitmap pixel budget holds for scale 5.0 and aspect 100.0
+PASS Bitmap pixel budget holds for scale 5.0 and aspect 1.0E8
+PASS Cache eviction keeps nearby pages within both count and byte budgets
+PASS A large document uses accurate page lookup without a page View list
+27 PDF geometry/cache checks passed with stubs. No Android rendering claim.

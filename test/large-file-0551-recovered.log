@@ -1,0 +1,10 @@
+STATUS {"phase":"hash","loaded":238026752,"total":1073741824,"percent":24}
+STATUS {"phase":"hash","loaded":469762048,"total":1073741824,"percent":28}
+STATUS {"phase":"hash","loaded":725614592,"total":1073741824,"percent":33}
+STATUS {"phase":"hash","loaded":1046478848,"total":1073741824,"percent":39}
+STATUS {"phase":"stage","loaded":1007681536,"total":1073741824,"percent":84}
+PASS Exact 1GiB file imports without any whole-file ArrayBuffer
+PASS Real MDX record remains queryable after the large import
+PASS Large dictionary persists after restart
+PASS Large dictionary deletion clears its database records
+TOTAL 4

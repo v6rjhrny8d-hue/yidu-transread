@@ -1,0 +1,8 @@
+page.waitForSelector: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for locator('.hero-book') to be visible[22m
+
+    at /workspace/scratch/93718b70c1a4/implementation/transread/test/iteration-0520.cjs:19:72 {
+  log: [ "  - waiting for locator('.hero-book') to be visible" ],
+  name: 'TimeoutError'
+}

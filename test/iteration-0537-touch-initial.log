@@ -1,0 +1,26 @@
+PASS Translucent bar and equal-height capsule/back alignment: zh-CN paper 390
+PASS Translucent bar and equal-height capsule/back alignment: zh-CN paper 844
+PASS Translucent bar and equal-height capsule/back alignment: zh-CN night 390
+PASS Translucent bar and equal-height capsule/back alignment: zh-CN night 844
+PASS Translucent bar and equal-height capsule/back alignment: zh-TW paper 390
+PASS Translucent bar and equal-height capsule/back alignment: zh-TW paper 844
+PASS Translucent bar and equal-height capsule/back alignment: zh-TW night 390
+PASS Translucent bar and equal-height capsule/back alignment: zh-TW night 844
+PASS Translucent bar and equal-height capsule/back alignment: en paper 390
+PASS Translucent bar and equal-height capsule/back alignment: en paper 844
+PASS Translucent bar and equal-height capsule/back alignment: en night 390
+PASS Translucent bar and equal-height capsule/back alignment: en night 844
+AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+
+  assert(Math.abs(await scale(selector)-.955)<.004)
+
+    at /workspace/scratch/0f9dfce2e3b6/transread/test/iteration-0537.cjs:29:106
+    at async check (/workspace/scratch/0f9dfce2e3b6/transread/test/iteration-0537.cjs:8:31)
+    at async /workspace/scratch/0f9dfce2e3b6/transread/test/iteration-0537.cjs:29:3 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}
