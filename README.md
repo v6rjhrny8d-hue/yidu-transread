@@ -2,9 +2,14 @@
 
 译读是一款 Android 阅读应用，将电子书阅读、点词查释义、翻译和笔记放在一起，帮助你边读边理解。
 
-**源码版本：0.5.61** · Android 应用 · 支持简体中文、繁体中文和英文界面
+**版本：0.5.61** · Android 应用 · 支持简体中文、繁体中文和英文界面
 
-## 0.5.57 历史下载
+## 下载
+
+- **[下载 0.5.61 安卓安装包 APK](https://github.com/v6rjhrny8d-hue/yidu-transread/raw/refs/heads/main/releases/YiDu-0.5.61.apk)**
+- **[下载 0.5.61 原始源码 ZIP](https://github.com/v6rjhrny8d-hue/yidu-transread/raw/refs/heads/main/releases/TransRead-0.5.61-source.zip)**
+
+### 0.5.57 历史下载
 
 - **[下载 0.5.57 安卓安装包 APK](https://github.com/v6rjhrny8d-hue/yidu-transread/raw/refs/heads/main/releases/YiDu-0.5.57.apk)**
 - **[下载 0.5.57 原始源码 ZIP](https://github.com/v6rjhrny8d-hue/yidu-transread/raw/refs/heads/main/releases/TransRead-0.5.57-source.zip)**
@@ -33,7 +38,7 @@ EPUB、TXT 文件上限为 30 MB，PDF 上限为 100 MB；不支持带 DRM 保�
 
 项目由 Web 界面和 Android 原生组件组成。开发与构建细节见 [开发状态](DEVELOPMENT-STATE.md)、[历史说明](docs/README-HISTORY.md) 和 [资源包说明](RESOURCE-PACKS.md)。源码包不含原签名密钥，重新签名的版本不能直接覆盖原签名应用。
 
-APK SHA-256：`8d4a8db3cc4cf922b44bbed10b08a1eddd4314eb62df8f04a50379ba503be865`
+0.5.61 APK SHA-256：`7a4776443ac98f091ba31ef173dea64aa77583fb1f6a4fb5762b1c580902776a`
 
 截图来自 0.5.57 模拟器。0.5.61 的变更和测试记录见下方及 [变更日志](CHANGELOG.md)。
 
