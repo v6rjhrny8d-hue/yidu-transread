@@ -898,7 +898,14 @@
     "此来源不提供音标": "此來源不提供音標",
     "当前使用系统通用英语发音": "目前使用系統通用英語發音",
     "暂时无法发音，请检查系统语音": "暫時無法發音，請檢查系統語音",
-    "语音设置": "語音設定"
+    "语音设置": "語音設定",
+    "缺少本地录音时尝试在线": "缺少本機錄音時嘗試線上播放",
+    "在线录音由 Free Dictionary 提供。没有对应口音或播放失败时，使用系统发音。": "線上錄音由 Free Dictionary 提供。沒有對應口音或播放失敗時，使用系統發音。",
+    "本句用法 · Google": "本句用法 · Google",
+    "正在获取详情…": "正在取得詳細資料…",
+    "暂时无法获取，点击重试": "暫時無法取得，點選重試",
+    "无法提取适合翻译的当前句": "無法擷取適合翻譯的目前句子",
+    "在线释义暂不可用": "線上釋義暫時無法取得"
   },
   "en": {
     "A WORLD BETWEEN THE LINES": "A WORLD BETWEEN THE LINES",
@@ -1680,6 +1687,13 @@
     "此来源不提供音标": "This source has no IPA",
     "当前使用系统通用英语发音": "Using the system’s general English voice",
     "暂时无法发音，请检查系统语音": "Pronunciation unavailable. Check system speech settings.",
-    "语音设置": "Speech settings"
+    "语音设置": "Speech settings",
+    "缺少本地录音时尝试在线": "Try online when a local recording is unavailable",
+    "在线录音由 Free Dictionary 提供。没有对应口音或播放失败时，使用系统发音。": "Free Dictionary provides online recordings. System speech is used when a matching recording is unavailable or cannot play.",
+    "本句用法 · Google": "In this sentence · Google",
+    "正在获取详情…": "Loading details…",
+    "暂时无法获取，点击重试": "Could not load details. Tap to retry.",
+    "无法提取适合翻译的当前句": "Could not find a sentence to translate.",
+    "在线释义暂不可用": "Online definitions are temporarily unavailable"
   }
 }

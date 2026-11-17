@@ -1,0 +1,42 @@
+{
+  "date": "2026-11-17",
+  "version": "0.5.60",
+  "versionCode": 81,
+  "package": "app.lumi.reader",
+  "apk": {
+    "name": "YiDu-0.5.60.apk",
+    "bytes": 21582005,
+    "sha256": "d6614122d27bf5e979d74afce1707b3181260a74aa1af8e4614f89cdd9e3b2a5",
+    "certificateSha256": "8d21d7bc40b619f048f03e266031c59f7ad50cff5337203f5dce891d487c61fd",
+    "webAssetsVerified": 86
+  },
+  "helper": {
+    "name": "YiDu-0.5.60-UpdateHelper.apk",
+    "bytes": 1024525,
+    "sha256": "2526b20c40c7ae428516b1fcebe793ee4dbf6469ec84cef9f73496d48718e5fa",
+    "certificateSha256": "8d21d7bc40b619f048f03e266031c59f7ad50cff5337203f5dce891d487c61fd",
+    "version": "0.5.60.1",
+    "versionCode": 82,
+    "base": "0.5.59",
+    "installerCoreRevision": 2
+  },
+  "checks": {
+    "test/selection-0560.log": 18,
+    "test/native-selection-0560.log": 4,
+    "test/workflow-0560.log": 35,
+    "test/smoke-0560.log": 66,
+    "test/input-routing-0560.log": 11,
+    "test/update-core-0560.log": 21
+  },
+  "total": 155,
+  "deviceVerified": false,
+  "selectionGlass": {
+    "themeCombinations": 12,
+    "setups": [
+      "six themes x light/dark",
+      "system appearance and custom blur/opacity"
+    ],
+    "minimumTextContrastOverPaper": 5.16,
+    "validation": "Chromium screenshot pixel sampling over stripes, actual Android GPU and selection handle gesture still to verify"
+  }
+}

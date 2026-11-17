@@ -1,0 +1,17 @@
+{
+  "targetVersion": "0.5.58",
+  "targetCode": 79,
+  "targetSha256": "04056110dd7670230cbaf1f3f3f79917194cb873960b7502b86a84575ca7cc87",
+  "patches": [
+    {
+      "base": "dist/YiDu-0.5.57.apk",
+      "baseSha256": "8d4a8db3cc4cf922b44bbed10b08a1eddd4314eb62df8f04a50379ba503be865",
+      "targetSha256": "04056110dd7670230cbaf1f3f3f79917194cb873960b7502b86a84575ca7cc87",
+      "targetBytes": 21582005,
+      "patch": "updater/assets/8d4a8db3cc4cf922b44bbed10b08a1eddd4314eb62df8f04a50379ba503be865.trdp",
+      "patchBytes": 1042456,
+      "operations": 179,
+      "copiedBytes": 20521755
+    }
+  ]
+}

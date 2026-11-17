@@ -3,5 +3,6 @@ build/
 dist/
 *.jks
 *.keystore
+*.p12
 local.properties
 .DS_Store

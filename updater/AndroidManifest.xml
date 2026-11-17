@@ -1,4 +1,4 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="app.lumi.reader.update" android:versionCode="79" android:versionName="0.5.57.1">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="app.lumi.reader.update" android:versionCode="83" android:versionName="0.5.61.1">
  <uses-sdk android:minSdkVersion="26" android:targetSdkVersion="35"/>
  <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
  <queries><package android:name="app.lumi.reader"/><intent><action android:name="android.content.pm.action.CONFIRM_INSTALL"/></intent><intent><action android:name="android.settings.MANAGE_UNKNOWN_APP_SOURCES"/><data android:scheme="package"/></intent></queries>
