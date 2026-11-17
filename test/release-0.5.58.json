@@ -1,0 +1,34 @@
+{
+  "date": "2026-11-17",
+  "version": "0.5.58",
+  "versionCode": 79,
+  "package": "app.lumi.reader",
+  "apk": {
+    "name": "YiDu-0.5.58.apk",
+    "bytes": 21582005,
+    "sha256": "04056110dd7670230cbaf1f3f3f79917194cb873960b7502b86a84575ca7cc87",
+    "certificateSha256": "8d21d7bc40b619f048f03e266031c59f7ad50cff5337203f5dce891d487c61fd",
+    "webAssetsVerified": 86
+  },
+  "helper": {
+    "name": "YiDu-0.5.58-UpdateHelper.apk",
+    "bytes": 1077773,
+    "sha256": "e14ac5c0baf27fbdd24fcb0b4a6577819e51cc8c1fd1a85790cd3634cbcf5dbe",
+    "certificateSha256": "8d21d7bc40b619f048f03e266031c59f7ad50cff5337203f5dce891d487c61fd",
+    "version": "0.5.58.1",
+    "versionCode": 80,
+    "base": "0.5.57",
+    "installerCoreRevision": 2
+  },
+  "checks": {
+    "test/details-0558.log": 12,
+    "test/audio-0558.log": 29,
+    "test/workflow-0558.log": 35,
+    "test/smoke-0558.log": 66,
+    "test/input-routing-0558.log": 11,
+    "test/update-core-0558.log": 21
+  },
+  "total": 174,
+  "deviceVerified": false,
+  "liveNetwork": "Free Dictionary HTTP 403; Google trial connection failed in the build environment. Browser workflow verified with controlled responses."
+}

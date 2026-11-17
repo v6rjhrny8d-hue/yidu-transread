@@ -1,0 +1,34 @@
+{
+  "date": "2026-11-17",
+  "version": "0.5.61",
+  "versionCode": 82,
+  "package": "app.lumi.reader",
+  "apk": {
+    "name": "YiDu-0.5.61.apk",
+    "bytes": 21582005,
+    "sha256": "7a4776443ac98f091ba31ef173dea64aa77583fb1f6a4fb5762b1c580902776a",
+    "certificateSha256": "8d21d7bc40b619f048f03e266031c59f7ad50cff5337203f5dce891d487c61fd",
+    "webAssetsVerified": 86
+  },
+  "helper": {
+    "name": "YiDu-0.5.61-UpdateHelper.apk",
+    "bytes": 1004045,
+    "sha256": "dcbf45941bb17ad926a5430d99238a400fea768e3382ae30da4b5f892b785cba",
+    "certificateSha256": "8d21d7bc40b619f048f03e266031c59f7ad50cff5337203f5dce891d487c61fd",
+    "version": "0.5.61.1",
+    "versionCode": 83,
+    "base": "0.5.60",
+    "installerCoreRevision": 2
+  },
+  "checks": {
+    "test/word-switch-0561.log": 6,
+    "test/details-0561.log": 14,
+    "test/workflow-0561.log": 35,
+    "test/smoke-0561.log": 66,
+    "test/input-routing-0561.log": 11,
+    "test/update-core-0561.log": 21
+  },
+  "total": 153,
+  "deviceVerified": false,
+  "wordSwitch": "Verified original card identity and frame on touch, stale lookup isolation, expanded landscape, and covered-word avoidance in Chromium."
+}

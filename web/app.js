@@ -55,7 +55,7 @@ const ib=(name,action,label,classes='')=>`<button class="glass icon-btn ${classe
 const S={page:'shelf',books:[],notes:[],book:null,chapter:0,dock:true,translate:false,paragraphTranslations:new Set(),readingTags:[],tocTab:'directory',noteTab:'all',noteSearch:'',noteSort:'recent',shelfTab:'all',searchTab:'local',search:'',word:null,settings:{uiLanguage:'system',theme:'paper',customAccent:null,customPaper:null,fontSize:21,leading:1.85,translateButton:true,paragraphTranslateButton:false,autoSpeakWord:false,reducedMotion:false,hapticFeedback:'gentle',showNoteMeanings:true,dictionaryMode:'offline',translationTarget:'zh-CN',translationService:'google',apiEndpoint:'https://api.deepseek.com/chat/completions',apiModel:'deepseek-chat',name:'读者',minutes:0},busy:false,translationEpoch:0};
 const M=window.ReaderMotion;M.configure({reduced:()=>S.settings.reducedMotion,onDismiss:()=>{haptic('sheet');closePanel();},onGesture:cancelControlTap});
 const pageOffsets=new Map();let readingReturn=null,dockRelease=null,sheetHistory=[],overlayGeneration=0,lastActionName='';
-let db,dict={},transCache=new Map(),observer,toastTimer,scrollTimer,selectionTimer,lastPointer={x:0,y:0,time:0,moved:false},wordToken=0;
+let db,dict={},transCache=new Map(),observer,toastTimer,scrollTimer,selectionTimer,lastPointer={x:0,y:0,time:0,moved:false};
 const bridgePending=new Map(),wordSaves=new Set(),sentenceSaves=new Set();let seq=0;
 window.nativeReply=(id,result)=>{const p=bridgePending.get(id);if(!p)return;bridgePending.delete(id);clearTimeout(p.timer);result.ok?p.resolve(result.data):p.reject(new Error(result.error||tr('操作未完成')));};
 function native(op,data={}){return new Promise((resolve,reject)=>{const id=String(++seq);const timer=setTimeout(()=>{bridgePending.delete(id);reject(new Error(tr('操作超时，请重试')));},['pickFile','pickCover','export','saveImage'].includes(op)?180000:90000);bridgePending.set(id,{resolve,reject,timer});window.LumiNative.request(op,JSON.stringify(data),id);});}
@@ -154,7 +154,7 @@ function refreshListing(renderList,selector){const page=$('#app .page'),scroll=p
 function rememberPage(){const el=$('#app .page');if(el)pageOffsets.set(S.page,el.scrollTop);}
 function restorePage(){const el=$('#app .page');if(el)el.scrollTop=pageOffsets.get(S.page)||0;}
 function returnFromReader(){return navigate(readingReturn?.page||'shelf');}
-function navigate(page){for(const root of segmentRoots)stopSegmentScene(root);cancelMeaningMotion();notesLayoutObserver?.disconnect();if(notesRailDrag)endNotesRail({pointerId:notesRailDrag.id});notesVirtual?.observer?.disconnect();notesVirtual=null;if(notesWindowFrame){cancelAnimationFrame(notesWindowFrame);notesWindowFrame=0;}if(noteIndexDrag)endNoteIndex({pointerId:noteIndexDrag.id});contentSwipe=null;cancelReaderInteraction();stopReaderWords();readerRailObserver?.disconnect();clearChapterPanes();clearPreparedImages();const fromDockDrag=!!dockRelease,before=S.page,leavingReader=before==='reader',source=leavingReader&&page===readingReturn?.page?readingReturn.source:M.take();if(leavingReader)savePosition();else rememberPage();closeOverlay();M.removeInline($('#sentence-action'));window.getSelection()?.removeAllRanges();
+function navigate(page){for(const root of segmentRoots)stopSegmentScene(root);cancelMeaningMotion();notesLayoutObserver?.disconnect();if(notesRailDrag)endNotesRail({pointerId:notesRailDrag.id});notesVirtual?.observer?.disconnect();notesVirtual=null;if(notesWindowFrame){cancelAnimationFrame(notesWindowFrame);notesWindowFrame=0;}if(noteIndexDrag)endNoteIndex({pointerId:noteIndexDrag.id});contentSwipe=null;cancelReaderInteraction();stopReaderWords();readerRailObserver?.disconnect();clearChapterPanes();clearPreparedImages();const fromDockDrag=!!dockRelease,before=S.page,leavingReader=before==='reader',source=leavingReader&&page===readingReturn?.page?readingReturn.source:M.take();if(leavingReader)savePosition();else rememberPage();closeOverlay();clearSentenceAction();window.getSelection()?.removeAllRanges();
  const from=DOCK_PAGES.indexOf(before),to=DOCK_PAGES.indexOf(page),direction=from>=0&&to>=0?(to>=from?1:-1):-1;
  if(!leavingReader&&to>=0){const nav=$('.main-dock');if(nav){const old=Number(nav.style.getPropertyValue('--dock-index'))||0;nav.style.setProperty('--dock-index',to);nav.style.setProperty('--dock-stretch',1);nav.style.setProperty('--dock-squash',1);M.capsule(nav,dockRelease?.from??old,to,dockRelease?.velocity||0,dockRelease?.stretch||1);dockRelease=null;}}
  return M.scene(()=>{S.translationEpoch++;observer?.disconnect();S.page=page;S.dock=true;render();restorePage();if(page!==before&&!fromDockDrag)haptic('selection');},{direction,source,kind:leavingReader?'book':'tab',reverse:leavingReader,interactive:true});
@@ -355,11 +355,11 @@ function finishChapterActivation(pane=$('#reader-scroll')){
  if($('[data-translation]',pane))observeTranslations();observeReaderRail(pane);syncReadingTagMarkers(pane);scheduleReaderPreparation();
 }
 
-function renderReader(){freezeReaderProgress();cancelReaderInteraction();const previous=$('#reader-scroll');if(previous){previous.removeAttribute('id');retireChapterPane(previous);}$('#app').innerHTML=`<section class="reader ${S.dock?'':'tools-hidden'}"><div class="chapter-stage"></div>${readerRailMarkup()}<div class="reader-entry-loading" role="status" aria-label="${esc(tr('正在准备正文…'))}"><span class="loading" aria-hidden="true"></span></div><div class="reader-edge reader-edge-top" aria-hidden="true"><span></span><span></span><span></span></div><div class="reader-progress" aria-hidden="${!S.dock}"><span id="reading-line"></span></div><div id="reader-top" class="reader-top ${S.dock?'':'tools-hidden'}" aria-hidden="${!S.dock}" ${S.dock?'':'inert'}>${ib('arrow-left','reader-back',tr('返回来源页面'))}</div></section>`;activateChapterPane(prepareChapterPane(S.chapter));}
+function renderReader(){clearSentenceAction();freezeReaderProgress();cancelReaderInteraction();const previous=$('#reader-scroll');if(previous){previous.removeAttribute('id');retireChapterPane(previous);}$('#app').innerHTML=`<section class="reader ${S.dock?'':'tools-hidden'}"><div class="chapter-stage"></div>${readerRailMarkup()}<div class="reader-entry-loading" role="status" aria-label="${esc(tr('正在准备正文…'))}"><span class="loading" aria-hidden="true"></span></div><div class="reader-edge reader-edge-top" aria-hidden="true"><span></span><span></span><span></span></div><div class="reader-progress" aria-hidden="${!S.dock}"><span id="reading-line"></span></div><div id="reader-top" class="reader-top ${S.dock?'':'tools-hidden'}" aria-hidden="${!S.dock}" ${S.dock?'':'inert'}>${ib('arrow-left','reader-back',tr('返回来源页面'))}</div></section>`;activateChapterPane(prepareChapterPane(S.chapter));}
 
 function safeIllustrationSource(src){return typeof src==='string'&&(/^(?:assets\/prince-illustrations\/[^/]+\.(?:jpg|png|webp)|data:image\/(?:png|jpeg|webp|gif);base64,[A-Za-z0-9+/=]+)$/.test(src));}
 function illustrationsMarkup(after,index=S.chapter,book=S.book){return (book.chapters[index].illustrations||[]).filter(im=>im.after===after&&safeIllustrationSource(im.src)).map(im=>ui`<figure class="book-illustration"><button class="illustration-open" data-action="view-illustration" data-image-id="${esc(im.id)}" aria-label="放大插图：${esc(im.alt||tr('原版插图'))}"><img src="${esc(im.src)}" width="${Number(im.width)||500}" height="${Number(im.height)||350}" alt="${esc(im.alt||tr('原版插图'))}" loading="lazy" decoding="async" draggable="false"></button></figure>`).join('');}
-function viewIllustration(id){const im=currentChapter()?.illustrations?.find(im=>im.id===id);if(!im||!safeIllustrationSource(im.src))return;const source=M.take()||M.origin($$('[data-image-id]').find(el=>el.dataset.imageId===id));closeOverlay(true);clearTimeout(selectionTimer);window.getSelection()?.removeAllRanges();M.removeInline($('#sentence-action'));$('#overlay-root').innerHTML=ui`<section class="image-viewer" role="dialog" aria-modal="true" aria-label="原版插图，点击任意位置退出"><div class="image-viewer-dim" aria-hidden="true"></div><div class="image-viewer-head"><span>${esc(im.alt||tr('Antoine de Saint-Exupéry · 原版插图'))}</span></div><div class="image-viewer-body"><img src="${esc(im.src)}" width="${Number(im.width)||500}" height="${Number(im.height)||350}" alt="${esc(im.alt||tr('原版插图'))}" draggable="false"></div></section>`;const viewer=$('#overlay-root .image-viewer');bindImageViewer(viewer,source?.el?.matches?.('img')?source.el:source?.el?.querySelector?.('img'));M.present($('#overlay-root'),viewer,source,{kind:'image'});}
+function viewIllustration(id){const im=currentChapter()?.illustrations?.find(im=>im.id===id);if(!im||!safeIllustrationSource(im.src))return;const source=M.take()||M.origin($$('[data-image-id]').find(el=>el.dataset.imageId===id));closeOverlay(true);clearSentenceAction();window.getSelection()?.removeAllRanges();$('#overlay-root').innerHTML=ui`<section class="image-viewer" role="dialog" aria-modal="true" aria-label="原版插图，点击任意位置退出"><div class="image-viewer-dim" aria-hidden="true"></div><div class="image-viewer-head"><span>${esc(im.alt||tr('Antoine de Saint-Exupéry · 原版插图'))}</span></div><div class="image-viewer-body"><img src="${esc(im.src)}" width="${Number(im.width)||500}" height="${Number(im.height)||350}" alt="${esc(im.alt||tr('原版插图'))}" draggable="false"></div></section>`;const viewer=$('#overlay-root .image-viewer');bindImageViewer(viewer,source?.el?.matches?.('img')?source.el:source?.el?.querySelector?.('img'));M.present($('#overlay-root'),viewer,source,{kind:'image'});}
 function bindImageViewer(viewer,original=null){const body=$('.image-viewer-body',viewer),image=$('img',body),pointers=new Map(),state={scale:1,x:0,y:0,moved:false,multi:false,downAt:0,start:null,pinch:null};
  const fit=()=>{const nw=image.naturalWidth||original?.naturalWidth||Number(image.getAttribute('width'))||500,nh=image.naturalHeight||original?.naturalHeight||Number(image.getAttribute('height'))||350,bw=body.clientWidth||Math.max(1,innerWidth-24),bh=body.clientHeight||Math.max(1,innerHeight-64),ratio=Math.min(bw/nw,bh/nh)*.96;image.style.width=(nw*ratio).toFixed(2)+'px';image.style.height=(nh*ratio).toFixed(2)+'px';};
  fit();image.addEventListener('load',fit);
@@ -528,7 +528,7 @@ function changeChapter(n,{swipe=null}={}){
  // Freeze the already parsed target and any still-visible trailing panes before cleanup.
  for(const pane of tails){M.cancel(pane);}if(readerVisual){const visual=readerVisual;readerVisual=null;M.cancel(visual.page);for(const p of [visual.preview,...(visual.tails||[])])if(p&&p!==page&&p!==old)retireChapterPane(p);}
  cancelReaderPreparation();cancelProgressUpdate();clearTimeout(scrollTimer);readerSwipe=null;M.cancel(old);old?.style.removeProperty('transform');
- savePosition(true);closeOverlay();M.removeInline($('#sentence-action'));window.getSelection()?.removeAllRanges();S.chapter=n;activateChapterPane(page,{restoreScroll:!!swipe,deferEffects:!!swipe});if(!swipe)savePosition(true);else{S.book.position={chapter:n,scroll:page.scrollTop,ratio:0};S.book.lastRead=Date.now();positionWriteBook=S.book;clearTimeout(positionWriteTimer);positionWriteTimer=setTimeout(persistReadingPosition,350);}syncReaderChrome();
+ savePosition(true);closeOverlay();clearSentenceAction();window.getSelection()?.removeAllRanges();S.chapter=n;activateChapterPane(page,{restoreScroll:!!swipe,deferEffects:!!swipe});if(!swipe)savePosition(true);else{S.book.position={chapter:n,scroll:page.scrollTop,ratio:0};S.book.lastRead=Date.now();positionWriteBook=S.book;clearTimeout(positionWriteTimer);positionWriteTimer=setTimeout(persistReadingPosition,350);}syncReaderChrome();
  if(!old||M.reduced()){retireChapterPane(old);tails.forEach(retireChapterPane);finishChapterActivation(page);savePosition(true);return Promise.resolve();}
  old.className='reader-content chapter-preview chapter-outgoing'+(old.chapterBuild?.done?'':' is-building')+(S.dock?'':' tools-hidden');$('.reader-inner',old)?.classList.replace('reader-inner','chapter-preview-inner');M.setInert(old,true);old.setAttribute('aria-hidden','true');old.style.transform=`translate3d(${offset}px,0,0)`;
  page.style.transform=`translate3d(${offset+direction*width}px,0,0)`;
@@ -613,7 +613,7 @@ function toggleTranslate(){
 function toggleParagraphTranslation(i){
  if(!Number.isInteger(i)||!currentChapter()?.paragraphs?.[i]||S.translate)return;const sc=$('#reader-scroll');if(!sc)return;clearChapterPanes();const key=paragraphVisibilityId(i),shown=S.paragraphTranslations.has(key);if(shown)S.paragraphTranslations.delete(key);else S.paragraphTranslations.add(key);S.translationEpoch++;observer?.disconnect();translateQueue=[];reconcileTranslationDisplay(sc);haptic(shown?'toggle-off':'toggle-on');scheduleReaderPreparation();
 }
-function closeOverlay(immediate=false){if(bookEditor?.crop&&document.querySelector('#book-edit-title'))discardBookCrop();for(const root of segmentRoots)if(root.closest('.toc-sheet'))stopSegmentScene(root);overlayGeneration++;sheetHistory=[];wordToken++;if(S.word){releaseWordAvoidance(S.word);stopSpeech();}S.word=null;$$('.lookup-active').forEach(e=>e.classList.remove('lookup-active'));if(readerWords)observeReaderWords(readerWords.sc,[]);window.YiduDictionaryFiles?.clearImages();const done=M.dismiss($('#overlay-root'),{immediate});done.then(()=>{if(S.page==='reader')scheduleReaderPreparation();else if(S.page==='shelf')scheduleShelfPreparation(S.books.find(b=>b.id===S.settings.lastBook)||S.books[0]);});return done;}
+function closeOverlay(immediate=false){if(bookEditor?.crop&&document.querySelector('#book-edit-title'))discardBookCrop();for(const root of segmentRoots)if(root.closest('.toc-sheet'))stopSegmentScene(root);overlayGeneration++;sheetHistory=[];if(S.word){releaseWordAvoidance(S.word);stopSpeech();}S.word=null;$$('.lookup-active').forEach(e=>e.classList.remove('lookup-active'));if(readerWords)observeReaderWords(readerWords.sc,[]);window.YiduDictionaryFiles?.clearImages();const done=M.dismiss($('#overlay-root'),{immediate});done.then(()=>{if(S.page==='reader')scheduleReaderPreparation();else if(S.page==='shelf')scheduleShelfPreparation(S.books.find(b=>b.id===S.settings.lastBook)||S.books[0]);});return done;}
 function closePanel({foldInline=false}={}){if(foldInline){const expanded=$('.sheet .inline-expander.open:not(#custom-api-fields)');if(expanded){inlineExpansion(expanded,false);return Promise.resolve();}}const current=M.currentOverlay();if(current?.closing)return current.promise;if(!sheetHistory.length)return closeOverlay();const saved=sheetHistory.at(-1),generation=overlayGeneration,root=$('#overlay-root');return M.dismiss(root).then(()=>{if(generation!==overlayGeneration||M.currentOverlay())return;if(sheetHistory.at(-1)===saved)sheetHistory.pop();root.replaceChildren(saved.node);M.present(root,$('.sheet',root),saved.source,{kind:'sheet'});});}
 function prepareSheetBody(panel){if(!panel)return;const fixed=panel.querySelector('.sheet-footer');if(fixed&&fixed.parentElement!==panel)panel.append(fixed);if(panel.querySelector('.secondary-body,.sheet-body,.theme-stage,.toc-scroll,.guide-content,.translation-tools-body,#translation-service'))return;const last=panel.lastElementChild;if(last?.matches('.setting-grid')&&last.querySelector('button[data-action^=\"confirm-\"]'))last.classList.add('sheet-footer');const body=document.createElement('div');body.className='sheet-body';for(const node of [...panel.children])if(!node.matches('.sheet-head,.sheet-handle,.translation-save,.sheet-footer'))body.append(node);panel.insertBefore(body,panel.querySelector(':scope > .translation-save,:scope > .sheet-footer'));panel.classList.add('sheet-scroll-body');}
 function sheet(title,content,{panelClass='',clearBackdrop=false}={}){for(const root of segmentRoots)if(root.closest('.toc-sheet'))stopSegmentScene(root);const previous=M.currentOverlay(),source=M.take(),scroll=previous?.panel.scrollTop||0,same=previous?.kind==='sheet'&&!previous.closing&&previous.panel.getAttribute('aria-label')===title,root=$('#overlay-root'),height=previous?.panel.getBoundingClientRect().height||0;const history=sheetHistory;
@@ -699,10 +699,37 @@ function syncTranslationLanguageLabel(){const trigger=$('#translation-target');i
 function showProgress(){return showToc();}
 function findEntry(word){const w=word.toLowerCase().replace(/’/g,"'");let forms=[w,w.replace(/'s$/,''),w.replace(/ies$/,'y'),w.replace(/s$/,''),w.replace(/ed$/,''),w.replace(/d$/,''),w.replace(/ing$/,''),w.replace(/ing$/,'e'),w.replace(/(.)\1ing$/,'$1')];const irregular={was:'be',were:'be',am:'be',is:'be',are:'be',went:'go',gone:'go',saw:'see',seen:'see',made:'make',told:'tell',thought:'think',felt:'feel',knew:'know',found:'find',had:'have',has:'have',grew:'grow',became:'become',drew:'draw',drawn:'draw',wrote:'write',written:'write',children:'child',men:'man',women:'woman',feet:'foot',teeth:'tooth',better:'good',best:'good'};if(irregular[w])forms.push(irregular[w]);for(const f of forms)if(dict[f])return {lemma:f,...dict[f]};return null;}
 async function lookup(el){
- const word=el.textContent,para=el.closest('.para');if(!para||!S.book)return;const index=Number(para.dataset.para),chapter=Number(el.closest('[data-chapter]')?.dataset.chapter??S.chapter);
- if(S.word?.element===el)return closeOverlay();closeOverlay(true);const token=++wordToken;M.mark(el);el.classList.add('lookup-active');
- S.word={word,entry:null,index,chapter,bookId:S.book.id,context:typeof S.book.chapters[chapter]?.paragraphs[index]==='string'?S.book.chapters[chapter].paragraphs[index]:S.book.chapters[chapter]?.paragraphs[index]?.text||'',element:el,sources:wordDictionarySources(),entries:new Map(),scrolls:new Map(),request:0};
- const w=S.word;renderWord(el);await selectWordDictionary(S.settings.preferredDictionary||(S.settings.dictionaryMode==='online'?'online':w.sources[0]?.id),{initial:true,token});if(S.word===w&&S.settings.autoSpeakWord)speakCurrentWord();
+ const word=el.textContent,para=el.closest('.para');
+ if(!para||!S.book)return;
+ const index=Number(para.dataset.para),chapter=Number(el.closest('[data-chapter]')?.dataset.chapter??S.chapter);
+ const previous=S.word,overlay=M.currentOverlay();
+ if(previous?.element===el)return closeOverlay();
+ const reuse=previous?.bookId===S.book.id&&previous.chapter===chapter&&overlay?.kind==='word'&&!overlay.closing&&overlay.panel.isConnected;
+ if(reuse){
+  previous.element?.classList.remove('lookup-active');
+  if(previous.avoidance?.frame){cancelAnimationFrame(previous.avoidance.frame);previous.avoidance.frame=0;}
+  previous.cardMotion?.cancel?.();
+  stopWordDictionaryMotion(previous,{reset:true});
+  overlay.source=M.origin(el);
+ }else{
+  closeOverlay(true);
+  M.mark(el);
+ }
+ const context=S.book.chapters[chapter]?.paragraphs[index];
+ const w={word,entry:null,index,chapter,bookId:S.book.id,context:typeof context==='string'?context:context?.text||'',element:el,
+  sources:wordDictionarySources(),entries:new Map(),scrolls:new Map(),request:0};
+ if(reuse){
+  w.expanded=previous.expanded;
+  w.compactHeight=previous.compactHeight;
+  w.cardMotion=previous.cardMotion;
+  w.avoidance=previous.avoidance;
+  overlay.panel.lookupWord=w;
+ }
+ S.word=w;
+ el.classList.add('lookup-active');
+ if(reuse)placeWordPopover(el,{keepFrame:true});else renderWord(el);
+ await selectWordDictionary(S.settings.preferredDictionary||(S.settings.dictionaryMode==='online'?'online':w.sources[0]?.id),{initial:true});
+ if(S.word===w&&S.settings.autoSpeakWord)speakCurrentWord();
 }
 function wordPopoverBounds(y,viewportHeight=innerHeight,safeTop=0,safeBottom=0,dockTop=null){
  const minTop=Math.max(0,safeTop)+12;
@@ -715,13 +742,15 @@ function wordPopoverBounds(y,viewportHeight=innerHeight,safeTop=0,safeBottom=0,d
 function positionWordPopover(el){return placeWordPopover(el);}
 function renderWord(el){
  if(!S.word)return;const w=S.word,entry=w.entry,saved=S.notes.some(n=>n.type==='word'&&savedWordKey(n.word)===savedWordKey(w.word));let pop=$('.word-popover');
- if(!pop){$('#overlay-root').innerHTML=ui`<section class="glass word-popover" role="dialog" aria-label="${esc(w.word)}的释义"><div class="word-top-block"><div class="word-handle" aria-hidden="true"></div><header class="row between word-header"><div class="grow"><h2>${esc(w.word)}</h2><div class="word-phonetic-line"><button class="text-btn word-accent" data-action="word-accent"></button><p class="phonetic"></p></div></div><div class="row word-actions">${ib('speaker-high','speak-word',tr('朗读单词'))}${ib('star','save-word',tr('收藏单词'),'star')}${ib('x','close',tr('关闭释义'))}</div></header><div class="word-source-bar"><button class="text-btn word-source" data-action="word-dictionaries"></button><button class="text-btn word-css" data-action="word-css" aria-pressed="true">CSS</button></div></div><div class="word-scroll" role="region" aria-label="单词释义，可上下滑动" tabindex="0"><div class="meaning"></div><p class="small-caption"></p></div></section>`;pop=$('.word-popover');positionWordPopover(el);M.present($('#overlay-root'),pop,M.take()||M.origin(el),{kind:'word',onClear:()=>releaseWordAvoidance(w)});bindWordNavigation(pop);}
+ if(!pop){$('#overlay-root').innerHTML=ui`<section class="glass word-popover" role="dialog" aria-label="${esc(w.word)}的释义"><div class="word-top-block"><div class="word-handle" aria-hidden="true"></div><header class="row between word-header"><div class="grow"><h2>${esc(w.word)}</h2><div class="word-phonetic-line"><button class="text-btn word-accent" data-action="word-accent"></button><p class="phonetic"></p></div></div><div class="row word-actions">${ib('speaker-high','speak-word',tr('朗读单词'))}${ib('star','save-word',tr('收藏单词'),'star')}${ib('x','close',tr('关闭释义'))}</div></header><div class="word-source-bar"><button class="text-btn word-source" data-action="word-dictionaries"></button><button class="text-btn word-css" data-action="word-css" aria-pressed="true">CSS</button></div></div><div class="word-scroll" role="region" aria-label="单词释义，可上下滑动" tabindex="0"><div class="meaning"></div><div class="word-details" hidden></div><p class="small-caption"></p></div></section>`;pop=$('.word-popover');pop.lookupWord=w;positionWordPopover(el);M.present($('#overlay-root'),pop,M.take()||M.origin(el),{kind:'word',onClear:()=>releaseWordAvoidance(pop.lookupWord)});bindWordNavigation(pop);}
+ $('.word-header h2',pop).textContent=w.word;
+ pop.setAttribute('aria-label',w.word+tr('的释义'));
  window.YiduDictionaryFiles?.renderImages(pop,entry);
  renderWordPhonetics(pop,w);
  const source=w.sources?.find(p=>p.id===w.sourceId);$('.word-source',pop).textContent=(source?.name||entry?.source||tr('正在查词…'))+(w.sources?.length>1?' ▾':'');
  const css=$('.word-css',pop);css.hidden=!entry?.mdictRich;css.setAttribute('aria-pressed',String(wordCSS(w.sourceId)));css.title=tr('使用词典原始样式');css.setAttribute('aria-label',css.title);
  const meaning=$('.meaning',pop);if(entry){meaning.textContent=entry.translation;window.YiduDictionaryRich?.render(meaning,entry.mdictRich,path=>{pop.requestedAudio=path;$('[data-action="speak-word"]',pop)?.click();pop.requestedAudio=null;},{css:wordCSS(w.sourceId),dark:appearanceDark()});}else meaning.innerHTML=tr('<span class="loading"></span> 正在查询词典…');
- $('.small-caption',pop).textContent=entry?.missing?tr('此词典未收录，可左右滑动切换'):(entry?.source||'')+(w.sources?.length>1?' · '+tr('左右滑动切换词典'):'');updateWordStar(saved);
+ $('.small-caption',pop).textContent=entry?.missing?tr('此词典未收录，可左右滑动切换'):(entry?.source||'')+(w.sources?.length>1?' · '+tr('左右滑动切换词典'):'');renderWordDetails(pop,w);updateWordStar(saved);
 }
 function updateWordStar(saved){const button=$('[data-action="save-word"]');if(!button)return;button.classList.toggle('saved',saved);button.setAttribute('aria-label',saved?tr('取消收藏'):tr('收藏单词'));button.title=saved?tr('取消收藏'):tr('收藏单词');button.setAttribute('aria-pressed',String(saved));button.disabled=wordSaves.has(S.word?.word.toLowerCase());}
 async function saveWord(){if(!S.word)return;const w=S.word,key=savedWordKey(w.word);if(wordSaves.has(key))return;wordSaves.add(key);const existing=S.notes.find(n=>n.type==='word'&&savedWordKey(n.word)===key);updateWordStar(!!existing);
@@ -729,8 +758,29 @@ async function saveWord(){if(!S.word)return;const w=S.word,key=savedWordKey(w.wo
  finally{syncSavedHighlights(false);wordSaves.delete(key);if(savedWordKey(S.word?.word)===key)updateWordStar(S.notes.some(n=>n.type==='word'&&savedWordKey(n.word)===key));}
 }
 function getSelectionInfo(){const selection=window.getSelection();if(!selection?.rangeCount||selection.isCollapsed)return null;const range=selection.getRangeAt(0),element=node=>node.nodeType===3?node.parentElement:node,start=element(range.startContainer)?.closest?.('.original'),end=element(range.endContainer)?.closest?.('.original'),originals=$$('.reader-inner .original');if(!start||!end||!originals.includes(start)||!originals.includes(end))return null;const offset=(original,node,index)=>{const prefix=document.createRange();prefix.selectNodeContents(original);prefix.setEnd(node,index);return prefix.toString().length;};const first=originals.indexOf(start),last=originals.indexOf(end),parts=[];for(let i=first;i<=last;i++){const value=originals[i].textContent,from=i===first?offset(start,range.startContainer,range.startOffset):0,to=i===last?offset(end,range.endContainer,range.endOffset):value.length;parts.push({index:i,from,to,value});}while(parts.length&&!parts[0].value.slice(parts[0].from,parts[0].to).trim())parts.shift();while(parts.length&&!parts.at(-1).value.slice(parts.at(-1).from,parts.at(-1).to).trim())parts.pop();if(!parts.length)return null;const a=parts[0],b=parts.at(-1);a.from+=a.value.slice(a.from,a.to).match(/^\s*/)[0].length;b.to-=b.value.slice(b.from,b.to).match(/\s*$/)[0].length;const text=parts.map(p=>p.value.slice(p.from,p.to)).join('\n\n');if(text.length<3)return null;return {text,index:a.index,selection:{startParagraph:a.index,startOffset:a.from,endParagraph:b.index,endOffset:b.to}};}
-function selectionChanged(){clearTimeout(selectionTimer);selectionTimer=setTimeout(()=>{if(S.page!=='reader'||M.currentOverlay()?.modal||performance.now()<tagGestureUntil)return;const info=getSelectionInfo();let el=$('#sentence-action');if(!info||info.text.split(/\s+/).length<2){M.removeInline(el);return;}closeOverlay();M.removeInline(el);el=document.createElement('div');el.id='sentence-action';el.className='sentence-action';el.innerHTML=btn(tr('收录句子'),'save-sentence','star');document.body.appendChild(el);const range=window.getSelection()?.getRangeAt(0),r=range?.getBoundingClientRect?.();M.reveal(el,r?{box:{x:r.left+r.width/2,y:r.top+r.height/2,width:r.width,height:r.height}}:M.origin($(`[data-para="${info.index}"]`)));},180);}
-async function saveSentence(){const info=getSelectionInfo();if(!info)return toast(tr('先长按选中你想留下的句子'));if(info.text.length>5000)return toast(tr('请选取 5000 字以内的句子或段落'));const book=S.book,chapter=S.chapter,key=book.id+':'+chapter+':'+JSON.stringify(info.selection);if(sentenceSaves.has(key))return;if(S.notes.some(n=>n.type==='sentence'&&n.text===info.text&&n.bookId===book.id&&Number(n.chapter)===chapter&&Number(n.paragraph)===info.index&&(!sentenceAnchor(n.selection)||JSON.stringify(sentenceAnchor(n.selection))===JSON.stringify(info.selection))))return toast(tr('这句话已经在笔记里了'));sentenceSaves.add(key);try{const note={id:crypto.randomUUID(),type:'sentence',text:info.text,meaning:info.text===paraText(info.index).trim()?(cachedTranslation(book.id,chapter,info.index,currentChapter())||''):'',bookId:book.id,bookTitle:book.title,chapter,paragraph:info.index,selection:info.selection,created:Date.now(),due:Date.now(),learned:false,comment:''};await put('notes',note);S.notes.unshift(note);window.getSelection().removeAllRanges();M.removeInline($('#sentence-action'));syncSavedHighlights();haptic('confirm');toast(tr('句子已收录到笔记'));}finally{sentenceSaves.delete(key);}}
+function clearSentenceAction(){
+ clearTimeout(selectionTimer);
+ selectionTimer=null;
+ $('#sentence-action')?.remove();
+}
+function selectionChanged(){
+ clearTimeout(selectionTimer);
+ selectionTimer=setTimeout(()=>{
+  selectionTimer=null;
+  if(S.page!=='reader'||document.body.classList.contains('pdf-mode'))return clearSentenceAction();
+  const info=getSelectionInfo();
+  if(!info||info.text.split(/\s+/).length<2)return clearSentenceAction();
+  if(M.currentOverlay()?.modal||performance.now()<tagGestureUntil)return;
+  if($('#sentence-action'))return;
+  if(M.currentOverlay())closeOverlay();
+  const action=document.createElement('div');
+  action.id='sentence-action';
+  action.className='sentence-action';
+  action.innerHTML=btn(tr('收录句子'),'save-sentence','star');
+  document.body.appendChild(action);
+ },180);
+}
+async function saveSentence(){const info=getSelectionInfo();if(!info)return toast(tr('先长按选中你想留下的句子'));if(info.text.length>5000)return toast(tr('请选取 5000 字以内的句子或段落'));const book=S.book,chapter=S.chapter,key=book.id+':'+chapter+':'+JSON.stringify(info.selection);if(sentenceSaves.has(key))return;if(S.notes.some(n=>n.type==='sentence'&&n.text===info.text&&n.bookId===book.id&&Number(n.chapter)===chapter&&Number(n.paragraph)===info.index&&(!sentenceAnchor(n.selection)||JSON.stringify(sentenceAnchor(n.selection))===JSON.stringify(info.selection))))return toast(tr('这句话已经在笔记里了'));sentenceSaves.add(key);try{const note={id:crypto.randomUUID(),type:'sentence',text:info.text,meaning:info.text===paraText(info.index).trim()?(cachedTranslation(book.id,chapter,info.index,currentChapter())||''):'',bookId:book.id,bookTitle:book.title,chapter,paragraph:info.index,selection:info.selection,created:Date.now(),due:Date.now(),learned:false,comment:''};await put('notes',note);S.notes.unshift(note);window.getSelection().removeAllRanges();clearSentenceAction();syncSavedHighlights();haptic('confirm');toast(tr('句子已收录到笔记'));}finally{sentenceSaves.delete(key);}}
 function pageHeading(eyebrow,title,description,tool){return `<header class="page-heading"><div class="topline"><span class="eyebrow" lang="en">${eyebrow}</span>${tool}</div><div class="page-intro"><h1>${esc(title)}</h1><p>${description}</p></div></header>`;}
 function syncNotesActions(){const root=$('#page-actions');if(!root)return;root.classList.add('meaning-fab-zone');const visible=S.page==='notes'&&S.notes.length>0;root.classList.toggle('visible',visible);M.setInert(root,!visible);root.setAttribute('aria-hidden',String(!visible));if(!visible)return;let button=$('[data-action="toggle-note-meanings"]',root);if(!button){root.innerHTML=`<button class="glass icon-btn" data-action="toggle-note-meanings"></button>`;button=$('button',root);}const shown=S.settings.showNoteMeanings!==false,label=tr(shown?'隐藏释义':'显示释义');button.setAttribute('aria-label',label);button.setAttribute('title',label);button.setAttribute('aria-pressed',String(shown));button.classList.toggle('meanings-on',shown);button.innerHTML=icon(shown?'eye':'eye-slash');$('.notes-page')?.classList.toggle('meanings-hidden',!shown);}
 let meaningMotion=null;
@@ -810,7 +860,7 @@ function searchResultsMarkup(){const match=S.books.filter(b=>`${b.customTitle||'
 function refreshSearchContent(){const list=$('#search-results');if(list)list.innerHTML=searchResultsMarkup();syncSegmentCapsule($('.search-page .segmented'));}
 function renderSearch(){if(!['local','web'].includes(S.searchTab))S.searchTab='local';$('#app').innerHTML=ui`<section class="page secondary-page search-page">${pageHeading('FIND YOUR NEXT WORLD',tr('搜索'),tr('搜索书架，或连接你常用的图书网站。'),ib('arrow-square-in','import',tr('导入图书')))}<form id="search-form"><label class="glass search-field">${icon('magnifying-glass')}<input id="book-search" placeholder="书名、作者或关键词" value="${esc(S.search)}" aria-label="搜索图书"><button type="submit" data-action="submit-search" aria-label="开始搜索">${icon('arrow-right')}</button></label></form>${segmentedTabs([['local',tr('我的书架')],['web',tr('网站书源')]],'search-tab',S.searchTab,tr('搜索范围'))}<div class="segment-stage"><div id="search-results">${searchResultsMarkup()}</div></div></section>`;}
 function sourceMarkup(){return ui`<article class="source-tile glass"><h3>${icon('globe')} 我的图书网站</h3><p>在 App 内打开你信任的书源。点击 EPUB / TXT / PDF 下载链接，下载完成后直接进入书架。</p>${btn(tr('打开网站'),'open-source','arrow-up-right')}</article><article class="source-tile glass"><h3>Z-Library</h3><p>填入你正在使用的真实网址，在内置浏览器中登录和下载。可在网站内搜索和下载图书。</p>${btn(S.settings.zlibraryUrl?tr('打开已设置网址'):tr('设置网站地址'),'zlibrary','link')}</article><article class="source-tile glass"><h3>已有电子书？</h3><p>从手机导入 EPUB、TXT。也可以粘贴电子书直链，自动下载并加入书架。</p><div class="row" style="flex-wrap:wrap">${btn(tr('选择文件'),'import','folder-open')}${btn(tr('下载直链'),'download-url','download-simple')}</div></article>`;}
-function renderProfile(){const read=S.books.filter(b=>b.position).length;$('#app').innerHTML=ui`<section class="page secondary-page profile-page">${pageHeading('YOUR QUIET CORNER',tr('个人'),tr('在书页中，遇见更大的自己。'),ib('gear-six','reading-settings',tr('阅读设置')))}<div class="stats glass"><div class="stat"><strong>${Math.floor(S.settings.minutes)}</strong><small>阅读分钟</small></div><div class="stat"><strong>${read}</strong><small>开始阅读</small></div><div class="stat"><strong>${S.notes.length}</strong><small>珍藏词句</small></div></div><div class="settings-group glass">${settingRow('globe',tr('应用语言'),appLanguageSummary(),'app-language')}${settingRow('palette',tr('主题色彩'),tr('六套主题 · 浅色、深色与跟随系统'),'custom-colors')}${settingRow('hand-tap',tr('交互与触感'),tr(HAPTIC_MODES[S.settings.hapticFeedback]||tr('轻柔'))+tr(' · 遵循系统触感设置'),'haptic-settings')}${settingRow('translate',tr('翻译服务'),S.settings.translationService==='custom'?tr('自定义 AI 翻译'):S.settings.translationService==='google'?tr('Google 在线 · 无 Key 试用'):tr('MyMemory · 免费限额'),'translation-settings')}${settingRow('book-bookmark',tr('词典与发音'),dictionaryModeLabel()+tr(' · 朗读引擎与资源'),'dictionary-info')}${settingRow('sliders-horizontal',tr('阅读偏好'),tr('字号、行距、主题与玻璃控件'),'reading-settings')}${settingRow('folder-open',tr('图书与存储'),tr('EPUB / TXT / PDF 导入 · 图书管理'),'library-settings')}</div><div class="settings-group glass">${settingRow('export',tr('图书备份与恢复'),tr('正文、笔记、书签、译文与阅读进度'),'backup-settings')}${settingRow('user-circle',tr('个人资料'),tr('修改称呼'),'edit-profile')}${settingRow('shield-check',tr('隐私与数据'),tr('默认本机存储 · 按需在线翻译'),'privacy')}${settingRow('info',tr('关于译读'),'TransRead · 0.5.57','about')}</div><p class="muted" style="text-align:center;font-size:10px;margin-top:27px;letter-spacing:2px">ONE PAGE. A NEW WORLD.</p></section>`;}
+function renderProfile(){const read=S.books.filter(b=>b.position).length;$('#app').innerHTML=ui`<section class="page secondary-page profile-page">${pageHeading('YOUR QUIET CORNER',tr('个人'),tr('在书页中，遇见更大的自己。'),ib('gear-six','reading-settings',tr('阅读设置')))}<div class="stats glass"><div class="stat"><strong>${Math.floor(S.settings.minutes)}</strong><small>阅读分钟</small></div><div class="stat"><strong>${read}</strong><small>开始阅读</small></div><div class="stat"><strong>${S.notes.length}</strong><small>珍藏词句</small></div></div><div class="settings-group glass">${settingRow('globe',tr('应用语言'),appLanguageSummary(),'app-language')}${settingRow('palette',tr('主题色彩'),tr('六套主题 · 浅色、深色与跟随系统'),'custom-colors')}${settingRow('hand-tap',tr('交互与触感'),tr(HAPTIC_MODES[S.settings.hapticFeedback]||tr('轻柔'))+tr(' · 遵循系统触感设置'),'haptic-settings')}${settingRow('translate',tr('翻译服务'),S.settings.translationService==='custom'?tr('自定义 AI 翻译'):S.settings.translationService==='google'?tr('Google 在线 · 无 Key 试用'):tr('MyMemory · 免费限额'),'translation-settings')}${settingRow('book-bookmark',tr('词典与发音'),dictionaryModeLabel()+tr(' · 朗读引擎与资源'),'dictionary-info')}${settingRow('sliders-horizontal',tr('阅读偏好'),tr('字号、行距、主题与玻璃控件'),'reading-settings')}${settingRow('folder-open',tr('图书与存储'),tr('EPUB / TXT / PDF 导入 · 图书管理'),'library-settings')}</div><div class="settings-group glass">${settingRow('export',tr('图书备份与恢复'),tr('正文、笔记、书签、译文与阅读进度'),'backup-settings')}${settingRow('user-circle',tr('个人资料'),tr('修改称呼'),'edit-profile')}${settingRow('shield-check',tr('隐私与数据'),tr('默认本机存储 · 按需在线翻译'),'privacy')}${settingRow('info',tr('关于译读'),'TransRead · 0.5.61','about')}</div><p class="muted" style="text-align:center;font-size:10px;margin-top:27px;letter-spacing:2px">ONE PAGE. A NEW WORLD.</p></section>`;}
 function settingRow(i,t,s,a){return `<button class="settings-row" data-action="${a}"><span class="setting-icon">${icon(i)}</span><span class="grow"><strong>${t}</strong><small>${s}</small></span>${icon('caret-right')}</button>`;}
 const DICTIONARY_MODES={offline:['ECDICT 离线英汉','无需联网，查不到时自动连接免费英英词典'],online:['Free Dictionary 在线英英','释义更完整，需要联网；失败时回退离线词典']};
 function dictionaryModeLabel(){const sources=wordDictionarySources(),id=S.settings.preferredDictionary||(S.settings.dictionaryMode==='online'?'online':sources[0]?.id);return sources.find(p=>p.id===id)?.name||tr('ECDICT 离线英汉');}
@@ -893,7 +943,7 @@ function userGuideMarkup(){return ui`<div class="guide-content">${settingRow('gl
  ["palette", tr("调整阅读体验"), tr("“主题与排版”可调整字号、行距和独立纸页颜色。“个人 → 主题色彩”可选择六套主题、显示模式，调节玻璃模糊和底色不透明度；拖动实时预览，松手保存，可恢复默认。开屏跟随已保存主题。卡片内容独立滚动，底部操作保持可见；顶部继续下拉可关闭。")]
  ,["speaker-high",tr("词典与离线朗读"),tr("“个人 → 词典与发音 → 词典与发音资源”支持 RAR、ZIP 内的 MDX/MDD 词典，也可先导入 MDX，再导入同名 MDD 或 CSS；可显示词典的本地 CSS 排版，样式与 APP 隔离，外部网络资源和 @import 不加载。释义离线读取，配套音频与图片按需加载；不执行词典脚本。单文件最多 1GB，词典合计最多 2GB；暂不支持加密或分卷包。“离线朗读模型”仍使用 VITS / Piper 专用 ZIP 包，可导入、试听、启用和删除；未启用模型时使用系统朗读，模型运行失败会回退系统服务。")+tr("查词卡片支持左右滑动切换词典，点CSS可切换原始样式。音标旁可选择英美口音，喇叭播放当前口音；录音缺失时按设置使用系统语音。底栏“语言 → 词语释义”可选择默认词典、顺序与单词发音来源。")]
  ].map(([ico,title,text])=>`<section class="guide-item"><span class="guide-icon">${icon(ico)}</span><div><h3>${title}</h3><p>${text}</p></div></section>`).join('')}<p class="help guide-storage">书籍、笔记和进度默认保存在本机。卸载应用前请导出笔记，并保留书籍源文件。</p></div>`;}
-function about(){sheet(tr('关于译读'),ui`<div class="legal"><span class="eyebrow">译读 / TransRead · 0.5.57</span><h3>让阅读，轻一点。</h3><p>面向外语小说阅读的安卓首版。书架、阅读、笔记与个人设置，采用统一的磨砂玻璃胶囊交互。</p><h3>你的本地图书</h3><p>请导入自己的 EPUB、TXT 或 PDF。图书、笔记、书签、译文和阅读进度保存在本机，可通过“图书备份与恢复”备份。</p><h3>开放组件</h3><p>ECDICT 英汉词库 © skywind3000 及贡献者 · MIT<br>Phosphor Icons · MIT<br>fflate · MIT<br>DejaVu Serif · Bitstream Vera / DejaVu 字体许可<br>MDict parser / lzo1x / Bluebird / noble-hashes · MIT<br>libarchive 3.8.10 · BSD / zlib<br>DOMPurify · Apache-2.0 / MPL-2.0<br>CSSTree · MIT<br>sherpa-onnx · Apache-2.0<br>ONNX Runtime · MIT<br>Kotlin · Apache-2.0<br>eSpeak NG · GPL-3.0<br>详细许可证保留在源码与安装包 assets/licenses 中。</p></div>`);}
+function about(){sheet(tr('关于译读'),ui`<div class="legal"><span class="eyebrow">译读 / TransRead · 0.5.61</span><h3>让阅读，轻一点。</h3><p>面向外语小说阅读的安卓首版。书架、阅读、笔记与个人设置，采用统一的磨砂玻璃胶囊交互。</p><h3>你的本地图书</h3><p>请导入自己的 EPUB、TXT 或 PDF。图书、笔记、书签、译文和阅读进度保存在本机，可通过“图书备份与恢复”备份。</p><h3>开放组件</h3><p>ECDICT 英汉词库 © skywind3000 及贡献者 · MIT<br>Phosphor Icons · MIT<br>fflate · MIT<br>DejaVu Serif · Bitstream Vera / DejaVu 字体许可<br>MDict parser / lzo1x / Bluebird / noble-hashes · MIT<br>libarchive 3.8.10 · BSD / zlib<br>DOMPurify · Apache-2.0 / MPL-2.0<br>CSSTree · MIT<br>sherpa-onnx · Apache-2.0<br>ONNX Runtime · MIT<br>Kotlin · Apache-2.0<br>eSpeak NG · GPL-3.0<br>详细许可证保留在源码与安装包 assets/licenses 中。</p></div>`);}
 function privacy(){sheet(tr('隐私与数据'),ui`<div class="legal"><h3>默认保存在你的手机</h3><p>书籍、词句笔记、阅读进度和设置存储在本机。本版没有账号注册、分析 SDK、广告或自动云同步。卸载会移除本机数据，建议定期导出完整图书备份。</p><h3>什么时候会联网</h3><p>开启翻译时，当前可见段落会发给所选翻译服务；词库未命中时会查询在线英语词典；搜索本机书架不会发送搜索词。打开书源网站时，该站点会接收访问请求和你自行填写的登录信息。</p><h3>API Key 与网站登录</h3><p>安卓端自定义翻译密钥使用 Android Keystore 加密后保存在应用私有目录。网站书源使用独立浏览器，不具备本地读书页面的原生接口。HTTPS 连接按系统证书校验。</p></div>`);}
 // Activate valid touch/pen controls on release; do not depend on a later click
 // being synthesized after press animation or pointer-capture retargeting.
@@ -1277,7 +1327,7 @@ let activePdf=null,pdfLayoutFrame=0;
 function pdfControl(command,extra={}){return activePdf?native('pdfControl',{id:activePdf.book.id,session:activePdf.session,command,...extra}):Promise.resolve();}
 function pdfChromeVisible(){return !!activePdf?.visible&&!activePdf.exiting&&!M.currentOverlay();}
 function renderPdfChrome(){
- document.documentElement.classList.add('pdf-mode');document.body.classList.add('pdf-mode');document.querySelector('#pdf-chrome')?.remove();
+ clearSentenceAction();document.documentElement.classList.add('pdf-mode');document.body.classList.add('pdf-mode');document.querySelector('#pdf-chrome')?.remove();
  const root=document.createElement('div');root.id='pdf-chrome';root.innerHTML=`<div class="reader-edge reader-edge-top pdf-edge" aria-hidden="true"><span></span><span></span><span></span></div><header class="pdf-top"><div class="pdf-top-row">${ib('arrow-left','pdf-back',tr('返回'),'glass')}<span class="pdf-title" title="${esc(bookDisplayTitle(activePdf.book))}">${esc(bookDisplayTitle(activePdf.book))}</span></div></header><div class="pdf-bottom"><div class="pdf-directory">${ib('list','pdf-toc',tr('目录与书签'),'glass')}</div><div class="pdf-progress glass"><input class="range" id="pdf-progress" type="range" min="0" max="${activePdf.book.chapters.length-1}" step="1" value="${activePdf.page}" aria-label="${esc(tr('阅读进度'))}"><button class="pdf-page-count" data-action="pdf-jump">${rollingMarkup(activePdf.page+1,'pdf-page-number')}<span class="pdf-page-divider"> / </span>${rollingMarkup(activePdf.book.chapters.length,'pdf-page-total')}</button></div></div>`;
  root.style.opacity='0';document.body.append(root);for(const [el,edge] of [[$('.pdf-top',root),'top'],[$('.pdf-bottom',root),'bottom']])M.chrome(el,true,{edge,mount:true});updatePdfProgress();
 }
@@ -1426,7 +1476,7 @@ function playResourceAudio(source,token,options={}){
   const fail=()=>{if(record.failed||record.cancelled||token!==speechGeneration||resourcePlayback!==record)return;record.failed=true;const started=record.started;settle(false);stopResourceAudio();if(started&&token===speechGeneration)options.onFailure?.();};
   const started=()=>{if(record.cancelled||token!==speechGeneration||resourcePlayback!==record)return;record.started=true;clearTimeout(record.timer);settle(true);};
   audio.onplaying=started;audio.onerror=fail;audio.onended=()=>{if(resourcePlayback===record&&token===speechGeneration){settle(true);stopResourceAudio();}};
-  record.timer=setTimeout(fail,owned?5000:3500);
+  record.timer=setTimeout(fail,owned?5000:options.startupTimeout??3500);
   try{Promise.resolve(audio.play()).then(started,fail);}catch{fail();}
  });
 }
@@ -1470,19 +1520,48 @@ async function playSystemSpeech(text,token,options={}){
  speakSystem(text);return true;
 }
 async function playOnlineWordAudio(text,token,options){
- let timer;const entry=options.entry?.pronunciations?.some(p=>p.url)?options.entry:await Promise.race([onlineEntry(text),new Promise((_,reject)=>timer=setTimeout(()=>reject(Error('AUDIO_LOOKUP_TIMEOUT')),3500))]).finally(()=>clearTimeout(timer));if(token!==speechGeneration)return true;
- for(const p of entry.pronunciations||[]){if(p.accent!==options.accent||!p.url)continue;if(await playResourceAudio(p.url,token,options))return true;if(token!==speechGeneration)return true;}return false;
+ if(!options.accent||/\s/.test(text.trim()))return false;
+ const deadline=performance.now()+3500;
+ let timer;
+ const matching=entry=>(entry?.pronunciations||[]).filter(p=>p.accent===options.accent&&p.url);
+ let choices=matching(options.entry);
+ if(!choices.length){
+  const entry=await Promise.race([onlineEntry(text),new Promise((_,reject)=>{
+   timer=setTimeout(()=>reject(Error('AUDIO_LOOKUP_TIMEOUT')),3500);
+  })]).finally(()=>clearTimeout(timer));
+  choices=matching(entry);
+ }
+ for(const p of choices){
+  if(token!==speechGeneration)return true;
+  const remaining=deadline-performance.now();
+  if(remaining<=0)break;
+  if(await playResourceAudio(p.url,token,{...options,startupTimeout:remaining}))return true;
+ }
+ return token!==speechGeneration;
 }
 speak=async function(text,options={}){
- const token=++speechGeneration;stopResourceAudio();if(hasNative())await native('stopSpeak').catch(()=>{});else window.speechSynthesis?.cancel();if(token!==speechGeneration)return;
- let fallbackStarted=false,notified=false;const notify=()=>{if(!notified&&token===speechGeneration){notified=true;speechUnavailable(token);}};
- const fallback=async()=>{if(fallbackStarted||token!==speechGeneration||document.hidden)return;fallbackStarted=true;try{await playSystemSpeech(text,token,{...options,onFailure:notify});}catch{notify();}};
- const playback={...options,onFailure:fallback};
- try{
-  if(options.source==='online'){if(await playOnlineWordAudio(text,token,playback)||token!==speechGeneration)return;}
-  else if(options.source!=='system'&&await playImportedAudio(text,token,playback))return;
- }catch{}
- if(token===speechGeneration)await fallback();
+ const token=++speechGeneration;
+ stopResourceAudio();
+ if(hasNative())await native('stopSpeak').catch(()=>{});else window.speechSynthesis?.cancel();
+ if(token!==speechGeneration)return;
+ let systemStarted=false,notified=false,onlineStarted=false;
+ const notify=()=>{if(!notified&&token===speechGeneration){notified=true;speechUnavailable(token);}};
+ const system=async()=>{
+  if(systemStarted||token!==speechGeneration||document.hidden)return;
+  systemStarted=true;
+  try{await playSystemSpeech(text,token,{...options,onFailure:notify});}catch{notify();}
+ };
+ const onlineThenSystem=async()=>{
+  if(onlineStarted||token!==speechGeneration||document.hidden)return;
+  onlineStarted=true;
+  try{if(await playOnlineWordAudio(text,token,{...options,onFailure:system}))return;}catch{}
+  await system();
+ };
+ if(options.source==='online')return onlineThenSystem();
+ if(options.source==='system')return system();
+ const fallback=options.onlineFallback?onlineThenSystem:system;
+ try{if(await playImportedAudio(text,token,{...options,onFailure:fallback}))return;}catch{}
+ await fallback();
 };
 document.addEventListener('visibilitychange',()=>{if(document.hidden){speechGeneration++;stopResourceAudio();}});
 function resourceProgressMarkup(){return window.YiduResourceImport?.active?`<div class="resource-progress" role="status"><p class="resource-phase"></p><progress max="100" value="0"></progress><div class="row between"><span class="resource-percent">0%</span><button class="text-btn" data-action="resource-cancel">${tr('取消导入')}</button></div></div>`:'';}
@@ -1629,7 +1708,7 @@ async function importResourceFile(input,name='resource.zip'){
 }
 
 const importFileBeforeMdict=importFile;importFile=async function(file){if(/\.(rar|mdx|mdd|css)$/i.test(file.name)){try{resourceManager();await importResourceFile(file,file.name);}catch(error){toast(error.message);}return;}return importFileBeforeMdict(file);};
-/* 0.5.57: translation repair, dictionary paging, pronunciation and source visibility. */
+/* 0.5.61: translation repair, dictionary paging, pronunciation and source visibility. */
 const paragraphRevisions=new Map();
 function paragraphRevision(id){return paragraphRevisions.get(id)||0;}
 function translationIncomplete(source,result,{source:locale='en',target=translationLanguage()[0]}={}){
@@ -1683,51 +1762,73 @@ function wordChoiceSheet(kind){
 }
 function wordDragAxis(dx,dy,header){const x=Math.abs(dx),y=Math.abs(dy);if(Math.max(x,y)<=10)return null;if(x>y*1.25)return 'x';if(y>x*1.25)return header?'y':'native';if(Math.max(x,y)<24)return null;return x>=y?'x':header?'y':'native';}
 function bindWordNavigation(pop){
- const w=S.word,scroll=pop.querySelector('.word-scroll');let drag=null,blockUntil=0;
- const motion=w.cardMotion={frame:0,velocity:0,dragging:false,cleanup:null};
+ const scroll=pop.querySelector('.word-scroll');let drag=null,blockUntil=0;
+ const motion=pop.lookupWord.cardMotion={frame:0,velocity:0,dragging:false,cleanup:null};
  const cancel=()=>{if(motion.frame)cancelAnimationFrame(motion.frame);motion.frame=0;};
  const paint=(height,bottom)=>{pop.style.height=Math.max(0,height)+'px';pop.style.maxHeight=Math.max(0,height)+'px';pop.style.top=(bottom-height)+'px';};
- const spring=(target,bottom,velocity=0,dismiss=false)=>{cancel();let h=parseFloat(pop.style.height),v=velocity,last=performance.now(),began=last;motion.velocity=v;
+ const spring=(target,bottom,velocity=0,dismiss=false)=>{const w=pop.lookupWord;cancel();let h=parseFloat(pop.style.height),v=velocity,last=performance.now(),began=last;motion.velocity=v;
   const done=()=>{motion.frame=0;motion.velocity=0;paint(target,bottom);if(dismiss&&S.word===w)closeOverlay();};
   if(M.reduced()){done();return;}
   const tick=now=>{if(S.word!==w||!pop.isConnected){cancel();return;}const dt=Math.min(.032,Math.max(.001,(now-last)/1000));last=now;v+=((target-h)*210-v*29)*dt;h+=v*dt;motion.velocity=v;paint(Math.max(0,h),bottom);if(Math.abs(h-target)<.4&&Math.abs(v)<5||now-began>700)done();else motion.frame=requestAnimationFrame(tick);};motion.frame=requestAnimationFrame(tick);
  };
- const finish=(e,canceled=false)=>{if(!drag||drag.id!==e.pointerId)return;const d=drag;drag=null;motion.dragging=false;pop.classList.remove('word-dragging');if(!d.axis)return;blockUntil=performance.now()+450;
+ const finish=(e,canceled=false)=>{if(!drag||drag.id!==e.pointerId)return;const w=pop.lookupWord,d=drag;drag=null;motion.dragging=false;pop.classList.remove('word-dragging');if(!d.axis)return;blockUntil=performance.now()+450;
   if(d.axis==='x'){if(canceled||Math.abs(e.clientX-d.x)<=45||!stepWordDictionary(e.clientX<d.x?1:-1))settleWordDictionary(w);return;}
   const dy=e.clientY-d.y,velocity=performance.now()-d.time<100?d.velocity:0,height=parseFloat(pop.style.height);let expanded=d.expanded,dismiss=false;
   if(!canceled){if(dy<-35||dy<-24&&velocity<-450)expanded=true;else if(dy>35||dy>24&&velocity>450){if(d.expanded)expanded=false;else dismiss=dy>105||dy>28&&velocity>700;}}
   w.expanded=expanded;const bounds=wordCardBounds(),target=dismiss?0:expanded?bounds.available:Math.min(w.compactHeight||d.height,bounds.available);spring(target,d.bottom,-velocity,dismiss);
  };
- pop.addEventListener('pointerdown',e=>{if(e.isPrimary===false||e.button>0||M.currentOverlay()?.panel!==pop)return;blockUntil=0;const header=!!e.target.closest('.word-top-block');if(!header&&e.target.closest('[data-action],a,button,img'))return;cancel();const rect=pop.getBoundingClientRect();drag={id:e.pointerId,x:e.clientX,y:e.clientY,last:e.clientY,time:performance.now(),velocity:-motion.velocity,header,axis:null,height:parseFloat(pop.style.height)||rect.height,bottom:parseFloat(pop.style.top)+parseFloat(pop.style.height),expanded:!!w.expanded};});
- pop.addEventListener('pointermove',e=>{const d=drag;if(!d||d.id!==e.pointerId)return;const dx=e.clientX-d.x,dy=e.clientY-d.y;if(!d.axis&&Math.max(Math.abs(dx),Math.abs(dy))>10){const axis=wordDragAxis(dx,dy,d.header);if(!axis)return;d.axis=axis;if(d.axis==='native'){drag=null;return;}if(d.axis==='x')d.contentX=stopWordDictionaryMotion(w,{takeover:true}).x;cancelControlTap(e.pointerId);M.releasePress();lastPointer.moved=true;motion.dragging=d.axis==='y';pop.classList.toggle('word-dragging',motion.dragging);try{pop.setPointerCapture(e.pointerId);}catch{}}
+ pop.addEventListener('pointerdown',e=>{const w=pop.lookupWord;if(S.word!==w||e.isPrimary===false||e.button>0||M.currentOverlay()?.panel!==pop)return;blockUntil=0;const header=!!e.target.closest('.word-top-block');if(!header&&e.target.closest('[data-action],a,button,img'))return;cancel();const rect=pop.getBoundingClientRect();drag={id:e.pointerId,x:e.clientX,y:e.clientY,last:e.clientY,time:performance.now(),velocity:-motion.velocity,header,axis:null,height:parseFloat(pop.style.height)||rect.height,bottom:parseFloat(pop.style.top)+parseFloat(pop.style.height),expanded:!!w.expanded};});
+ pop.addEventListener('pointermove',e=>{const w=pop.lookupWord,d=drag;if(S.word!==w||!d||d.id!==e.pointerId)return;const dx=e.clientX-d.x,dy=e.clientY-d.y;if(!d.axis&&Math.max(Math.abs(dx),Math.abs(dy))>10){const axis=wordDragAxis(dx,dy,d.header);if(!axis)return;d.axis=axis;if(d.axis==='native'){drag=null;return;}if(d.axis==='x')d.contentX=stopWordDictionaryMotion(w,{takeover:true}).x;cancelControlTap(e.pointerId);M.releasePress();lastPointer.moved=true;motion.dragging=d.axis==='y';pop.classList.toggle('word-dragging',motion.dragging);try{pop.setPointerCapture(e.pointerId);}catch{}}
   if(!d.axis)return;if(e.cancelable)e.preventDefault();if(d.axis==='x')dragWordDictionary(w,d.contentX||0,dx);if(d.axis==='y'){const now=performance.now();d.velocity=(e.clientY-d.last)/Math.max(8,now-d.time)*1000;d.last=e.clientY;d.time=now;const max=wordCardBounds().available,raw=d.height-dy;paint(raw>max?max+(raw-max)*.16:Math.max(72,raw),d.bottom);}
  },{passive:false});
  pop.addEventListener('pointerup',e=>finish(e));pop.addEventListener('pointercancel',e=>finish(e,true));pop.addEventListener('lostpointercapture',e=>{if(e.target===pop&&!pop.hasPointerCapture?.(e.pointerId)&&drag?.id===e.pointerId)finish(e,true);});
  pop.addEventListener('click',e=>{if(performance.now()<blockUntil){e.preventDefault();e.stopPropagation();}},{capture:true});
  pop.addEventListener('keydown',e=>{if(e.target!==scroll)return;if(e.key==='ArrowLeft'||e.key==='ArrowRight'){e.preventDefault();stepWordDictionary(e.key==='ArrowRight'?1:-1);}});
- const pause=()=>{if(document.hidden){cancel();drag=null;motion.dragging=false;pop.classList.remove('word-dragging');placeWordPopover();}};document.addEventListener('visibilitychange',pause);
- motion.cancel=()=>{cancel();drag=null;motion.dragging=false;pop.classList.remove('word-dragging');};motion.cleanup=()=>{motion.cancel();document.removeEventListener('visibilitychange',pause);};scroll.style.touchAction='pan-y pinch-zoom';
+ const pause=()=>{if(document.hidden&&S.word===pop.lookupWord){motion.cancel();placeWordPopover();}};document.addEventListener('visibilitychange',pause);
+ motion.cancel=()=>{cancel();const pointer=drag?.id;drag=null;if(pointer!=null&&pop.hasPointerCapture?.(pointer))pop.releasePointerCapture(pointer);motion.dragging=false;motion.velocity=0;blockUntil=0;pop.classList.remove('word-dragging');};motion.cleanup=()=>{motion.cancel();document.removeEventListener('visibilitychange',pause);};scroll.style.touchAction='pan-y pinch-zoom';
 }
 function wordCardBounds(){const viewport=window.visualViewport,offset=viewport?.offsetTop||0,height=viewport?.height||innerHeight,style=getComputedStyle(document.documentElement),top=offset+(parseFloat(style.getPropertyValue('--native-safe-top'))||0)+12,safeBottom=parseFloat(style.getPropertyValue('--native-safe-bottom'))||0,dock=S.dock?$('.reading-dock-zone')?.getBoundingClientRect():null,bottom=Math.max(top+100,Math.min(offset+height-safeBottom-12,dock?.top>top?dock.top-12:offset+height-safeBottom-12));return {top,bottom,height,available:bottom-top};}
 function releaseWordAvoidance(w){
  w?.cardMotion?.cleanup?.();stopWordDictionaryMotion(w,{reset:true});const a=w?.avoidance;if(!a||a.released)return;a.released=true;if(a.frame)cancelAnimationFrame(a.frame);a.sc.removeEventListener('pointerdown',a.takeover);a.sc.removeEventListener('wheel',a.takeover);a.sc.wordAvoidance=null;
  if(!a.userMoved&&a.sc.isConnected&&S.book?.id===w.bookId&&S.chapter===w.chapter){a.sc.scrollTop=a.original;a.sc.style.paddingBottom=a.padding;savePosition(true);}else a.sc.style.paddingBottom=a.padding;
 }
-function placeWordPopover(el){
+function placeWordPopover(el,{keepFrame=false}={}){
  const pop=$('.word-popover'),w=S.word;if(!pop||!w)return;el=el||w.element;
  w.cardMotion?.cancel?.();stopWordDictionaryMotion(w,{reset:true});const {top,bottom,height,available}=wordCardBounds();
  const source=el?.getBoundingClientRect(),width=pop.getBoundingClientRect(),overlaps=source&&source.left<width.right&&source.right>width.left;
+ if(keepFrame){
+  const frameTop=parseFloat(pop.style.top),frameHeight=parseFloat(pop.style.height),frameBottom=frameTop+frameHeight;
+  const coversWord=overlaps&&source.bottom>frameTop&&source.top<frameBottom;
+  if(!coversWord&&frameHeight>=Math.min(140,available)&&frameTop>=top-.5&&frameBottom<=bottom+.5)return;
+ }
  const minHeight=Math.min(220,available),preferred=w.expanded?available:Math.min(440,Math.max(minHeight,height*.42));let cardHeight=Math.min(preferred,available);
  if(!w.expanded&&overlaps&&source.bottom+14>top&&bottom-source.bottom-14>=minHeight)cardHeight=Math.min(cardHeight,bottom-source.bottom-14);
  if(!w.expanded)w.compactHeight=cardHeight;const cardTop=bottom-cardHeight;pop.style.top=cardTop+'px';pop.style.maxHeight=cardHeight+'px';pop.style.height=cardHeight+'px';
  if(!overlaps||source.bottom+14<=cardTop||w.expanded)return;
  const sc=$('#reader-scroll');if(!sc)return;if(TransReadExperience.reading?.paged){const above=source.top-top-14;if(above>=140){const h=Math.min(cardHeight,above);pop.style.top=(source.top-h-14)+'px';pop.style.height=h+'px';pop.style.maxHeight=h+'px';}return;}
- if(w.avoidance)return;
- const delta=source.bottom+14-cardTop;if(delta<=0)return;
- const a={sc,original:sc.scrollTop,padding:sc.style.paddingBottom,userMoved:false,frame:0};w.avoidance=a;sc.wordAvoidance=a;
- a.takeover=()=>{if(a.frame)cancelAnimationFrame(a.frame);a.frame=0;a.userMoved=true;sc.wordAvoidance=null;};sc.addEventListener('pointerdown',a.takeover,{once:true,passive:true});sc.addEventListener('wheel',a.takeover,{once:true,passive:true});
- const needed=sc.scrollTop+delta-(sc.scrollHeight-sc.clientHeight);if(needed>0)sc.style.paddingBottom=(parseFloat(getComputedStyle(sc).paddingBottom)+needed+2)+'px';
- const start=performance.now(),duration=M.reduced()?0:220;const tick=now=>{if(a.released||a.userMoved||S.word!==w)return;const t=duration?Math.min(1,(now-start)/duration):1;sc.scrollTop=a.original+delta*(1-(1-t)**3);if(t<1)a.frame=requestAnimationFrame(tick);else a.frame=0;};tick(start);
+ if(w.avoidance&&!keepFrame)return;
+ const delta=source.bottom+14-cardTop;
+ if(delta<=0)return;
+ let a=w.avoidance;
+ if(!a){
+  a={sc,original:sc.scrollTop,padding:sc.style.paddingBottom,userMoved:false,frame:0};
+  a.takeover=()=>{if(a.frame)cancelAnimationFrame(a.frame);a.frame=0;a.userMoved=true;sc.wordAvoidance=null;};
+  w.avoidance=a;
+ }
+ if(a.userMoved){a.original=sc.scrollTop;a.userMoved=false;}
+ sc.wordAvoidance=a;
+ sc.addEventListener('pointerdown',a.takeover,{once:true,passive:true});
+ sc.addEventListener('wheel',a.takeover,{once:true,passive:true});
+ const startScroll=sc.scrollTop,needed=startScroll+delta-(sc.scrollHeight-sc.clientHeight);
+ if(needed>0)sc.style.paddingBottom=(parseFloat(getComputedStyle(sc).paddingBottom)+needed+2)+'px';
+ const start=performance.now(),duration=M.reduced()?0:220;
+ const tick=now=>{
+  if(a.released||a.userMoved||S.word!==w){a.frame=0;return;}
+  const t=duration?Math.min(1,(now-start)/duration):1;
+  sc.scrollTop=startScroll+delta*(1-(1-t)**3);
+  a.frame=t<1?requestAnimationFrame(tick):0;
+ };
+ tick(start);
 }
 const toolsBeforeWordPreferences=translationTools;translationTools=function(){toolsBeforeWordPreferences();const body=document.querySelector('.translation-tools-body');body?.insertAdjacentHTML('beforeend',settingRow('book-open',tr('词语释义'),tr('默认词典、词典顺序与单词发音'),'word-preferences'));const title=body?.querySelector('[data-action="translation-settings"] strong');if(title)title.textContent=tr('段落翻译服务');};
 const actionBeforeLookupExperience=action;action=async function(name,el){
@@ -1738,6 +1839,9 @@ const actionBeforeLookupExperience=action;action=async function(name,el){
  case 'word-set-accent':S.settings.wordAccent=el.dataset.id;stopSpeech();if(S.word){S.word.accentOverride=null;S.word.audioForm='default';}await saveSettings();await closePanel();if(S.word)renderWordPhonetics($('.word-popover'),S.word);return;
  case 'word-set-dictionary':{const id=el.dataset.id;await closePanel();return selectWordDictionary(id);}
  case 'word-css':{if(!S.word)return;const id=S.word.sourceId,scroll=$('.word-scroll')?.scrollTop||0;S.settings.dictionaryCSS={...S.settings.dictionaryCSS,[id]:!wordCSS(id)};renderWord();$('.word-scroll').scrollTop=scroll;return saveSettings();}
+ case 'word-detail':return toggleWordContext();
+ case 'word-retry-dictionary':if(S.word?.sourceId==='google'&&S.word.dictionaryDetails?.failed){S.word.dictionaryDetails=null;refreshWordDetails(S.word);}return;
+ case 'word-online-audio-fallback':S.settings.wordOnlineAudioFallback=!S.settings.wordOnlineAudioFallback;await saveSettings();return wordPreferences();
  case 'word-preferences':return wordPreferences();
  case 'word-default':S.settings.preferredDictionary=el.dataset.id;syncDictionaryControls();await saveSettings();return wordPreferences();
  case 'word-order':{const list=wordDictionarySources().map(p=>p.id),i=list.indexOf(el.dataset.id),j=i+Number(el.dataset.direction);if(i<0||j<0||j>=list.length)return;[list[i],list[j]]=[list[j],list[i]];S.settings.dictionaryOrder=list;await saveSettings();return wordPreferences();}
@@ -1768,7 +1872,117 @@ function renderWordPhonetics(pop,w){
 }
 const onlineWordCache=new Map(),onlineWordRequests=new Map();
 async function cachedOnlineWord(key,read){if(onlineWordCache.has(key))return onlineWordCache.get(key);let task=onlineWordRequests.get(key);if(!task){task=read().then(value=>{onlineWordCache.set(key,value);while(onlineWordCache.size>64)onlineWordCache.delete(onlineWordCache.keys().next().value);return value;});onlineWordRequests.set(key,task);task.finally(()=>{if(onlineWordRequests.get(key)===task)onlineWordRequests.delete(key);}).catch(()=>{});}return task;}
-async function onlineEntry(word){return cachedOnlineWord('dictionary:'+word.toLowerCase(),async()=>{const result=JSON.parse(await net('https://api.dictionaryapi.dev/api/v2/entries/en/'+encodeURIComponent(word.toLowerCase()))),d=result?.[0];if(!d?.meanings)throw Error('NO_DICTIONARY_ENTRY');return {lemma:d.word||word.toLowerCase(),...(window.YiduPronunciation?.fromOnline(result)||{phonetic:d.phonetic||''}),translation:d.meanings.map(m=>m.partOfSpeech+'. '+m.definitions?.slice(0,2).map(x=>x.definition).join('; ')).slice(0,4).join('\n').slice(0,20000)||tr('未找到释义'),source:tr('Free Dictionary 在线英英')};});}
+async function onlineEntry(word){
+ const key=word.toLowerCase();
+ return cachedOnlineWord('dictionary:'+key,async()=>{
+  const result=JSON.parse(await net('https://api.dictionaryapi.dev/api/v2/entries/en/'+encodeURIComponent(key)));
+  const first=result?.[0];
+  if(!Array.isArray(result)||!Array.isArray(first?.meanings))throw Error('NO_DICTIONARY_ENTRY');
+  const byPart=new Map();
+  for(const entry of result){
+   if(!Array.isArray(entry?.meanings))continue;
+   for(const meaning of entry.meanings){
+    if(!Array.isArray(meaning?.definitions))continue;
+    const part=typeof meaning.partOfSpeech==='string'?meaning.partOfSpeech.trim():'';
+    if(!byPart.has(part))byPart.set(part,new Map());
+    const definitions=byPart.get(part);
+    for(const item of meaning.definitions){
+     const text=typeof item?.definition==='string'?item.definition.trim():'';
+     if(!text)continue;
+     const example=typeof item.example==='string'?item.example.trim():'';
+     definitions.set(JSON.stringify([text,example]),{text,example});
+    }
+   }
+  }
+  const groups=[...byPart].filter(([,definitions])=>definitions.size)
+   .map(([part,definitions])=>({part,definitions:[...definitions.values()]}));
+  return {lemma:first.word||key,...(window.YiduPronunciation?.fromOnline(result)||{phonetic:first.phonetic||''}),
+   translation:groups.slice(0,4).map(g=>[g.part,g.definitions.slice(0,2).map(d=>d.text).join('; ')].filter(Boolean).join('. ')).join('\n')||tr('未找到释义'),
+   groups,source:tr('Free Dictionary 在线英英')};
+ });
+}
+function wordContextSentence(w){
+ const original=w.element?.closest('.original');
+ if(!original)return '';
+ const text=original.textContent;
+ const prefix=document.createRange();
+ prefix.selectNodeContents(original);
+ prefix.setEndBefore(w.element);
+ const offset=prefix.toString().length;
+ const wordEnd=offset+w.word.length;
+ let result='';
+ if(typeof Intl.Segmenter==='function'){
+  const segment=new Intl.Segmenter(undefined,{granularity:'sentence'}).segment(text).containing(offset);
+  if(segment&&wordEnd<=segment.index+segment.segment.length)result=segment.segment.trim();
+ }else{
+  for(const match of text.matchAll(/[^.!?。！？]+(?:[.!?。！？]+[”’"']*)?/g)){
+   if(match.index>offset)break;
+   if(wordEnd<=match.index+match[0].length){result=match[0].trim();break;}
+  }
+ }
+ return result.length<=1200&&result.length>w.word.length?result:'';
+}
+function refreshWordDetails(w){
+ const pop=$('.word-popover');
+ if(S.word===w&&w.sourceId==='google'&&pop)renderWordDetails(pop,w);
+}
+async function loadWordDictionaryDetails(w){
+ const dictionary=w.dictionaryDetails={loading:true};
+ try{dictionary.groups=(await onlineEntry(w.word)).groups;}
+ catch{dictionary.failed=true;}
+ finally{dictionary.loading=false;refreshWordDetails(w);}
+}
+function renderWordDetails(pop,w){
+ const root=$('.word-details',pop);
+ if(!root)return;
+ root.hidden=w.sourceId!=='google';
+ if(root.hidden){root.replaceChildren();return;}
+ const showOnline=enabledWordServices().includes('online');
+ if(showOnline&&!w.dictionaryDetails)loadWordDictionaryDetails(w);
+ const dictionary=showOnline?w.dictionaryDetails:null;
+ const local=w.localWordDefinition??=findEntry(w.word)?.translation||'';
+ const localMarkup=local?`<section><small>${tr('ECDICT 离线英汉')}</small><p dir="auto">${esc(local)}</p></section>`:'';
+ const onlineMarkup=dictionary?.groups?.length?`<section><small>${tr('Free Dictionary 在线英英')}</small><div lang="en">${dictionary.groups.map(group=>
+  `<div>${group.part?`<strong>${esc(group.part)}</strong>`:''}<ul>${group.definitions.map(d=>`<li>${esc(d.text)}${d.example?`<em>${esc(d.example)}</em>`:''}</li>`).join('')}</ul></div>`).join('')}</div></section>`:'';
+ const dictionaryStatus=dictionary?.loading?`<p role="status">${tr('正在获取详情…')}</p>`:dictionary?.failed?
+  `<p role="status">${tr('在线释义暂不可用')}</p><button class="text-btn" data-action="word-retry-dictionary">${tr('重试')}</button>`:'';
+ const target=translationLanguage()[0],context=w.contextDetails?.target===target?w.contextDetails:null;
+ const expanded=context?.open===true;
+ const contextMarkup=w.element?`<div><button class="text-btn" data-action="word-detail" aria-controls="word-detail-context" aria-expanded="${expanded}"${context?.loading?' aria-busy="true"':''}>${tr('本句用法 · Google')} ${icon(expanded?'caret-up':'caret-down')}</button>
+  <div id="word-detail-context" class="word-detail-content" ${expanded?'':'hidden'}>${expanded?[
+   context.sentence?`<p class="muted" dir="auto">${esc(context.sentence)}</p>`:'',
+   context.text?`<p dir="auto" lang="${esc(target)}">${esc(context.text)}</p>`:'',
+   context.loading?`<p role="status">${tr('正在获取详情…')}</p>`:'',
+   context.failed?`<p role="status">${tr('暂时无法获取，点击重试')}</p>`:'',
+   context.empty?`<p>${tr('无法提取适合翻译的当前句')}</p>`:''
+  ].join(''):''}</div></div>`:'';
+ const active=document.activeElement;
+ const focused=active?.closest('.word-details')===root?active.dataset.action:null;
+ root.innerHTML=contextMarkup+`<div id="word-detail-dictionary" class="word-detail-content">${localMarkup}${onlineMarkup}${dictionaryStatus}</div>`;
+ if(focused)root.querySelector(`[data-action="${focused}"]`)?.focus({preventScroll:true});
+}
+async function toggleWordContext(){
+ const w=S.word;
+ if(w?.sourceId!=='google'||!w.element)return;
+ const target=translationLanguage()[0];
+ if(w.contextDetails?.target!==target)w.contextDetails={target};
+ const context=w.contextDetails;
+ if(context.open&&!context.failed){context.open=false;return refreshWordDetails(w);}
+ context.open=true;
+ if(context.loading||context.loaded)return refreshWordDetails(w);
+ context.failed=false;
+ context.sentence=wordContextSentence(w);
+ if(!context.sentence){context.loaded=true;context.empty=true;return refreshWordDetails(w);}
+ context.loading=true;
+ refreshWordDetails(w);
+ try{
+  const source=S.book?.language||'en';
+  const key=JSON.stringify(['context-google',source,target,context.sentence]);
+  context.text=await cachedOnlineWord(key,()=>translateText(context.sentence,{service:'google',target,source}));
+  context.loaded=true;
+ }catch{context.failed=true;}
+ finally{context.loading=false;refreshWordDetails(w);}
+}
 function wordDictionarySources(){const list=resourcePacks.filter(p=>p.enabled&&p.kind==='dictionary').map(p=>({id:p.id,name:p.name,pack:p}));list.push({id:'builtin',name:tr('ECDICT 离线英汉')},...WORD_ONLINE_SOURCES.filter(p=>enabledWordServices().includes(p.id)).map(p=>({...p,name:tr(p.name),online:true})));const order=Array.isArray(S.settings.dictionaryOrder)?S.settings.dictionaryOrder:[];return list.sort((a,b)=>(order.indexOf(a.id)<0?999:order.indexOf(a.id))-(order.indexOf(b.id)<0?999:order.indexOf(b.id)));}
 async function dictionaryEntry(source,word){
  if(source.id==='builtin'){const e=findEntry(word);return e?{...e,source:source.name}:null;}
@@ -1793,11 +2007,11 @@ function speakCurrentWord(path){
  const w=S.word;if(!w)return;clearWordSpeechStatus(w);const normalized=path?.replace(/^\//,''),choice=normalized?w.entry?.pronunciations?.find(p=>p.path===normalized||p.url===normalized):null;
  if(choice?.accent){w.accentOverride=choice.accent;w.audioForm=choice.form||'default';renderWordPhonetics($('.word-popover'),w);}
  const region=choice?.accent||activeWordAccent(),selected=window.YiduPronunciation?.selected(w.entry,region,w.audioForm||'default');
- return speak(w.word,{accent:region,form:choice?.form||selected?.form,sourceId:w.sourceId,entry:w.entry,path:normalized,source:normalized?'auto':S.settings.wordSpeechSource||'auto'});
+ return speak(w.word,{accent:region,form:choice?.form||selected?.form,sourceId:w.sourceId,entry:w.entry,path:normalized,source:normalized?'auto':S.settings.wordSpeechSource||'auto',onlineFallback:!normalized&&S.settings.wordOnlineAudioFallback===true});
 }
 function wordPreferences(){
  normalizeWordPreferences();const sources=wordDictionarySources(),preferred=S.settings.preferredDictionary||sources[0]?.id;const existing=M.currentOverlay()?.panel.classList.contains('word-preferences')?M.currentOverlay():null;
- const content=`<p class="help">${tr('选择默认词典，或调整左右滑动时的词典顺序。')}</p><div class="dictionary-preferences">${sources.map((p,i)=>`<div class="dictionary-preference-row"><button class="text-btn grow" data-action="word-default" data-id="${esc(p.id)}" aria-pressed="${p.id===preferred}">${esc(p.name)} ${p.id===preferred?icon('check'):''}</button><button class="icon-btn" data-action="word-order" data-id="${esc(p.id)}" data-direction="-1" aria-label="${tr('上移')}" ${i===0?'disabled':''}>${icon('caret-up')}</button><button class="icon-btn" data-action="word-order" data-id="${esc(p.id)}" data-direction="1" aria-label="${tr('下移')}" ${i===sources.length-1?'disabled':''}>${icon('caret-down')}</button></div>`).join('')}</div><h3>${tr('免费在线来源')}</h3>${WORD_ONLINE_SOURCES.map(p=>`<button class="settings-row" data-action="word-online-source" data-id="${p.id}" aria-pressed="${enabledWordServices().includes(p.id)}"><span class="grow"><strong>${tr(p.name)}</strong><small>${tr(p.help)}</small></span><span class="toggle ${enabledWordServices().includes(p.id)?'on':''}"></span></button>`).join('')}<button class="settings-row" data-action="word-online" aria-pressed="${S.settings.wordOnlineFallback!==false}"><span class="grow">${tr('查无词条时使用在线查词')}</span><span class="toggle ${S.settings.wordOnlineFallback!==false?'on':''}"></span></button><div class="divider"></div><h3>${tr('英语发音')}</h3><button class="settings-row" data-action="word-preference-accent"><span class="grow">${tr('默认发音口音')}</span><small>${tr(wordAccent()==='en-GB'?'英式':'美式')} ▾</small></button><button class="settings-row" data-action="word-speech-source"><span class="grow">${tr('单词发音来源')}</span><small>${tr({auto:'本地录音优先，缺失时用系统',online:'免费在线录音，缺失时用系统',system:'系统发音'}[S.settings.wordSpeechSource||'auto'])} ▾</small></button><p class="help">${tr('缺少或无法播放录音时自动使用系统发音，不重复提醒。在线录音仅在选择后请求，未必提供所有词条与口音。')}</p><button class="settings-row" data-action="toggle-auto-speak" aria-pressed="${S.settings.autoSpeakWord}"><span class="grow">${tr('点击单词立即发音')}</span><span class="toggle ${S.settings.autoSpeakWord?'on':''}"></span></button><div class="divider"></div>${settingRow('folder-open',tr('词典与发音资源'),tr('导入、启用和删除本地资源包'),'resource-manager')}${settingRow('speaker-high',tr('离线朗读模型'),tr('VITS / Piper · 本地模型包'),'tts-models')}`;
+ const content=`<p class="help">${tr('选择默认词典，或调整左右滑动时的词典顺序。')}</p><div class="dictionary-preferences">${sources.map((p,i)=>`<div class="dictionary-preference-row"><button class="text-btn grow" data-action="word-default" data-id="${esc(p.id)}" aria-pressed="${p.id===preferred}">${esc(p.name)} ${p.id===preferred?icon('check'):''}</button><button class="icon-btn" data-action="word-order" data-id="${esc(p.id)}" data-direction="-1" aria-label="${tr('上移')}" ${i===0?'disabled':''}>${icon('caret-up')}</button><button class="icon-btn" data-action="word-order" data-id="${esc(p.id)}" data-direction="1" aria-label="${tr('下移')}" ${i===sources.length-1?'disabled':''}>${icon('caret-down')}</button></div>`).join('')}</div><h3>${tr('免费在线来源')}</h3>${WORD_ONLINE_SOURCES.map(p=>`<button class="settings-row" data-action="word-online-source" data-id="${p.id}" aria-pressed="${enabledWordServices().includes(p.id)}"><span class="grow"><strong>${tr(p.name)}</strong><small>${tr(p.help)}</small></span><span class="toggle ${enabledWordServices().includes(p.id)?'on':''}"></span></button>`).join('')}<button class="settings-row" data-action="word-online" aria-pressed="${S.settings.wordOnlineFallback!==false}"><span class="grow">${tr('查无词条时使用在线查词')}</span><span class="toggle ${S.settings.wordOnlineFallback!==false?'on':''}"></span></button><div class="divider"></div><h3>${tr('英语发音')}</h3><button class="settings-row" data-action="word-preference-accent"><span class="grow">${tr('默认发音口音')}</span><small>${tr(wordAccent()==='en-GB'?'英式':'美式')} ▾</small></button><button class="settings-row" data-action="word-speech-source"><span class="grow">${tr('单词发音来源')}</span><small>${tr({auto:'本地录音优先，缺失时用系统',online:'免费在线录音，缺失时用系统',system:'系统发音'}[S.settings.wordSpeechSource||'auto'])} ▾</small></button><button class="settings-row" data-action="word-online-audio-fallback" aria-pressed="${S.settings.wordOnlineAudioFallback===true}" ${S.settings.wordSpeechSource&&S.settings.wordSpeechSource!=='auto'?'disabled':''}><span class="grow">${tr('缺少本地录音时尝试在线')}</span><span class="toggle ${S.settings.wordOnlineAudioFallback?'on':''}"></span></button><p class="help">${tr('在线录音由 Free Dictionary 提供。没有对应口音或播放失败时，使用系统发音。')}</p><button class="settings-row" data-action="toggle-auto-speak" aria-pressed="${S.settings.autoSpeakWord}"><span class="grow">${tr('点击单词立即发音')}</span><span class="toggle ${S.settings.autoSpeakWord?'on':''}"></span></button><div class="divider"></div>${settingRow('folder-open',tr('词典与发音资源'),tr('导入、启用和删除本地资源包'),'resource-manager')}${settingRow('speaker-high',tr('离线朗读模型'),tr('VITS / Piper · 本地模型包'),'tts-models')}`;
  if(existing){existing.panel.querySelector('.sheet-body,.secondary-body').innerHTML=content;return;}sheet(tr('词典与发音'),content,{panelClass:'word-preferences'});
 }
 

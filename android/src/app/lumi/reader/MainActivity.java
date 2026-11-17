@@ -118,7 +118,7 @@ public class MainActivity extends Activity {
             publishInsets();return insets;
         });
         root.requestApplyInsets();
-        web.loadUrl(ORIGIN+"/assets/index.html?v=0.5.57");
+        web.loadUrl(ORIGIN+"/assets/index.html?v=0.5.61");
         if(Build.VERSION.SDK_INT>=33)getOnBackInvokedDispatcher().registerOnBackInvokedCallback(android.window.OnBackInvokedDispatcher.PRIORITY_DEFAULT,this::handleBack);
         tts=new TextToSpeech(this,status->{ttsReady=status==TextToSpeech.SUCCESS&&tts.setLanguage(Locale.US)>=TextToSpeech.LANG_AVAILABLE;});
         // Clear transient imports left by interrupted pickers, never the persistent reading database.

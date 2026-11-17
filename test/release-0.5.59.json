@@ -1,0 +1,33 @@
+{
+  "date": "2026-11-17",
+  "version": "0.5.59",
+  "versionCode": 80,
+  "package": "app.lumi.reader",
+  "apk": {
+    "name": "YiDu-0.5.59.apk",
+    "bytes": 21582005,
+    "sha256": "af36867eb61ef07bd0e6733bdd23edfc8487a507a4fffac1109e68469e2b9843",
+    "certificateSha256": "8d21d7bc40b619f048f03e266031c59f7ad50cff5337203f5dce891d487c61fd",
+    "webAssetsVerified": 86
+  },
+  "helper": {
+    "name": "YiDu-0.5.59-UpdateHelper.apk",
+    "bytes": 1053197,
+    "sha256": "fd1baf650e9c4ca8804c8ef2f2aee415141e8bb2b78f7979db98a32beba3ee36",
+    "certificateSha256": "8d21d7bc40b619f048f03e266031c59f7ad50cff5337203f5dce891d487c61fd",
+    "version": "0.5.59.1",
+    "versionCode": 81,
+    "base": "0.5.58",
+    "installerCoreRevision": 2
+  },
+  "checks": {
+    "test/details-0559.log": 14,
+    "test/workflow-0559.log": 35,
+    "test/smoke-0559.log": 66,
+    "test/input-routing-0559.log": 11,
+    "test/update-core-0559.log": 21
+  },
+  "total": 147,
+  "deviceVerified": false,
+  "liveNetwork": "Browser verified with controlled responses. Actual network and Android device not verified in this release."
+}

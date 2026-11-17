@@ -1,7 +1,7 @@
 {
   "name": "lumi-reader",
   "private": true,
-  "version": "0.5.57",
+  "version": "0.5.61",
   "scripts": {
     "dev": "node server.mjs",
     "test": "node test/smoke.cjs && node test/motion.cjs && node test/gestures.cjs && node test/input-routing.cjs && node test/notebook.cjs && node test/highlights.cjs && node test/responsiveness.cjs && node test/tap-and-images.cjs && node test/haptics-performance.cjs && node test/short-swipes-feedback.cjs && node test/reader-tools.cjs && node test/landscape-inertia.cjs && node test/translation-languages.cjs && node test/app-languages.cjs && node test/reader-fixes.cjs && node test/locale-translation-motion.cjs && node test/reader-loading.cjs",
