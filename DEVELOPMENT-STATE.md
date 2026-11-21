@@ -1,4 +1,6 @@
-# TransRead 当前开发状态
+# TransRead 0.5.61 开发记录
+
+当前开发基线与验收状态见 [项目记忆](PROJECT-MEMORY.md)。
 
 2026-11-17，译读0.5.61 / versionCode82。
 

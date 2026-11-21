@@ -2,7 +2,9 @@
 
 译读是一款 Android 阅读应用，将电子书阅读、点词查释义、翻译和笔记放在一起，帮助你边读边理解。
 
-**版本：0.5.61** · Android 应用 · 支持简体中文、繁体中文和英文界面
+**仓库下载版本：0.5.61** · Android 应用 · 支持简体中文、繁体中文和英文界面
+
+开发接续与已交付版本见 [项目记忆](PROJECT-MEMORY.md)。自动化开发工具入口见 [AGENTS.md](AGENTS.md)。
 
 ## 下载
 
@@ -36,7 +38,7 @@ EPUB、TXT 文件上限为 30 MB，PDF 上限为 100 MB；不支持带 DRM 保�
 
 ## 开发
 
-项目由 Web 界面和 Android 原生组件组成。开发与构建细节见 [开发状态](DEVELOPMENT-STATE.md)、[历史说明](docs/README-HISTORY.md) 和 [资源包说明](RESOURCE-PACKS.md)。源码包不含原签名密钥，重新签名的版本不能直接覆盖原签名应用。
+项目由 Web 界面和 Android 原生组件组成。开发与构建细节见 [0.5.61 开发记录](DEVELOPMENT-STATE.md)、[历史说明](docs/README-HISTORY.md) 和 [资源包说明](RESOURCE-PACKS.md)。源码包不含原签名密钥，重新签名的版本不能直接覆盖原签名应用。
 
 0.5.61 APK SHA-256：`7a4776443ac98f091ba31ef173dea64aa77583fb1f6a4fb5762b1c580902776a`
 
